@@ -13,3 +13,9 @@
   src: url(assets/fonts/bpg_nino_mtavruli_normal.ttf);
   font-style: normal;
 }
+
+@layer components {
+  .placeholder::placeholder {
+    @apply text-[#501C1C] text-sm font-BPG-Arial tracking-wide;
+  }
+}

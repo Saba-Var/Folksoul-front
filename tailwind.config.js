@@ -4,7 +4,11 @@ module.exports = {
     extend: {
       colors: {
         purple: '#534571',
+        lightBrown: '#C3B6B2',
         yellow: '#FBD560',
+        darkGreen: '#345161',
+        black: '#272727',
+        red: '#EB5757',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],
