@@ -77,7 +77,7 @@ function LoginForm() {
         />
         <button
           onClick={clickHandler}
-          className='bg-darkGreen hover:scale-105 mx-auto text-sm w-56 border-[1px] border-white rounded-sm text-white py-3 text-center'
+          className='bg-darkGreen transition-transform hover:scale-105 mx-auto text-sm w-56 border-[1px] border-white rounded-sm text-white py-3 text-center'
         >
           შემობრძანდი
         </button>
