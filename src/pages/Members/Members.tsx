@@ -1,5 +1,13 @@
+import { SectionWrapper } from 'components'
+
 function Members() {
-  return <h1 className='text-white'>Members</h1>
+  return (
+    <SectionWrapper title='ჯგუფის წევრები'>
+      <div>
+        <h1>hello</h1>
+      </div>
+    </SectionWrapper>
+  )
 }
 
 export default Members
