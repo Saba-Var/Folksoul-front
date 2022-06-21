@@ -13,9 +13,13 @@ function Navigation() {
       <div className='flex flex-col gap-7  '>
         <Section title='მთავარი' icon={<HomeIcon />} link='/' />
         <Section title='ჯგუფის წევრები' icon={<MemberIcon />} link='Members' />
-        <Section title='სოციალური ბმულები' icon={<YoutubeIcon />} link='Link' />
         <Section title='ბენდის შესახებ' icon={<NoteIcon />} link='About' />
         <Section title='გადი გარეთ' icon={<LogOutIcon />} link='Logout' />
+        <Section
+          title='სოციალური ბმულები'
+          icon={<YoutubeIcon />}
+          link='Social-Links'
+        />
       </div>
     </div>
   )

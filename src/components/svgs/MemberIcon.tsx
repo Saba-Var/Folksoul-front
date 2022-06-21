@@ -21,7 +21,7 @@ function MemberIcon() {
       <path
         d='M11.25 40.8191C11.25 40.8191 19.75 42.8191 24.75 42.8191C29.75 42.8191 26.25 41.3191 26.25 41.3191'
         stroke='black'
-        stroke-linecap='round'
+        strokeLinecap='round'
       />
     </svg>
   )

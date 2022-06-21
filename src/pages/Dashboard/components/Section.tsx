@@ -8,7 +8,6 @@ const Section: React.FC<SectionProps> = (props) => {
     if (props.link === '/') navigate('/Dashboard')
     else navigate(`/Dashboard/${props.link}`)
   }
-
   return (
     <div
       className='flex cursor-pointer h-12 items-center gap-4 pl-7'
