@@ -1,7 +1,7 @@
 import { InputFieldProps } from 'pages/Login/components/types'
 
 const InputField: React.FC<InputFieldProps> = (props) => {
-  const inputName = props.placeholder === 'მეტსახელი' ? 'Username' : 'Password'
+  const inputName = props.placeholder === 'მეტსახელი' ? 'username' : 'password'
   const showError = props.errors && props.showError
 
   return (
@@ -14,7 +14,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
               v.trim().length >= 3 || 'შეიყვანეთ მინიმუმ 3 სიმბოლო!',
             lowerCase: (v: string) => {
               for (let i = 0; i < v.length; i++) {
-                if (v[i] === v[i].toUpperCase() && inputName === 'Username')
+                if (v[i] === v[i].toUpperCase() && inputName === 'username')
                   return 'შეიყვანეთ მხოლოდ დაბალი რეგისტრის სიმბოლოები!'
               }
             },

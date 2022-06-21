@@ -5,3 +5,8 @@ export type InputFieldProps = {
   errors: any
   type: string
 }
+
+export type UserData = {
+  username: string
+  password: string
+}
