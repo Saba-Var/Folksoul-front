@@ -72,6 +72,7 @@ module.exports = {
         red: '#EB5757',
         contentWhite: '#FBFBFB',
         darkGray: '#333333',
+        darkBlue: '#143B52',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],
@@ -82,6 +83,9 @@ module.exports = {
           '0 8px 3px rgba(0, 0, 0, 0.45)',
           '0 11px 5px rgba(0, 0, 0, 0.15)',
         ],
+      },
+      boxShadow: {
+        '4xl': 'inset 4px 4px 20px #4D4D4D',
       },
     },
   },

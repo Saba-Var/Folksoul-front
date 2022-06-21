@@ -38,7 +38,7 @@ function LoginForm() {
         }),
       })
       if (response.status === 200) {
-        navigate('/Dashboard')
+        navigate('/Dashboard/Main')
         localStorage.setItem('token', response.data.token)
       }
     } catch (error) {
