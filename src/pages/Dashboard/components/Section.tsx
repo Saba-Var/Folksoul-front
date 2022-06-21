@@ -10,7 +10,7 @@ const Section: React.FC<SectionProps> = (props) => {
   }
   return (
     <div
-      className='flex cursor-pointer h-12 items-center gap-4 pl-7'
+      className={`flex cursor-pointer h-12 items-center gap-4 pl-7 `}
       onClick={onClickHandler}
     >
       <div className='flex justify-center items-center w-7'>{props.icon}</div>

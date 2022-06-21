@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Home, Login, Dashboard } from 'pages'
+import { Home, Login, Dashboard, Members, About, SocialLinks } from 'pages'
 
 function App() {
   return (
@@ -7,7 +7,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/Dashboard' element={<Dashboard />} />
+        <Route path='/Dashboard' element={<Dashboard />}>
+          <Route path='Members' element={<Members />} />
+          <Route path='Social-Links' element={<SocialLinks />} />
+          <Route path='About' element={<About />} />
+        </Route>
       </Routes>
     </Router>
   )

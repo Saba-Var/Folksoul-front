@@ -1,3 +1,6 @@
 export { default as Dashboard } from './Dashboard'
+export { default as Members } from './Members'
+export { default as About } from './About'
+export { default as SocialLinks } from './SocialLinks'
 export { default as Home } from './Home/Home'
 export { default as Login } from './Login'
