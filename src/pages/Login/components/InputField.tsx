@@ -12,12 +12,11 @@ const InputField: React.FC<InputFieldProps> = (props) => {
           validate: {
             minLength: (v: string) =>
               v.trim().length >= 3 || 'შეიყვანეთ მინიმუმ 3 სიმბოლო!',
-
             lowerCase: (v: string) => {
-              if (inputName === 'Username')
-                return (
-                  /[a-z]/.test(v) || 'შეიყვანეთ დაბალი რეგისტრის სიმბოლოები!'
-                )
+              for (let i = 0; i < v.length; i++) {
+                if (v[i] === v[i].toUpperCase() && inputName === 'Username')
+                  return 'შეიყვანეთ მხოლოდ დაბალი რეგისტრის სიმბოლოები!'
+              }
             },
           },
         })}
