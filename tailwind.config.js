@@ -73,6 +73,8 @@ module.exports = {
         contentWhite: '#FBFBFB',
         darkGray: '#333333',
         darkBlue: '#143B52',
+        lightGray: '#C4C4C4',
+        goodGray: '#444444',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],

@@ -5,3 +5,9 @@ export type CardData = {
   setMembersData: any
   setIsLoading: any
 }
+
+export type PaginationLinkProps = {
+  setMembersData: any
+  setIsLoading: any
+  page: number
+}

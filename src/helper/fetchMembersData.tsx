@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { MemberData } from '../types'
 
 const fetchMembersData = async (
-  setMembersData: (data: any) => void,
+  setMembersData: (data: MemberData) => void,
   setIsLoading: (loading: boolean) => void,
   page: number
 ) => {
@@ -18,6 +19,7 @@ const fetchMembersData = async (
       )
       if (res.status === 200) {
         setIsLoading(false)
+
         return setMembersData(res.data)
       }
     }

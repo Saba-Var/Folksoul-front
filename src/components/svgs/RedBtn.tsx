@@ -1,7 +1,7 @@
 function RedBtn() {
   return (
     <svg
-      className='cursor-pointer'
+      className='cursor-pointer transition-transform hover:scale-110'
       width='24'
       height='24'
       viewBox='0 0 24 24'

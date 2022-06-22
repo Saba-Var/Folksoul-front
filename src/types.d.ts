@@ -1,19 +1,18 @@
 export type MemberData = {
   members: {
-    _id: ''
-    name: ''
-    orbitLength: 1
-    instrument: ''
-    color: ''
-    biography: ''
+    biography: string
+    color: string
+    instrument: string
+    name: string
+    orbitLength: number
+    _id: string
   }[]
-
   paginationInfo: {
-    currentPage: 2
-    hasNextPage: true
-    hasPerviousPage: false
-    nextPage: 11
-    previousPage: 0
-    lastPage: 3
+    currentPage: number
+    hasNextPage: boolean
+    hasPreviousPage: boolean
+    lastPage: number
+    nextPage: number
+    previousPage: number
   }
-}[]
+}

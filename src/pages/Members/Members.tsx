@@ -3,11 +3,32 @@ import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { Card } from 'pages/Members/components'
 import { LoadingIcon } from 'components/svgs'
+import { MemberData } from '../../types'
 
 function Members() {
-  const [membersData, setMembersData] = useState<any>([])
+  const [membersData, setMembersData] = useState<MemberData>({
+    members: [
+      {
+        biography: '',
+        color: '',
+        instrument: '',
+        name: '',
+        orbitLength: 0,
+        _id: '',
+      },
+    ],
+    paginationInfo: {
+      currentPage: 1,
+      hasNextPage: true,
+      hasPreviousPage: false,
+      lastPage: 1,
+      nextPage: 2,
+      previousPage: 1,
+    },
+  })
+
   let noMember
-  if (membersData.members) noMember = membersData.length === 0
+  if (membersData.members) noMember = membersData.members.length === 0
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   useEffect(() => {
