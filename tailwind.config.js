@@ -86,6 +86,7 @@ module.exports = {
       },
       boxShadow: {
         '4xl': 'inset 4px 4px 20px #4D4D4D',
+        '5xl': '5px 5px 13px rgba(0, 0, 0, 0.63)',
       },
     },
   },
