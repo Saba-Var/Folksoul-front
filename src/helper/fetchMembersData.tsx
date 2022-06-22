@@ -1,18 +1,21 @@
 import axios from 'axios'
-import { MemberData } from 'types'
 
 const fetchMembersData = async (
-  setMembersData: (data: MemberData) => void,
-  setIsLoading: (loading: boolean) => void
+  setMembersData: (data: any) => void,
+  setIsLoading: (loading: boolean) => void,
+  page: number
 ) => {
   setIsLoading(true)
   try {
     const fetch = async () => {
-      const res = await axios.get('http://localhost:5000/all-members', {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      })
+      const res = await axios.get(
+        `http://localhost:5000/all-members?page=${page}`,
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
+        }
+      )
       if (res.status === 200) {
         setIsLoading(false)
         return setMembersData(res.data)
