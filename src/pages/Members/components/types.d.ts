@@ -17,3 +17,7 @@ export type MemberCardProps = {
   avatar: string
   name: string
 }
+
+export type DeleteDialogProps = {
+  setShowModal: (show: boolean) => void
+}

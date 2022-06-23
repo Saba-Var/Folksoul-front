@@ -1,0 +1,25 @@
+import { DeleteDialogProps } from 'pages/Members/components/types'
+
+const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
+  const closeModal = () => props.setShowModal(false)
+  return (
+    <div className='h-[480px] flex flex-col justify-between'>
+      <p className='text-3xl text-center pt-[20%]'>წავშალოთ ბენდის წევრი?</p>
+      <div className='flex justify-center'>
+        <div className='flex gap-7 w-fit'>
+          <button
+            onClick={closeModal}
+            className='text-lg hover:transition-transform hover:scale-105 w-20 px-5 pb-3 pt-4  shadow-2xl bg-slate-200 font-bold text-gray-600 border border-slate-700 rounded-md font-BPG-Nino-Mtavruli'
+          >
+            არა
+          </button>
+          <button className='text-lg text-center w-20 px-5 pb-3 pt-4 hover:transition-transform   hover:scale-105 shadow-2xl rounded-md   font-BPG-Nino-Mtavruli font-bold text-white bg-rose-700 border border-gray-900'>
+            <p className='h-fit'>კი</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default DeleteDialog

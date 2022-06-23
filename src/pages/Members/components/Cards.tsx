@@ -4,6 +4,7 @@ import { Pagination, MemberCard } from 'pages/Members/components'
 
 const Card: React.FC<CardData> = (props) => {
   const { data } = props
+
   return (
     <div>
       <div

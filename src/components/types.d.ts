@@ -11,3 +11,10 @@ export type SectionWrapperProps = {
   title: string
   children: JSX.Element
 }
+
+export type ModalProps = {
+  title: string
+  children: JSX.Element
+
+  setShowModal: (show: boolean) => void
+}
