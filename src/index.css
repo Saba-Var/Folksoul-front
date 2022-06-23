@@ -15,6 +15,10 @@
 }
 
 @layer components {
+  .backLink {
+    @apply text-center text-lg font-bold underline cursor-pointer text-blue tracking-wider font-BPG-Nino-Mtavruli;
+  }
+
   .placeholder::placeholder {
     @apply text-[#501C1C] text-sm font-BPG-Arial tracking-wide;
   }

@@ -15,6 +15,11 @@ export type SectionWrapperProps = {
 export type ModalProps = {
   title: string
   children: JSX.Element
-
   setShowModal: (show: boolean) => void
+}
+
+export type GoBackBtnProps = {
+  goTo: boolean
+  title: string
+  direction: (add: boolean) => void
 }

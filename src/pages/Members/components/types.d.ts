@@ -24,3 +24,7 @@ export type DeleteDialogProps = {
   userId: string
   fetchUtilities: fetchUtilities
 }
+
+export type AddMemberProps = {
+  setAddMember: (add: boolean) => void
+}

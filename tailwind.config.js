@@ -76,6 +76,7 @@ module.exports = {
         lightGray: '#C4C4C4',
         goodGray: '#444444',
         glassBlue: '#042639',
+        blue: '#3A7DA3',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],

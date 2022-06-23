@@ -8,7 +8,9 @@ const SectionWrapper: React.FC<SectionWrapperProps> = (props) => {
         <p className='mb-10 font-BPG-Nino-Mtavruli text-center tracking-wider text-lg pb-3 border-b border-black'>
           {props.title}
         </p>
-        {props.children}
+        <div className='flex flex-col justify-between h-full pb-[10%]'>
+          {props.children}
+        </div>
       </>
     </WhiteWrapper>
   )

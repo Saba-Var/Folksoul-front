@@ -1,7 +1,7 @@
-import { SectionWrapper } from 'components'
+import { SectionWrapper, GoBackBtn } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
-import { NoMembers, Cards } from 'pages/Members/components'
+import { NoMembers, Cards, AddMember } from 'pages/Members/components'
 
 import { MemberData } from '../../types'
 
@@ -24,10 +24,8 @@ const memberModel = {
 function Members() {
   const [membersData, setMembersData] = useState<MemberData>(memberModel)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-
-  let emptyBand = false
-  if (membersData.members)
-    emptyBand = membersData.paginationInfo.totalMembers === 0
+  const [addMember, setAddMember] = useState<boolean>(false)
+  let emptyBand = membersData.paginationInfo.totalMembers === 0
 
   useEffect(() => {
     fetchMembersData(setMembersData, setIsLoading, 1)
@@ -37,13 +35,22 @@ function Members() {
   const notFound = !isLoading && emptyBand
 
   return (
-    <SectionWrapper title='ჯგუფის წევრები'>
+    <SectionWrapper
+      title={`${addMember ? 'დაამატე ჯგუფის ახალი წევრი' : 'ჯგუფის წევრები'}`}
+    >
       <>
-        {notFound && <NoMembers />}
-
-        {!notFound && (
+        {notFound && !addMember && <NoMembers />}
+        {!notFound && !addMember && (
           <Cards fetchUtilities={fetchUtilities} data={membersData!} />
         )}
+        {!addMember && (
+          <GoBackBtn
+            title='ახალი წევრი გვყავს?'
+            direction={setAddMember}
+            goTo={true}
+          />
+        )}
+        {addMember && <AddMember setAddMember={setAddMember} />}
       </>
     </SectionWrapper>
   )
