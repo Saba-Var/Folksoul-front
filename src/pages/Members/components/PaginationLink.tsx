@@ -13,7 +13,11 @@ const PaginationLink: React.FC<PaginationLinkProps> = (props) => {
       }`}
       to={`/Dashboard/Members?page=${props.page}`}
       onClick={() =>
-        fetchMembersData(props.setMembersData, props.setIsLoading, props.page)
+        fetchMembersData(
+          props.fetchUtilities.setMembersData,
+          props.fetchUtilities.setIsLoading,
+          props.page
+        )
       }
     />
   )

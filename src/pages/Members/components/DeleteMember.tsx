@@ -5,10 +5,15 @@ import { DeleteDialog } from 'pages/Members/components'
 
 const DeleteMember: React.FC<{
   userId: string
-  setMembersData: any
-  setIsLoading: any
+  fetchUtilities: {
+    setMembersData: any
+    setIsLoading: any
+  }
 }> = (props) => {
   const [showModal, setShowModal] = useState(false)
+
+  const { setMembersData, setIsLoading } = props.fetchUtilities
+  const fetchUtilities = { setMembersData, setIsLoading }
 
   return (
     <div>
@@ -17,8 +22,7 @@ const DeleteMember: React.FC<{
           <DeleteDialog
             userId={props.userId}
             setShowModal={setShowModal}
-            setMembersData={props.setMembersData}
-            setIsLoading={props.setIsLoading}
+            fetchUtilities={fetchUtilities}
           />
         </Modal>
       )}

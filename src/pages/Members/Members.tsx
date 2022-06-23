@@ -24,26 +24,25 @@ const memberModel = {
 function Members() {
   const [membersData, setMembersData] = useState<MemberData>(memberModel)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  let noMember = false
+
+  let emptyBand = false
   if (membersData.members)
-    noMember = membersData.paginationInfo.totalMembers === 0
+    emptyBand = membersData.paginationInfo.totalMembers === 0
 
   useEffect(() => {
     fetchMembersData(setMembersData, setIsLoading, 1)
   }, [])
 
+  const fetchUtilities = { setMembersData, setIsLoading }
+  const notFound = !isLoading && emptyBand
+
   return (
     <SectionWrapper title='ჯგუფის წევრები'>
       <>
         {isLoading && <LoadingIcon />}
-        {!isLoading && noMember ? (
-          <NoMembers />
-        ) : (
-          <Cards
-            setMembersData={setMembersData}
-            setIsLoading={setIsLoading}
-            data={membersData!}
-          />
+        {notFound && <NoMembers />}
+        {!notFound && (
+          <Cards fetchUtilities={fetchUtilities} data={membersData!} />
         )}
       </>
     </SectionWrapper>

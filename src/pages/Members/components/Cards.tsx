@@ -4,6 +4,8 @@ import { Pagination, MemberCard } from 'pages/Members/components'
 
 const Card: React.FC<CardData> = (props) => {
   const { data } = props
+  const { setMembersData, setIsLoading } = props.fetchUtilities
+  const fetchUtilities = { setMembersData, setIsLoading }
 
   return (
     <div>
@@ -20,8 +22,7 @@ const Card: React.FC<CardData> = (props) => {
               iconNum === 1 ? avatar1 : iconNum === 2 ? avatar2 : avatar3
             return (
               <MemberCard
-                setMembersData={props.setMembersData}
-                setIsLoading={props.setIsLoading}
+                fetchUtilities={fetchUtilities}
                 avatar={avatar}
                 id={member._id}
                 name={member.name}
@@ -31,11 +32,7 @@ const Card: React.FC<CardData> = (props) => {
           })}
       </div>
       {props.data.paginationInfo.totalMembers > 3 && (
-        <Pagination
-          data={props.data}
-          setIsLoading={props.setIsLoading}
-          setMembersData={props.setMembersData}
-        />
+        <Pagination data={props.data} fetchUtilities={fetchUtilities} />
       )}
     </div>
   )

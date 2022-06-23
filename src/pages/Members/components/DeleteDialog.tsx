@@ -3,6 +3,7 @@ import axios from 'axios'
 import fetchMembersData from 'helper/fetchMembersData'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
+  const { setMembersData, setIsLoading } = props.fetchUtilities
   const closeModal = () => props.setShowModal(false)
   const deleteMember = () => {
     try {
@@ -17,7 +18,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
         })
         if (res.status === 200) {
           closeModal()
-          fetchMembersData(props.setMembersData, props.setIsLoading, 1)
+          fetchMembersData(setMembersData, setIsLoading, 1)
         }
       }
       fetch()
