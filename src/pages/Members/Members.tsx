@@ -1,8 +1,8 @@
 import { SectionWrapper } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
-import { Cards, NoMembers } from 'pages/Members/components'
-import { LoadingIcon } from 'components/svgs'
+import { NoMembers, Cards } from 'pages/Members/components'
+
 import { MemberData } from '../../types'
 
 const memberModel = {
@@ -39,8 +39,8 @@ function Members() {
   return (
     <SectionWrapper title='ჯგუფის წევრები'>
       <>
-        {isLoading && <LoadingIcon />}
         {notFound && <NoMembers />}
+
         {!notFound && (
           <Cards fetchUtilities={fetchUtilities} data={membersData!} />
         )}

@@ -6,13 +6,14 @@ const Card: React.FC<CardData> = (props) => {
   const { data } = props
   const { setMembersData, setIsLoading } = props.fetchUtilities
   const fetchUtilities = { setMembersData, setIsLoading }
+  const membersOnPage = data.members.length
 
   return (
     <div>
       <div
         className={`flex justify-between px-[7%] gap-4 mb-28 ${
-          data.members.length < 3 && '!justify-center'
-        }`}
+          membersOnPage === 2 && '!justify-between px-[23%]'
+        } ${membersOnPage === 1 && '!justify-center'}`}
       >
         {data.members &&
           data.paginationInfo.totalMembers > 0 &&

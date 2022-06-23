@@ -2,7 +2,7 @@ function LoadingIcon() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='m-auto bg-contentWhite block '
+      className='m-auto  block  '
       width='150px'
       height='150px'
       viewBox='0 0 100 100'
