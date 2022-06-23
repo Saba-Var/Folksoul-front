@@ -6,7 +6,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
   return (
     <div
       key={props.id}
-      className={`duration-700   bg-darkGray  w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
+      className={`duration-700 hover:shadow-5.5xl  bg-darkGray  w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
     >
       <div className='w-36 h-36 mx-auto relative'>
         <img src={props.avatar} alt='avatar icon' className='top-[131px]' />
@@ -18,7 +18,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       <div className='flex justify-between shadow-5xl items-center px-[10%] h-10 border-t-[1px] border-black'>
         <GreenBtn />
         <YellowBtn />
-        <DeleteMember />
+        <DeleteMember
+          userId={props.id}
+          setMembersData={props.setMembersData}
+          setIsLoading={props.setIsLoading}
+        />
       </div>
     </div>
   )

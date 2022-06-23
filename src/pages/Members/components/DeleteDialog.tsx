@@ -1,7 +1,29 @@
 import { DeleteDialogProps } from 'pages/Members/components/types'
+import axios from 'axios'
+import fetchMembersData from 'helper/fetchMembersData'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   const closeModal = () => props.setShowModal(false)
+  const deleteMember = () => {
+    try {
+      const fetch = async () => {
+        const res = await axios.delete('http://localhost:5000/delete-member', {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
+          data: {
+            id: props.userId,
+          },
+        })
+        if (res.status === 200)
+          fetchMembersData(props.setMembersData, props.setIsLoading, 1)
+      }
+      fetch()
+    } catch (error: any) {
+      alert(error.message)
+    }
+  }
+
   return (
     <div className='h-[480px] flex flex-col justify-between'>
       <p className='text-3xl text-center pt-[20%]'>წავშალოთ ბენდის წევრი?</p>
@@ -14,7 +36,9 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
             არა
           </button>
           <button className='text-lg text-center w-20 px-5 pb-3 pt-4 hover:transition-transform   hover:scale-105 shadow-2xl rounded-md   font-BPG-Nino-Mtavruli font-bold text-white bg-rose-700 border border-gray-900'>
-            <p className='h-fit'>კი</p>
+            <p className='h-fit' onClick={deleteMember}>
+              კი
+            </p>
           </button>
         </div>
       </div>

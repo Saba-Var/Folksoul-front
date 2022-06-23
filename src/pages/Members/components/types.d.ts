@@ -13,6 +13,8 @@ export type PaginationLinkProps = {
 }
 
 export type MemberCardProps = {
+  setMembersData: any
+  setIsLoading: any
   id: string
   avatar: string
   name: string
@@ -20,4 +22,7 @@ export type MemberCardProps = {
 
 export type DeleteDialogProps = {
   setShowModal: (show: boolean) => void
+  userId: string
+  setMembersData: any
+  setIsLoading: any
 }

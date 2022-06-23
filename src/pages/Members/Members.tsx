@@ -1,30 +1,32 @@
 import { SectionWrapper } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
-import { Cards } from 'pages/Members/components'
+import { Cards, NoMembers } from 'pages/Members/components'
 import { LoadingIcon } from 'components/svgs'
 import { MemberData } from '../../types'
 
-function Members() {
-  const [membersData, setMembersData] = useState<MemberData>({
-    members: [
-      {
-        biography: '',
-        color: '',
-        instrument: '',
-        name: '',
-        orbitLength: 0,
-        _id: '',
-      },
-    ],
-    paginationInfo: {
-      totalMembers: 2,
+const memberModel = {
+  members: [
+    {
+      biography: '',
+      color: '',
+      instrument: '',
+      name: '',
+      orbitLength: 0,
+      _id: '',
     },
-  })
+  ],
+  paginationInfo: {
+    totalMembers: 0,
+  },
+}
 
-  let noMember
-  if (membersData.members) noMember = membersData.members.length === 0
+function Members() {
+  const [membersData, setMembersData] = useState<MemberData>(memberModel)
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  let noMember = false
+  if (membersData.members)
+    noMember = membersData.paginationInfo.totalMembers === 0
 
   useEffect(() => {
     fetchMembersData(setMembersData, setIsLoading, 1)
@@ -34,12 +36,9 @@ function Members() {
     <SectionWrapper title='ჯგუფის წევრები'>
       <>
         {isLoading && <LoadingIcon />}
-        {!isLoading && noMember && (
-          <h2 className='text-center pt-[20%] text-black tracking-widest text-4xl'>
-            ჯგუფს ჯერჯერობით არ ჰყავს წევრები!
-          </h2>
-        )}
-        {!isLoading && !noMember && (
+        {!isLoading && noMember ? (
+          <NoMembers />
+        ) : (
           <Cards
             setMembersData={setMembersData}
             setIsLoading={setIsLoading}

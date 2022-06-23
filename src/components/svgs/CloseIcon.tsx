@@ -12,14 +12,14 @@ const CloseIcon = () => {
         stroke='#333333'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M23.5721 24.7879L7.85736 9.03707L8.43938 8.45371L24.1541 24.2045L23.5721 24.7879Z'
         fill='#EB5757'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M7.85736 24.7879L23.5721 9.03707L24.1541 9.62044L8.43938 25.3712L7.85736 24.7879Z'
         fill='#EB5757'
       />
