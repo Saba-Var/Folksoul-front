@@ -5,13 +5,13 @@ import { Pagination } from 'pages/Members/components'
 
 const Card: React.FC<CardData> = (props) => {
   const { data } = props
-  console.log(data)
   return (
     <div>
       <div
         className={`flex justify-between px-[7%] gap-4 mb-28 ${
-          data.members.length === 1 && '!justify-center'
-        }`}
+          (data.members.length === 1 || data.members.length === 2) &&
+          '!justify-center'
+        }  `}
       >
         {data.members &&
           data.members.map((member: any) => {
@@ -40,8 +40,7 @@ const Card: React.FC<CardData> = (props) => {
             )
           })}
       </div>
-      {(data.paginationInfo.hasNextPage ||
-        data.paginationInfo.hasPreviousPage) && (
+      {props.data.paginationInfo.totalMembers > 3 && (
         <Pagination
           data={props.data}
           setIsLoading={props.setIsLoading}

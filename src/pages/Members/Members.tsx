@@ -18,12 +18,7 @@ function Members() {
       },
     ],
     paginationInfo: {
-      currentPage: 1,
-      hasNextPage: true,
-      hasPreviousPage: false,
-      lastPage: 1,
-      nextPage: 2,
-      previousPage: 1,
+      totalMembers: 2,
     },
   })
 

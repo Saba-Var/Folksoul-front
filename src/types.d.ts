@@ -8,11 +8,6 @@ export type MemberData = {
     _id: string
   }[]
   paginationInfo: {
-    currentPage: number
-    hasNextPage: boolean
-    hasPreviousPage: boolean
-    lastPage: number
-    nextPage: number
-    previousPage: number
+    totalMembers: number
   }
 }
