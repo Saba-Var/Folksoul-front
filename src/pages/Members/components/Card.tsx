@@ -5,10 +5,14 @@ import { Pagination } from 'pages/Members/components'
 
 const Card: React.FC<CardData> = (props) => {
   const { data } = props
-
+  console.log(data)
   return (
     <div>
-      <div className='flex justify-between px-[7%] gap-4 mb-28'>
+      <div
+        className={`flex justify-between px-[7%] gap-4 mb-28 ${
+          data.members.length === 1 && '!justify-center'
+        }`}
+      >
         {data.members &&
           data.members.map((member: any) => {
             const iconNum = Math.floor(Math.random() * 3) + 1
@@ -18,7 +22,7 @@ const Card: React.FC<CardData> = (props) => {
             return (
               <div
                 key={member._id}
-                className='bg-darkGray w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between'
+                className={`duration-700 hover:shadow-5.5xl hover:scale-105 bg-darkGray  w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
               >
                 <div className='w-36 h-36 mx-auto relative'>
                   <img src={avatar} alt='avatar icon' className='top-[131px]' />
@@ -36,11 +40,14 @@ const Card: React.FC<CardData> = (props) => {
             )
           })}
       </div>
-      <Pagination
-        data={props.data}
-        setIsLoading={props.setIsLoading}
-        setMembersData={props.setMembersData}
-      />
+      {(data.paginationInfo.hasNextPage ||
+        data.paginationInfo.hasPreviousPage) && (
+        <Pagination
+          data={props.data}
+          setIsLoading={props.setIsLoading}
+          setMembersData={props.setMembersData}
+        />
+      )}
     </div>
   )
 }
