@@ -13,6 +13,7 @@ const Card: React.FC<CardData> = (props) => {
         }`}
       >
         {data.members &&
+          data.paginationInfo.totalMembers > 0 &&
           data.members.map((member) => {
             const iconNum = Math.floor(Math.random() * 3) + 1
             const avatar =

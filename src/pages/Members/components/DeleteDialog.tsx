@@ -15,8 +15,10 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
             id: props.userId,
           },
         })
-        if (res.status === 200)
+        if (res.status === 200) {
+          closeModal()
           fetchMembersData(props.setMembersData, props.setIsLoading, 1)
+        }
       }
       fetch()
     } catch (error: any) {
