@@ -1,7 +1,7 @@
 import { SectionWrapper } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
-import { Card } from 'pages/Members/components'
+import { Cards } from 'pages/Members/components'
 import { LoadingIcon } from 'components/svgs'
 import { MemberData } from '../../types'
 
@@ -40,7 +40,7 @@ function Members() {
           </h2>
         )}
         {!isLoading && !noMember && (
-          <Card
+          <Cards
             setMembersData={setMembersData}
             setIsLoading={setIsLoading}
             data={membersData!}

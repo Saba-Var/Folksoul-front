@@ -11,3 +11,9 @@ export type PaginationLinkProps = {
   setIsLoading: any
   page: number
 }
+
+export type MemberCardProps = {
+  id: string
+  avatar: string
+  name: string
+}
