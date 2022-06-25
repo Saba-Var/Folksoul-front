@@ -5,6 +5,11 @@ module.exports = {
       spacing: {
         18.25: '4.5rem',
       },
+      screens: {
+        '3xl': '1350px',
+        '4xl': '1744px',
+        '5xl': '1900px',
+      },
       animation: {
         'bounce-in-top': 'bounce-in-top   1.2s ease-in both',
         'bounce-out-top': 'bounce-out-top 1.5s ease   both',

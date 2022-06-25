@@ -1,8 +1,7 @@
+import { NoMembers, Cards, AddMember } from 'pages/Members/components'
 import { SectionWrapper, GoBackBtn } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
-import { NoMembers, Cards, AddMember } from 'pages/Members/components'
-
 import { MemberData } from '../../types'
 
 const memberModel = {
@@ -50,7 +49,15 @@ function Members() {
             goTo={true}
           />
         )}
-        {addMember && <AddMember setAddMember={setAddMember} />}
+        {addMember && (
+          <AddMember
+            membersData={membersData.members}
+            memberCount={membersData.paginationInfo.totalMembers}
+            setAddMember={setAddMember}
+            setMembersData={setMembersData}
+            setIsLoading={setIsLoading}
+          />
+        )}
       </>
     </SectionWrapper>
   )

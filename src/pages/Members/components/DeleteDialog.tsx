@@ -1,10 +1,21 @@
 import { DeleteDialogProps } from 'pages/Members/components/types'
 import axios from 'axios'
 import fetchMembersData from 'helper/fetchMembersData'
+import { useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
+  const navigate = useNavigate()
+  const [pageParam] = useSearchParams()
   const { setMembersData, setIsLoading } = props.fetchUtilities
+  const currentPage = +pageParam.get('page')!
+  let fetchPage = currentPage
+
+  if (props.membersData.length === 1 && currentPage > 1)
+    fetchPage = currentPage - 1
+
   const closeModal = () => props.setShowModal(false)
+
   const deleteMember = () => {
     try {
       const fetch = async () => {
@@ -18,7 +29,8 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
         })
         if (res.status === 200) {
           closeModal()
-          fetchMembersData(setMembersData, setIsLoading, 1)
+          fetchMembersData(setMembersData, setIsLoading, fetchPage)
+          navigate(`/Dashboard/Members?page=${fetchPage}`)
         }
       }
       fetch()

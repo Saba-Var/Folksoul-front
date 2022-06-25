@@ -9,10 +9,16 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
     color: '',
     biography: '',
   }
-
   return (
     <>
-      <MemberForm details={details} setAddMember={props.setAddMember} />
+      <MemberForm
+        membersData={props.membersData}
+        setMembersData={props.setMembersData}
+        setIsLoading={props.setIsLoading}
+        details={details}
+        setAddMember={props.setAddMember}
+        url='http://localhost:5000/add-member'
+      />
     </>
   )
 }

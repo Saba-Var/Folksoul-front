@@ -23,6 +23,7 @@ const Card: React.FC<CardData> = (props) => {
               iconNum === 1 ? avatar1 : iconNum === 2 ? avatar2 : avatar3
             return (
               <MemberCard
+                membersData={data.members}
                 fetchUtilities={fetchUtilities}
                 avatar={avatar}
                 id={member._id}

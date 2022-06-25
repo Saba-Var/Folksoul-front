@@ -26,10 +26,11 @@ export type GoBackBtnProps = {
 
 export type InputFieldProps = {
   minLength?: number
-  styles?: string
   type: string
   register: any
   inputName: string
   placeholder: string
   errors: any
 }
+
+export type addOrChangeMember = {}

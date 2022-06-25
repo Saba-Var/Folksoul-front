@@ -5,6 +5,7 @@ import { DeleteMember } from 'pages/Members/components'
 const MemberCard: React.FC<MemberCardProps> = (props) => {
   const { setMembersData, setIsLoading } = props.fetchUtilities
   const fetchUtilities = { setMembersData, setIsLoading }
+
   return (
     <div
       key={props.id}
@@ -20,7 +21,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       <div className='flex justify-between shadow-5xl items-center px-[10%] h-10 border-t-[1px] border-black'>
         <GreenBtn />
         <YellowBtn />
-        <DeleteMember userId={props.id} fetchUtilities={fetchUtilities} />
+        <DeleteMember
+          userId={props.id}
+          fetchUtilities={fetchUtilities}
+          membersData={props.membersData}
+        />
       </div>
     </div>
   )
