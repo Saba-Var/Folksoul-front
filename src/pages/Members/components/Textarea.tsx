@@ -10,7 +10,7 @@ const Textarea: React.FC<TextareaProps> = (props) => {
           required: 'შევსება სავალდებულოა!',
           validate: {
             georgianLan: (v: string) => {
-              return georgianLan(v) || 'მხოლოდ ქართული ასოები'
+              return georgianLan(v, inputName) || 'მხოლოდ ქართული ასოები'
             },
             minLength: (v: string) =>
               v.trim().length >= 1 || 'შევსება სავალდებულოა!',

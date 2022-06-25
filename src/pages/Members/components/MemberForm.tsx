@@ -58,6 +58,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
             type: 'costum',
             message: `'${memberDetails.name}' უკვე ბენდშია`,
           })
+          console.log(err.message)
         })
     }
     fetch()
