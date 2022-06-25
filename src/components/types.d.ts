@@ -23,3 +23,13 @@ export type GoBackBtnProps = {
   title: string
   direction: (add: boolean) => void
 }
+
+export type InputFieldProps = {
+  minLength?: number
+  styles?: string
+  type: string
+  register: any
+  inputName: string
+  placeholder: string
+  errors: any
+}

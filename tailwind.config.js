@@ -70,6 +70,7 @@ module.exports = {
         darkGreen: '#345161',
         black: '#272727',
         red: '#EB5757',
+        redSm: '#e98282c7',
         contentWhite: '#FBFBFB',
         darkGray: '#333333',
         darkBlue: '#143B52',
@@ -77,6 +78,7 @@ module.exports = {
         goodGray: '#444444',
         glassBlue: '#042639',
         blue: '#3A7DA3',
+        gray: '#A8A3A3',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],

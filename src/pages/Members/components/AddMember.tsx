@@ -1,14 +1,18 @@
 import { AddMemberProps } from 'pages/Members/components/types'
-import { GoBackBtn } from 'components'
+import { MemberForm } from 'pages/Members/components'
 
 const AddMember: React.FC<AddMemberProps> = (props) => {
+  const details = {
+    name: '',
+    instrument: '',
+    orbitLength: '',
+    color: '',
+    biography: '',
+  }
+
   return (
     <>
-      <GoBackBtn
-        title='გადი უკან'
-        direction={props.setAddMember}
-        goTo={false}
-      />
+      <MemberForm details={details} setAddMember={props.setAddMember} />
     </>
   )
 }

@@ -22,4 +22,21 @@
   .placeholder::placeholder {
     @apply text-[#501C1C] text-sm font-BPG-Arial tracking-wide;
   }
+
+  .member-placeholder::placeholder {
+    @apply text-gray tracking-wider font-BPG-Arial text-sm;
+  }
+
+  .blueBtn {
+    @apply bg-darkGreen h-12 text-center tracking-widest text-contentWhite font-bold rounded-md;
+  }
+
+  .bgTextarea {
+    @apply w-[690px] h-[233px] bg-transparent border border-darkBlue font-BPG-Arial text-darkBlue rounded-md outline-none text-base tracking-wider member-placeholder;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 }

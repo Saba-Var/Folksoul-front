@@ -28,3 +28,22 @@ export type DeleteDialogProps = {
 export type AddMemberProps = {
   setAddMember: (add: boolean) => void
 }
+
+export type MemberDetails = {
+  setAddMember: (add: boolean) => void
+  details: {
+    biography: string
+    color: string
+    instrument: string
+    name: string
+    orbitLength: string | number
+  }
+}
+
+export type TextareaProps = {
+  inputName: string
+  placeholder: string
+  register: any
+  styles: string
+  errors: any
+}
