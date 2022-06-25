@@ -53,6 +53,7 @@ export type MemberIfo = {
 }
 
 export type MemberDetails = {
+  action: string
   membersData: MembersInfo
   setAddMember: (add: boolean) => void
   details: MemberIfo

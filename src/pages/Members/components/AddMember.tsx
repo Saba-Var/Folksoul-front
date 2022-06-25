@@ -2,6 +2,8 @@ import { AddMemberProps } from 'pages/Members/components/types'
 import { MemberForm } from 'pages/Members/components'
 
 const AddMember: React.FC<AddMemberProps> = (props) => {
+  const { membersData, setMembersData, setIsLoading, setAddMember } = props
+
   const details = {
     name: '',
     instrument: '',
@@ -9,14 +11,16 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
     color: '',
     biography: '',
   }
+
   return (
     <>
       <MemberForm
-        membersData={props.membersData}
-        setMembersData={props.setMembersData}
-        setIsLoading={props.setIsLoading}
+        action='ADD'
+        membersData={membersData}
+        setMembersData={setMembersData}
+        setIsLoading={setIsLoading}
         details={details}
-        setAddMember={props.setAddMember}
+        setAddMember={setAddMember}
         url='http://localhost:5000/add-member'
       />
     </>

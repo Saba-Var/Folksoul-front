@@ -1,18 +1,25 @@
 import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
+import { InputField, GoBackBtn, Modal } from 'components'
 import { Textarea } from 'pages/Members/components'
-import { InputField, GoBackBtn } from 'components'
 import { useSearchParams } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
+import { useState } from 'react'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
+  const { membersData, details, url, setMembersData, setIsLoading } = props
+  const [showModal, setShowModal] = useState(false)
   const navigate = useNavigate()
   const [pageParam] = useSearchParams()
   const currentPage = +pageParam.get('page')!
+  const modalText =
+    props.action === 'ADD'
+      ? 'ბენდს ახალი წევრი შეემატა'
+      : 'წევრის იფორმაცია შეიცვალა'
   let fetchPage = currentPage
-  if (props.membersData.length === 3) fetchPage = currentPage + 1
+  if (membersData.length === 3) fetchPage = currentPage + 1
 
   const {
     register,
@@ -22,7 +29,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     formState: { errors },
   } = useForm({
     mode: 'all',
-    defaultValues: props.details,
+    defaultValues: details,
   })
 
   const submitHandler = (data: MemberIfo) => {
@@ -32,7 +39,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     const fetch = async () => {
       axios({
         method: 'post',
-        url: props.url,
+        url: url,
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },
@@ -45,12 +52,9 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
             setValue('color', '')
             setValue('orbitLength', '')
             setValue('instrument', '')
-            fetchMembersData(
-              props.setMembersData,
-              props.setIsLoading,
-              fetchPage
-            )
+            fetchMembersData(setMembersData, setIsLoading, fetchPage)
             navigate(`/Dashboard/Members?page=${fetchPage}`)
+            setShowModal(true)
           }
         })
         .catch((err) => {
@@ -58,7 +62,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
             type: 'costum',
             message: `'${memberDetails.name}' უკვე ბენდშია`,
           })
-          console.log(err.message)
+          alert(err.message)
         })
     }
     fetch()
@@ -66,6 +70,14 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
 
   return (
     <div>
+      {showModal && (
+        <Modal setShowModal={setShowModal} title='ჯგუფის წევრები'>
+          <div className='h-[400px] flex items-center justify-center'>
+            <p className='text-center tracking-wider font-medium text-3xl'>{`${modalText} 🥳`}</p>
+          </div>
+        </Modal>
+      )}
+
       <form
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col justify-between'
