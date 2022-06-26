@@ -17,8 +17,7 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
         </div>
 
         <p className='text-sm tracking-wide text-center mb-3'>
-          ორბიტალური დაშორება:
-          <span className='font-bold'>{orbitLength}</span>
+          ორბიტალური დაშორება: <span className='font-bold'>{orbitLength}</span>
         </p>
         <p className='text-justify'>{biography}</p>
       </div>

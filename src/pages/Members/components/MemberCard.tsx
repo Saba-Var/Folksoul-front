@@ -1,6 +1,6 @@
+import { DeleteMember, DetailsModal } from 'pages/Members/components'
 import { MemberCardProps } from 'pages/Members/components/types'
 import { GreenBtn, YellowBtn, CameraBtn } from 'components/svgs'
-import { DeleteMember, DetailsModal } from 'pages/Members/components'
 import { useState } from 'react'
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
@@ -13,7 +13,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
   return (
     <div
       key={id}
-      className={`duration-700 hover:shadow-5.5xl  bg-darkGray  w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
+      className={`duration-700 hover:shadow-5.5xl  bg-darkGray w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
     >
       <div className='w-36 h-36 mx-auto relative'>
         <div

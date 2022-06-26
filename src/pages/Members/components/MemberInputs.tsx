@@ -51,7 +51,7 @@ const MemberInputs: React.FC<{ errors: any; register: any; title: string }> = (
       </div>
       <button
         type='submit'
-        className='blueBtn transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[15%] mb-2'
+        className='blueBtn transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-2'
       >
         {props.title}
       </button>
