@@ -16,7 +16,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       className={`duration-700 hover:shadow-5.5xl  bg-darkGray  w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
     >
       <div className='w-36 h-36 mx-auto relative'>
-        <img src={avatar} alt='avatar icon' className='top-[131px]' />
+        <div
+          className={`border border-white w-36 h-36 rounded-full flex justify-center items-center  bg-darkBlue`}
+        >
+          <img src={avatar} alt='avatar icon' className='top-[131px]' />
+        </div>
         <CameraBtn />
       </div>
       <p className='text-white text-lg font-BPG-Nino-Mtavruli text-center tracking-widest'>

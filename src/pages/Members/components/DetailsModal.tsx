@@ -8,16 +8,19 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
       <div
         className={`h-[500px] ${biography.length > 630 && 'overflow-y-scroll'}`}
       >
-        <img
-          src={props.avatar}
-          alt='avatar icon'
-          className='mt-4 block mx-auto mb-4'
-        />
+        <div className='flex justify-center mb-4 mt-4'>
+          <div
+            className={`border bg-darkBlue shadow-5xl border-white w-36 h-36 rounded-full flex justify-center items-center  `}
+          >
+            <img src={props.avatar} alt='avatar icon' />
+          </div>
+        </div>
+
         <p className='text-sm tracking-wide text-center mb-3'>
           ორბიტალური დაშორება:
           <span className='font-bold'>{orbitLength}</span>
         </p>
-        <p>{biography}</p>
+        <p className='text-justify'>{biography}</p>
       </div>
     </Modal>
   )
