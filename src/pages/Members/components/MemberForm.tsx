@@ -36,36 +36,36 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     memberDetails.orbitLength = +memberDetails.orbitLength
 
     const fetch = async () => {
-      axios({
-        method: 'post',
-        url: url,
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-        data: memberDetails,
-      })
-        .then((res) => {
-          if (res.status === 201) {
-            setValue('name', '')
-            setValue('biography', '')
-            setValue('color', '')
-            setValue('orbitLength', '')
-            setValue('instrument', '')
-            fetchMembersData(setMembersData, setIsLoading, fetchPage)
-            navigate(`/Dashboard/Members?page=${fetchPage}`)
-            setShowModal(true)
-            setShowErrorAlert(false)
-          }
+      try {
+        const response = await axios({
+          method: 'post',
+          url: url,
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
+          data: memberDetails,
         })
-        .catch((err) => {
-          setError('name', {
-            type: 'costum',
-          })
-          setShowErrorAlert(true)
-          const statusCode = err.response.status
-          if (statusCode === 409) setStatusCode(409)
-          if (statusCode === 404) setStatusCode(404)
+
+        if (response.status === 201) {
+          setValue('name', '')
+          setValue('biography', '')
+          setValue('color', '')
+          setValue('orbitLength', '')
+          setValue('instrument', '')
+          fetchMembersData(setMembersData, setIsLoading, fetchPage)
+          navigate(`/Dashboard/Members?page=${fetchPage}`)
+          setShowModal(true)
+          setShowErrorAlert(false)
+        }
+      } catch (error: any) {
+        setError('name', {
+          type: 'costum',
         })
+        setShowErrorAlert(true)
+        const statusCode = error.response.status
+        if (statusCode === 409) setStatusCode(409)
+        if (statusCode === 404) setStatusCode(404)
+      }
     }
     fetch()
   }
