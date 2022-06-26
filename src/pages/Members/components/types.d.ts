@@ -68,3 +68,12 @@ export type TextareaProps = {
   register: any
   errors: any
 }
+
+export type NotificationsProps = {
+  showModal: boolean
+  action: string
+  setShowModal: (show: boolean) => void
+  showErrorAlert: boolean
+  setShowErrorAlert: (show: boolean) => void
+  statusCode: number
+}

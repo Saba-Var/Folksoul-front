@@ -1,23 +1,22 @@
 import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
-import { InputField, GoBackBtn, Modal } from 'components'
-import { Textarea } from 'pages/Members/components'
+import { Textarea, Notifications } from 'pages/Members/components'
+import { InputField, GoBackBtn } from 'components'
 import { useSearchParams } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 import { useState } from 'react'
+import axios from 'axios'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
   const { membersData, details, url, setMembersData, setIsLoading } = props
   const [showModal, setShowModal] = useState(false)
+  const [statusCode, setStatusCode] = useState(404)
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
+
   const navigate = useNavigate()
   const [pageParam] = useSearchParams()
   const currentPage = +pageParam.get('page')!
-  const modalText =
-    props.action === 'ADD'
-      ? 'ბენდს ახალი წევრი შეემატა'
-      : 'წევრის იფორმაცია შეიცვალა'
   let fetchPage = currentPage
   if (membersData.length === 3) fetchPage = currentPage + 1
 
@@ -55,14 +54,17 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
             fetchMembersData(setMembersData, setIsLoading, fetchPage)
             navigate(`/Dashboard/Members?page=${fetchPage}`)
             setShowModal(true)
+            setShowErrorAlert(false)
           }
         })
         .catch((err) => {
           setError('name', {
             type: 'costum',
-            message: `'${memberDetails.name}' უკვე ბენდშია`,
           })
-          alert(err.message)
+          setShowErrorAlert(true)
+          const statusCode = err.response.status
+          if (statusCode === 409) setStatusCode(409)
+          if (statusCode === 404) setStatusCode(404)
         })
     }
     fetch()
@@ -70,14 +72,14 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
 
   return (
     <div>
-      {showModal && (
-        <Modal setShowModal={setShowModal} title='ჯგუფის წევრები'>
-          <div className='h-[400px] flex items-center justify-center'>
-            <p className='text-center tracking-wider font-medium text-3xl'>{`${modalText} 🥳`}</p>
-          </div>
-        </Modal>
-      )}
-
+      <Notifications
+        action={props.action}
+        setShowErrorAlert={setShowErrorAlert}
+        setShowModal={setShowModal}
+        showModal={showModal}
+        showErrorAlert={showErrorAlert}
+        statusCode={statusCode}
+      />
       <form
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col justify-between'

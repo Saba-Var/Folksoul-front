@@ -1,6 +1,7 @@
 import { UserData } from 'pages/Login/components/types'
-import { InputField, ErrorAlert } from 'pages/Login/components'
+import { InputField } from 'pages/Login/components'
 import { useNavigate } from 'react-router-dom'
+import { ErrorAlert } from 'components'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import axios from 'axios'
@@ -53,7 +54,12 @@ function LoginForm() {
 
   return (
     <div className='flex items-center justify-center w-screen h-screen overflow-hidden'>
-      {showAlert && <ErrorAlert setShowAlert={setShowAlert} />}
+      {showAlert && (
+        <ErrorAlert
+          setShowAlert={setShowAlert}
+          title={'მეტსახელი ან პაროლი არასწორია!'}
+        />
+      )}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='bg-gradient-to-t from-[#7B5A5A] to-[#345161] w-96 h-[438px] border-[1px] border-white flex flex-col pb-14 pt-11 px-12 justify-between'

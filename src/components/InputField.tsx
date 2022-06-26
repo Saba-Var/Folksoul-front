@@ -43,7 +43,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         type={type}
         className={`${
           errors && '!bg-redSm'
-        } number bg-transparent h-14 border border-darkBlue font-BPG-Arial text-center text-darkBlue rounded-md outline-none text-base tracking-wider member-placeholder`}
+        } number bg-transparent h-14 border border-darkBlue font-BPG-Arial text-center text-darkBlue rounded-md outline-none text-base tracking-wider member-placeholder  `}
         placeholder={`${placeholder}`}
       />
       {errors && <p className='text-sm text-red'>{errors.message}</p>}
