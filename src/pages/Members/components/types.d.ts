@@ -83,3 +83,10 @@ export type NotificationsProps = {
   setShowErrorAlert: (show: boolean) => void
   statusCode: number
 }
+
+export type MemberInputsProps = {
+  id: string
+  setSection: (section: string) => void
+  setMembersData: any
+  setIsLoading: (loading: boolean) => void
+}

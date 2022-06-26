@@ -75,7 +75,7 @@ function Members() {
             setIsLoading={setIsLoading}
           />
         )}
-        {section === 'changeMember' && (
+        {section === 'MemberInputs' && (
           <ChangeMember
             id={memberId}
             setSection={setSection}

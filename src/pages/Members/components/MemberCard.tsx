@@ -22,7 +22,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         <GreenBtn />
         <div
           onClick={() => {
-            props.setSection('changeMember')
+            props.setSection('MemberInputs')
             props.setMemberId(props.id)
           }}
         >

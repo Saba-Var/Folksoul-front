@@ -33,4 +33,4 @@ export type InputFieldProps = {
   errors: any
 }
 
-export type addOrChangeMember = {}
+export type addOrMemberInputs = {}

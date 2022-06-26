@@ -1,19 +1,15 @@
-import { useEffect, useState } from 'react'
-import { Textarea, Notifications } from 'pages/Members/components'
-import { useForm } from 'react-hook-form'
-import { InputField, GoBackBtn } from 'components'
-import { fetchMembersData } from 'helper/index'
-import axios from 'axios'
+import { Notifications, MemberInputs } from 'pages/Members/components'
+import { MemberInputsProps } from 'pages/Members/components/types'
 import { useSearchParams } from 'react-router-dom'
+import { fetchMembersData } from 'helper/index'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { GoBackBtn } from 'components'
+import axios from 'axios'
 
-const ChangeMember: React.FC<{
-  id: string
-  setSection: (section: string) => void
-  setMembersData: any
-  setIsLoading: (loading: boolean) => void
-}> = (props) => {
-  const [pageParam] = useSearchParams()
-  const currentPage = +pageParam.get('page')!
+const ChangeMember: React.FC<MemberInputsProps> = (props) => {
+  const [page] = useSearchParams()
+  const { setMembersData, setIsLoading, id } = props
   const {
     register,
     handleSubmit,
@@ -22,31 +18,27 @@ const ChangeMember: React.FC<{
     formState: { errors },
   } = useForm({
     mode: 'all',
-    defaultValues: {
-      name: '',
-      color: '',
-      instrument: '',
-      biography: '',
-      orbitLength: '',
-    },
   })
+
   const [showModal, setShowModal] = useState(false)
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [statusCode, setStatusCode] = useState(404)
 
   useEffect(() => {
-    const data = {
-      id: props.id,
-    }
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
-    }
-    axios
-      .post('http://localhost:5000/get-one-member', data, {
-        headers: headers,
-      })
-      .then((response) => {
+    try {
+      const fetch = async () => {
+        const response = await axios.post(
+          'http://localhost:5000/get-one-member',
+          {
+            id: id,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+          }
+        )
         if (response.status === 200) {
           const data = response.data
           setValue('name', data.name)
@@ -55,49 +47,49 @@ const ChangeMember: React.FC<{
           setValue('orbitLength', data.orbitLength)
           setValue('biography', data.biography)
         }
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }, [props.id, setValue])
+      }
+      fetch()
+    } catch (error: any) {
+      alert(error.message)
+    }
+  }, [id, setValue])
 
   const submitHandler = () => {
-    setStatusCode(200)
-    const formData = watch()
-    const data = {
-      id: props.id,
-      name: formData.name,
-      instrument: formData.instrument,
-      color: formData.color,
-      orbitLength: formData.orbitLength,
-      biography: formData.biography,
-    }
+    try {
+      const fetch = async () => {
+        const { name, instrument, color, orbitLength, biography } = watch()
+        const data = {
+          id,
+          name,
+          instrument,
+          color,
+          orbitLength,
+          biography,
+        }
 
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
-    }
+        const response = await axios.put(
+          'http://localhost:5000/change-member',
+          data,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+          }
+        )
 
-    axios
-      .put('http://localhost:5000/change-member', data, {
-        headers: headers,
-      })
-      .then((response) => {
         if (response.status === 200) {
           setShowModal(true)
-          fetchMembersData(
-            props.setMembersData,
-            props.setIsLoading,
-            currentPage
-          )
+          fetchMembersData(setMembersData, setIsLoading, +page.get('page')!)
         }
-      })
-      .catch((error) => {
-        if (error.response.status === 409) {
-          setShowErrorAlert(true)
-          setStatusCode(409)
-        }
-      })
+      }
+      fetch()
+    } catch (error: any) {
+      if (error.response.status === 409) {
+        setShowErrorAlert(true)
+        setStatusCode(409)
+      }
+    }
   }
 
   return (
@@ -114,54 +106,7 @@ const ChangeMember: React.FC<{
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col justify-between'
       >
-        <div className='flex flex-col justify-between gap-2 4xl:gap-6'>
-          <div className='flex justify-center'>
-            <InputField
-              errors={errors.name}
-              inputName='name'
-              placeholder='სახელი'
-              register={register}
-              type='text'
-              minLength={3}
-            />
-          </div>
-          <div className='flex gap-8 justify-center'>
-            <InputField
-              errors={errors.instrument}
-              inputName='instrument'
-              placeholder='ინსტრუმენტი'
-              register={register}
-              type='text'
-              minLength={2}
-            />
-            <InputField
-              errors={errors.orbitLength}
-              inputName='orbitLength'
-              placeholder='ორბიტის სიგანე'
-              register={register}
-              type='number'
-            />
-            <InputField
-              errors={errors.color}
-              inputName='color'
-              placeholder='ფერი'
-              register={register}
-              type='text'
-            />
-          </div>
-          <Textarea
-            placeholder='ბექა, ბასზე ბასი ადამიანი ...'
-            errors={errors.biography}
-            inputName='biography'
-            register={register}
-          />
-        </div>
-        <button
-          type='submit'
-          className='blueBtn transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[15%] mb-2'
-        >
-          შეცვლა
-        </button>
+        <MemberInputs errors={errors} register={register} title='შეცვლა' />
       </form>
       <GoBackBtn title='გადი უკან' direction={props.setSection} goTo={''} />
     </div>

@@ -1,10 +1,10 @@
 import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
-import { Textarea, Notifications } from 'pages/Members/components'
-import { InputField, GoBackBtn } from 'components'
+import { Notifications, MemberInputs } from 'pages/Members/components'
 import { useSearchParams } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { GoBackBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -84,54 +84,11 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col justify-between'
       >
-        <div className='flex flex-col justify-between gap-2 4xl:gap-6'>
-          <div className='flex justify-center'>
-            <InputField
-              errors={errors.name}
-              inputName='name'
-              placeholder='სახელი'
-              register={register}
-              type='text'
-              minLength={3}
-            />
-          </div>
-          <div className='flex gap-8 justify-center'>
-            <InputField
-              errors={errors.instrument}
-              inputName='instrument'
-              placeholder='ინსტრუმენტი'
-              register={register}
-              type='text'
-              minLength={2}
-            />
-            <InputField
-              errors={errors.orbitLength}
-              inputName='orbitLength'
-              placeholder='ორბიტის სიგანე'
-              register={register}
-              type='number'
-            />
-            <InputField
-              errors={errors.color}
-              inputName='color'
-              placeholder='ფერი'
-              register={register}
-              type='text'
-            />
-          </div>
-          <Textarea
-            placeholder='ბექა, ბასზე ბასი ადამიანი ...'
-            errors={errors.biography}
-            inputName='biography'
-            register={register}
-          />
-        </div>
-        <button
-          type='submit'
-          className='blueBtn transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[15%] mb-2'
-        >
-          დაამატე წევრი
-        </button>
+        <MemberInputs
+          errors={errors}
+          register={register}
+          title='დაამატე წევრი'
+        />
       </form>
       <GoBackBtn title='გადი უკან' direction={props.setSection} goTo={''} />
     </div>
