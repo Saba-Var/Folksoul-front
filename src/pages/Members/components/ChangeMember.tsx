@@ -34,7 +34,6 @@ const ChangeMember: React.FC<MemberInputsProps> = (props) => {
           },
           {
             headers: {
-              'Content-Type': 'application/json',
               Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
           }

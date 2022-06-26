@@ -57,6 +57,12 @@ export type MemberIfo = {
   orbitLength: string | number
 }
 
+export type DetailModal = {
+  currentMember: MemberIfo
+  avatar: string
+  setMemberModal: (show: boolean) => void
+}
+
 export type MemberDetails = {
   setSection: (section: string) => void
   action: string
