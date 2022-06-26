@@ -3,6 +3,8 @@ import { MemberData } from 'types'
 type fetchUtilities = { setMembersData: any; setIsLoading: any }
 
 export type CardData = {
+  setSection?: (section: string) => void
+  setMemberId?: (show: string) => void
   data: MemberData
   fetchUtilities: fetchUtilities
 }
@@ -22,6 +24,8 @@ export type MembersInfo = {
 }[]
 
 export type MemberCardProps = {
+  setSection: (section: string) => void
+  setMemberId: (show: string) => void
   membersData: MembersInfo
   fetchUtilities: fetchUtilities
   id: string
@@ -37,6 +41,7 @@ export type DeleteDialogProps = {
 }
 
 export type AddMemberProps = {
+  setSection: (section: string) => void
   membersData: MembersInfo
   memberCount: number
   setAddMember: (add: boolean) => void
@@ -53,6 +58,7 @@ export type MemberIfo = {
 }
 
 export type MemberDetails = {
+  setSection: (section: string) => void
   action: string
   membersData: MembersInfo
   setAddMember: (add: boolean) => void

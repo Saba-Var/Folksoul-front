@@ -20,7 +20,14 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       </p>
       <div className='flex justify-between shadow-5xl items-center px-[10%] h-10 border-t-[1px] border-black'>
         <GreenBtn />
-        <YellowBtn />
+        <div
+          onClick={() => {
+            props.setSection('changeMember')
+            props.setMemberId(props.id)
+          }}
+        >
+          <YellowBtn />
+        </div>
         <DeleteMember
           userId={props.id}
           fetchUtilities={fetchUtilities}

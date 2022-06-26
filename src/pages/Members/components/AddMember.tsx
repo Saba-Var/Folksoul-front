@@ -15,6 +15,7 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
   return (
     <>
       <MemberForm
+        setSection={props.setSection}
         action='ADD'
         membersData={membersData}
         setMembersData={setMembersData}

@@ -1,79 +1,109 @@
-import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
+import { useEffect, useState } from 'react'
 import { Textarea, Notifications } from 'pages/Members/components'
-import { InputField, GoBackBtn } from 'components'
-import { useSearchParams } from 'react-router-dom'
-import { fetchMembersData } from 'helper/index'
-import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import { InputField, GoBackBtn } from 'components'
+import { fetchMembersData } from 'helper/index'
 import axios from 'axios'
+import { useSearchParams } from 'react-router-dom'
 
-const MemberForm: React.FC<MemberDetails> = (props) => {
-  const { membersData, details, url, setMembersData, setIsLoading } = props
-  const [showModal, setShowModal] = useState(false)
-  const [statusCode, setStatusCode] = useState(404)
-  const [showErrorAlert, setShowErrorAlert] = useState(false)
-
-  const navigate = useNavigate()
+const ChangeMember: React.FC<{
+  id: string
+  setSection: (section: string) => void
+  setMembersData: any
+  setIsLoading: (loading: boolean) => void
+}> = (props) => {
   const [pageParam] = useSearchParams()
   const currentPage = +pageParam.get('page')!
-  let fetchPage = currentPage
-  if (membersData.length === 3) fetchPage = currentPage + 1
-
   const {
     register,
     handleSubmit,
     setValue,
-    setError,
+    watch,
     formState: { errors },
   } = useForm({
     mode: 'all',
-    defaultValues: details,
+    defaultValues: {
+      name: '',
+      color: '',
+      instrument: '',
+      biography: '',
+      orbitLength: '',
+    },
   })
+  const [showModal, setShowModal] = useState(false)
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
+  const [statusCode, setStatusCode] = useState(404)
 
-  const submitHandler = (data: MemberIfo) => {
-    const memberDetails = data
-    memberDetails.orbitLength = +memberDetails.orbitLength
-
-    const fetch = async () => {
-      axios({
-        method: 'post',
-        url: url,
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-        data: memberDetails,
-      })
-        .then((res) => {
-          if (res.status === 201) {
-            setValue('name', '')
-            setValue('biography', '')
-            setValue('color', '')
-            setValue('orbitLength', '')
-            setValue('instrument', '')
-            fetchMembersData(setMembersData, setIsLoading, fetchPage)
-            navigate(`/Dashboard/Members?page=${fetchPage}`)
-            setShowModal(true)
-            setShowErrorAlert(false)
-          }
-        })
-        .catch((err) => {
-          setError('name', {
-            type: 'costum',
-          })
-          setShowErrorAlert(true)
-          const statusCode = err.response.status
-          if (statusCode === 409) setStatusCode(409)
-          if (statusCode === 404) setStatusCode(404)
-        })
+  useEffect(() => {
+    const data = {
+      id: props.id,
     }
-    fetch()
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+    }
+    axios
+      .post('http://localhost:5000/get-one-member', data, {
+        headers: headers,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          const data = response.data
+          setValue('name', data.name)
+          setValue('instrument', data.instrument)
+          setValue('color', data.color)
+          setValue('orbitLength', data.orbitLength)
+          setValue('biography', data.biography)
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, [props.id, setValue])
+
+  const submitHandler = () => {
+    setStatusCode(200)
+    const formData = watch()
+    const data = {
+      id: props.id,
+      name: formData.name,
+      instrument: formData.instrument,
+      color: formData.color,
+      orbitLength: formData.orbitLength,
+      biography: formData.biography,
+    }
+
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+    }
+
+    axios
+      .put('http://localhost:5000/change-member', data, {
+        headers: headers,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          setShowModal(true)
+          fetchMembersData(
+            props.setMembersData,
+            props.setIsLoading,
+            currentPage
+          )
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 409) {
+          setShowErrorAlert(true)
+          setStatusCode(409)
+        }
+      })
   }
 
   return (
     <div>
       <Notifications
-        action={props.action}
+        action={'CHANGE'}
         setShowErrorAlert={setShowErrorAlert}
         setShowModal={setShowModal}
         showModal={showModal}
@@ -130,7 +160,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
           type='submit'
           className='blueBtn transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[15%] mb-2'
         >
-          დაამატე წევრი
+          შეცვლა
         </button>
       </form>
       <GoBackBtn title='გადი უკან' direction={props.setSection} goTo={''} />
@@ -138,4 +168,4 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
   )
 }
 
-export default MemberForm
+export default ChangeMember

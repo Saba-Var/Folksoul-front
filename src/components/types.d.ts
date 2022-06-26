@@ -19,9 +19,9 @@ export type ModalProps = {
 }
 
 export type GoBackBtnProps = {
-  goTo: boolean
+  goTo: string
   title: string
-  direction: (add: boolean) => void
+  direction: (add: string) => void
 }
 
 export type InputFieldProps = {
