@@ -19,7 +19,7 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
             <img
               src={props.avatar}
               alt='avatar icon'
-              className={`${image && 'w-36 h-36'}`}
+              className={`${image && 'w-full h-full'}`}
             />
           </div>
         </div>

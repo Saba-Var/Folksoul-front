@@ -31,6 +31,7 @@ function Members() {
   const [addMember, setAddMember] = useState<boolean>(false)
   const [memberId, setMemberId] = useState<string>('')
   const [section, setSection] = useState('')
+
   let emptyBand = membersData.paginationInfo.totalMembers === 0
 
   useEffect(() => {
@@ -52,6 +53,7 @@ function Members() {
         {notFound && section === '' && <NoMembers />}
         {!notFound && !addMember && section === '' && (
           <Cards
+            setIsLoading={setIsLoading}
             setSection={setSection}
             fetchUtilities={fetchUtilities}
             data={membersData!}

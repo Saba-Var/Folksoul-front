@@ -28,7 +28,11 @@
   }
 
   .blueBtn {
-    @apply bg-darkGreen h-12 text-center tracking-widest text-contentWhite font-bold rounded-md;
+    @apply hover:scale-105 transition-transform cursor-pointer bg-darkGreen h-12 text-center tracking-widest text-contentWhite font-bold rounded-md;
+  }
+
+  .greenBtn {
+    @apply bg-green px-8 py-3 hover:scale-105 transition-transform  text-contentWhite rounded-md font-BPG-Nino-Mtavruli tracking-wider text-lg;
   }
 
   .bgTextarea {
@@ -38,5 +42,9 @@
   input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
+  }
+
+  input[type='file'] {
+    display: none;
   }
 }

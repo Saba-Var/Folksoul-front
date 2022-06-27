@@ -1,11 +1,13 @@
 import { DeleteMember, DetailsModal } from 'pages/Members/components'
 import { MemberCardProps } from 'pages/Members/components/types'
 import { GreenBtn, YellowBtn, CameraBtn } from 'components/svgs'
+import { AvatarModal } from 'components'
 import { useState } from 'react'
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
   const { setMembersData, setIsLoading } = props.fetchUtilities
   const [memberModal, setMemberModal] = useState(false)
+  const [avatarModal, setAvatarModal] = useState(false)
   const fetchUtilities = { setMembersData, setIsLoading }
   const { membersData, id, avatar, name } = props
   const currentMember = membersData.find((member) => member._id === id)
@@ -30,11 +32,24 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             src={imageUrl}
             alt='avatar icon'
             className={`top-[131px] ${
-              currentMember?.image && 'w-36 h-36 rounded-full'
+              currentMember?.image && 'w-full h-full rounded-full'
             }`}
           />
         </div>
-        <CameraBtn />
+        <div onClick={() => setAvatarModal(true)}>
+          <CameraBtn />
+        </div>
+        {avatarModal && (
+          <AvatarModal
+            setIsLoading={props.setIsLoading}
+            setMembersData={setMembersData}
+            id={id}
+            url='http://localhost:5000/upload-member-image'
+            avatar={imageUrl}
+            currentMember={currentMember}
+            setAvatarModal={setAvatarModal}
+          />
+        )}
       </div>
       <p className='text-white text-lg font-BPG-Nino-Mtavruli text-center tracking-widest'>
         {name}

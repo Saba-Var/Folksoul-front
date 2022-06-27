@@ -2,7 +2,7 @@ function CameraBtn() {
   return (
     <svg
       width='37'
-      className='cursor-pointer absolute top-[102px] right-0'
+      className='cursor-pointer absolute top-[102px] right-0 hover:scale-105 transition-transform'
       height='37'
       viewBox='0 0 37 37'
       fill='none'

@@ -4,6 +4,7 @@ export { default as MemberCard } from './MemberCard'
 export { default as AddMember } from './AddMember'
 export { default as ChangeMember } from './ChangeMember'
 export { default as DetailsModal } from './DetailsModal'
+
 export { default as MemberInputs } from './MemberInputs'
 export { default as Notifications } from './Notifications'
 export { default as Textarea } from './Textarea'

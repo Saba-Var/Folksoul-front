@@ -3,6 +3,7 @@ import { MemberData } from 'types'
 type fetchUtilities = { setMembersData: any; setIsLoading: any }
 
 export type CardData = {
+  setIsLoading?: (loading: boolean) => void
   setSection?: (section: string) => void
   setMemberId?: (show: string) => void
   data: MemberData
@@ -25,6 +26,7 @@ export type MembersInfo = {
 }[]
 
 export type MemberCardProps = {
+  setIsLoading: (loading: boolean) => void
   setSection: (section: string) => void
   setMemberId: (show: string) => void
   membersData: MembersInfo
@@ -63,6 +65,16 @@ export type DetailModal = {
   currentMember: MemberIfo
   avatar: string
   setMemberModal: (show: boolean) => void
+}
+
+export type AvatarModalProps = {
+  url: string
+  setIsLoading: (loading: boolean) => void
+  setMembersData: any
+  id: string
+  currentMember: MemberIfo | undefined
+  avatar: string
+  setAvatarModal: (show: boolean) => void
 }
 
 export type MemberDetails = {
