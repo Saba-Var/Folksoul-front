@@ -17,7 +17,10 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
     >
       <div className='w-36 h-36 mx-auto relative'>
         <div
-          className={`border border-white w-36 h-36 rounded-full flex justify-center items-center  bg-darkBlue`}
+          className={`border border-white w-36 h-36 rounded-full flex justify-center items-center `}
+          style={{
+            backgroundColor: `${!currentMember?.image && currentMember?.color}`,
+          }}
         >
           <img src={avatar} alt='avatar icon' className='top-[131px]' />
         </div>

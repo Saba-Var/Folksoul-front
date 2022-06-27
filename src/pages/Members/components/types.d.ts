@@ -21,6 +21,7 @@ export type MembersInfo = {
   name: string
   orbitLength: number
   _id: string
+  image?: string
 }[]
 
 export type MemberCardProps = {
