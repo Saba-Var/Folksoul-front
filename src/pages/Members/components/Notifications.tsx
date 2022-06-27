@@ -23,6 +23,7 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
           </div>
         </Modal>
       )}
+
       {showErrorAlert && (
         <ErrorAlert
           setShowAlert={setShowErrorAlert}

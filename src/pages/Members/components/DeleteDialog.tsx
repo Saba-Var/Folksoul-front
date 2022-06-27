@@ -1,13 +1,14 @@
 import { DeleteDialogProps } from 'pages/Members/components/types'
-import axios from 'axios'
 import fetchMembersData from 'helper/fetchMembersData'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
-  const navigate = useNavigate()
-  const [pageParam] = useSearchParams()
   const { setMembersData, setIsLoading } = props.fetchUtilities
+  const navigate = useNavigate()
+
+  const [pageParam] = useSearchParams()
   const currentPage = +pageParam.get('page')!
   let fetchPage = currentPage
 
@@ -27,6 +28,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
             id: props.userId,
           },
         })
+
         if (res.status === 200) {
           closeModal()
           fetchMembersData(setMembersData, setIsLoading, fetchPage)

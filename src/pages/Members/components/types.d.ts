@@ -15,6 +15,8 @@ export type PaginationLinkProps = {
   page: number
 }
 
+export type InputsProps = { errors: any; register: any; title: string }
+
 export type MembersInfo = {
   biography: string
   color: string
@@ -77,6 +79,15 @@ export type AvatarModalProps = {
   setAvatarModal: (show: boolean) => void
 }
 
+export type DeleteMemberProps = {
+  userId: string
+  fetchUtilities: {
+    setMembersData: any
+    setIsLoading: any
+  }
+  membersData: MembersInfo
+}
+
 export type MemberDetails = {
   setSection: (section: string) => void
   action: string
@@ -104,7 +115,7 @@ export type NotificationsProps = {
   statusCode: number
 }
 
-export type MemberInputsProps = {
+export type MemberInputProps = {
   id: string
   setSection: (section: string) => void
   setMembersData: any

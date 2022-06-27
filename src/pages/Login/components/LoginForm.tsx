@@ -1,15 +1,16 @@
 import { UserData } from 'pages/Login/components/types'
 import { InputField } from 'pages/Login/components'
 import { useNavigate } from 'react-router-dom'
-import { ErrorAlert } from 'components'
 import { useForm } from 'react-hook-form'
+import { ErrorAlert } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 
 function LoginForm() {
   const navigate = useNavigate()
-  const [showError, setShowError] = useState<boolean>(false)
-  const [showAlert, setShowAlert] = useState<boolean>(false)
+
+  const [showError, setShowError] = useState(false)
+  const [showAlert, setShowAlert] = useState(false)
 
   const {
     register,
@@ -48,9 +49,7 @@ function LoginForm() {
     }
   }
 
-  const clickHandler = () => {
-    if (!showError) setShowError(true)
-  }
+  const clickHandler = () => !showError && setShowError(true)
 
   return (
     <div className='flex items-center justify-center w-screen h-screen overflow-hidden'>
@@ -60,6 +59,7 @@ function LoginForm() {
           title={'მეტსახელი ან პაროლი არასწორია!'}
         />
       )}
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='bg-gradient-to-t from-[#7B5A5A] to-[#345161] w-96 h-[438px] border-[1px] border-white flex flex-col pb-14 pt-11 px-12 justify-between'

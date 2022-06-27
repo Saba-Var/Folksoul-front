@@ -1,15 +1,16 @@
 import axios from 'axios'
+import { changeMemberParams } from 'helper/types'
 import { fetchMembersData } from 'helper/index'
 
-const changeMember = (
-  data: any,
-  setShowModal: (show: boolean) => void,
-  setMembersData: any,
-  setIsLoading: (loading: boolean) => void,
-  page: number,
-  setShowErrorAlert: (show: boolean) => void,
-  setStatusCode: (status: number) => void
-) => {
+function changeMember({
+  data,
+  setShowModal,
+  setMembersData,
+  setIsLoading,
+  page,
+  setShowErrorAlert,
+  setStatusCode,
+}: changeMemberParams) {
   try {
     const headers = {
       'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 import { Notifications, MemberInputs } from 'pages/Members/components'
-import { MemberInputsProps } from 'pages/Members/components/types'
+import { MemberInputProps } from 'pages/Members/components/types'
 import { useSearchParams } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
@@ -7,9 +7,10 @@ import { useForm } from 'react-hook-form'
 import { GoBackBtn } from 'components'
 import axios from 'axios'
 
-const ChangeMember: React.FC<MemberInputsProps> = (props) => {
-  const [page] = useSearchParams()
+const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const { setMembersData, setIsLoading, id } = props
+  const [page] = useSearchParams()
+
   const {
     register,
     handleSubmit,
@@ -20,8 +21,8 @@ const ChangeMember: React.FC<MemberInputsProps> = (props) => {
     mode: 'all',
   })
 
-  const [showModal, setShowModal] = useState(false)
   const [showErrorAlert, setShowErrorAlert] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const [statusCode, setStatusCode] = useState(404)
 
   useEffect(() => {
@@ -57,6 +58,7 @@ const ChangeMember: React.FC<MemberInputsProps> = (props) => {
     try {
       const fetch = async () => {
         const { name, instrument, color, orbitLength, biography } = watch()
+
         const data = {
           id,
           name,

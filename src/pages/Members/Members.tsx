@@ -1,13 +1,13 @@
+import { SectionWrapper, GoBackBtn } from 'components'
+import { fetchMembersData } from 'helper/index'
+import { useEffect, useState } from 'react'
+import { MemberData } from '../../types'
 import {
   NoMembers,
   Cards,
   AddMember,
   ChangeMember,
 } from 'pages/Members/components'
-import { SectionWrapper, GoBackBtn } from 'components'
-import { fetchMembersData } from 'helper/index'
-import { useEffect, useState } from 'react'
-import { MemberData } from '../../types'
 
 const memberModel = {
   members: [
@@ -27,9 +27,9 @@ const memberModel = {
 
 function Members() {
   const [membersData, setMembersData] = useState<MemberData>(memberModel)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [addMember, setAddMember] = useState<boolean>(false)
-  const [memberId, setMemberId] = useState<string>('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [addMember, setAddMember] = useState(false)
+  const [memberId, setMemberId] = useState('')
   const [section, setSection] = useState('')
 
   let emptyBand = membersData.paginationInfo.totalMembers === 0

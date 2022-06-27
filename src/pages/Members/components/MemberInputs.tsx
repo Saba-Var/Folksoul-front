@@ -1,9 +1,8 @@
-import { InputField } from 'components'
+import { InputsProps } from 'pages/Members/components/types'
 import { Textarea } from 'pages/Members/components'
+import { InputField } from 'components'
 
-const MemberInputs: React.FC<{ errors: any; register: any; title: string }> = (
-  props
-) => {
+const MemberInputs: React.FC<InputsProps> = (props) => {
   const { errors, register } = props
   return (
     <>

@@ -1,5 +1,5 @@
-import { PurpleBackground } from 'components'
 import { LoginForm } from 'pages/Login/components'
+import { PurpleBackground } from 'components'
 
 function Login() {
   return (

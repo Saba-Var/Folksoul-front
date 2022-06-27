@@ -1,11 +1,12 @@
+import { Pagination, MemberCard } from 'pages/Members/components'
 import { avatar1, avatar2, avatar3 } from 'assets/images'
 import { CardData } from './types'
-import { Pagination, MemberCard } from 'pages/Members/components'
 
 const Card: React.FC<CardData> = (props) => {
-  const { data } = props
   const { setMembersData, setIsLoading } = props.fetchUtilities
   const fetchUtilities = { setMembersData, setIsLoading }
+
+  const { data } = props
   const membersOnPage = data.members.length
 
   return (
@@ -36,6 +37,7 @@ const Card: React.FC<CardData> = (props) => {
             )
           })}
       </div>
+
       {props.data.paginationInfo.totalMembers > 3 && (
         <Pagination data={props.data} fetchUtilities={fetchUtilities} />
       )}

@@ -1,10 +1,18 @@
-import { Link } from 'react-router-dom'
-import fetchMembersData from 'helper/fetchMembersData'
 import { PaginationLinkProps } from 'pages/Members/components/types'
+import fetchMembersData from 'helper/fetchMembersData'
 import { useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const PaginationLink: React.FC<PaginationLinkProps> = (props) => {
   const [pageParam] = useSearchParams()
+
+  const clickHandler = () => {
+    fetchMembersData(
+      props.fetchUtilities.setMembersData,
+      props.fetchUtilities.setIsLoading,
+      props.page
+    )
+  }
 
   return (
     <Link
@@ -12,13 +20,7 @@ const PaginationLink: React.FC<PaginationLinkProps> = (props) => {
         pageParam.get('page') === props.page + '' && 'bg-goodGray'
       }`}
       to={`/Dashboard/Members?page=${props.page}`}
-      onClick={() =>
-        fetchMembersData(
-          props.fetchUtilities.setMembersData,
-          props.fetchUtilities.setIsLoading,
-          props.page
-        )
-      }
+      onClick={clickHandler}
     />
   )
 }

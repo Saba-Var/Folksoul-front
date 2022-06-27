@@ -1,12 +1,14 @@
 import { GoBackBtnProps } from 'components/types'
 
 const GoBackBtn: React.FC<GoBackBtnProps> = (props) => {
+  const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    props.direction(props.goTo)
+  }
+
   return (
     <button
-      onClick={(e: any) => {
-        e.preventDefault()
-        props.direction(props.goTo)
-      }}
+      onClick={clickHandler}
       className='backLink block mx-auto transition-transform hover:scale-105'
     >
       {props.title}

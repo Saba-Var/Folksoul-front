@@ -1,5 +1,5 @@
-import { WhiteWrapper } from 'components'
 import { SectionWrapperProps } from 'components/types'
+import { WhiteWrapper } from 'components'
 
 const SectionWrapper: React.FC<SectionWrapperProps> = (props) => {
   return (

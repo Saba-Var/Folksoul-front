@@ -1,13 +1,16 @@
-import { useState } from 'react'
 import { CloseIcon } from 'pages/Login/components/index'
 import { ErrorIcon } from 'components/svgs'
+import { ErrorAlertProps } from 'components/types'
+import { useState } from 'react'
 
-const ErrorAlert: React.FC<{
-  setShowAlert: (show: boolean) => void
-  title: string
-  styles?: string
-}> = (props) => {
+const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
   const [exit, setExit] = useState<boolean>(false)
+  const clickHandler = () => {
+    setExit(true)
+    setTimeout(() => {
+      props.setShowAlert(false)
+    }, 1600)
+  }
 
   return (
     <div
@@ -21,15 +24,7 @@ const ErrorAlert: React.FC<{
           </span>
           <strong className=' font-bold text-red mr-1'>{props.title}</strong>
 
-          <span
-            className='ml-1 inline-block'
-            onClick={() => {
-              setExit(true)
-              setTimeout(() => {
-                props.setShowAlert(false)
-              }, 1600)
-            }}
-          >
+          <span className='ml-1 inline-block' onClick={clickHandler}>
             <CloseIcon />
           </span>
         </div>

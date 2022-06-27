@@ -18,6 +18,12 @@ export type ModalProps = {
   setShowModal: (show: boolean) => void
 }
 
+export type ErrorAlertProps = {
+  setShowAlert: (show: boolean) => void
+  title: string
+  styles?: string
+}
+
 export type GoBackBtnProps = {
   goTo: string
   title: string

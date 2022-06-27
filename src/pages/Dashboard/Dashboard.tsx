@@ -1,5 +1,5 @@
-import { PurpleBackground } from 'components'
 import { Navigation } from 'pages/Dashboard/components/index'
+import { PurpleBackground } from 'components'
 import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 

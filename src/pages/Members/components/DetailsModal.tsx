@@ -1,9 +1,10 @@
-import { Modal } from 'components'
 import { DetailModal } from 'pages/Members/components/types'
+import { Modal } from 'components'
 
 const DetailsModal: React.FC<DetailModal> = (props) => {
   const { name, instrument, orbitLength, biography, image } =
     props.currentMember
+
   return (
     <Modal title={`${name}~${instrument}`} setShowModal={props.setMemberModal}>
       <div

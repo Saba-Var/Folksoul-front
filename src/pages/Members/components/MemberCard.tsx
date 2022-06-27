@@ -6,10 +6,12 @@ import { useState } from 'react'
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
   const { setMembersData, setIsLoading } = props.fetchUtilities
+  const { membersData, id, avatar, name } = props
+
   const [memberModal, setMemberModal] = useState(false)
   const [avatarModal, setAvatarModal] = useState(false)
+
   const fetchUtilities = { setMembersData, setIsLoading }
-  const { membersData, id, avatar, name } = props
   const currentMember = membersData.find((member) => member._id === id)
 
   const imageUrl = currentMember?.image
@@ -36,9 +38,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             }`}
           />
         </div>
+
         <div onClick={() => setAvatarModal(true)}>
           <CameraBtn />
         </div>
+
         {avatarModal && (
           <AvatarModal
             setIsLoading={props.setIsLoading}
@@ -54,6 +58,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       <p className='text-white text-lg font-BPG-Nino-Mtavruli text-center tracking-widest'>
         {name}
       </p>
+
       <div className='flex justify-between shadow-5xl items-center px-[10%] h-10 border-t-[1px] border-black'>
         <div onClick={() => setMemberModal(true)}>
           <GreenBtn />
@@ -65,6 +70,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             setMemberModal={setMemberModal}
           />
         )}
+
         <div
           onClick={() => {
             props.setSection('MemberInputs')
@@ -73,6 +79,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         >
           <YellowBtn />
         </div>
+
         <DeleteMember
           userId={id}
           fetchUtilities={fetchUtilities}

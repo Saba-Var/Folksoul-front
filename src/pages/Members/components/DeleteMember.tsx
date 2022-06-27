@@ -1,21 +1,16 @@
-import { RedBtn } from 'components/svgs'
-import { useState } from 'react'
-import { Modal } from 'components'
+import { DeleteMemberProps } from 'pages/Members/components/types'
 import { DeleteDialog } from 'pages/Members/components'
-import { MembersInfo } from 'pages/Members/components/types'
+import { RedBtn } from 'components/svgs'
+import { Modal } from 'components'
+import { useState } from 'react'
 
-const DeleteMember: React.FC<{
-  userId: string
-  fetchUtilities: {
-    setMembersData: any
-    setIsLoading: any
-  }
-  membersData: MembersInfo
-}> = (props) => {
+const DeleteMember: React.FC<DeleteMemberProps> = (props) => {
   const [showModal, setShowModal] = useState(false)
 
   const { setMembersData, setIsLoading } = props.fetchUtilities
   const fetchUtilities = { setMembersData, setIsLoading }
+
+  const clickHandler = () => setShowModal(true)
 
   return (
     <div>
@@ -29,7 +24,8 @@ const DeleteMember: React.FC<{
           />
         </Modal>
       )}
-      <div onClick={() => setShowModal(true)}>
+
+      <div onClick={clickHandler}>
         <RedBtn />
       </div>
     </div>

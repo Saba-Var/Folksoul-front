@@ -1,3 +1,6 @@
+import { NavigationProps } from 'pages/Dashboard/components/types'
+import { Section } from 'pages/Dashboard/components/index'
+import React from 'react'
 import {
   HomeIcon,
   LogOutIcon,
@@ -5,9 +8,6 @@ import {
   NoteIcon,
   YoutubeIcon,
 } from 'components/svgs'
-import { Section } from 'pages/Dashboard/components/index'
-import React from 'react'
-import { NavigationProps } from 'pages/Dashboard/components/types'
 
 const Navigation: React.FC<NavigationProps> = (props) => {
   const { section, setSection } = props

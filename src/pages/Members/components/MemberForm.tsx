@@ -10,9 +10,9 @@ import axios from 'axios'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
   const { membersData, details, url, setMembersData, setIsLoading } = props
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [statusCode, setStatusCode] = useState(404)
-  const [showErrorAlert, setShowErrorAlert] = useState(false)
 
   const navigate = useNavigate()
   const [pageParam] = useSearchParams()
@@ -61,8 +61,10 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         setError('name', {
           type: 'costum',
         })
+
         setShowErrorAlert(true)
         const statusCode = error.response.status
+
         if (statusCode === 409) setStatusCode(409)
         if (statusCode === 404) setStatusCode(404)
       }
@@ -80,6 +82,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         showErrorAlert={showErrorAlert}
         statusCode={statusCode}
       />
+
       <form
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col justify-between'
@@ -90,7 +93,8 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
           title='დაამატე წევრი'
         />
       </form>
-      <GoBackBtn title='გადი უკან' direction={props.setSection} goTo={''} />
+
+      <GoBackBtn title='გადი უკან' direction={props.setSection} goTo='' />
     </div>
   )
 }
