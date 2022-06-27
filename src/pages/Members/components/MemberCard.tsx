@@ -10,6 +10,10 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
   const { membersData, id, avatar, name } = props
   const currentMember = membersData.find((member) => member._id === id)
 
+  const imageUrl = currentMember?.image
+    ? `http://localhost:5000/${currentMember.image}`
+    : avatar
+
   return (
     <div
       key={id}
@@ -22,7 +26,13 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             backgroundColor: `${!currentMember?.image && currentMember?.color}`,
           }}
         >
-          <img src={avatar} alt='avatar icon' className='top-[131px]' />
+          <img
+            src={imageUrl}
+            alt='avatar icon'
+            className={`top-[131px] ${
+              currentMember?.image && 'w-36 h-36 rounded-full'
+            }`}
+          />
         </div>
         <CameraBtn />
       </div>
@@ -35,7 +45,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         </div>
         {memberModal && (
           <DetailsModal
-            avatar={avatar}
+            avatar={imageUrl}
             currentMember={currentMember!}
             setMemberModal={setMemberModal}
           />

@@ -56,6 +56,7 @@ export type MemberIfo = {
   instrument: string
   name: string
   orbitLength: string | number
+  image?: string
 }
 
 export type DetailModal = {
