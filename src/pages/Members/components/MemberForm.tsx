@@ -17,7 +17,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
   const navigate = useNavigate()
   const [pageParam] = useSearchParams()
   const currentPage = +pageParam.get('page')!
-  let fetchPage = currentPage
+  let fetchPage = currentPage || 1
   if (membersData.length === 3) fetchPage = currentPage + 1
 
   const {

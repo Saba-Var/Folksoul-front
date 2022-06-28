@@ -50,7 +50,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
       <div className={`h-[500px]`}>
         {errorAlert && (
           <ErrorAlert
-            styles='top-[-11%] left-[28%]'
+            styles='top-[-12%] left-[28%]'
             title='ატვირთეთ მხოლოდ სურათი'
             setShowAlert={setErrorAlert}
           />

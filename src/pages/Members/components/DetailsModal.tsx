@@ -12,7 +12,7 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
       >
         <div className='flex justify-center mb-4 mt-4'>
           <div
-            className={`border bg-darkBlue shadow-5xl border-white w-36 h-36 rounded-full flex justify-center items-center overflow-hidden`}
+            className={`border bg-darkGray shadow-5xl border-white w-36 h-36 rounded-full flex justify-center items-center overflow-hidden`}
             style={{
               backgroundColor: `${!image && props.currentMember?.color}`,
             }}

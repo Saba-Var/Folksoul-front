@@ -55,42 +55,36 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   }, [id, setValue])
 
   const submitHandler = () => {
-    try {
-      const fetch = async () => {
-        const { name, instrument, color, orbitLength, biography } = watch()
+    const { name, instrument, color, orbitLength, biography } = watch()
 
-        const data = {
-          id,
-          name,
-          instrument,
-          color,
-          orbitLength,
-          biography,
-        }
+    const data = {
+      id,
+      name,
+      instrument,
+      color,
+      orbitLength,
+      biography,
+    }
 
-        const response = await axios.put(
-          'http://localhost:5000/change-member',
-          data,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + localStorage.getItem('token'),
-            },
-          }
-        )
-
+    axios
+      .put('http://localhost:5000/change-member', data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      })
+      .then((response) => {
         if (response.status === 200) {
           setShowModal(true)
           fetchMembersData(setMembersData, setIsLoading, +page.get('page')!)
         }
-      }
-      fetch()
-    } catch (error: any) {
-      if (error.response.status === 409) {
-        setShowErrorAlert(true)
-        setStatusCode(409)
-      }
-    }
+      })
+      .catch((error) => {
+        if (error.response.status === 409) {
+          setStatusCode(409)
+          setShowErrorAlert(true)
+        }
+      })
   }
 
   return (
@@ -103,12 +97,14 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         showErrorAlert={showErrorAlert}
         statusCode={statusCode}
       />
+
       <form
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col justify-between'
       >
         <MemberInputs errors={errors} register={register} title='შეცვლა' />
       </form>
+
       <GoBackBtn title='გადი უკან' direction={props.setSection} goTo={''} />
     </div>
   )
