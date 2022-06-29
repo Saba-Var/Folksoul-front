@@ -35,7 +35,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             alt='avatar icon'
             className={`top-[131px] ${
               currentMember?.image && 'w-full h-full rounded-full'
-            }`}
+            } animate-fade-in`}
           />
         </div>
 
@@ -55,12 +55,12 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
           />
         )}
       </div>
-      <p className='text-white text-lg font-BPG-Nino-Mtavruli text-center tracking-widest'>
+      <p className='text-white text-lg animate-fade-in font-BPG-Nino-Mtavruli text-center tracking-widest'>
         {name}
       </p>
 
       <div className='flex justify-between shadow-5xl items-center px-[10%] h-10 border-t-[1px] border-black'>
-        <div onClick={() => setMemberModal(true)}>
+        <div onClick={() => setMemberModal(true)} className='animate-fade-in'>
           <GreenBtn />
         </div>
         {memberModal && (
@@ -76,6 +76,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             props.setSection('MemberInputs')
             props.setMemberId(id)
           }}
+          className='animate-fade-in'
         >
           <YellowBtn />
         </div>

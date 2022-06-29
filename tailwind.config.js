@@ -11,10 +11,104 @@ module.exports = {
         '5xl': '1900px',
       },
       animation: {
+        'text-focus-in':
+          'text-focus-in 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'jello-horizontal': 'jello-horizontal 0.8s ease   both',
+        'fade-in': 'fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both',
+        'fade-in2':
+          'fade-in2 1s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both',
+        'tracking-in-expand':
+          'tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000)   both',
         'bounce-in-top': 'bounce-in-top   1.2s ease-in both',
-        'bounce-out-top': 'bounce-out-top 1.5s ease   both',
+        'bounce-out-top': 'bounce-out-top 1.5s ease both',
+        'slit-in-vertical': 'slit-in-vertical 0.45s ease   both',
+        'slide-in-elliptic-top-fwd':
+          'slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both',
       },
       keyframes: {
+        'text-focus-in': {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          to: {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+        },
+        'fade-in': {
+          '0%': {
+            opacity: '0',
+          },
+          to: {
+            opacity: '1',
+          },
+        },
+        'fade-in2': {
+          '0%': {
+            opacity: '0',
+          },
+          to: {
+            opacity: '0.9',
+          },
+        },
+        'tracking-in-expand': {
+          '0%': {
+            'letter-spacing': '-.5em',
+            opacity: '0',
+          },
+          '40%': {
+            opacity: '.6',
+          },
+          to: {
+            opacity: '1',
+          },
+        },
+        'jello-horizontal': {
+          '0%,to': {
+            transform: 'scale3d(1, 1, 1)',
+          },
+          '30%': {
+            transform: 'scale3d(1.25, .75, 1)',
+          },
+          '40%': {
+            transform: 'scale3d(.75, 1.25, 1)',
+          },
+          '50%': {
+            transform: 'scale3d(1.15, .85, 1)',
+          },
+          '65%': {
+            transform: 'scale3d(.95, 1.05, 1)',
+          },
+          '75%': {
+            transform: 'scale3d(1.05, .95, 1)',
+          },
+        },
+        'slit-in-vertical': {
+          '0%': {
+            transform: 'translateZ(-800px) rotateY(90deg)',
+            opacity: '0',
+          },
+          '54%': {
+            transform: 'translateZ(-160px) rotateY(87deg)',
+            opacity: '1',
+          },
+          to: {
+            transform: 'translateZ(0) rotateY(0)',
+          },
+        },
+        'slide-in-elliptic-top-fwd': {
+          '0%': {
+            transform: 'translateY(-600px) rotateX(-30deg) scale(0)',
+            'transform-origin': '50% 100%',
+            opacity: '0',
+          },
+          to: {
+            transform: 'translateY(0) rotateX(0) scale(1)',
+            'transform-origin': '50% 1400px',
+            opacity: '1',
+          },
+        },
         'bounce-in-top': {
           '0%': {
             transform: 'translateY(-500px)',
@@ -101,6 +195,7 @@ module.exports = {
       boxShadow: {
         '4xl': 'inset 4px 4px 20px #4D4D4D',
         '4.5xl': '4px 4px 20px #4D4D4D',
+        '4.7xl': '4px 4px 25px #4D4D4D',
         '5xl': '2px 4px 14px #000000',
         '5.5xl': '5px 5px 13px 7px rgba(0, 0, 0, 0.43)',
       },

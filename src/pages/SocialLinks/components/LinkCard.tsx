@@ -8,7 +8,7 @@ const LinkCard: React.FC<LinksData> = (props) => {
       {props.links.map((link) => (
         <div
           key={link._id}
-          className='border border-black shadow-4.5xl rounded-md bg-charcoal w-[820px] h-16 flex justify-between px-7 items-center'
+          className='border border-black   transition-transform shadow-4.5xl rounded-md bg-charcoal w-[820px] h-16 flex justify-between px-7 items-center'
         >
           <div className='w-11 relative h-9'>
             {link.image && (

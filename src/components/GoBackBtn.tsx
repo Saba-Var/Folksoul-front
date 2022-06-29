@@ -9,7 +9,7 @@ const GoBackBtn: React.FC<GoBackBtnProps> = (props) => {
   return (
     <button
       onClick={clickHandler}
-      className='backLink block mx-auto transition-transform hover:scale-105'
+      className='animate-tracking-in-expand backLink block mx-auto transition-transform hover:scale-105'
     >
       {props.title}
     </button>

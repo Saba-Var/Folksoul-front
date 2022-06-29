@@ -10,7 +10,7 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
       <div
         className={`h-[500px] ${biography.length > 630 && 'overflow-y-scroll'}`}
       >
-        <div className='flex justify-center mb-4 mt-4'>
+        <div className='flex justify-center mb-4 mt-4 animate-slit-in-vertical'>
           <div
             className={`border bg-darkGray shadow-5xl border-white w-36 h-36 rounded-full flex justify-center items-center overflow-hidden`}
             style={{

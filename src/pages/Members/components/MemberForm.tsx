@@ -73,7 +73,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
   }
 
   return (
-    <div>
+    <div className='animate-fade-in'>
       <Notifications
         action={props.action}
         setShowErrorAlert={setShowErrorAlert}
