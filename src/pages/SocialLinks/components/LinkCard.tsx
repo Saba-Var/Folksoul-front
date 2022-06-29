@@ -1,5 +1,6 @@
 import { LinksData } from 'pages/SocialLinks/components/types'
-import { YellowBtn, RedBtn, CameraBtn } from 'components/svgs'
+import { YellowBtn, CameraBtn } from 'components/svgs'
+import { DeleteLink, Details } from 'pages/SocialLinks/components'
 
 const LinkCard: React.FC<LinksData> = (props) => {
   return (
@@ -23,20 +24,14 @@ const LinkCard: React.FC<LinksData> = (props) => {
               }`}
             />
           </div>
-          <p className='font-BPG-Nino-Mtavruli text-contentWhite tracking-widest text-lg'>
-            {link.linkName}
-          </p>
-          <a
-            className='text-mediumBlue text-sm underline'
-            target='_blank'
-            href={link.url}
-            rel='noreferrer'
-          >
-            {link.url}
-          </a>
+          <Details linkName={link.linkName} url={link.url} />
           <div className='flex justify-between w-24'>
             <YellowBtn />
-            <RedBtn />
+            <DeleteLink
+              id={link._id}
+              links={props.links}
+              setLinks={props.setLinks}
+            />
           </div>
         </div>
       ))}
