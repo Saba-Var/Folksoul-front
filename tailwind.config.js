@@ -83,8 +83,10 @@ module.exports = {
         goodGray: '#444444',
         glassBlue: '#042639',
         blue: '#3A7DA3',
+        mediumBlue: '#2F80ED',
         gray: '#A8A3A3',
         green: '#53C02C',
+        charcoal: '#333333',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],
@@ -98,7 +100,8 @@ module.exports = {
       },
       boxShadow: {
         '4xl': 'inset 4px 4px 20px #4D4D4D',
-        '5xl': '5px 5px 13px rgba(0, 0, 0, 0.63)',
+        '4.5xl': '4px 4px 20px #4D4D4D',
+        '5xl': '2px 4px 14px #000000',
         '5.5xl': '5px 5px 13px 7px rgba(0, 0, 0, 0.43)',
       },
     },
