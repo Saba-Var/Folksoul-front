@@ -59,7 +59,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
         <div className='flex justify-center mb-4 mt-4 h-full py-[10%]'>
           <div className='flex flex-col justify-between '>
             <div
-              className={`border animate-slit-in-vertical bg-darkGray shadow-5xl border-white w-56 h-56 rounded-full flex justify-center items-center  overflow-hidden`}
+              className={`border animate-slit-in-vertical overflow-hidden bg-darkGray shadow-5xl border-white w-56 h-56 rounded-full flex justify-center items-center  overflow-hidden`}
               style={{
                 backgroundColor: `${
                   !currentMember?.image && currentMember?.color
@@ -71,13 +71,13 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
                 alt='avatar icon'
                 className={`w-20 h-28 ${
                   currentMember?.image && '!w-full !h-full'
-                }`}
+                } transition-transform hover:scale-110`}
               />
             </div>
 
             {!file && (
               <label>
-                <span className='blueBtn flex justify-center items-center w-40 mx-auto'>
+                <span className='blueBtn animate-fade-in flex justify-center items-center w-40 mx-auto'>
                   ატვირთე
                 </span>
                 <input type='file' onChange={fileChangeHandler} />
@@ -85,7 +85,10 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
             )}
 
             {file && (
-              <button className='greenBtn' onClick={imageUploadHandler}>
+              <button
+                className='greenBtn animate-fade-in'
+                onClick={imageUploadHandler}
+              >
                 შეინახე
               </button>
             )}

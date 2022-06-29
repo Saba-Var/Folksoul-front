@@ -21,11 +21,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
   return (
     <div
       key={id}
-      className={`duration-700 hover:shadow-5.5xl  bg-darkGray w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
+      className={`duration-700 hover:shadow-5.5xl bg-darkGray w-[216px] pt-[3%] border-[1px] border-black h-[278px] overflow-hidden shadow-5xl rounded-[3px] flex flex-col justify-between`}
     >
       <div className='w-36 h-36 mx-auto relative'>
         <div
-          className={`border border-white w-36 h-36 rounded-full flex justify-center items-center `}
+          className={`border border-white w-36 h-36 rounded-full flex justify-center items-center overflow-hidden`}
           style={{
             backgroundColor: `${!currentMember?.image && currentMember?.color}`,
           }}
@@ -35,11 +35,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             alt='avatar icon'
             className={`top-[131px] ${
               currentMember?.image && 'w-full h-full rounded-full'
-            } animate-fade-in`}
+            } animate-fade-in transition-transform  hover:scale-110`}
           />
         </div>
 
-        <div onClick={() => setAvatarModal(true)}>
+        <div onClick={() => setAvatarModal(true)} className='animate-fade-in'>
           <CameraBtn />
         </div>
 
@@ -55,7 +55,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
           />
         )}
       </div>
-      <p className='text-white text-lg animate-fade-in font-BPG-Nino-Mtavruli text-center tracking-widest'>
+      <p className='text-white text-lg animate-text-focus-in font-BPG-Nino-Mtavruli text-center tracking-widest'>
         {name}
       </p>
 

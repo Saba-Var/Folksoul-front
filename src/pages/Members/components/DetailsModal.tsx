@@ -12,7 +12,7 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
       >
         <div className='flex justify-center mb-4 mt-4 animate-slit-in-vertical'>
           <div
-            className={`border bg-darkGray shadow-5xl border-white w-36 h-36 rounded-full flex justify-center items-center overflow-hidden`}
+            className={`border bg-darkGray shadow-5xl overflow-hidden border-white w-36 h-36 rounded-full flex justify-center items-center overflow-hidden`}
             style={{
               backgroundColor: `${!image && props.currentMember?.color}`,
             }}
@@ -20,7 +20,9 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
             <img
               src={props.avatar}
               alt='avatar icon'
-              className={`${image && 'w-full h-full'}`}
+              className={`${
+                image && 'w-full h-full'
+              } hover:scale-105 transition-transform`}
             />
           </div>
         </div>
