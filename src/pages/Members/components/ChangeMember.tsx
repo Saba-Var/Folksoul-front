@@ -11,6 +11,10 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const { setMembersData, setIsLoading, id } = props
   const [page] = useSearchParams()
 
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [statusCode, setStatusCode] = useState(404)
+
   const {
     register,
     handleSubmit,
@@ -20,10 +24,6 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   } = useForm({
     mode: 'all',
   })
-
-  const [showErrorAlert, setShowErrorAlert] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-  const [statusCode, setStatusCode] = useState(404)
 
   useEffect(() => {
     try {
@@ -105,7 +105,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         <MemberInputs errors={errors} register={register} title='შეცვლა' />
       </form>
 
-      <GoBackBtn title='გადი უკან' direction={props.setSection} goTo={''} />
+      <GoBackBtn title='გადი უკან' direction={props.setSection} goTo='' />
     </div>
   )
 }

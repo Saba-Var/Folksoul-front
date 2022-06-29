@@ -18,7 +18,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
     try {
       const formData = new FormData()
       formData.append('id', props.id)
-      formData.append('photo', file)
+      formData.append('image', file)
 
       const headers = {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
       <div className={`h-[500px]`}>
         {errorAlert && (
           <ErrorAlert
-            styles='top-[-12%] left-[28%]'
+            styles='!top-[-12%] !left-[28%]'
             title='ატვირთეთ მხოლოდ სურათი'
             setShowAlert={setErrorAlert}
           />
