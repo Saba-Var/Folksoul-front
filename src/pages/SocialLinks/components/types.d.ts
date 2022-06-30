@@ -23,3 +23,9 @@ export type DetailsProps = {
   linkName: string
   url: string
 }
+
+export type ChangeIconProps = {
+  linkName: string
+  id: string
+  image: string | undefined
+}

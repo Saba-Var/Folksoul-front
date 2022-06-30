@@ -40,11 +40,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
   return (
     <Modal
-      title={`${
-        props.url.includes('member')
-          ? 'შეცვალე ჯგუფის წევრის ავატარი'
-          : 'შეცვალე სოციალური ბმულის ხატულა'
-      }`}
+      title={`${'შეცვალე ჯგუფის წევრის ავატარი'}`}
       setShowModal={props.setAvatarModal}
     >
       <div className={`h-[500px]`}>
@@ -59,7 +55,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
         <div className='flex justify-center mb-4 mt-4 h-full py-[10%]'>
           <div className='flex flex-col justify-between '>
             <div
-              className={`border animate-slit-in-vertical overflow-hidden bg-darkGray shadow-5xl border-white w-56 h-56 rounded-full flex justify-center items-center  overflow-hidden`}
+              className={`border animate-slit-in-vertical  bg-darkGray shadow-5xl border-white w-56 h-56 rounded-full flex justify-center items-center  overflow-hidden`}
               style={{
                 backgroundColor: `${
                   !currentMember?.image && currentMember?.color

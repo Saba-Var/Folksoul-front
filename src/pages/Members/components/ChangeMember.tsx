@@ -88,7 +88,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   }
 
   return (
-    <div>
+    <div className='animate-fade-in'>
       <Notifications
         action={'CHANGE'}
         setShowErrorAlert={setShowErrorAlert}
