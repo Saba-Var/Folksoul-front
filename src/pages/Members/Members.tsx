@@ -1,4 +1,4 @@
-import { SectionWrapper, GoBackBtn } from 'components'
+import { SectionWrapper, DirectBtn } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { MemberData } from '../../types'
@@ -61,7 +61,7 @@ function Members() {
           />
         )}
         {section === '' && (
-          <GoBackBtn
+          <DirectBtn
             title='ახალი წევრი გვყავს?'
             direction={setSection}
             goTo={'addMember'}

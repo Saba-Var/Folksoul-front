@@ -24,7 +24,7 @@ export type ErrorAlertProps = {
   styles?: string
 }
 
-export type GoBackBtnProps = {
+export type DirectBtnProps = {
   goTo: string
   title: string
   direction: (add: string) => void

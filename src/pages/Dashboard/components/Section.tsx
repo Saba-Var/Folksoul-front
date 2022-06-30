@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom'
 const Section: React.FC<SectionProps> = (props) => {
   const navigate = useNavigate()
   const currentURL = `/Dashboard/${props.link}`
-  const isSelected = window.location.pathname === currentURL
+  const isSelected = window.location.pathname.includes(props.link)
 
   const onClickHandler = () => {
     if (props.link === 'Logout') {
       localStorage.removeItem('token')
       return navigate('/')
     }
+
     if (props.link === 'Members') return navigate('/Dashboard/Members?page=1')
     navigate(currentURL)
   }

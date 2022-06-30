@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { GoBackBtn } from 'components'
+import { DirectBtn } from 'components'
 import axios from 'axios'
 
 const ChangeMember: React.FC<MemberInputProps> = (props) => {
@@ -105,7 +105,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         <MemberInputs errors={errors} register={register} title='შეცვლა' />
       </form>
 
-      <GoBackBtn title='გადი უკან' direction={props.setSection} goTo='' />
+      <DirectBtn title='გადი უკან' direction={props.setSection} goTo='' />
     </div>
   )
 }

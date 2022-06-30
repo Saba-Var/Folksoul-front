@@ -30,3 +30,15 @@ export type ChangeIconProps = {
   id: string
   image: string | undefined
 }
+
+export type AddLinkFormProps = {
+  setLinks: setLinks
+  setSection: (section: string) => void
+}
+
+export type LinkInputProps = {
+  placeholder: string
+  inputName: string
+  register: any
+  errors: any
+}

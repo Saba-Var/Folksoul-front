@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { GoBackBtn } from 'components'
+import { DirectBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -94,7 +94,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         />
       </form>
 
-      <GoBackBtn title='გადი უკან' direction={props.setSection} goTo='' />
+      <DirectBtn title='გადი უკან' direction={props.setSection} goTo='' />
     </div>
   )
 }
