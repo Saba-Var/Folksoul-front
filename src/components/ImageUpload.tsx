@@ -1,6 +1,8 @@
+import fetchSocialLinks from 'helper/fetchSocialLinks'
 import { ImageUploadProps } from 'components/types'
 import { Modal, ErrorAlert } from 'components'
 import { useState } from 'react'
+import axios from 'axios'
 
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   const [file, setFile] = useState('')
@@ -10,8 +12,28 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
     if (e.target.files[0]?.type.startsWith('image')) setFile(e.target.files[0])
     else setErrorAlert(true)
   }
-  const imageUploadHandler = () => {
-    console.log(file)
+  const imageUploadHandler = async () => {
+    try {
+      const formData = new FormData()
+      formData.append('id', props.id)
+      formData.append('image', file)
+
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }
+
+      const response = await axios.patch(props.url, formData, {
+        headers: headers,
+      })
+
+      if (response.status === 201) {
+        fetchSocialLinks(props.setLinks)
+        props.setImageModal(false)
+      }
+    } catch (error: any) {
+      alert(error)
+    }
   }
 
   return (

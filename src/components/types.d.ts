@@ -42,6 +42,9 @@ export type InputFieldProps = {
 export type addOrMemberInputs = {}
 
 export type ImageUploadProps = {
+  url: string
+  setLinks: setLinks
+  id: string
   title: string
   setImageModal: (show: boolean) => void
   children: JSX.Element

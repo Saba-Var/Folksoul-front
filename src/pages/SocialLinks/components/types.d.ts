@@ -25,6 +25,7 @@ export type DetailsProps = {
 }
 
 export type ChangeIconProps = {
+  setLinks: setLinks
   linkName: string
   id: string
   image: string | undefined

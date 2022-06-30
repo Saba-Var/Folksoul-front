@@ -11,6 +11,7 @@ const LinkCard: React.FC<LinksData> = (props) => {
           className='border border-black transition-transform shadow-4.5xl rounded-md bg-charcoal w-[820px] h-16 flex justify-between px-7 items-center'
         >
           <ChangeIcon
+            setLinks={props.setLinks}
             image={link.image}
             id={link._id}
             linkName={link.linkName}
