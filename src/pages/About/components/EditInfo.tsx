@@ -1,13 +1,13 @@
 import { EditInfoProps } from 'pages/About/components/types'
-import { useForm } from 'react-hook-form'
+import { DirectBtn, AddNotification, ErrorAlert } from 'components'
 import { fetchBandAbout } from 'helper'
-import { DirectBtn, AddNotification } from 'components'
+import { useForm } from 'react-hook-form'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const EditInfo: React.FC<EditInfoProps> = (props) => {
   const [addModal, setAddModal] = useState(false)
-
+  const [errorAlert, setErrorAlert] = useState(false)
   const { register, setValue, watch } = useForm({
     mode: 'all',
   })
@@ -36,12 +36,21 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
         }
       })
       .catch((error) => {
+        setErrorAlert(true)
         console.log(error)
       })
   }
 
   return (
     <div className='h-full flex justify-between flex-col'>
+      {errorAlert && (
+        <ErrorAlert
+          styles='left-[55%] top-[5%]'
+          setShowAlert={setErrorAlert}
+          title='შეიყვანეთ ინფორმაცია'
+        />
+      )}
+
       {addModal && (
         <AddNotification
           modalText='ინფორმაცია შეიცვალა'
@@ -49,6 +58,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
           title='ბენდის შესახებ - დაარედაქტირე'
         />
       )}
+
       <form className='w-full h-[80%] outline-none resize-none bg-lightYellow shadow-5xl py-4 pl-6 pr-9 rounded-lg'>
         <textarea
           {...register('about')}
