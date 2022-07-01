@@ -6,6 +6,7 @@ const FormNotifications: React.FC<FormNotificationsProps> = (props) => {
     <>
       {props.showModal && (
         <AddNotification
+          title='სოციალური ბმულები'
           modalText={props.successText}
           setShowModal={props.setShowModal}
         />

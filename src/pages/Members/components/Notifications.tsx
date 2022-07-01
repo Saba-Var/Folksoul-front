@@ -17,7 +17,11 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
   return (
     <>
       {showModal && (
-        <AddNotification modalText={modalText} setShowModal={setShowModal} />
+        <AddNotification
+          modalText={modalText}
+          title='ჯგუფის წევრები'
+          setShowModal={setShowModal}
+        />
       )}
 
       {showErrorAlert && (

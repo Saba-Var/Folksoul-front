@@ -51,6 +51,7 @@ export type ImageUploadProps = {
 }
 
 export type AddNotificationProps = {
+  title: string
   setShowModal: (show: boolean) => void
   modalText: string
 }

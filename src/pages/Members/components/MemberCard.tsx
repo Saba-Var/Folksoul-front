@@ -63,6 +63,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         <div onClick={() => setMemberModal(true)} className='animate-fade-in'>
           <GreenBtn />
         </div>
+
         {memberModal && (
           <DetailsModal
             avatar={imageUrl}
