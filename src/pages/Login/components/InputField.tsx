@@ -21,7 +21,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
           },
         })}
         type={props.type}
-        className={`text-black  border-[2px] border-transparent placeholder outline-none rounded-[2px]  h-12 px-5 bg-lightBrown w-128 ${
+        className={`text-black border-[2px] border-transparent placeholder outline-none rounded-[2px]  h-12 px-5 bg-lightBrown w-128 ${
           showError && 'border-[2px] border-red '
         }`}
         placeholder={props.placeholder}

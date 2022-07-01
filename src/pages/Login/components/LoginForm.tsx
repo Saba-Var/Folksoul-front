@@ -11,6 +11,7 @@ function LoginForm() {
 
   const [showError, setShowError] = useState(false)
   const [showAlert, setShowAlert] = useState(false)
+  const [exitAnimation, setExitAnimation] = useState(false)
 
   const {
     register,
@@ -40,8 +41,11 @@ function LoginForm() {
         }),
       })
       if (response.status === 200) {
-        navigate('/Dashboard/Main')
-        localStorage.setItem('token', response.data.token)
+        setExitAnimation(true)
+        setTimeout(() => {
+          localStorage.setItem('token', response.data.token)
+          navigate('/Dashboard/Main')
+        }, 700)
       }
     } catch (error) {
       setShowAlert(true)
@@ -52,7 +56,11 @@ function LoginForm() {
   const clickHandler = () => !showError && setShowError(true)
 
   return (
-    <div className='flex items-center justify-center w-screen h-screen overflow-hidden'>
+    <div
+      className={`flex animate-puff-in-center ${
+        exitAnimation && 'animate-slide-out-elliptic-top-fwd'
+      } items-center justify-center w-screen h-screen overflow-hidden`}
+    >
       {showAlert && (
         <ErrorAlert
           setShowAlert={setShowAlert}

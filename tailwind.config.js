@@ -11,6 +11,10 @@ module.exports = {
         '5xl': '1900px',
       },
       animation: {
+        'slide-out-elliptic-top-fwd':
+          'slide-out-elliptic-top-fwd 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'puff-in-center':
+          'puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both',
         'text-focus-in':
           'text-focus-in 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
         'jello-horizontal': 'jello-horizontal 0.8s ease   both',
@@ -26,6 +30,30 @@ module.exports = {
           'slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both',
       },
       keyframes: {
+        'slide-out-elliptic-top-fwd': {
+          '0%': {
+            transform: 'translateY(0) rotateX(0) scale(1)',
+            'transform-origin': '50% -500px',
+            opacity: '1',
+          },
+          to: {
+            transform: 'translateY(-600px) rotateX(20deg) scale(6)',
+            'transform-origin': '50% 200%',
+            opacity: '0',
+          },
+        },
+        'puff-in-center': {
+          '0%': {
+            transform: 'scale(2)',
+            filter: 'blur(2px)',
+            opacity: '0',
+          },
+          to: {
+            transform: 'scale(1)',
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+        },
         'text-focus-in': {
           '0%': {
             filter: 'blur(12px)',
