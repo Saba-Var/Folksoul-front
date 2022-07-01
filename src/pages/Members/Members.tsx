@@ -60,6 +60,7 @@ function Members() {
             setMemberId={setMemberId}
           />
         )}
+
         {section === '' && (
           <DirectBtn
             title='ახალი წევრი გვყავს?'
@@ -67,6 +68,7 @@ function Members() {
             goTo={'addMember'}
           />
         )}
+
         {section === 'addMember' && (
           <AddMember
             setSection={setSection}
@@ -77,6 +79,7 @@ function Members() {
             setIsLoading={setIsLoading}
           />
         )}
+
         {section === 'MemberInputs' && (
           <ChangeMember
             id={memberId}

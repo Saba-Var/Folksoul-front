@@ -1,15 +1,12 @@
+import { ChangeLinkProps, FormData } from 'pages/SocialLinks/components/types'
 import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
 import { fetchSocialLinks } from 'helper/index'
 import { useForm } from 'react-hook-form'
 import { DirectBtn } from 'components'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
-import {
-  AddLinkFormProps,
-  DetailsProps,
-} from 'pages/SocialLinks/components/types'
 
-const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
+const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
   const [errorAlert, setErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
@@ -21,44 +18,46 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
     formState: { errors },
   } = useForm({
     mode: 'all',
-    defaultValues: {
-      linkName: '',
-      url: '',
-    },
   })
 
-  const submitHandler = (data: DetailsProps) => {
-    const linkDetails = data
+  const currentLink = props.links.find((link) => link._id === props.id)
 
-    const fetch = async () => {
-      try {
-        const response = await axios({
-          method: 'post',
-          url: 'http://localhost:5000/add-social-link',
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-          data: linkDetails,
-        })
+  useEffect(() => {
+    setValue('linkName', currentLink?.linkName)
+    setValue('url', currentLink?.url)
+  }, [currentLink, setValue])
 
-        if (response.status === 201) {
+  const submitHandler = (formData: FormData) => {
+    const { linkName, url } = formData
+
+    const data = {
+      id: props.id,
+      linkName,
+      url,
+    }
+
+    axios
+      .put('http://localhost:5000/change-link', data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
           setShowModal(true)
-          setValue('linkName', '')
-          setValue('url', '')
           fetchSocialLinks(props.setLinks)
         }
-      } catch (error: any) {
+      })
+      .catch((error) => {
         if (error.response.status === 409) setErrorAlert(true)
-        console.log(error.message)
-      }
-    }
-    fetch()
+      })
   }
 
   return (
     <div className='h-full py-40'>
       <FormNotifications
-        successText='ბმული წარმატებით დაემატა'
+        successText='ბმულის დეტალები შეიცვალა'
         errorAlert={errorAlert}
         setErrorAlert={setErrorAlert}
         setShowModal={setShowModal}
@@ -88,7 +87,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
           type='submit'
           className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-[298px] block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-10'
         >
-          დაამატე სოციალური ბმული
+          შეცვალე სოციალური ბმული
         </button>
       </form>
 
@@ -97,4 +96,4 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
   )
 }
 
-export default AddLinkForm
+export default ChangeLinkForm

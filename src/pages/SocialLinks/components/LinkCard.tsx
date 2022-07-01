@@ -18,7 +18,14 @@ const LinkCard: React.FC<LinksData> = (props) => {
           />
           <Details linkName={link.linkName} url={link.url} />
           <div className='flex justify-between w-24'>
-            <YellowBtn />
+            <div
+              onClick={() => {
+                props.setLinkId(link._id)
+                props.setSection('changeLink')
+              }}
+            >
+              <YellowBtn />
+            </div>
             <DeleteLink
               id={link._id}
               links={props.links}

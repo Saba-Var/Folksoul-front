@@ -1,12 +1,17 @@
-import { Links, AddLinkForm } from 'pages/SocialLinks/components'
 import { SectionWrapper, DirectBtn } from 'components'
 import { AllLinks } from 'pages/SocialLinks/types'
 import { fetchSocialLinks } from 'helper/index'
 import { useEffect, useState } from 'react'
+import {
+  Links,
+  AddLinkForm,
+  ChangeLinkForm,
+} from 'pages/SocialLinks/components'
 
-function SocialLinks() {
+const SocialLinks = () => {
   const [links, setLinks] = useState<AllLinks>([])
   const [section, setSection] = useState('')
+  const [linkId, setLinkId] = useState('id')
 
   useEffect(() => {
     fetchSocialLinks(setLinks)
@@ -21,7 +26,12 @@ function SocialLinks() {
     <SectionWrapper title={title}>
       <div className='flex flex-col justify-between h-full'>
         {links.length > 0 && section === '' && (
-          <Links links={links} setLinks={setLinks} />
+          <Links
+            setLinkId={setLinkId}
+            setSection={setSection}
+            links={links}
+            setLinks={setLinks}
+          />
         )}
 
         {links.length === 0 && section === '' && (
@@ -35,6 +45,15 @@ function SocialLinks() {
             title='დაამატე ახალი სოციალური ბმული'
             direction={setSection}
             goTo={'addLink'}
+          />
+        )}
+
+        {section === 'changeLink' && (
+          <ChangeLinkForm
+            id={linkId}
+            links={links}
+            setLinks={setLinks}
+            setSection={setSection}
           />
         )}
 

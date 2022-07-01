@@ -3,6 +3,8 @@ import { AllLinks } from 'pages/SocialLinks/types'
 type setLinks = (data: AllLinks) => void
 
 export type LinksData = {
+  setLinkId: (id: string) => void
+  setSection: (section: string) => void
   links: AllLinks
   setLinks: setLinks
 }
@@ -36,6 +38,13 @@ export type AddLinkFormProps = {
   setSection: (section: string) => void
 }
 
+export type ChangeLinkProps = {
+  id: string
+  links: AllLinks
+  setLinks: setLinks
+  setSection: (section: string) => void
+}
+
 export type LinkInputProps = {
   placeholder: string
   inputName: string
@@ -51,3 +60,8 @@ export type FormNotificationsProps = {
   errorAlert: boolean
   setErrorAlert: (show: boolean) => void
 }
+
+export type FormData = SubmitHandler<{
+  linkName: string
+  url: string
+}>
