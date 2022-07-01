@@ -17,3 +17,9 @@ export type changeMemberParams = {
   setShowErrorAlert: (show: boolean) => void
   setStatusCode: (status: number) => void
 }
+
+export type BandAbout = {
+  _id: string
+  about: string
+  image?: string | undefined
+}[]

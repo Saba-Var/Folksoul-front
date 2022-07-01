@@ -209,15 +209,24 @@ module.exports = {
         gray: '#A8A3A3',
         green: '#53C02C',
         charcoal: '#333333',
+        solidBlue: '#3B5495',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],
         'BPG-Nino-Mtavruli': ['BPG Nino Mtavruli'],
       },
       dropShadow: {
+        '3xl': [
+          '0 5px 3px rgba(0, 0, 0, 0.45)',
+          '0 11px 5px rgba(0, 0, 0, 0.15)',
+        ],
         '4xl': [
           '0 8px 3px rgba(0, 0, 0, 0.45)',
           '0 11px 5px rgba(0, 0, 0, 0.15)',
+        ],
+        '5xl': [
+          '3px 5px 3px rgba(0, 0, 0, 0.45)',
+          '3px 7px 5px rgba(0, 0, 0, 0.15)',
         ],
       },
       boxShadow: {
