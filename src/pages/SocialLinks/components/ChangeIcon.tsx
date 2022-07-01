@@ -10,7 +10,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
     <div className='w-11 relative h-9'>
       {props.image && (
         <img
-          className='w-11 h-9'
+          className='w-11 h-9 rounded-lg'
           src={`http://localhost:5000/${props.image}`}
           alt='social link icon'
         />
@@ -38,7 +38,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
             </p>
             {props.image && (
               <img
-                className='w-60 animate-slit-in-vertical'
+                className='w-60 animate-slit-in-vertical border-[3px] rounded-3xl border-green'
                 src={`http://localhost:5000/${props.image}`}
                 alt='social link icon'
               />
