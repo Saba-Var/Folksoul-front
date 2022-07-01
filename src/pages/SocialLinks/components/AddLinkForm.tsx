@@ -1,7 +1,7 @@
+import { DirectBtn, AddNotification, ErrorAlert } from 'components'
 import { LinkInput } from 'pages/SocialLinks/components'
 import { fetchSocialLinks } from 'helper/index'
 import { useForm } from 'react-hook-form'
-import { DirectBtn, ErrorAlert } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 import {
@@ -11,6 +11,7 @@ import {
 
 const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
   const [errorAlert, setErrorAlert] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const {
     watch,
@@ -42,15 +43,14 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
         })
 
         if (response.status === 201) {
+          setShowModal(true)
           setValue('linkName', '')
           setValue('url', '')
           fetchSocialLinks(props.setLinks)
-          console.log('added')
         }
       } catch (error: any) {
-        if (error.response.status === 400) {
-          setErrorAlert(true)
-        }
+        if (error.response.status === 409) setErrorAlert(true)
+        console.log(error.message)
       }
     }
     fetch()
@@ -58,6 +58,13 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
   return (
     <div className='h-full py-40'>
+      {showModal && (
+        <AddNotification
+          modalText='ბმული წარმატებით დაემატა'
+          setShowModal={setShowModal}
+        />
+      )}
+
       {errorAlert && (
         <ErrorAlert
           styles='top-[40px] left-[50%]'
@@ -65,6 +72,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
           title={`ბმული '${watch().linkName} უკვე დამატებულია`}
         />
       )}
+
       <form
         onSubmit={handleSubmit(submitHandler)}
         className=' flex flex-col justify-between items-center'
@@ -90,6 +98,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
           დაამატე სოციალური ბმული
         </button>
       </form>
+
       <DirectBtn title='გადი უკან' direction={props.setSection} goTo='' />
     </div>
   )

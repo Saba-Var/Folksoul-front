@@ -49,3 +49,8 @@ export type ImageUploadProps = {
   setImageModal: (show: boolean) => void
   children: JSX.Element
 }
+
+export type AddNotificationProps = {
+  setShowModal: (show: boolean) => void
+  modalText: string
+}

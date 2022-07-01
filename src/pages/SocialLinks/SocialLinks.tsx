@@ -1,18 +1,15 @@
-import { SectionWrapper, DirectBtn } from 'components'
 import { Links, AddLinkForm } from 'pages/SocialLinks/components'
+import { SectionWrapper, DirectBtn } from 'components'
 import { AllLinks } from 'pages/SocialLinks/types'
 import { fetchSocialLinks } from 'helper/index'
 import { useEffect, useState } from 'react'
 
 function SocialLinks() {
   const [links, setLinks] = useState<AllLinks>([])
-  const [, setIsLoading] = useState(false)
   const [section, setSection] = useState('')
 
-  console.log(links)
-
   useEffect(() => {
-    fetchSocialLinks(setLinks, setIsLoading)
+    fetchSocialLinks(setLinks)
   }, [])
 
   let title = ''
