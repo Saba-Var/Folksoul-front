@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const fetchBandAbout = (
   setBandAbout: (data: BandAbout) => void,
-  setIsLoading: (loading: boolean) => void
+  setIsLoading?: (loading: boolean) => void
 ) => {
   try {
     if (setIsLoading) setIsLoading(true)

@@ -194,6 +194,7 @@ module.exports = {
         purple: '#534571',
         lightBrown: '#C3B6B2',
         yellow: '#FBD560',
+        lightYellow: '#E5E5E5',
         darkGreen: '#345161',
         black: '#272727',
         red: '#EB5757',
@@ -230,6 +231,7 @@ module.exports = {
         ],
       },
       boxShadow: {
+        '3xl': '2px 4px 14px rgba(0, 0, 0, 0.2)',
         '4xl': 'inset 4px 4px 20px #4D4D4D',
         '4.5xl': '4px 4px 20px #4D4D4D',
         '4.7xl': '4px 4px 25px #4D4D4D',

@@ -4,7 +4,7 @@ import { PurpleBackground } from 'components'
 
 const BandImage: React.FC<BandImageProps> = (props) => {
   return (
-    <>
+    <div className='absolute w-[90%] h-[28%] left-[0px] bg-contentWhite'>
       <div className='mx-auto w-44 h-44 relative'>
         {!props.image && !props.isLoading && (
           <div className='w-44 h-44 drop-shadow-5xl border-solidBlue border-[5px] overflow-hidden  rounded-full flex justify-center items-center'>
@@ -25,7 +25,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
           <CameraBtn styles='top-[67%] drop-shadow-3xl right-[0px] w-14 h-14' />
         )}
       </div>
-    </>
+    </div>
   )
 }
 
