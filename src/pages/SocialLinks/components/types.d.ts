@@ -42,3 +42,12 @@ export type LinkInputProps = {
   register: any
   errors: any
 }
+
+export type FormNotificationsProps = {
+  successText: string
+  title: string
+  showModal: boolean
+  setShowModal: (show: boolean) => void
+  errorAlert: boolean
+  setErrorAlert: (show: boolean) => void
+}

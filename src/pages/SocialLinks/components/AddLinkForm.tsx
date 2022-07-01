@@ -1,7 +1,7 @@
-import { DirectBtn, AddNotification, ErrorAlert } from 'components'
-import { LinkInput } from 'pages/SocialLinks/components'
+import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
 import { fetchSocialLinks } from 'helper/index'
 import { useForm } from 'react-hook-form'
+import { DirectBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 import {
@@ -58,20 +58,14 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
   return (
     <div className='h-full py-40'>
-      {showModal && (
-        <AddNotification
-          modalText='ბმული წარმატებით დაემატა'
-          setShowModal={setShowModal}
-        />
-      )}
-
-      {errorAlert && (
-        <ErrorAlert
-          styles='top-[40px] left-[50%]'
-          setShowAlert={setErrorAlert}
-          title={`ბმული '${watch().linkName} უკვე დამატებულია`}
-        />
-      )}
+      <FormNotifications
+        successText='ბმული წარმატებით დაემატა'
+        errorAlert={errorAlert}
+        setErrorAlert={setErrorAlert}
+        setShowModal={setShowModal}
+        showModal={showModal}
+        title={`ბმული '${watch().linkName} უკვე დამატებულია`}
+      />
 
       <form
         onSubmit={handleSubmit(submitHandler)}

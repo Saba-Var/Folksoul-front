@@ -1,3 +1,4 @@
+export { default as FormNotifications } from './FormNotifications'
 export { default as DeleteDialog } from './DeleteDialog'
 export { default as AddLinkForm } from './AddLinkForm'
 export { default as ChangeIcon } from './ChangeIcon'
