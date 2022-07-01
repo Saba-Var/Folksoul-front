@@ -1,6 +1,7 @@
 export { default as PurpleBackground } from './PurpleBackground'
 export { default as AddNotification } from './AddNotification'
 export { default as SectionWrapper } from './SectionWrapper'
+export { default as DeleteContent } from './DeleteContent'
 export { default as WhiteWrapper } from './WhiteWrapper'
 export { default as ImageUpload } from './ImageUpload'
 export { default as AvatarModal } from './AvatarModal'

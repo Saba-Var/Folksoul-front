@@ -54,3 +54,9 @@ export type AddNotificationProps = {
   setShowModal: (show: boolean) => void
   modalText: string
 }
+
+export type DeleteContentProps = {
+  text: string
+  closeModal: () => void
+  deleteMember: () => void
+}
