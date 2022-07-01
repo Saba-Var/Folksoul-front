@@ -1,4 +1,4 @@
-function CloseIcon() {
+function MiniCloseIcon() {
   return (
     <svg
       className='fill-red h-7 w-7   text-red-500'
@@ -11,4 +11,4 @@ function CloseIcon() {
   )
 }
 
-export default CloseIcon
+export default MiniCloseIcon

@@ -1,6 +1,6 @@
-import { CloseIcon } from 'pages/Login/components/index'
-import { ErrorIcon } from 'components/svgs'
 import { ErrorAlertProps } from 'components/types'
+import { ErrorIcon } from 'components/svgs'
+import { MiniCloseIcon } from 'components'
 import { useState } from 'react'
 
 const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
@@ -25,7 +25,7 @@ const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
           <strong className=' font-bold text-red mr-1'>{props.title}</strong>
 
           <span className='ml-1 inline-block' onClick={clickHandler}>
-            <CloseIcon />
+            <MiniCloseIcon />
           </span>
         </div>
       </div>
