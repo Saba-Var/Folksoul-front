@@ -4,7 +4,9 @@ import { BandImage } from 'pages/About/components'
 const BandInfo: React.FC<BandInfoProps> = (props) => {
   return (
     <div
-      className={`h-full ${props.about.length > 1200 && 'overflow-y-scroll'}`}
+      className={`h-full w-[105%] pr-[5%] overflow-y-hidden !overflow-x-hidden ${
+        props.about.length > 1200 && 'overflow-y-scroll'
+      }`}
     >
       <BandImage isLoading={props.isLoading} image={props.image} />
 
