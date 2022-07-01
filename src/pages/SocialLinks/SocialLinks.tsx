@@ -9,12 +9,13 @@ import {
 } from 'pages/SocialLinks/components'
 
 const SocialLinks = () => {
+  const [loading, setIsLoading] = useState(false)
   const [links, setLinks] = useState<AllLinks>([])
   const [section, setSection] = useState('')
   const [linkId, setLinkId] = useState('id')
 
   useEffect(() => {
-    fetchSocialLinks(setLinks)
+    fetchSocialLinks(setLinks, setIsLoading)
   }, [])
 
   let title = ''
@@ -24,7 +25,7 @@ const SocialLinks = () => {
 
   return (
     <SectionWrapper title={title}>
-      <div className='flex flex-col justify-between h-full'>
+      <div className={`flex flex-col justify-between h-full `}>
         {links.length > 0 && section === '' && (
           <Links
             setLinkId={setLinkId}
@@ -34,13 +35,13 @@ const SocialLinks = () => {
           />
         )}
 
-        {links.length === 0 && section === '' && (
+        {links.length === 0 && section === '' && !loading && (
           <h2 className='text-center animate-tracking-in-expand pt-[20%] text-black tracking-widest text-4xl'>
             სოციალური ბმულები არ არის დამატებული!
           </h2>
         )}
 
-        {section === '' && (
+        {section === '' && !loading && (
           <DirectBtn
             title='დაამატე ახალი სოციალური ბმული'
             direction={setSection}

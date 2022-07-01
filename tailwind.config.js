@@ -16,7 +16,7 @@ module.exports = {
         'puff-in-center':
           'puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both',
         'text-focus-in':
-          'text-focus-in 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+          'text-focus-in 0.35s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
         'jello-horizontal': 'jello-horizontal 0.8s ease   both',
         'fade-in': 'fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both',
         'fade-in2':

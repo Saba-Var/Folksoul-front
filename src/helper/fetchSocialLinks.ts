@@ -14,9 +14,9 @@ const fetchSocialLinks = async (
         },
       })
       if (res.status === 200) {
+        if (setIsLoading) setIsLoading(false)
         return setSocialLinks(res.data)
       }
-      if (setIsLoading) setIsLoading(false)
     }
     fetch()
   } catch (error: any) {
