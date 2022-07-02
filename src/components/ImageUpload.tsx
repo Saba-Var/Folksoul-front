@@ -1,6 +1,7 @@
 import fetchSocialLinks from 'helper/fetchSocialLinks'
 import { ImageUploadProps } from 'components/types'
 import { Modal, ErrorAlert } from 'components'
+import { fetchBandAbout } from 'helper'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -12,6 +13,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
     if (e.target.files[0]?.type.startsWith('image')) setFile(e.target.files[0])
     else setErrorAlert(true)
   }
+
   const imageUploadHandler = async () => {
     try {
       const formData = new FormData()
@@ -28,10 +30,14 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
       })
 
       if (response.status === 201) {
-        fetchSocialLinks(props.setLinks)
+        if (props.title === 'შეცვალე ბენდის პორტრეტი')
+          fetchBandAbout(props.setLinks)
+        else fetchSocialLinks(props.setLinks)
+
         props.setImageModal(false)
       }
     } catch (error: any) {
+      console.log(error)
       alert(error)
     }
   }

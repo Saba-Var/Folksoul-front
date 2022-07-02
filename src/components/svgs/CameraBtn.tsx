@@ -1,4 +1,6 @@
-const CameraBtn: React.FC<{ styles?: string }> = (props) => {
+const CameraBtn: React.FC<{
+  styles?: string
+}> = (props) => {
   return (
     <svg
       width='37'

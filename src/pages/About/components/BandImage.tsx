@@ -1,8 +1,11 @@
 import { BandImageProps } from 'pages/About/components/types'
+import { PurpleBackground, ImageUpload } from 'components'
 import { CameraBtn, Logo } from 'components/svgs'
-import { PurpleBackground } from 'components'
+import { useState } from 'react'
 
 const BandImage: React.FC<BandImageProps> = (props) => {
+  const [iconModal, setIconModal] = useState(false)
+
   return (
     <div className=''>
       <div className='mx-auto w-44 h-44 relative'>
@@ -22,7 +25,36 @@ const BandImage: React.FC<BandImageProps> = (props) => {
         )}
 
         {!props.isLoading && (
-          <CameraBtn styles='top-[67%] drop-shadow-3xl right-[0px] w-14 h-14' />
+          <div onClick={() => setIconModal(true)}>
+            <CameraBtn styles='top-[67%] drop-shadow-3xl right-[0px] w-14 h-14' />
+          </div>
+        )}
+
+        {iconModal && (
+          <ImageUpload
+            url='http://localhost:5000/upload-band-image'
+            setLinks={props.setBandAbout}
+            id={props.id}
+            title='შეცვალე ბენდის პორტრეტი'
+            setImageModal={setIconModal}
+          >
+            <div className='flex flex-col h-full justify-between pt-8  pb-[20%] items-center'>
+              {!props.image && !props.isLoading && (
+                <div className='w-64 h-64 drop-shadow-5xl border-solidBlue border-[5px] overflow-hidden  rounded-full flex justify-center items-center'>
+                  <PurpleBackground styles='fixed -z-50 w-full h-full rounded-full' />
+                  <Logo styles='w-64 h-64' />
+                </div>
+              )}
+
+              {props.image && (
+                <img
+                  alt='band '
+                  src={`http://localhost:5000/${props.image}`}
+                  className='rounded-full w-64 h-64 shadow-5xl border-[5px] border-solidBlue'
+                />
+              )}
+            </div>
+          </ImageUpload>
         )}
       </div>
     </div>

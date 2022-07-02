@@ -22,6 +22,8 @@ const About = () => {
       <>
         {section === '' && (
           <BandInfo
+            id={bandAbout[0]._id}
+            setBandAbout={setBandAbout}
             isLoading={isLoading}
             about={bandAbout[0].about}
             image={bandAbout[0].image}
