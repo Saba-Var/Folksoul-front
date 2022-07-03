@@ -9,6 +9,10 @@ export type SetSocialLinks = (data: AllLinks) => void
 
 export type SetBandAbout = (data: BandAbout) => void
 
+export type BandAboutText = (about: string) => void
+
+export type BandImage = (image: string) => void
+
 type Show = (show: boolean) => void
 
 export type MemberDetails = {

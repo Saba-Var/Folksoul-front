@@ -1,20 +1,28 @@
-import { SetBandAbout, SetIsLoading } from 'helper/types'
 import axios from 'axios'
+import {
+  SetBandAbout,
+  SetIsLoading,
+  BandAboutText,
+  BandImage,
+} from 'helper/types'
 
 const fetchBandAbout = (
-  setBandAbout: SetBandAbout,
-  setIsLoading?: SetIsLoading
+  setBandAbout: SetBandAbout | BandAboutText,
+  setIsLoading?: SetIsLoading,
+  setImage?: BandImage
 ) => {
   try {
     if (setIsLoading) setIsLoading(true)
     const fetch = async () => {
-      const res = await axios.get(`http://localhost:5000/band-about`, {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      })
+      const res = await axios.get(`http://localhost:5000/band-about`)
 
-      if (res.status === 200) setBandAbout(res.data)
+      if (res.status === 200) {
+        if (setImage) {
+          if (res.data[0].image) setImage(res.data[0].image)
+          setBandAbout(res.data[0].about)
+        } else setBandAbout(res.data)
+      }
+
       if (setIsLoading) setIsLoading(false)
     }
 

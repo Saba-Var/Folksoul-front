@@ -65,4 +65,9 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #ffffff;
   }
+
+  .whiteScroll::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 100px;
+  }
 }
