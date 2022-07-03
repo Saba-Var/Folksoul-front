@@ -1,4 +1,4 @@
-function LogOutIcon() {
+const LogOutIcon = () => {
   return (
     <svg
       width='19'

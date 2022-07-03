@@ -6,7 +6,7 @@ import { ErrorAlert } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 
-function LoginForm() {
+const LoginForm = () => {
   const navigate = useNavigate()
 
   const [showError, setShowError] = useState(false)

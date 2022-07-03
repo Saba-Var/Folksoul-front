@@ -3,7 +3,7 @@ import { PurpleBackground } from 'components'
 import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 
-function Dashboard() {
+const Dashboard = () => {
   const [section, setSection] = useState('Main')
 
   return (

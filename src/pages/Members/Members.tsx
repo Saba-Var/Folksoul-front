@@ -25,7 +25,7 @@ const memberModel = {
   },
 }
 
-function Members() {
+const Members = () => {
   const [membersData, setMembersData] = useState<MemberData>(memberModel)
 
   const [isLoading, setIsLoading] = useState(false)

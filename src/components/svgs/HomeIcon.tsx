@@ -1,4 +1,4 @@
-function HomeIcon() {
+const HomeIcon = () => {
   return (
     <svg
       width='18'

@@ -1,4 +1,4 @@
-function RedBtn() {
+const RedBtn = () => {
   return (
     <svg
       className='cursor-pointer transition-transform hover:scale-110'

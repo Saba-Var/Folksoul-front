@@ -1,4 +1,4 @@
-function YellowBtn() {
+const YellowBtn = () => {
   return (
     <svg
       className='cursor-pointer transition-transform hover:scale-110'

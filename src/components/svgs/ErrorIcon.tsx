@@ -1,4 +1,4 @@
-function ErrorIcon() {
+const ErrorIcon = () => {
   return (
     <svg
       width='20'

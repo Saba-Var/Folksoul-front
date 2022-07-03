@@ -1,4 +1,4 @@
-function NoteIcon() {
+const NoteIcon = () => {
   return (
     <svg
       width='13'

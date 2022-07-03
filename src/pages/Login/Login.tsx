@@ -1,7 +1,7 @@
 import { LoginForm } from 'pages/Login/components'
 import { PurpleBackground } from 'components'
 
-function Login() {
+const Login = () => {
   return (
     <div className='overflow-hidden'>
       <PurpleBackground styles='fixed -z-50 w-screen h-screen' />

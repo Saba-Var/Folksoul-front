@@ -1,4 +1,4 @@
-function YoutubeIcon() {
+const YoutubeIcon = () => {
   return (
     <svg width='27' height='28' viewBox='0 0 27 28' fill='none'>
       <path

@@ -1,7 +1,7 @@
 import { WhiteWrapper } from 'components'
 import { tv } from 'assets/images/index'
 
-function Main() {
+const Main = () => {
   return (
     <WhiteWrapper>
       <div className='flex flex-col items-center justify-between h-full'>

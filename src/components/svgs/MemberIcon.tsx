@@ -1,4 +1,4 @@
-function MemberIcon() {
+const MemberIcon = () => {
   return (
     <svg
       width='14'

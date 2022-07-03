@@ -1,7 +1,7 @@
 import { PurpleBackground } from 'components'
 import { Logo } from 'components/svgs'
 
-function Info() {
+const Info = () => {
   return (
     <div className='h-[768px] flex items-end'>
       <div className='bg-yellow pt-48 rounded-xl w-[682px] h-[611px] relative flex justify-center'>
