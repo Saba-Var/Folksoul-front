@@ -1,6 +1,6 @@
 import { InfoProps } from 'pages/Home/components/types'
+import { BandImage } from 'pages/Home/components'
 import { PurpleBackground } from 'components'
-import { Logo } from 'components/svgs'
 
 const Info: React.FC<InfoProps> = (props) => {
   return (
@@ -10,22 +10,7 @@ const Info: React.FC<InfoProps> = (props) => {
           {props.text}
         </p>
 
-        <div className='absolute w-72 h-72 top-[-23%] left-[28%] drop-shadow-4xl border-white border-2 overflow-hidden rounded-full flex justify-center items-center'>
-          {!props.image && (
-            <>
-              <PurpleBackground styles='fixed -z-50 w-[%]  h-full rounded-full' />
-              <Logo styles='w-full h-full' />
-            </>
-          )}
-
-          {props.image && (
-            <img
-              src={`http://localhost:5000/${props.image}`}
-              className='h-full w-full'
-              alt='band'
-            />
-          )}
-        </div>
+        {!props.isLoading && <BandImage image={props.image} />}
 
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 left-6' />
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 right-6' />

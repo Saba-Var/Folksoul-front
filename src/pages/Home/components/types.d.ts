@@ -3,6 +3,11 @@ export type ChildrenProps = {
 }
 
 export type InfoProps = {
-  text: string
+  isLoading: boolean
   image?: string
+  text: string
+}
+
+export type BandImageProps = {
+  image: string | undefined
 }

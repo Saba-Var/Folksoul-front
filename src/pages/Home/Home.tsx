@@ -3,11 +3,14 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(false)
+
   const [text, setText] = useState('')
   const [image, setImage] = useState('')
 
   useEffect(() => {
     try {
+      setIsLoading(true)
       const fetch = async () => {
         const res = await axios.get(`http://localhost:5000/band-about`, {
           headers: {
@@ -19,6 +22,7 @@ const Home = () => {
           if (res.data[0].image) setImage(res.data[0].image)
           setText(res.data[0].about)
         }
+        setIsLoading(false)
       }
 
       fetch()
@@ -33,7 +37,7 @@ const Home = () => {
         <Header />
         <div className='flex justify-between  px-[3%]'>
           <div className='w-[886px] h-[857px] bg-red-200'></div>
-          <Info text={text} image={image} />
+          <Info text={text} image={image} isLoading={isLoading} />
         </div>
       </>
     </Wrapper>
