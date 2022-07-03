@@ -20,8 +20,10 @@ const Card: React.FC<CardData> = (props) => {
           data.paginationInfo.totalMembers > 0 &&
           data.members.map((member) => {
             const iconNum = Math.floor(Math.random() * 3) + 1
+
             const avatar =
               iconNum === 1 ? avatar1 : iconNum === 2 ? avatar2 : avatar3
+
             return (
               <MemberCard
                 fetchUtilities={fetchUtilities}

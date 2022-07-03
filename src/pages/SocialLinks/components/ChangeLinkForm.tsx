@@ -55,30 +55,30 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
   return (
     <div className='h-full py-40'>
       <FormNotifications
+        title={`ბმული '${watch().linkName} უკვე დამატებულია`}
         successText='ბმულის დეტალები შეიცვალა'
-        errorAlert={errorAlert}
         setErrorAlert={setErrorAlert}
         setShowModal={setShowModal}
+        errorAlert={errorAlert}
         showModal={showModal}
-        title={`ბმული '${watch().linkName} უკვე დამატებულია`}
       />
 
       <form
+        className='flex flex-col justify-between items-center'
         onSubmit={handleSubmit(submitHandler)}
-        className=' flex flex-col justify-between items-center'
       >
         <LinkInput
           errors={errors.linkName}
-          inputName='linkName'
           placeholder='დასახელება'
+          inputName='linkName'
           register={register}
         />
 
         <LinkInput
           errors={errors.url}
-          inputName='url'
           placeholder='ბმული'
           register={register}
+          inputName='url'
         />
 
         <button

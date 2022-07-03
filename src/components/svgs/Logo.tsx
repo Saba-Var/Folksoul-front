@@ -3,12 +3,7 @@ import { LogoProps } from 'components/svgs/types'
 
 const Logo: React.FC<LogoProps> = (props) => {
   return (
-    <svg
-      viewBox='0 0 168 86'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-      className={`${props.styles}`}
-    >
+    <svg viewBox='0 0 168 86' fill='none' className={`${props.styles}`}>
       <path
         d='M81.0422 12.4502C80.9625 13.6781 81.1781 18.4846 83.535 19.1232C85.8918 19.7618 88.2057 15.8906 88.7568 14.7904C89.3079 13.6902 90.5529 10.0292 86.3105 8.8797C82.0682 7.7302 81.1219 11.2223 81.0422 12.4502Z'
         fill='#F2C94C'

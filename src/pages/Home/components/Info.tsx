@@ -1,38 +1,40 @@
+import { InfoProps } from 'pages/Home/components/types'
 import { PurpleBackground } from 'components'
 import { Logo } from 'components/svgs'
 
-const Info = () => {
+const Info: React.FC<InfoProps> = (props) => {
   return (
-    <div className='h-[768px] flex items-end'>
-      <div className='bg-yellow pt-48 rounded-xl w-[682px] h-[611px] relative flex justify-center'>
-        <p className='w-[535px] text-justify  h-[377px] overflow-y-scroll'>
-          იაკებს, გამრავლების სეზონი როგორც წესი ივლისიდან სექტემბრამდე აქვთ.
-          ორსულობა კი დაახლოებით 270 დღე გრძელდება. მაისიდან ივნისამდე იბადებიან
-          პატარები, ძირითადად ერთი ხბო. მდედრი მშობიარობისთვის იზოლირებულ
-          ტერიტორიას პოულობს, სადაც პატარას აჩენს. ხბო დაახლოებით 10 წუთში უკვე
-          მყარად დგას ფეხზე და წყვილი მალევე უბრუნდება ჯოგს. <br /> <br />
-          გარეული და შინაური იაკებიც წელიწადში ერთხელ მშბიარობენ, კარგი გარემო
-          პირობების და საკმაო რაოდენობის საკვების ქონის შემთხვევაში, შესაძლოა
-          უფრო სწრაფი გამრავლებაც. ხბოები ერთი წლის ასაკში ანებებენ რძის ჭამას
-          თავს და ხდებიან დამოუკიდებლები. <br />
-          <br /> ველური იაკის ნაშიერები, ყავისფერი შეფერილობისანი არიან და
-          მხოლოდ მოზრდილ ასაკში უმუქდებათ და უგრძელდებათ ბეწვი. მდედრები როგორც
-          წესი 3-4 წლის ასაკში აჩენენ პირველად, თუმცა 6 წელი მათი განვითარების
-          პიკია. <br />
-          <br />
-          ტყვეობაში დაახლოებით 25 წელი შეუძლიათ სიცოცხლე, ბუნებაში ეს ასაკი
-          რთული მისაღწევია. საინტერესოა, რომ ხანდახან გარეულები სრულიად უმიზეზოდ
-          ესხმიან თავს მოშინაურებულ იაკებს, თუმცა ადამიანის დანახვისთანავე
-          გარბიან, ზოგადად მათთან კონტაქტს ერიდებიან.
+    <div className='flex flex-col pt-[5%]'>
+      <div className='bg-yellow pl-16 pt-40 pr-16 pb-9 rounded-xl w-[100%] h-[63vh] relative flex justify-center'>
+        <p className='w-[31vw] text-justify  h-[100%] overflow-y-auto pr-[7%] overflow-hidden animate-focus-in-expand whitespace-pre-line break-words pt-8 bg-transparent resize-none outline-none'>
+          {props.text}
         </p>
 
-        <div className='absolute w-[313px] top-[-25%] left-[28%] drop-shadow-4xl border-white border-2 overflow-hidden h-[313px] rounded-full flex justify-center items-center'>
-          <PurpleBackground styles='fixed -z-50 w-[313px]  h-[313px] rounded-full' />
-          <Logo styles='w-[27-px] h-32' />
+        <div className='absolute w-72 h-72 top-[-23%] left-[28%] drop-shadow-4xl border-white border-2 overflow-hidden rounded-full flex justify-center items-center'>
+          {!props.image && (
+            <>
+              <PurpleBackground styles='fixed -z-50 w-[%]  h-full rounded-full' />
+              <Logo styles='w-full h-full' />
+            </>
+          )}
+
+          {props.image && (
+            <img
+              src={`http://localhost:5000/${props.image}`}
+              className='h-full w-full'
+              alt='band'
+            />
+          )}
         </div>
 
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 left-6' />
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 right-6' />
+      </div>
+
+      <div className='flex'>
+        <p>social link1</p>
+        <p>social link2</p>
+        <p>social link3</p>
       </div>
     </div>
   )
