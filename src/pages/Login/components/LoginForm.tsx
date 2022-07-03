@@ -53,7 +53,6 @@ const LoginForm = () => {
       }
     } catch (error) {
       setShowAlert(true)
-      console.log(error)
     }
   }
 

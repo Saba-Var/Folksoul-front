@@ -35,10 +35,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
           fetchBandAbout(props.setBandAbout)
         }
       })
-      .catch((error) => {
-        setErrorAlert(true)
-        console.log(error)
-      })
+      .catch((error) => setErrorAlert(true))
   }
 
   return (

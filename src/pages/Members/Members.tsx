@@ -1,5 +1,5 @@
-import { SectionWrapper, DirectBtn } from 'components'
 import { useSearchParams, useNavigate } from 'react-router-dom'
+import { SectionWrapper, DirectBtn } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { MemberData } from '../../types'
