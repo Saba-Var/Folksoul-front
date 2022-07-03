@@ -3,7 +3,7 @@ import { BandImage } from 'pages/About/components'
 
 const BandInfo: React.FC<BandInfoProps> = (props) => {
   return (
-    <div className={`h-full overflow-y-auto w-[105%] pr-[5%]`}>
+    <div className={`h-[70vh] overflow-y-auto w-[105%] pr-[5%]`}>
       <BandImage
         id={props.id}
         setBandAbout={props.setBandAbout}

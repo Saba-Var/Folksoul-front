@@ -1,8 +1,8 @@
 export type MemberData = {
   members: {
     orbitLength: number
-    biography: string
     instrument: string
+    biography: string
     color: string
     name: string
     _id: string
