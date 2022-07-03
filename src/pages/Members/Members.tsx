@@ -1,4 +1,5 @@
 import { SectionWrapper, DirectBtn } from 'components'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { MemberData } from '../../types'
@@ -28,11 +29,18 @@ const memberModel = {
 const Members = () => {
   const [membersData, setMembersData] = useState<MemberData>(memberModel)
 
-  const [isLoading, setIsLoading] = useState(false)
   const [addMember, setAddMember] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const [memberId, setMemberId] = useState('')
   const [section, setSection] = useState('')
+
+  const [pageParam] = useSearchParams()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!pageParam.get('page')) navigate('/Dashboard/Members?page=1')
+  }, [navigate, pageParam])
 
   let emptyBand = membersData.paginationInfo.totalMembers === 0
 
