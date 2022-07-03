@@ -1,4 +1,4 @@
-function MiniCloseIcon() {
+const MiniCloseIcon = () => {
   return (
     <svg
       className='fill-red h-7 w-7   text-red-500'

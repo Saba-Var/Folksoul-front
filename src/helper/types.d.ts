@@ -1,3 +1,4 @@
+import { AllLinks } from 'pages/SocialLinks/types'
 import { MemberData } from '../types'
 
 export type MemberDetails = {
@@ -23,3 +24,17 @@ export type BandAbout = {
   about: string
   image?: string | undefined
 }[]
+
+export type FetchMembers = {
+  setMembersData: (data: MemberData) => void
+  setIsLoading: (loading: boolean) => void
+  page: number
+}
+
+export type SetBandAbout = (data: BandAbout) => void
+
+export type setIsLoading = (loading: boolean) => void
+
+export type SetMembersData = (data: MemberData) => void
+
+export type SetSocialLinks = (data: AllLinks) => void

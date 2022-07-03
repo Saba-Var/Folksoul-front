@@ -6,8 +6,8 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
-  const [file, setFile] = useState('')
   const [errorAlert, setErrorAlert] = useState(false)
+  const [file, setFile] = useState('')
 
   const fileChangeHandler = (e: any) => {
     if (e.target.files[0]?.type.startsWith('image')) setFile(e.target.files[0])

@@ -1,9 +1,9 @@
-import { BandAbout } from 'helper/types'
+import { SetBandAbout, setIsLoading } from 'helper/types'
 import axios from 'axios'
 
 const fetchBandAbout = (
-  setBandAbout: (data: BandAbout) => void,
-  setIsLoading?: (loading: boolean) => void
+  setBandAbout: SetBandAbout,
+  setIsLoading?: setIsLoading
 ) => {
   try {
     if (setIsLoading) setIsLoading(true)
@@ -13,9 +13,8 @@ const fetchBandAbout = (
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },
       })
-      if (res.status === 200) {
-        setBandAbout(res.data)
-      }
+
+      if (res.status === 200) setBandAbout(res.data)
       if (setIsLoading) setIsLoading(false)
     }
 

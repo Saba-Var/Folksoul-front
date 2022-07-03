@@ -1,5 +1,5 @@
-import { backgroundImage } from 'assets/images/index'
 import { PurpleBackgroundProps } from 'components/types'
+import { backgroundImage } from 'assets/images/index'
 
 const PurpleBackground: React.FC<PurpleBackgroundProps> = (props) => {
   return (

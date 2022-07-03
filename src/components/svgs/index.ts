@@ -1,3 +1,4 @@
+export { default as MiniCloseIcon } from './MiniCloseIcon'
 export { default as YoutubeIcon } from './YoutubeIcon'
 export { default as LoadingIcon } from './LoadingIcon'
 export { default as LogOutIcon } from './LogOutIcon'

@@ -1,9 +1,9 @@
-import { MemberData } from '../types'
+import { SetMembersData, setIsLoading } from 'helper/types'
 import axios from 'axios'
 
 const fetchMembersData = async (
-  setMembersData: (data: MemberData) => void,
-  setIsLoading: (loading: boolean) => void,
+  setMembersData: SetMembersData,
+  setIsLoading: setIsLoading,
   page: number
 ) => {
   setIsLoading(true)

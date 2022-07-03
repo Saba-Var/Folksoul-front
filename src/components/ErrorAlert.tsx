@@ -1,6 +1,6 @@
 import { ErrorAlertProps } from 'components/types'
+import { MiniCloseIcon } from 'components/svgs'
 import { ErrorIcon } from 'components/svgs'
-import { MiniCloseIcon } from 'components'
 import { useState } from 'react'
 
 const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
