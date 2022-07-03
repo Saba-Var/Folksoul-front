@@ -1,9 +1,9 @@
 export type InputFieldProps = {
-  showError: boolean
-  register: any
+  register: UseFormRegister<FieldValues>
   placeholder: string
-  errors: any
+  showError: boolean
   type: string
+  errors: any
 }
 
 export type UserData = {

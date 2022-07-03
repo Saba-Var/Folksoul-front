@@ -1,13 +1,22 @@
 import { MemberData } from 'types'
 
-type fetchUtilities = { setMembersData: any; setIsLoading: any }
+type SetMembersData = (data: MemberData) => void
+
+type SetIsLoading = (loading: boolean) => void
+
+type setSection = (section: string) => void
+
+type fetchUtilities = {
+  setMembersData: SetMembersData
+  setIsLoading: SetIsLoading
+}
 
 export type CardData = {
-  setIsLoading?: (loading: boolean) => void
-  setSection?: (section: string) => void
   setMemberId?: (show: string) => void
-  data: MemberData
   fetchUtilities: fetchUtilities
+  setIsLoading?: SetIsLoading
+  setSection?: setSection
+  data: MemberData
 }
 
 export type PaginationLinkProps = {
@@ -15,109 +24,113 @@ export type PaginationLinkProps = {
   page: number
 }
 
-export type InputsProps = { errors: any; register: any; title: string }
+export type InputsProps = {
+  register: UseFormRegister<FieldValues>
+  title: string
+  errors: any
+}
 
 export type MembersInfo = {
-  biography: string
-  color: string
-  instrument: string
-  name: string
   orbitLength: number
-  _id: string
+  instrument: string
+  biography: string
   image?: string
+  color: string
+  name: string
+  _id: string
 }[]
 
 export type MemberCardProps = {
-  setIsLoading: (loading: boolean) => void
-  setSection: (section: string) => void
   setMemberId: (show: string) => void
-  membersData: MembersInfo
   fetchUtilities: fetchUtilities
-  id: string
+  setIsLoading: SetIsLoading
+  membersData: MembersInfo
+  setSection: setSection
   avatar: string
   name: string
+  id: string
 }
 
 export type DeleteDialogProps = {
-  membersData: MembersInfo
   setShowModal: (show: boolean) => void
-  userId: string
   fetchUtilities: fetchUtilities
+  membersData: MembersInfo
+  userId: string
 }
 
 export type AddMemberProps = {
-  setSection: (section: string) => void
-  membersData: MembersInfo
-  memberCount: number
   setAddMember: (add: boolean) => void
-  setMembersData: (data: MemberData) => void
-  setIsLoading: (loading: boolean) => void
+  setMembersData: SetMembersData
+  setIsLoading: SetIsLoading
+  membersData: MembersInfo
+  setSection: setSection
+  memberCount: number
 }
 
 export type MemberIfo = {
-  biography: string
-  color: string
-  instrument: string
-  name: string
   orbitLength: string | number
+  instrument: string
+  biography: string
   image?: string
+  color: string
+  name: string
 }
 
 export type DetailModal = {
+  setMemberModal: (show: boolean) => void
   currentMember: MemberIfo
   avatar: string
-  setMemberModal: (show: boolean) => void
 }
 
 export type AvatarModalProps = {
-  url: string
-  setIsLoading: (loading: boolean) => void
-  setMembersData: any
-  id: string
-  currentMember: MemberIfo | undefined
-  avatar: string
   setAvatarModal: (show: boolean) => void
+  currentMember: MemberIfo | undefined
+  setMembersData: SetMembersData
+  setIsLoading: SetIsLoading
+  avatar: string
+  url: string
+  id: string
 }
 
 export type DeleteMemberProps = {
-  userId: string
-  fetchUtilities: {
-    setMembersData: any
-    setIsLoading: any
-  }
   membersData: MembersInfo
+  fetchUtilities: {
+    setMembersData: SetMembersData
+    setIsLoading: SetIsLoading
+  }
+  userId: string
 }
 
 export type MemberDetails = {
-  setSection: (section: string) => void
-  action: string
-  membersData: MembersInfo
   setAddMember: (add: boolean) => void
+  setMembersData: SetMembersData
+  setIsLoading: SetIsLoading
+  membersData: MembersInfo
+  setSection: setSection
   details: MemberIfo
+  action: string
   url: string
-  setMembersData: (data: MemberData) => void
-  setIsLoading: (loading: boolean) => void
 }
 
 export type TextareaProps = {
-  inputName: string
+  register: UseFormRegister<FieldValues>
   placeholder: string
-  register: any
+  inputName: string
   errors: any
 }
 
 export type NotificationsProps = {
-  showModal: boolean
-  action: string
+  setShowErrorAlert: (show: boolean) => void
   setShowModal: (show: boolean) => void
   showErrorAlert: boolean
-  setShowErrorAlert: (show: boolean) => void
+  showModal: boolean
   statusCode: number
+  action: string
 }
 
 export type MemberInputProps = {
+  setMembersData: SetMembersData
+  setIsLoading: SetIsLoading
+  setSection: setSection
   id: string
-  setSection: (section: string) => void
-  setMembersData: any
-  setIsLoading: (loading: boolean) => void
 }

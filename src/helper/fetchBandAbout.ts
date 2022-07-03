@@ -1,9 +1,9 @@
-import { SetBandAbout, setIsLoading } from 'helper/types'
+import { SetBandAbout, SetIsLoading } from 'helper/types'
 import axios from 'axios'
 
 const fetchBandAbout = (
   setBandAbout: SetBandAbout,
-  setIsLoading?: setIsLoading
+  setIsLoading?: SetIsLoading
 ) => {
   try {
     if (setIsLoading) setIsLoading(true)

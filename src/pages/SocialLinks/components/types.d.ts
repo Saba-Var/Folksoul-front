@@ -1,24 +1,33 @@
 import { AllLinks } from 'pages/SocialLinks/types'
 
-type setLinks = (data: AllLinks) => void
+type SetSection = (section: string) => void
+
+type SetLinks = (data: AllLinks) => void
+
+type Show = (show: boolean) => void
 
 export type LinksData = {
   setLinkId: (id: string) => void
-  setSection: (section: string) => void
+  setSection: SetSection
+  setLinks: SetLinks
   links: AllLinks
-  setLinks: setLinks
 }
 
 export type DeleteLinkProps = {
-  id: string
+  setLinks: SetLinks
   links: AllLinks
-  setLinks: setLinks
+  id: string
 }
 
+export type FormData = SubmitHandler<{
+  linkName: string
+  url: string
+}>
+
 export type DeleteDialogProps = {
-  setLinks: setLinks
+  setShowModal: Show
+  setLinks: SetLinks
   id: string
-  setShowModal: (show: boolean) => void
 }
 
 export type DetailsProps = {
@@ -27,41 +36,36 @@ export type DetailsProps = {
 }
 
 export type ChangeIconProps = {
-  setLinks: setLinks
+  image: string | undefined
+  setLinks: SetLinks
   linkName: string
   id: string
-  image: string | undefined
 }
 
 export type AddLinkFormProps = {
-  setLinks: setLinks
-  setSection: (section: string) => void
+  setSection: SetSection
+  setLinks: SetLinks
 }
 
 export type ChangeLinkProps = {
-  id: string
+  setSection: SetSection
+  setLinks: SetLinks
   links: AllLinks
-  setLinks: setLinks
-  setSection: (section: string) => void
+  id: string
 }
 
 export type LinkInputProps = {
+  register: UseFormRegister<FieldValues>
   placeholder: string
   inputName: string
-  register: any
   errors: any
 }
 
 export type FormNotificationsProps = {
-  successText: string
-  title: string
-  showModal: boolean
-  setShowModal: (show: boolean) => void
   errorAlert: boolean
-  setErrorAlert: (show: boolean) => void
+  successText: string
+  setErrorAlert: Show
+  setShowModal: Show
+  showModal: boolean
+  title: string
 }
-
-export type FormData = SubmitHandler<{
-  linkName: string
-  url: string
-}>

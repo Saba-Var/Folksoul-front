@@ -1,29 +1,31 @@
 import { BandAbout } from 'helper/types'
 
+type SetBandAbout = (data: BandAbout) => void
+
 export type BandInfoProps = {
-  id: string
-  setBandAbout: (data: BandAbout) => void
+  setBandAbout: SetBandAbout
+  image?: string | undefined
   isLoading: boolean
   about: string
-  image?: string | undefined
+  id: string
 }
 
 export type BandImageProps = {
-  id: string
-  setBandAbout: (data: BandAbout) => void
-  isLoading: boolean
+  setBandAbout: SetBandAbout
   image: string | undefined
+  isLoading: boolean
+  id: string
 }
 
 export type EditInfoProps = {
-  setBandAbout: (data: BandAbout) => void
-  id: string
   setSection: (section: string) => void
+  setBandAbout: SetBandAbout
   about: string
+  id: string
 }
 
 export type ImageProps = {
-  styles: string
   image: string | undefined
   isLoading: boolean
+  styles: string
 }

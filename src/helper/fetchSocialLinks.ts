@@ -1,9 +1,9 @@
-import { SetSocialLinks, setIsLoading } from 'helper/types'
+import { SetSocialLinks, SetIsLoading } from 'helper/types'
 import axios from 'axios'
 
 const fetchSocialLinks = async (
   setSocialLinks: SetSocialLinks,
-  setIsLoading?: setIsLoading
+  setIsLoading?: SetIsLoading
 ) => {
   try {
     const fetch = async () => {

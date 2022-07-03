@@ -1,63 +1,63 @@
+type Show = (show: boolean) => void
+
 export type PurpleBackgroundProps = {
   styles: string
 }
 
 export type WhiteWrapperProps = {
-  style?: string
   children: JSX.Element
+  style?: string
 }
 
 export type SectionWrapperProps = {
-  title: string
   children: JSX.Element
+  title: string
 }
 
 export type ModalProps = {
-  title: string
   children: JSX.Element
-  setShowModal: (show: boolean) => void
+  setShowModal: Show
+  title: string
 }
 
 export type ErrorAlertProps = {
-  setShowAlert: (show: boolean) => void
-  title: string
+  setShowAlert: Show
   styles?: string
+  title: string
 }
 
 export type DirectBtnProps = {
-  goTo: string
-  title: string
   direction: (add: string) => void
+  title: string
+  goTo: string
 }
 
 export type InputFieldProps = {
-  minLength?: number
-  type: string
-  register: any
-  inputName: string
+  register: UseFormRegister<FieldValues>
   placeholder: string
+  minLength?: number
+  inputName: string
+  type: string
   errors: any
 }
 
-export type addOrMemberInputs = {}
-
 export type ImageUploadProps = {
-  url: string
-  setLinks: setLinks
-  id: string
-  title: string
-  setImageModal: (show: boolean) => void
   children: JSX.Element
+  setImageModal: Show
+  setLinks: setLinks
+  title: string
+  url: string
+  id: string
 }
 
 export type AddNotificationProps = {
-  title: string
-  setShowModal: (show: boolean) => void
+  setShowModal: Show
   modalText: string
+  title: string
 }
 
 export type DeleteContentProps = {
-  text: string
-  closeModal: () => void
   deleteMember: () => void
+  closeModal: () => void
+  text: string
 }
