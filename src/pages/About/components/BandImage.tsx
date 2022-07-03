@@ -1,6 +1,7 @@
 import { BandImageProps } from 'pages/About/components/types'
-import { PurpleBackground, ImageUpload } from 'components'
-import { CameraBtn, Logo } from 'components/svgs'
+import { Image } from 'pages/About/components'
+import { CameraBtn } from 'components/svgs'
+import { ImageUpload } from 'components'
 import { useState } from 'react'
 
 const BandImage: React.FC<BandImageProps> = (props) => {
@@ -9,20 +10,11 @@ const BandImage: React.FC<BandImageProps> = (props) => {
   return (
     <div className=''>
       <div className='mx-auto w-44 h-44 relative'>
-        {!props.image && !props.isLoading && (
-          <div className='w-44 h-44 drop-shadow-5xl border-solidBlue border-[5px] overflow-hidden  rounded-full flex justify-center items-center'>
-            <PurpleBackground styles='fixed -z-50 w-full h-full rounded-full' />
-            <Logo styles='w-44 h-44' />
-          </div>
-        )}
-
-        {props.image && (
-          <img
-            alt='band '
-            src={`http://localhost:5000/${props.image}`}
-            className='rounded-full w-full h-full shadow-5xl border-[5px] border-solidBlue'
-          />
-        )}
+        <Image
+          image={props.image}
+          isLoading={props.isLoading}
+          styles='w-44 h-44'
+        />
 
         {!props.isLoading && (
           <div onClick={() => setIconModal(true)}>
@@ -39,20 +31,11 @@ const BandImage: React.FC<BandImageProps> = (props) => {
             setImageModal={setIconModal}
           >
             <div className='flex flex-col h-full justify-between pt-8  pb-[20%] items-center'>
-              {!props.image && !props.isLoading && (
-                <div className='w-64 h-64 drop-shadow-5xl border-solidBlue border-[5px] overflow-hidden  rounded-full flex justify-center items-center'>
-                  <PurpleBackground styles='fixed -z-50 w-full h-full rounded-full' />
-                  <Logo styles='w-64 h-64' />
-                </div>
-              )}
-
-              {props.image && (
-                <img
-                  alt='band '
-                  src={`http://localhost:5000/${props.image}`}
-                  className='rounded-full w-64 h-64 shadow-5xl border-[5px] border-solidBlue'
-                />
-              )}
+              <Image
+                image={props.image}
+                isLoading={props.isLoading}
+                styles='w-64 h-64'
+              />
             </div>
           </ImageUpload>
         )}

@@ -21,3 +21,9 @@ export type EditInfoProps = {
   setSection: (section: string) => void
   about: string
 }
+
+export type ImageProps = {
+  styles: string
+  image: string | undefined
+  isLoading: boolean
+}
