@@ -11,37 +11,37 @@ const MemberInputs: React.FC<InputsProps> = (props) => {
         <div className='flex justify-center'>
           <InputField
             errors={errors.name}
-            inputName='name'
             placeholder='სახელი'
             register={register}
-            type='text'
+            inputName='name'
             minLength={3}
+            type='text'
           />
         </div>
 
         <div className='flex gap-8 justify-center'>
           <InputField
             errors={errors.instrument}
-            inputName='instrument'
             placeholder='ინსტრუმენტი'
+            inputName='instrument'
             register={register}
-            type='text'
             minLength={2}
+            type='text'
           />
 
           <InputField
             errors={errors.orbitLength}
-            inputName='orbitLength'
             placeholder='ორბიტის სიგანე'
+            inputName='orbitLength'
             register={register}
             type='number'
           />
 
           <InputField
             errors={errors.color}
-            inputName='color'
-            placeholder='ფერი'
             register={register}
+            placeholder='ფერი'
+            inputName='color'
             type='text'
           />
         </div>
@@ -55,8 +55,8 @@ const MemberInputs: React.FC<InputsProps> = (props) => {
       </div>
 
       <button
-        type='submit'
         className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-2'
+        type='submit'
       >
         {props.title}
       </button>

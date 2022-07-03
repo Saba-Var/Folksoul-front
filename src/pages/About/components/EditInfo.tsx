@@ -42,17 +42,17 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
     <div className='h-full flex justify-between flex-col'>
       {errorAlert && (
         <ErrorAlert
-          styles='left-[55%] top-[5%]'
           setShowAlert={setErrorAlert}
+          styles='left-[55%] top-[5%]'
           title='შეიყვანეთ ინფორმაცია'
         />
       )}
 
       {addModal && (
         <AddNotification
+          title='ბენდის შესახებ - დაარედაქტირე'
           modalText='ინფორმაცია შეიცვალა'
           setShowModal={setAddModal}
-          title='ბენდის შესახებ - დაარედაქტირე'
         />
       )}
 
@@ -65,9 +65,9 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
       <div className='flex flex-col gap-4 mt-8'>
         <button
+          className='greenBtn shadow-3xl animate-tracking-in-expand w-40 mx-auto'
           onClick={submitHandler}
           type='submit'
-          className='greenBtn shadow-3xl animate-tracking-in-expand w-40 mx-auto'
         >
           შეინახე
         </button>

@@ -45,13 +45,13 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
         {avatarModal && (
           <AvatarModal
+            url='http://localhost:5000/upload-member-image'
             setIsLoading={props.setIsLoading}
             setMembersData={setMembersData}
-            id={id}
-            url='http://localhost:5000/upload-member-image'
-            avatar={imageUrl}
-            currentMember={currentMember}
             setAvatarModal={setAvatarModal}
+            currentMember={currentMember}
+            avatar={imageUrl}
+            id={id}
           />
         )}
       </div>
@@ -66,9 +66,9 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
         {memberModal && (
           <DetailsModal
-            avatar={imageUrl}
-            currentMember={currentMember!}
             setMemberModal={setMemberModal}
+            currentMember={currentMember!}
+            avatar={imageUrl}
           />
         )}
 
@@ -83,9 +83,9 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         </div>
 
         <DeleteMember
-          userId={id}
           fetchUtilities={fetchUtilities}
           membersData={membersData}
+          userId={id}
         />
       </div>
     </div>

@@ -89,12 +89,12 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   return (
     <div className='animate-fade-in'>
       <Notifications
-        action={'CHANGE'}
         setShowErrorAlert={setShowErrorAlert}
-        setShowModal={setShowModal}
-        showModal={showModal}
         showErrorAlert={showErrorAlert}
+        setShowModal={setShowModal}
         statusCode={statusCode}
+        showModal={showModal}
+        action={'CHANGE'}
       />
 
       <form

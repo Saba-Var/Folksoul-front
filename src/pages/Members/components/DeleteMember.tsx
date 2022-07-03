@@ -18,9 +18,9 @@ const DeleteMember: React.FC<DeleteMemberProps> = (props) => {
         <Modal setShowModal={setShowModal} title='ბენდის წევრის წაშლა'>
           <DeleteDialog
             membersData={props.membersData}
-            userId={props.userId}
-            setShowModal={setShowModal}
             fetchUtilities={fetchUtilities}
+            setShowModal={setShowModal}
+            userId={props.userId}
           />
         </Modal>
       )}

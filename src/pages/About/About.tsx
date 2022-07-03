@@ -10,6 +10,8 @@ const About = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [section, setSection] = useState('')
 
+  const { _id, about, image } = bandAbout[0]
+
   useEffect(() => {
     fetchBandAbout(setBandAbout, setIsLoading)
   }, [])
@@ -22,20 +24,20 @@ const About = () => {
       <div className='animate-fade-in'>
         {section === '' && (
           <BandInfo
-            id={bandAbout[0]._id}
             setBandAbout={setBandAbout}
             isLoading={isLoading}
-            about={bandAbout[0].about}
-            image={bandAbout[0].image}
+            about={about}
+            image={image}
+            id={_id}
           />
         )}
 
         {section === 'edit' && (
           <EditInfo
             setBandAbout={setBandAbout}
-            id={bandAbout[0]._id}
             setSection={setSection}
-            about={bandAbout[0].about}
+            about={about}
+            id={_id}
           />
         )}
 

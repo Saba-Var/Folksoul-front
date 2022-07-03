@@ -64,11 +64,11 @@ const Members = () => {
 
         {!notFound && !addMember && section === '' && (
           <Cards
-            setIsLoading={setIsLoading}
-            setSection={setSection}
             fetchUtilities={fetchUtilities}
-            data={membersData!}
+            setIsLoading={setIsLoading}
             setMemberId={setMemberId}
+            setSection={setSection}
+            data={membersData!}
           />
         )}
 
@@ -76,27 +76,27 @@ const Members = () => {
           <DirectBtn
             title='ახალი წევრი გვყავს?'
             direction={setSection}
-            goTo={'addMember'}
+            goTo='addMember'
           />
         )}
 
         {section === 'addMember' && (
           <AddMember
-            setSection={setSection}
             memberCount={membersData.paginationInfo.totalMembers}
-            setAddMember={setAddMember}
-            setMembersData={setMembersData}
             membersData={membersData.members}
+            setMembersData={setMembersData}
+            setAddMember={setAddMember}
             setIsLoading={setIsLoading}
+            setSection={setSection}
           />
         )}
 
         {section === 'MemberInputs' && (
           <ChangeMember
-            id={memberId}
-            setSection={setSection}
             setMembersData={setMembersData}
             setIsLoading={setIsLoading}
+            setSection={setSection}
+            id={memberId}
           />
         )}
       </>

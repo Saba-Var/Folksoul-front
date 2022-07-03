@@ -24,15 +24,15 @@ const Card: React.FC<CardData> = (props) => {
               iconNum === 1 ? avatar1 : iconNum === 2 ? avatar2 : avatar3
             return (
               <MemberCard
-                setIsLoading={setIsLoading!}
-                setSection={setSection!}
-                setMemberId={setMemberId!}
-                membersData={data.members}
                 fetchUtilities={fetchUtilities}
-                avatar={avatar}
-                id={member._id}
+                setIsLoading={setIsLoading!}
+                membersData={data.members}
+                setMemberId={setMemberId!}
+                setSection={setSection!}
                 name={member.name}
                 key={member._id}
+                id={member._id}
+                avatar={avatar}
               />
             )
           })}

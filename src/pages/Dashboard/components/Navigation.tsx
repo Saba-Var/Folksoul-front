@@ -22,32 +22,36 @@ const Navigation: React.FC<NavigationProps> = (props) => {
       <div className='flex flex-col gap-7  '>
         <Section
           sectionUtils={sectionUtils}
-          title='მთავარი'
           icon={<HomeIcon />}
+          title='მთავარი'
           link='Main'
         />
+
         <Section
           sectionUtils={sectionUtils}
           title='ჯგუფის წევრები'
           icon={<MemberIcon />}
           link='Members'
         />
+
         <Section
           sectionUtils={sectionUtils}
           title='სოციალური ბმულები'
           icon={<YoutubeIcon />}
           link='Social-Links'
         />
+
         <Section
           sectionUtils={sectionUtils}
           title='ბენდის შესახებ'
           icon={<NoteIcon />}
           link='About'
         />
+
         <Section
           sectionUtils={sectionUtils}
-          title='გადი გარეთ'
           icon={<LogOutIcon />}
+          title='გადი გარეთ'
           link='Logout'
         />
       </div>

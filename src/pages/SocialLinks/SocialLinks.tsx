@@ -9,8 +9,9 @@ import {
 } from 'pages/SocialLinks/components'
 
 const SocialLinks = () => {
-  const [loading, setIsLoading] = useState(false)
   const [links, setLinks] = useState<AllLinks>([])
+  const [loading, setIsLoading] = useState(false)
+
   const [section, setSection] = useState('')
   const [linkId, setLinkId] = useState('id')
 
@@ -28,10 +29,10 @@ const SocialLinks = () => {
       <div className={`flex flex-col justify-between h-full `}>
         {links.length > 0 && section === '' && (
           <Links
-            setLinkId={setLinkId}
             setSection={setSection}
-            links={links}
+            setLinkId={setLinkId}
             setLinks={setLinks}
+            links={links}
           />
         )}
 
@@ -51,10 +52,10 @@ const SocialLinks = () => {
 
         {section === 'changeLink' && (
           <ChangeLinkForm
+            setSection={setSection}
+            setLinks={setLinks}
             id={linkId}
             links={links}
-            setLinks={setLinks}
-            setSection={setSection}
           />
         )}
 

@@ -80,12 +80,12 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
   return (
     <div className='animate-fade-in'>
       <Notifications
-        action={props.action}
         setShowErrorAlert={setShowErrorAlert}
-        setShowModal={setShowModal}
-        showModal={showModal}
         showErrorAlert={showErrorAlert}
+        setShowModal={setShowModal}
         statusCode={statusCode}
+        showModal={showModal}
+        action={props.action}
       />
 
       <form
@@ -93,9 +93,9 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         className='flex flex-col justify-between'
       >
         <MemberInputs
-          errors={errors}
-          register={register}
           title='დაამატე წევრი'
+          register={register}
+          errors={errors}
         />
       </form>
 

@@ -15,14 +15,14 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
   return (
     <>
       <MemberForm
-        setSection={props.setSection}
-        action='ADD'
-        membersData={membersData}
-        setMembersData={setMembersData}
-        setIsLoading={setIsLoading}
-        details={details}
-        setAddMember={setAddMember}
         url='http://localhost:5000/add-member'
+        setMembersData={setMembersData}
+        setSection={props.setSection}
+        setIsLoading={setIsLoading}
+        setAddMember={setAddMember}
+        membersData={membersData}
+        details={details}
+        action='ADD'
       />
     </>
   )
