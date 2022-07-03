@@ -62,7 +62,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
       <form className='w-full h-[80%] outline-none resize-none bg-lightYellow shadow-5xl py-4 pl-6 pr-9 rounded-lg'>
         <textarea
           {...register('about')}
-          className='w-full h-full outline-none resize-none pr-14 bg-lightYellow'
+          className='w-full h-[51.5vh] !break-words outline-none resize-none pr-14 bg-lightYellow'
         />
       </form>
 

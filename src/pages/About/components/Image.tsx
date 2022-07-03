@@ -16,9 +16,9 @@ const Image: React.FC<ImageProps> = (props) => {
 
       {props.image && (
         <img
-          alt='band '
+          alt='band'
           src={`http://localhost:5000/${props.image}`}
-          className={`rounded-full w-full h-full shadow-5xl border-[5px] border-solidBlue ${props.styles}`}
+          className={`rounded-full w-44 h-44 shadow-5xl border-[5px] border-solidBlue ${props.styles}`}
         />
       )}
     </>

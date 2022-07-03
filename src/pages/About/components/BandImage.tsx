@@ -8,8 +8,8 @@ const BandImage: React.FC<BandImageProps> = (props) => {
   const [iconModal, setIconModal] = useState(false)
 
   return (
-    <div className=''>
-      <div className='mx-auto w-44 h-44 relative'>
+    <div>
+      <div className={`mx-auto w-44 h-44 relative  `}>
         <Image
           image={props.image}
           isLoading={props.isLoading}

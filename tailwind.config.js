@@ -11,6 +11,8 @@ module.exports = {
         '5xl': '1900px',
       },
       animation: {
+        'focus-in-expand':
+          'focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both',
         'slide-out-elliptic-top-fwd':
           'slide-out-elliptic-top-fwd 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
         'puff-in-center':
@@ -30,6 +32,17 @@ module.exports = {
           'slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both',
       },
       keyframes: {
+        'focus-in-expand': {
+          '0%': {
+            'letter-spacing': '-.5em',
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          to: {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+        },
         'slide-out-elliptic-top-fwd': {
           '0%': {
             transform: 'translateY(0) rotateX(0) scale(1)',

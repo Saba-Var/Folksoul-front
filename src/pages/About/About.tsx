@@ -19,7 +19,7 @@ const About = () => {
 
   return (
     <SectionWrapper title={title}>
-      <>
+      <div className='animate-fade-in'>
         {section === '' && (
           <BandInfo
             id={bandAbout[0]._id}
@@ -40,7 +40,7 @@ const About = () => {
         )}
 
         {!isLoading && !section && <EditBtn setSection={setSection} />}
-      </>
+      </div>
     </SectionWrapper>
   )
 }
