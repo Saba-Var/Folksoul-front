@@ -34,7 +34,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
               <Image
                 image={props.image}
                 isLoading={props.isLoading}
-                styles='w-64 h-64'
+                styles='w-60 h-60'
               />
             </div>
           </ImageUpload>
