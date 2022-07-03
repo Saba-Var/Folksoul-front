@@ -9,7 +9,7 @@ import {
   Main,
 } from 'pages'
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>

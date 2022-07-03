@@ -6,6 +6,7 @@ const Details: React.FC<DetailsProps> = (props) => {
       <p className='font-BPG-Nino-Mtavruli text-contentWhite tracking-widest text-lg'>
         {props.linkName}
       </p>
+
       <a
         className='text-mediumBlue text-sm underline'
         target='_blank'

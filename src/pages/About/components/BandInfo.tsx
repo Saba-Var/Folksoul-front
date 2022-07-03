@@ -10,6 +10,7 @@ const BandInfo: React.FC<BandInfoProps> = (props) => {
         isLoading={props.isLoading}
         image={props.image}
       />
+
       <div
         defaultValue={props.about}
         className='overflow-hidden whitespace-pre pt-8 bg-transparent resize-none outline-none w-full h-max'

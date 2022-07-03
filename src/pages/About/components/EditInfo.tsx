@@ -1,13 +1,13 @@
-import { EditInfoProps } from 'pages/About/components/types'
 import { DirectBtn, AddNotification, ErrorAlert } from 'components'
-import { fetchBandAbout } from 'helper'
-import { useForm } from 'react-hook-form'
+import { EditInfoProps } from 'pages/About/components/types'
 import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { fetchBandAbout } from 'helper'
 import axios from 'axios'
 
 const EditInfo: React.FC<EditInfoProps> = (props) => {
-  const [addModal, setAddModal] = useState(false)
   const [errorAlert, setErrorAlert] = useState(false)
+  const [addModal, setAddModal] = useState(false)
   const { register, setValue, watch } = useForm({
     mode: 'all',
   })

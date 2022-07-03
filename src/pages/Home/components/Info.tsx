@@ -1,5 +1,5 @@
-import { Logo } from 'components/svgs'
 import { PurpleBackground } from 'components'
+import { Logo } from 'components/svgs'
 
 function Info() {
   return (
@@ -25,10 +25,12 @@ function Info() {
           ესხმიან თავს მოშინაურებულ იაკებს, თუმცა ადამიანის დანახვისთანავე
           გარბიან, ზოგადად მათთან კონტაქტს ერიდებიან.
         </p>
+
         <div className='absolute w-[313px] top-[-25%] left-[28%] drop-shadow-4xl border-white border-2 overflow-hidden h-[313px] rounded-full flex justify-center items-center'>
           <PurpleBackground styles='fixed -z-50 w-[313px]  h-[313px] rounded-full' />
           <Logo styles='w-[27-px] h-32' />
         </div>
+
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 left-6' />
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 right-6' />
       </div>

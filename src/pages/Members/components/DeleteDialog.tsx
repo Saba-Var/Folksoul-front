@@ -10,6 +10,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   const navigate = useNavigate()
 
   const [pageParam] = useSearchParams()
+
   const currentPage = +pageParam.get('page')!
   let fetchPage = currentPage
 

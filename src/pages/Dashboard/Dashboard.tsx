@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 
 function Dashboard() {
-  const [section, setSection] = useState<string>('Main')
+  const [section, setSection] = useState('Main')
 
   return (
     <>

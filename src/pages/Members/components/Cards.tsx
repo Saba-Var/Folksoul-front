@@ -1,12 +1,12 @@
 import { Pagination, MemberCard } from 'pages/Members/components'
 import { avatar1, avatar2, avatar3 } from 'assets/images'
-import { CardData } from './types'
+import { CardData } from 'pages/Members/components/types'
 
 const Card: React.FC<CardData> = (props) => {
   const { setMembersData, setIsLoading } = props.fetchUtilities
   const fetchUtilities = { setMembersData, setIsLoading }
 
-  const { data } = props
+  const { data, setSection, setMemberId } = props
   const membersOnPage = data.members.length
 
   return (
@@ -24,9 +24,9 @@ const Card: React.FC<CardData> = (props) => {
               iconNum === 1 ? avatar1 : iconNum === 2 ? avatar2 : avatar3
             return (
               <MemberCard
-                setIsLoading={props.setIsLoading!}
-                setSection={props.setSection!}
-                setMemberId={props.setMemberId!}
+                setIsLoading={setIsLoading!}
+                setSection={setSection!}
+                setMemberId={setMemberId!}
                 membersData={data.members}
                 fetchUtilities={fetchUtilities}
                 avatar={avatar}

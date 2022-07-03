@@ -43,8 +43,10 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
         if (response.status === 201) {
           setShowModal(true)
+
           setValue('linkName', '')
           setValue('url', '')
+
           fetchSocialLinks(props.setLinks)
         }
       } catch (error: any) {

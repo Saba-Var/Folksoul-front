@@ -12,6 +12,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
           validate: {
             minLength: (v: string) =>
               v.trim().length >= 3 || 'შეიყვანეთ მინიმუმ 3 სიმბოლო!',
+
             lowerCase: (v: string) => {
               for (let i = 0; i < v.length; i++) {
                 if (v[i] === v[i].toUpperCase() && inputName === 'username')
@@ -26,6 +27,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         }`}
         placeholder={props.placeholder}
       />
+
       {showError && <p className='text-sm text-red'>{props.errors.message}</p>}
     </div>
   )

@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom'
 const PaginationLink: React.FC<PaginationLinkProps> = (props) => {
   const [pageParam] = useSearchParams()
 
+  const { setMembersData, setIsLoading } = props.fetchUtilities
+
   const clickHandler = () => {
-    fetchMembersData(
-      props.fetchUtilities.setMembersData,
-      props.fetchUtilities.setIsLoading,
-      props.page
-    )
+    fetchMembersData(setMembersData, setIsLoading, props.page)
   }
 
   return (

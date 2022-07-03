@@ -6,6 +6,7 @@ const Pagination: React.FC<CardData> = (props) => {
   const fetchUtilities = { setMembersData, setIsLoading }
 
   const totalPages = Math.ceil(props.data.paginationInfo.totalMembers / 3)
+
   const paginationLinks = []
 
   for (let i = 1; i <= totalPages; i++) {

@@ -27,8 +27,10 @@ const memberModel = {
 
 function Members() {
   const [membersData, setMembersData] = useState<MemberData>(memberModel)
+
   const [isLoading, setIsLoading] = useState(false)
   const [addMember, setAddMember] = useState(false)
+
   const [memberId, setMemberId] = useState('')
   const [section, setSection] = useState('')
 
@@ -51,6 +53,7 @@ function Members() {
     <SectionWrapper title={title}>
       <>
         {notFound && section === '' && <NoMembers />}
+
         {!notFound && !addMember && section === '' && (
           <Cards
             setIsLoading={setIsLoading}

@@ -9,11 +9,12 @@ import axios from 'axios'
 
 const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const { setMembersData, setIsLoading, id } = props
+
+  const [statusCode, setStatusCode] = useState(404)
   const [page] = useSearchParams()
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const [statusCode, setStatusCode] = useState(404)
 
   const {
     register,
@@ -39,13 +40,11 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
             },
           }
         )
+
         if (response.status === 200) {
-          const data = response.data
-          setValue('name', data.name)
-          setValue('instrument', data.instrument)
-          setValue('color', data.color)
-          setValue('orbitLength', data.orbitLength)
-          setValue('biography', data.biography)
+          for (const key in response.data) {
+            setValue(key, response.data[key])
+          }
         }
       }
       fetch()

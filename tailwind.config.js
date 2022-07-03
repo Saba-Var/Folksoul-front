@@ -196,6 +196,7 @@ module.exports = {
         yellow: '#FBD560',
         lightYellow: '#E5E5E5',
         darkGreen: '#345161',
+        brown: '#7B5A5A',
         black: '#272727',
         red: '#EB5757',
         redSm: '#e98282c7',
@@ -211,6 +212,7 @@ module.exports = {
         green: '#53C02C',
         charcoal: '#333333',
         solidBlue: '#3B5495',
+        medBlue: '#345161',
       },
       fontFamily: {
         'BPG-Arial': ['BPG Arial'],

@@ -1,9 +1,9 @@
 import { ChangeLinkProps, FormData } from 'pages/SocialLinks/components/types'
 import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
 import { fetchSocialLinks } from 'helper/index'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { DirectBtn } from 'components'
-import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {

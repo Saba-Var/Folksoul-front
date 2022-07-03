@@ -10,12 +10,15 @@ import axios from 'axios'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
   const { membersData, details, url, setMembersData, setIsLoading } = props
+
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
+
   const [statusCode, setStatusCode] = useState(404)
 
   const navigate = useNavigate()
   const [pageParam] = useSearchParams()
+
   const currentPage = +pageParam.get('page')!
   let fetchPage = currentPage || 1
   if (membersData.length === 3) fetchPage = currentPage + 1
@@ -52,8 +55,10 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
           setValue('color', '')
           setValue('orbitLength', '')
           setValue('instrument', '')
+
           fetchMembersData(setMembersData, setIsLoading, fetchPage)
           navigate(`/Dashboard/Members?page=${fetchPage}`)
+
           setShowModal(true)
           setShowErrorAlert(false)
         }

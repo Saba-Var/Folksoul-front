@@ -1,5 +1,5 @@
-import { Logo } from 'components/svgs'
 import { Link } from 'react-router-dom'
+import { Logo } from 'components/svgs'
 
 const Header = () => {
   return (
