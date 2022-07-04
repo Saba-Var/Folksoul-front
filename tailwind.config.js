@@ -12,6 +12,7 @@ module.exports = {
         '5xl': '1900px',
       },
       animation: {
+        'rotate-scale-up': 'rotate-scale-up 5s linear   both',
         spinRight: 'spinRight 20s linear infinite',
         spinLeft: 'spinLeft 20s linear infinite',
         'focus-in-expand':
@@ -35,6 +36,19 @@ module.exports = {
           'slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both',
       },
       keyframes: {
+        'rotate-scale-up': {
+          '0%': {
+            transform: 'scale(1) rotateZ(0)',
+            opacity: '0',
+          },
+          '50%': {
+            transform: 'scale(1.5) rotateZ(180deg)',
+          },
+          to: {
+            transform: 'scale(1) rotateZ(360deg)',
+            opacity: '1',
+          },
+        },
         spinRight: {
           '0%': {
             transform: 'rotate(0deg)',

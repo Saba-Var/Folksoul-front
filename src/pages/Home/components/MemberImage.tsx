@@ -8,7 +8,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
     else
       props.setInfoImage(props.imageArray[props.index] || props.imageArray[0])
 
-    props.setColor(props.color)
+    props.setColor(props.color || '#333333')
   }
 
   return (
@@ -18,7 +18,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
         animationPlayState: props.pause ? 'paused' : 'running',
       }}
       onClick={clickHandler}
-      className={`flex justify-center z-[99999] left-[-35px] relative top-1/2 -translate-x-1/2 w-fit cursor-pointer`}
+      className={`flex justify-center animate-spinLeft z-[99999] left-[-35px] relative top-1/2 -translate-x-1/2 w-fit cursor-pointer`}
     >
       <div className=' border-[2px] border-yellow rounded-full '>
         <div
@@ -30,7 +30,12 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
           {!props.image && (
             <img
               className='h-full w-full'
-              src={props.imageArray[props.index] || props.imageArray[0]}
+              src={
+                props.imageArray[props.index] ||
+                props.imageArray[
+                  Math.abs(props.imageArray.length - props.index)
+                ]
+              }
               alt='member'
             />
           )}

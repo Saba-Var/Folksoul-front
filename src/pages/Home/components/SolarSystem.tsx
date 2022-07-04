@@ -27,7 +27,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   }, [])
 
   return (
-    <div className='w-[50vw] h-[84vh] flex justify-center items-center relative'>
+    <div className='w-[50vw] animate-rotate-scale-up h-[84vh] flex justify-center items-center relative'>
       <div
         className='z-[9999]'
         onClick={() => {
@@ -45,13 +45,13 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
             .sort((a, b) => a.orbitLength - b.orbitLength)
             .map((member, i) => {
               const animationDuration =
-                member.orbitLength > 700 ? 40 : 5 * (i + 1)
+                member.orbitLength > 700 ? 2 * (i + 1) : 4 * (i + 1)
 
               const dimension = `${
-                member.orbitLength < 250
-                  ? 250
+                member.orbitLength < 270
+                  ? 270
                   : member.orbitLength > 700
-                  ? 700
+                  ? 250 + (i + 1) * 60
                   : member.orbitLength
               }px`
 
@@ -65,7 +65,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
                   key={member._id}
                 >
                   <div
-                    className={`w-full h-full  relative`}
+                    className={`w-full h-full animate-spinRight rounded-full relative`}
                     style={{
                       animation: `spinRight ${animationDuration}s linear infinite`,
                       zIndex: `${Math.floor(99 / (i + 1))}`,
