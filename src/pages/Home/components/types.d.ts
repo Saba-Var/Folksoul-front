@@ -4,8 +4,8 @@ export type ChildrenProps = {
 
 export type InfoProps = {
   isLoading: boolean
+  bandInfo: string
   image?: string
-  text: string
 }
 
 export type BandImageProps = {

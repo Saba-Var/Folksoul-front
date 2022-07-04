@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react'
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
 
+  const [bandInfo, setBandInfo] = useState('')
   const [image, setImage] = useState('')
-  const [text, setText] = useState('')
 
   useEffect(() => {
-    fetchBandAbout(setText, setIsLoading, setImage)
+    fetchBandAbout(setBandInfo, setIsLoading, setImage)
   }, [])
 
   return (
@@ -18,7 +18,7 @@ const Home = () => {
         <Header />
         <div className='flex justify-between  px-[3%]'>
           <div className='w-[886px] h-[857px] bg-red-200'></div>
-          <Info text={text} image={image} isLoading={isLoading} />
+          <Info bandInfo={bandInfo} image={image} isLoading={isLoading} />
         </div>
       </>
     </Wrapper>

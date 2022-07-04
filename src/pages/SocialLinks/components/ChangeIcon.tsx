@@ -36,6 +36,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
             <p className='font-BPG-Nino-Mtavruli animate-text-focus-in text-lg tracking-wider text-black'>
               {props.linkName}
             </p>
+
             {props.image && (
               <img
                 className='w-60 animate-slit-in-vertical border-[3px] rounded-3xl border-green'
