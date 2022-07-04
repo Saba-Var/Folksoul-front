@@ -1,19 +1,99 @@
 import { SolarSystemProps } from 'pages/Home/components/types'
+import { MemberImage } from 'pages/Home/components'
 import React, { useEffect, useState } from 'react'
 import { fetchMembersData } from 'helper'
+import { Sun } from 'components/svgs'
 
 const SolarSystem: React.FC<SolarSystemProps> = (props) => {
-  const [membersData, setMembersData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [pause, setPause] = useState(false)
+
+  const [membersData, setMembersData] = useState({
+    members: [
+      {
+        biography: '',
+        color: '',
+        image: '',
+        instrument: '',
+        name: '',
+        orbitLength: 0,
+        _id: '',
+      },
+    ],
+  })
 
   useEffect(() => {
     fetchMembersData(setMembersData, setIsLoading)
   }, [])
 
-  console.log(isLoading)
-  console.log(membersData)
+  return (
+    <div className='w-[50vw] h-[84vh] flex justify-center items-center relative'>
+      <div
+        className='z-[9999]'
+        onClick={() => {
+          setPause(false)
+          props.setInfoText(props.bandInfo)
+          props.setInfoImage(props.image)
+        }}
+      >
+        <Sun />
+      </div>
 
-  return <div className='w-[886px] h-[857px]'></div>
+      {!isLoading && (
+        <>
+          {membersData.members
+            .sort((a, b) => a.orbitLength - b.orbitLength)
+            .map((member, i) => {
+              const animationDuration =
+                member.orbitLength > 700 ? 40 : 5 * (i + 1)
+
+              const dimension = `${
+                member.orbitLength < 250
+                  ? 250
+                  : member.orbitLength > 700
+                  ? 700
+                  : member.orbitLength
+              }px`
+
+              return (
+                <div
+                  style={{
+                    width: dimension,
+                    height: dimension,
+                  }}
+                  className='absolute left-0 right-0 ml-auto mr-auto border-dashed border-[1px] border-yellow rounded-full'
+                  key={member._id}
+                >
+                  <div
+                    className={`w-full h-full  relative`}
+                    style={{
+                      animation: `spinRight ${animationDuration}s linear infinite`,
+                      zIndex: `${Math.floor(99 / (i + 1))}`,
+                      animationPlayState: pause ? 'paused' : 'running',
+                    }}
+                  >
+                    <MemberImage
+                      setColor={props.setColor}
+                      setInfoImage={props.setInfoImage}
+                      animationDuration={animationDuration}
+                      setInfoText={props.setInfoText}
+                      imageArray={props.imageArray}
+                      biography={member.biography}
+                      image={member.image}
+                      setPause={setPause}
+                      color={member.color}
+                      name={member.name}
+                      pause={pause}
+                      index={i}
+                    />
+                  </div>
+                </div>
+              )
+            })}
+        </>
+      )}
+    </div>
+  )
 }
 
 export default SolarSystem

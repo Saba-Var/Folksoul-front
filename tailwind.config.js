@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       spacing: {
         18.25: '4.5rem',
+        23: '5.75rem',
       },
       screens: {
         '3xl': '1350px',
@@ -11,6 +12,8 @@ module.exports = {
         '5xl': '1900px',
       },
       animation: {
+        spinRight: 'spinRight 20s linear infinite',
+        spinLeft: 'spinLeft 20s linear infinite',
         'focus-in-expand':
           'focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both',
         'slide-out-elliptic-top-fwd':
@@ -32,6 +35,23 @@ module.exports = {
           'slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both',
       },
       keyframes: {
+        spinRight: {
+          '0%': {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(360deg)',
+          },
+        },
+        spinLeft: {
+          '0%': {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(-360deg)',
+          },
+        },
+
         'focus-in-expand': {
           '0%': {
             'letter-spacing': '-.5em',

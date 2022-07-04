@@ -1,5 +1,6 @@
 export { default as SocialLinks } from './SocialLinks'
 export { default as SolarSystem } from './SolarSystem'
+export { default as MemberImage } from './MemberImage'
 export { default as BandImage } from './BandImage'
 export { default as Wrapper } from './Wrapper'
 export { default as Header } from './Header'
