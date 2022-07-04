@@ -1,6 +1,6 @@
-import { Header, Wrapper, Info } from 'pages/Home/components/index'
-import { fetchBandAbout } from 'helper/index'
+import { Header, Wrapper, Info, SolarSystem } from 'pages/Home/components'
 import { useEffect, useState } from 'react'
+import { fetchBandAbout } from 'helper'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -16,8 +16,8 @@ const Home = () => {
     <Wrapper>
       <>
         <Header />
-        <div className='flex justify-between  px-[3%]'>
-          <div className='w-[886px] h-[857px] bg-red-200'></div>
+        <div className='flex justify-between px-[3%]'>
+          <SolarSystem />
           <Info bandInfo={bandInfo} image={image} isLoading={isLoading} />
         </div>
       </>
