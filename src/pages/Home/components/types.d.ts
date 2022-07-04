@@ -4,10 +4,12 @@ export type ChildrenProps = {
 
 export type InfoProps = {
   isLoading: boolean
-  bandInfo: string
+  infoText: string
   image?: string
 }
 
 export type BandImageProps = {
   image: string | undefined
 }
+
+export type SolarSystemProps = { setInfoText: (text: string) => void }

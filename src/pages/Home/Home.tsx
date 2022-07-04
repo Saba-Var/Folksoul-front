@@ -8,17 +8,20 @@ const Home = () => {
   const [bandInfo, setBandInfo] = useState('')
   const [image, setImage] = useState('')
 
+  const [infoText, setInfoText] = useState('')
+
   useEffect(() => {
     fetchBandAbout(setBandInfo, setIsLoading, setImage)
-  }, [])
+    setInfoText(bandInfo)
+  }, [bandInfo])
 
   return (
     <Wrapper>
       <>
         <Header />
         <div className='flex justify-between px-[3%]'>
-          <SolarSystem />
-          <Info bandInfo={bandInfo} image={image} isLoading={isLoading} />
+          <SolarSystem setInfoText={setInfoText} />
+          <Info infoText={infoText} image={image} isLoading={isLoading} />
         </div>
       </>
     </Wrapper>
