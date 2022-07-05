@@ -45,7 +45,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
             .sort((a, b) => a.orbitLength - b.orbitLength)
             .map((member, i) => {
               const animationDuration =
-                member.orbitLength > 700 ? 2 * (i + 1) : 4 * (i + 1)
+                member.orbitLength > 700 ? 2 * (i + 1) : 5 * (i + 1)
 
               const dimension = `${
                 member.orbitLength < 270
