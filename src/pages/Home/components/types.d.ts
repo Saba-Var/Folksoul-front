@@ -28,6 +28,11 @@ export type SolarSystemProps = {
 }
 
 export type MemberImageProps = {
+  selectUtils: {
+    id: string
+    selectedId: string
+    setSelectedId: (id: string) => void
+  }
   setPause: (pause: boolean) => void
   animationDuration: number
   setInfoImage: SetString

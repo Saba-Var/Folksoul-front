@@ -7,6 +7,7 @@ import { Sun } from 'components/svgs'
 const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   const [isLoading, setIsLoading] = useState(false)
   const [pause, setPause] = useState(false)
+  const [selectedId, setSelectedId] = useState('')
 
   const [membersData, setMembersData] = useState({
     members: [
@@ -32,6 +33,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
         className='z-[9999]'
         onClick={() => {
           setPause(false)
+          setSelectedId('')
           props.setInfoText(props.bandInfo)
           props.setInfoImage(props.image)
         }}
@@ -44,6 +46,8 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
           {membersData.members
             .sort((a, b) => a.orbitLength - b.orbitLength)
             .map((member, i) => {
+              const selectUtils = { selectedId, setSelectedId, id: member._id }
+
               const animationDuration =
                 member.orbitLength > 700 ? 3 * (i + 1) : 5 * (i + 1)
 
@@ -73,6 +77,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
                     }}
                   >
                     <MemberImage
+                      selectUtils={selectUtils}
                       setColor={props.setColor}
                       setInfoImage={props.setInfoImage}
                       animationDuration={animationDuration}
