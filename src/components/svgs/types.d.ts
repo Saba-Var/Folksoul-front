@@ -5,3 +5,7 @@ export type LogoProps = {
 export type EditBtnProps = {
   setSection: (section: string) => void
 }
+
+export type SunProps = {
+  pause: boolean
+}

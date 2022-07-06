@@ -1,7 +1,11 @@
-function Sun() {
+import { SunProps } from 'components/svgs/types'
+
+const Sun: React.FC<SunProps> = (props) => {
   return (
     <svg
-      className='cursor-pointer z-[99999999]'
+      className={`cursor-pointer z-[99999999] ${
+        !props.pause && 'animate-pulsate-bck'
+      }`}
       width='172'
       height='172'
       viewBox='0 0 172 172'

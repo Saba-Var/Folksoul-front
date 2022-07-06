@@ -30,7 +30,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   return (
     <div className='w-[50vw] animate-rotate-scale-up h-[84vh] flex justify-center items-center relative'>
       <div
-        className='z-[9999]'
+        className='z-[9999] relative'
         onClick={() => {
           setPause(false)
           setSelectedId('')
@@ -38,7 +38,13 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
           props.setInfoImage(props.image)
         }}
       >
-        <Sun />
+        <div
+          className={`${
+            !pause &&
+            'bg-amber-500 animate-rays absolute top-0 left-0 w-full h-full rounded-full'
+          }`}
+        ></div>
+        <Sun pause={pause} />
       </div>
 
       {!isLoading && (
