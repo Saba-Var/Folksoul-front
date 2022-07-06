@@ -30,7 +30,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
             setImageModal={setIconModal}
             id={props.id}
           >
-            <div className='flex flex-col h-full justify-between pt-8  pb-[20%] items-center'>
+            <div className='flex flex-col h-full justify-between pt-44  pb-[20%] items-center'>
               <Image
                 isLoading={props.isLoading}
                 image={props.image}

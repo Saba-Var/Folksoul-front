@@ -4,6 +4,7 @@ import { Image } from 'pages/Home/components'
 const MemberImage: React.FC<MemberImageProps> = (props) => {
   const { color, image, biography, name } = props.memberDetails
   const { selectedId, setSelectedId, id } = props.selectUtils
+
   const {
     imageArray,
     index,

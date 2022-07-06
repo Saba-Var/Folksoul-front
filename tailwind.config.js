@@ -308,7 +308,7 @@ module.exports = {
         '4xl': 'inset 4px 4px 20px #4D4D4D',
         '4.5xl': '4px 4px 20px #4D4D4D',
         '4.7xl': '4px 4px 25px #4D4D4D',
-        '5xl': '2px 4px 14px #000000',
+        '5xl': '2px 8px 14px rgba(0, 0, 0, 0.8)',
         '5.5xl': '5px 5px 13px 7px rgba(0, 0, 0, 0.43)',
       },
     },

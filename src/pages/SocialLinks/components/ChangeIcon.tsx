@@ -39,7 +39,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
             {props.image && (
               <img
-                className='w-60 animate-slit-in-vertical border-[3px] rounded-3xl border-green'
+                className='w-60 h-44 animate-slit-in-vertical border-[3px] rounded-3xl border-green'
                 src={`http://localhost:5000/${props.image}`}
                 alt='social link icon'
               />

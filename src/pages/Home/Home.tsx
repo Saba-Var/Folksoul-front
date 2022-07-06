@@ -38,6 +38,7 @@ const Home = () => {
     <Wrapper>
       <>
         <Header />
+
         <div className='flex justify-between px-[3%]'>
           <SolarSystem
             image={image}

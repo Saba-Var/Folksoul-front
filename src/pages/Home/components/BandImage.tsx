@@ -13,6 +13,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
       {!props.image && (
         <>
           <PurpleBackground styles='fixed -z-50 w-[%]  h-full rounded-full' />
+
           <Logo styles='w-full h-full' />
         </>
       )}
