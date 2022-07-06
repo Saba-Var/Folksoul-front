@@ -42,6 +42,7 @@ export type InputFieldProps = {
 }
 
 export type ImageUploadProps = {
+  setFileExists?: (exist: boolean) => void
   children: JSX.Element
   setImageModal: Show
   setLinks: setLinks

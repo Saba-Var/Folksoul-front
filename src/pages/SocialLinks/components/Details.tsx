@@ -9,7 +9,7 @@ const Details: React.FC<DetailsProps> = (props) => {
         </p>
       </div>
 
-      <div className=''>
+      <div>
         <a
           className='text-mediumBlue text-sm underline'
           target='_blank'

@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
   const [iconModal, setIconModal] = useState(false)
+  const [fileExists, setFileExists] = useState(false)
 
   return (
     <div className='w-11 relative h-9'>
@@ -26,11 +27,12 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
       {iconModal && (
         <ImageUpload
+          setFileExists={setFileExists}
           url='http://localhost:5000/upload-link-image'
-          setLinks={props.setLinks}
-          id={props.id}
           title='შეცვალე სოციალური ბმულის ხატულა'
+          setLinks={props.setLinks}
           setImageModal={setIconModal}
+          id={props.id}
         >
           <div className='flex flex-col h-full justify-between pt-8  pb-[20%] items-center'>
             <p className='font-BPG-Nino-Mtavruli animate-text-focus-in text-lg tracking-wider text-black'>
@@ -39,7 +41,9 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
             {props.image && (
               <img
-                className='w-60 h-44 animate-slit-in-vertical border-[3px] rounded-3xl border-green'
+                className={`w-60 h-44 animate-slit-in-vertical ${
+                  fileExists && 'border-[3px] rounded-3xl border-green'
+                }`}
                 src={`http://localhost:5000/${props.image}`}
                 alt='social link icon'
               />

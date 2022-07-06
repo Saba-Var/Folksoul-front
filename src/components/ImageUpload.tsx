@@ -10,8 +10,10 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   const [file, setFile] = useState('')
 
   const fileChangeHandler = (e: any) => {
-    if (e.target.files[0]?.type.startsWith('image')) setFile(e.target.files[0])
-    else setErrorAlert(true)
+    if (e.target.files[0]?.type.startsWith('image')) {
+      setFile(e.target.files[0])
+      props.setFileExists && props.setFileExists(true)
+    } else setErrorAlert(true)
   }
 
   const imageUploadHandler = async () => {
