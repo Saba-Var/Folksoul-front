@@ -1,4 +1,5 @@
 import { MemberImageProps } from 'pages/Home/components/types'
+import { Image } from 'pages/Home/components'
 
 const MemberImage: React.FC<MemberImageProps> = (props) => {
   const { image, color, imageArray, index, setInfoImage } = props
@@ -30,41 +31,20 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
     >
       <div
         style={{
-          backgroundColor: color || 'black',
+          backgroundColor: color,
         }}
         className={`border-[2px] ${isSelected && 'w-full'} ${
           image && '!bg-purple'
         }  border-yellow rounded-full overflow-hidden`}
       >
-        <div
-          style={{
-            backgroundColor: color || 'black',
-          }}
-          className={`w-[75px] h-[75px] ${
-            isSelected && '!w-[100px] !h-full'
-          } flex justify-center rounded-full overflow-hidden relative`}
-        >
-          {!image && (
-            <img
-              className={`h-full w-full ${isSelected && 'w-24 h-24'}`}
-              src={
-                imageArray[index] ||
-                imageArray[Math.abs(imageArray.length - index)]
-              }
-              draggable='false'
-              alt='member'
-            />
-          )}
+        <Image
+          color={color}
+          image={image}
+          imageArray={imageArray}
+          isSelected={isSelected}
+          index={index}
+        />
 
-          {image && (
-            <img
-              className={`h-full w-full ${isSelected && 'w-full h-full'}`}
-              src={`http://localhost:5000/${image}`}
-              alt='member'
-              draggable='false'
-            />
-          )}
-        </div>
         <div
           style={{
             borderColor: color,

@@ -46,3 +46,11 @@ export type MemberImageProps = {
   name: string
   image: Image
 }
+
+export type ImageProps = {
+  imageArray: string[]
+  isSelected: boolean
+  color: string
+  index: number
+  image: Image
+}
