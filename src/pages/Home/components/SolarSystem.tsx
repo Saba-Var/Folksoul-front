@@ -55,7 +55,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
               const selectUtils = { selectedId, setSelectedId, id: member._id }
 
               const animationDuration =
-                member.orbitLength > 700 ? 3 * (i + 1) : 5 * (i + 1)
+                member.orbitLength > 700 ? 5 * (i + 1) : 5 * (i + 1)
 
               const dimension = `${
                 member.orbitLength < 270
