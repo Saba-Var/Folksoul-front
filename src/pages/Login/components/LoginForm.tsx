@@ -96,6 +96,7 @@ const LoginForm = () => {
         />
 
         <button
+          data-TestId='LoginBtn'
           className='bg-darkGreen transition-transform hover:scale-105 mx-auto text-sm w-56 border-[1px] border-white rounded-sm text-white py-3 text-center'
           onClick={clickHandler}
         >

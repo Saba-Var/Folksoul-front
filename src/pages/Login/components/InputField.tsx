@@ -7,6 +7,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
   return (
     <div className='h-14'>
       <input
+        data-TestId={props.placeholder}
         {...props.register(inputName, {
           required: 'ამ ველის შევსება სავალდებულოა!',
           validate: {

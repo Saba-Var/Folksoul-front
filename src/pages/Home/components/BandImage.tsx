@@ -11,7 +11,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
       className={`absolute w-72 h-72 top-[-23%] left-[28%] drop-shadow-4xl border-white border-2 overflow-hidden rounded-full flex justify-center items-center`}
     >
       {!props.image && (
-        <div data-TestId='LogoImage'>
+        <div data-TestId='LogoImage' className='h-full'>
           <PurpleBackground styles='fixed -z-50 w-[%]  h-full rounded-full' />
 
           <Logo styles='w-full h-full' />
