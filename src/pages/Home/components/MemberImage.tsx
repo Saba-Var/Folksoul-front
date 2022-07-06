@@ -49,10 +49,10 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
         }  border-yellow rounded-full overflow-hidden`}
       >
         <Image
-          color={color}
-          image={image}
           imageArray={imageArray}
           isSelected={isSelected}
+          color={color}
+          image={image}
           index={index}
         />
 

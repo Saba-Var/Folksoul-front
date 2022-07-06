@@ -41,19 +41,19 @@ const Home = () => {
 
         <div className='flex justify-between px-[3%]'>
           <SolarSystem
-            image={image}
-            setColor={setColor}
+            setInfoImage={setInfoImage}
             setInfoText={setInfoText}
             imageArray={imageArray}
-            setInfoImage={setInfoImage}
+            setColor={setColor}
             bandInfo={bandInfo}
+            image={image}
           />
 
           <Info
-            color={color}
+            isLoading={isLoading}
             infoText={infoText}
             image={infoImage}
-            isLoading={isLoading}
+            color={color}
           />
         </div>
       </>
