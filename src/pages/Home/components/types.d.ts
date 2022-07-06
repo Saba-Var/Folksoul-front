@@ -2,6 +2,16 @@ type Image = string | undefined
 
 type SetString = (string: string) => void
 
+type MemberDetails = {
+  biography: string
+  color: string
+  image: string
+  instrument: string
+  name: string
+  orbitLength: number
+  _id: string
+}
+
 export type ChildrenProps = {
   children: JSX.Element
 }
@@ -34,17 +44,14 @@ export type MemberImageProps = {
     setSelectedId: (id: string) => void
   }
   setPause: (pause: boolean) => void
+  memberDetails: MemberDetails
   animationDuration: number
   setInfoImage: SetString
   setInfoText: SetString
   imageArray: string[]
   setColor: SetString
-  biography: string
   pause: boolean
-  color: string
   index: number
-  name: string
-  image: Image
 }
 
 export type ImageProps = {

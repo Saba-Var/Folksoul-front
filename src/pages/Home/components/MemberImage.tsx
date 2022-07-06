@@ -2,18 +2,28 @@ import { MemberImageProps } from 'pages/Home/components/types'
 import { Image } from 'pages/Home/components'
 
 const MemberImage: React.FC<MemberImageProps> = (props) => {
-  const { image, color, imageArray, index, setInfoImage } = props
+  const { color, image, biography, name } = props.memberDetails
   const { selectedId, setSelectedId, id } = props.selectUtils
+  const {
+    imageArray,
+    index,
+    setInfoImage,
+    setPause,
+    setInfoText,
+    setColor,
+    pause,
+    animationDuration,
+  } = props
 
   const clickHandler = () => {
-    props.setPause(true)
-    props.setInfoText(props.biography)
+    setPause(true)
+    setInfoText(biography)
     setSelectedId(id)
 
     if (image) setInfoImage(image)
     else setInfoImage(imageArray[index] || imageArray[0])
 
-    props.setColor(color || '#333333')
+    setColor(color || '#333333')
   }
 
   const isSelected = selectedId === id
@@ -21,8 +31,8 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
   return (
     <div
       style={{
-        animation: `spinLeft ${props.animationDuration}s linear infinite`,
-        animationPlayState: props.pause ? 'paused' : 'running',
+        animation: `spinLeft ${animationDuration}s linear infinite`,
+        animationPlayState: pause ? 'paused' : 'running',
       }}
       onClick={clickHandler}
       className={`flex justify-center ${
@@ -53,7 +63,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
             isSelected && 'w-24 !left-[4px]'
           } absolute left-[-7px]  bottom-[-8px] bg-yellow flex border-[4px] justify-center items-center pt-1 rounded-[60px] text-darkBlue font-BPG-Nino-Mtavruli font-bold text-sm tracking-[1.2px]`}
         >
-          {props.name}
+          {name}
         </div>
       </div>
     </div>

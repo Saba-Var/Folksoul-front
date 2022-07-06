@@ -10,6 +10,16 @@ import {
 } from 'assets/images'
 
 const Home = () => {
+  const [infoImage, setInfoImage] = useState('')
+
+  const [bandInfo, setBandInfo] = useState('')
+  const [infoText, setInfoText] = useState('')
+
+  const [image, setImage] = useState('')
+  const [color, setColor] = useState('')
+
+  const [isLoading, setIsLoading] = useState(false)
+
   const imageArray = [
     bandMember1,
     bandMember2,
@@ -17,15 +27,6 @@ const Home = () => {
     bandMember4,
     bandMember5,
   ]
-
-  const [isLoading, setIsLoading] = useState(false)
-
-  const [bandInfo, setBandInfo] = useState('')
-  const [image, setImage] = useState('')
-
-  const [infoText, setInfoText] = useState('')
-  const [infoImage, setInfoImage] = useState('')
-  const [color, setColor] = useState('')
 
   useEffect(() => {
     fetchBandAbout(setBandInfo, setIsLoading, setImage)
@@ -46,6 +47,7 @@ const Home = () => {
             setInfoImage={setInfoImage}
             bandInfo={bandInfo}
           />
+
           <Info
             color={color}
             infoText={infoText}

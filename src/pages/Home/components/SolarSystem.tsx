@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { fetchMembersData } from 'helper'
 
 const SolarSystem: React.FC<SolarSystemProps> = (props) => {
-  const { setColor, setInfoImage, setInfoText, imageArray, bandInfo, image } =
-    props
-
   const [isLoading, setIsLoading] = useState(false)
   const [pause, setPause] = useState(false)
 
   const [selectedId, setSelectedId] = useState('')
+
+  const { setColor, setInfoImage, setInfoText, imageArray, bandInfo, image } =
+    props
 
   const [membersData, setMembersData] = useState({
     members: [
@@ -77,17 +77,14 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
                     }}
                   >
                     <MemberImage
-                      selectUtils={selectUtils}
-                      setColor={setColor}
-                      setInfoImage={setInfoImage}
                       animationDuration={animationDuration}
+                      setInfoImage={setInfoImage}
+                      selectUtils={selectUtils}
                       setInfoText={setInfoText}
                       imageArray={imageArray}
-                      biography={member.biography}
-                      image={member.image}
+                      memberDetails={member}
+                      setColor={setColor}
                       setPause={setPause}
-                      color={member.color}
-                      name={member.name}
                       pause={pause}
                       index={i}
                     />
