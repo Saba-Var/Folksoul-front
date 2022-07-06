@@ -19,6 +19,7 @@ const SocialLinks = () => {
               .filter((link) => link.image)
               .map((link) => (
                 <a
+                  data-TestId={link.linkName}
                   key={link.linkName}
                   target='_blank'
                   rel='noreferrer'

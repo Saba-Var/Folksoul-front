@@ -24,13 +24,14 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
     if (image) setInfoImage(image)
     else setInfoImage(imageArray[index] || imageArray[0])
 
-    setColor(color || '#333333')
+    setColor(color)
   }
 
   const isSelected = selectedId === id
 
   return (
     <div
+      data-TestId={name}
       style={{
         animation: `spinLeft ${animationDuration}s linear infinite`,
         animationPlayState: pause ? 'paused' : 'running',
@@ -44,9 +45,9 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
         style={{
           backgroundColor: color,
         }}
-        className={`border-[2px] ${isSelected && 'w-full'} ${
-          image && '!bg-purple'
-        }  border-yellow rounded-full overflow-hidden`}
+        className={`border-[2px] ${
+          isSelected && 'w-full'
+        } border-yellow rounded-full overflow-hidden`}
       >
         <Image
           imageArray={imageArray}

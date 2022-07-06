@@ -3,7 +3,10 @@ import { Logo } from 'components/svgs'
 
 const Header = () => {
   return (
-    <div className='flex w-full justify-between px-20 pt-6 items-center mb-4'>
+    <div
+      data-TestId='SmallLogo'
+      className='flex w-full justify-between px-20 pt-6 items-center mb-4'
+    >
       <Logo styles='w-[168px] h-[76px]' />
 
       <Link to='/Login'>

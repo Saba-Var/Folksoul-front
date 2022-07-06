@@ -25,6 +25,7 @@ const Image: React.FC<ImageProps> = (props) => {
 
       {image && (
         <img
+          data-TestId='UploadBandImage'
           className={`h-full w-full ${isSelected && 'w-full h-full'}`}
           src={`http://localhost:5000/${image}`}
           draggable='false'
