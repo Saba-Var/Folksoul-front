@@ -54,3 +54,13 @@ export type ImageProps = {
   index: number
   image: Image
 }
+
+export type SunoteProps = {
+  setPause: (pause: boolean) => void
+  setSelectedId: SetString
+  setInfoImage: SetString
+  setInfoText: SetString
+  bandInfo: string
+  pause: boolean
+  image: string
+}

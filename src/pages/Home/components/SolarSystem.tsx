@@ -1,12 +1,15 @@
 import { SolarSystemProps } from 'pages/Home/components/types'
-import { MemberImage } from 'pages/Home/components'
+import { MemberImage, Sunote } from 'pages/Home/components'
 import React, { useEffect, useState } from 'react'
 import { fetchMembersData } from 'helper'
-import { Sun } from 'components/svgs'
 
 const SolarSystem: React.FC<SolarSystemProps> = (props) => {
+  const { setColor, setInfoImage, setInfoText, imageArray, bandInfo, image } =
+    props
+
   const [isLoading, setIsLoading] = useState(false)
   const [pause, setPause] = useState(false)
+
   const [selectedId, setSelectedId] = useState('')
 
   const [membersData, setMembersData] = useState({
@@ -29,23 +32,15 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
 
   return (
     <div className='w-[50vw] animate-rotate-scale-up h-[84vh] flex justify-center items-center relative'>
-      <div
-        className='z-[9999] relative'
-        onClick={() => {
-          setPause(false)
-          setSelectedId('')
-          props.setInfoText(props.bandInfo)
-          props.setInfoImage(props.image)
-        }}
-      >
-        <div
-          className={`${
-            !pause &&
-            'bg-amber-500 animate-rays absolute top-0 left-0 w-full h-full rounded-full'
-          }`}
-        ></div>
-        <Sun pause={pause} />
-      </div>
+      <Sunote
+        setInfoImage={setInfoImage}
+        setInfoText={setInfoText}
+        setSelectedId={setSelectedId}
+        bandInfo={bandInfo}
+        image={image}
+        setPause={setPause}
+        pause={pause}
+      />
 
       {!isLoading && (
         <>
@@ -83,11 +78,11 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
                   >
                     <MemberImage
                       selectUtils={selectUtils}
-                      setColor={props.setColor}
-                      setInfoImage={props.setInfoImage}
+                      setColor={setColor}
+                      setInfoImage={setInfoImage}
                       animationDuration={animationDuration}
-                      setInfoText={props.setInfoText}
-                      imageArray={props.imageArray}
+                      setInfoText={setInfoText}
+                      imageArray={imageArray}
                       biography={member.biography}
                       image={member.image}
                       setPause={setPause}
