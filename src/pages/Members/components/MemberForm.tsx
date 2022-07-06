@@ -9,7 +9,7 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
-  const { membersData, details, url, setMembersData, setIsLoading } = props
+  const { details, url, setMembersData, setIsLoading } = props
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -21,7 +21,6 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
 
   const currentPage = +pageParam.get('page')!
   let fetchPage = currentPage || 1
-  if (membersData.length === 3) fetchPage = currentPage + 1
 
   const {
     register,

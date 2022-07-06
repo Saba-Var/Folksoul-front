@@ -5,6 +5,7 @@ const Sunote: React.FC<SunoteProps> = (props) => {
   const clickHandler = () => {
     props.setPause(false)
     props.setSelectedId('')
+
     props.setInfoText(props.bandInfo)
     props.setInfoImage(props.image)
   }
@@ -17,6 +18,7 @@ const Sunote: React.FC<SunoteProps> = (props) => {
           'bg-amber-500 animate-rays absolute top-0 left-0 w-full h-full rounded-full'
         }`}
       ></div>
+
       <Sun pause={props.pause} />
     </div>
   )
