@@ -39,7 +39,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
         props.setImageModal(false)
       }
     } catch (error: any) {
-      alert(error)
+      console.log(error.message)
     }
   }
 

@@ -49,7 +49,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
       }
       fetch()
     } catch (error: any) {
-      alert(error.message)
+      console.log(error.message)
     }
   }, [id, setValue])
 

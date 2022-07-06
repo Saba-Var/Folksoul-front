@@ -28,7 +28,7 @@ const fetchBandAbout = (
 
     fetch()
   } catch (error: any) {
-    alert(error.message)
+    console.log(error.message)
   }
 }
 

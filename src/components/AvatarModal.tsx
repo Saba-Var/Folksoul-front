@@ -34,7 +34,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
         props.setAvatarModal(false)
       }
     } catch (error: any) {
-      alert(error)
+      console.log(error.message)
     }
   }
 

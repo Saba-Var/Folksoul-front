@@ -25,7 +25,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
       }
       fetch()
     } catch (error: any) {
-      alert(error.message)
+      console.log(error.message)
     }
   }
 

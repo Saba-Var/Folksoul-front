@@ -22,7 +22,7 @@ const fetchMembersData = async (
     }
     fetch()
   } catch (error: any) {
-    alert(error.message)
+    console.log(error.message)
   }
 }
 export default fetchMembersData
