@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('welcome page', () => {
+describe('Home page', () => {
   beforeEach(() => {
     cy.visit('/')
     cy.intercept('GET', 'http://localhost:5000/all-members', {
