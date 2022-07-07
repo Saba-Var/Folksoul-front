@@ -141,6 +141,13 @@ Cypress.Commands.add('memberTwoPage', () => {
   )
 })
 
+Cypress.Commands.add('fetchSocialLinks', (links: object) => {
+  cy.intercept('GET', 'http://localhost:5000/all-links', {
+    statusCode: 200,
+    body: links,
+  })
+})
+
 Cypress.Commands.add('addNewMember', () => {
   cy.get("[data-TestId='name']").type('ილონ')
   cy.get("[data-TestId='instrument']").type('დუდუკი')
@@ -153,6 +160,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       memberPagination(data: object, page: number): Chainable<Element>
+      fetchSocialLinks(links: object): Chainable<Element>
       beVisible(value: string): Chainable<Element>
       changeMemberRequests(): Chainable<Element>
       addMemberForm(): Chainable<Element>

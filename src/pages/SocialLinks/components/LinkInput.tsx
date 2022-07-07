@@ -10,6 +10,7 @@ const LinkInput: React.FC<LinkInputProps> = (props) => {
       } animate-jello-horizontal`}
     >
       <input
+        data-TestId={inputName}
         {...register(inputName, {
           required: 'შევსება სავალდებულოა!',
           validate: {

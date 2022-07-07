@@ -4,6 +4,21 @@ describe('Members Page', () => {
     cy.visit('/Dashboard/Members?page=1')
   })
 
+  it('if we change member but this member is already in the band show error alert', () => {
+    cy.intercept('PUT', 'http://localhost:5000/change-member', {
+      statusCode: 409,
+    })
+    cy.changeMemberRequests()
+    cy.get('[data-TestId="ChangeInfo"]').click()
+    cy.wait(3000)
+    cy.addNewMember()
+    cy.get("[data-TestId='name']").type('სახელი').wait(1000)
+    cy.get("[data-TestId='instrument']").type('გიტარა').wait(1000)
+    cy.get("[data-TestId='biography']").type('დაიბადა').wait(1000)
+    cy.get('[data-TestId="შეცვლა"]').click().wait(2000)
+    cy.contains('წევრი უკვე ბენდშია').should('be.visible')
+  })
+
   it('when there is no member should see message on the page', () => {
     cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
       statusCode: 200,
@@ -31,20 +46,6 @@ describe('Members Page', () => {
     cy.get('[data-TestId="name"]').type('ილონ').wait(1000)
     cy.get('[data-TestId="შეცვლა"]').click()
     cy.beVisible('წევრის იფორმაცია შეიცვალა')
-  })
-
-  it('if we change member but this member is already in the band show error alert', () => {
-    cy.intercept('PUT', 'http://localhost:5000/change-member', {
-      statusCode: 409,
-    })
-    cy.changeMemberRequests()
-    cy.get('[data-TestId="ChangeInfo"]').click()
-    cy.addNewMember()
-    cy.get("[data-TestId='name']").type('სახელი').wait(1000)
-    cy.get("[data-TestId='instrument']").type('გიტარა').wait(1000)
-    cy.get("[data-TestId='biography']").type('დაიბადა').wait(1000)
-    cy.get('[data-TestId="შეცვლა"]').click().wait(2000)
-    cy.contains('წევრი უკვე ბენდშია').should('be.visible')
   })
 
   it('when input values of new member are invalid show error message', () => {

@@ -55,7 +55,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
   return (
     <div className='h-full py-40'>
       <FormNotifications
-        title={`ბმული '${watch().linkName} უკვე დამატებულია`}
+        title={`ბმული '${watch().linkName}' უკვე დამატებულია`}
         successText='ბმულის დეტალები შეიცვალა'
         setErrorAlert={setErrorAlert}
         setShowModal={setShowModal}
@@ -82,6 +82,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
         />
 
         <button
+          data-TestId='ChangeLink'
           type='submit'
           className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-[298px] block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-10'
         >
