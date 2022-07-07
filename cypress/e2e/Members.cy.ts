@@ -17,25 +17,55 @@ describe('Members Page', () => {
     cy.beVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
   })
 
+  it('we can edit information of band member and save it if inputs are valid', () => {
+    cy.changeMemberRequests()
+    cy.intercept('PUT', 'http://localhost:5000/change-member', {
+      statusCode: 200,
+    })
+    cy.get('[data-TestId="ChangeInfo"]').click()
+    cy.beVisible('შეცვალე წევრის ინფორმაცია')
+    cy.addNewMember()
+    cy.get("[data-TestId='name']").type('სახელი').wait(1000)
+    cy.get("[data-TestId='instrument']").type('გიტარა').wait(1000)
+    cy.get("[data-TestId='biography']").type('დაიბადა').wait(1000)
+    cy.get('[data-TestId="name"]').type('ილონ').wait(1000)
+    cy.get('[data-TestId="შეცვლა"]').click()
+    cy.beVisible('წევრის იფორმაცია შეიცვალა')
+  })
+
+  it('if we change member but this member is already in the band show error alert', () => {
+    cy.intercept('PUT', 'http://localhost:5000/change-member', {
+      statusCode: 409,
+    })
+    cy.changeMemberRequests()
+    cy.get('[data-TestId="ChangeInfo"]').click()
+    cy.addNewMember()
+    cy.get("[data-TestId='name']").type('სახელი').wait(1000)
+    cy.get("[data-TestId='instrument']").type('გიტარა').wait(1000)
+    cy.get("[data-TestId='biography']").type('დაიბადა').wait(1000)
+    cy.get('[data-TestId="შეცვლა"]').click().wait(2000)
+    cy.contains('წევრი უკვე ბენდშია').should('be.visible')
+  })
+
   it('when input values of new member are invalid show error message', () => {
     cy.addMemberForm()
     cy.beVisible('დაამატე ჯგუფის ახალი წევრი')
     cy.get("[data-TestId='დაამატე წევრი']").click()
     cy.beVisible('შევსება სავალდებულოა!')
-    cy.get("[data-TestId='name']").type('name')
+    cy.get("[data-TestId='name']").type('name').wait(1000)
     cy.beVisible('მხოლოდ ქართული ასოები')
     cy.get("[data-TestId='name']").clear()
-    cy.get("[data-TestId='instrument']").type('ს')
+    cy.get("[data-TestId='instrument']").type('ს').wait(1000)
     cy.beVisible('მინიმუმ 2 სიმბოლო')
-    cy.get("[data-TestId='color']").type('ს')
+    cy.get("[data-TestId='color']").type('ს').wait(1000)
     cy.beVisible("ფერი უნდაი წყებოდეს '#'-ით")
-    cy.get("[data-TestId='color']").clear().type('#00000')
+    cy.get("[data-TestId='color']").clear().type('#00000').wait(1000)
     cy.beVisible('ფერი უნდა იყოს 7 სიმბოლო')
     cy.get("[data-TestId='biography']").type('s').wait(1000)
     cy.beVisible('მხოლოდ ქართული ასოები')
     cy.get("[data-TestId='biography']").clear()
     cy.beVisible('შევსება სავალდებულოა')
-    cy.get("[data-TestId='color']").clear().type('#ffffff')
+    cy.get("[data-TestId='color']").clear().type('#ffffff').wait(1000)
     cy.beVisible('მიუთითეთ მაღალი რეგისტრის ლათინური ასოები და რიცხვები')
     cy.get('[data-TestId="დაამატე წევრი"]').click()
     cy.url().should('include', 'Members?page=1')
@@ -78,29 +108,6 @@ describe('Members Page', () => {
     cy.addNewMember()
     cy.get('[data-TestId="დაამატე წევრი"]').click()
     cy.beVisible('წევრი უკვე ბენდშია').wait(1000)
-  })
-
-  it('we can edit information of band member and save it if inputs are valid', () => {
-    cy.changeMemberRequests()
-    cy.intercept('PUT', 'http://localhost:5000/change-member', {
-      statusCode: 200,
-    })
-    cy.get('[data-TestId="ChangeInfo"]').click()
-    cy.beVisible('შეცვალე წევრის ინფორმაცია')
-    cy.addNewMember()
-    cy.get('[data-TestId="შეცვლა"]').click()
-    cy.beVisible('წევრის იფორმაცია შეიცვალა')
-  })
-
-  it('if we change member but this member is already in the band show error alert', () => {
-    cy.changeMemberRequests()
-    cy.intercept('PUT', 'http://localhost:5000/change-member', {
-      statusCode: 409,
-    })
-    cy.get('[data-TestId="ChangeInfo"]').click()
-    cy.addNewMember()
-    cy.get('[data-TestId="შეცვლა"]').click()
-    cy.beVisible('წევრი უკვე ბენდშია')
   })
 
   it('if band have more than 3 members we should see pagination', () => {
