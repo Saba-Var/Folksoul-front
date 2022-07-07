@@ -29,7 +29,7 @@ const Navigation: React.FC<NavigationProps> = (props) => {
 
         <Section
           sectionUtils={sectionUtils}
-          title='ჯგუფის წევრები'
+          title='ბენდის წევრები'
           icon={<MemberIcon />}
           link='Members'
         />

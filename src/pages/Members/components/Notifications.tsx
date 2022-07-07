@@ -20,7 +20,7 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
         <AddNotification
           setShowModal={setShowModal}
           modalText={modalText}
-          title='ჯგუფის წევრები'
+          title='ბენდის წევრები'
         />
       )}
 

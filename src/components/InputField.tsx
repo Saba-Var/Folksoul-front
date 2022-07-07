@@ -11,6 +11,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
       }`}
     >
       <input
+        data-TestId={inputName}
         {...register(inputName, {
           required: 'შევსება სავალდებულოა!',
           validate: {

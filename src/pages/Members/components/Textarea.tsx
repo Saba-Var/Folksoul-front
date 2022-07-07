@@ -7,6 +7,7 @@ const Textarea: React.FC<TextareaProps> = (props) => {
   return (
     <div className='flex flex-col justify-center items-center h-[235px]'>
       <textarea
+        data-TestId={inputName}
         {...register(inputName, {
           required: 'შევსება სავალდებულოა!',
 

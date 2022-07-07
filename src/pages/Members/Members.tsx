@@ -53,7 +53,7 @@ const Members = () => {
 
   let title = ''
 
-  if (section === '') title = 'ჯგუფის წევრები'
+  if (section === '') title = 'ბენდის წევრები'
   else if (section === 'addMember') title = 'დაამატე ჯგუფის ახალი წევრი'
   else title = 'შეცვალე წევრის ინფორმაცია'
 

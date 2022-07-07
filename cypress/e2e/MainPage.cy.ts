@@ -8,7 +8,7 @@ describe('Main Page', () => {
   it('user can see components of the Dashboard page', () => {
     cy.beVisible('დილამშვიდობისა!')
     cy.beVisible('მთავარი')
-    cy.beVisible('ჯგუფის წევრები')
+    cy.beVisible('ბენდის წევრები')
     cy.beVisible('სოციალური ბმულები')
     cy.beVisible('ბენდის შესახებ')
     cy.beVisible('გადი გარეთ')

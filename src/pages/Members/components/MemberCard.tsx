@@ -39,7 +39,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
           />
         </div>
 
-        <div onClick={() => setAvatarModal(true)} className='animate-fade-in'>
+        <div
+          onClick={() => setAvatarModal(true)}
+          data-TestId='CameraBtn'
+          className='animate-fade-in'
+        >
           <CameraBtn />
         </div>
 
@@ -60,7 +64,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       </p>
 
       <div className='flex justify-between shadow-5xl items-center px-[10%] h-10 border-t-[1px] border-black'>
-        <div onClick={() => setMemberModal(true)} className='animate-fade-in'>
+        <div
+          data-TestId='GreenBtn'
+          onClick={() => setMemberModal(true)}
+          className='animate-fade-in'
+        >
           <GreenBtn />
         </div>
 
@@ -73,6 +81,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         )}
 
         <div
+          data-TestId={'ChangeInfo'}
           onClick={() => {
             props.setSection('MemberInputs')
             props.setMemberId(id)
