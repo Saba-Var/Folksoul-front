@@ -1,7 +1,8 @@
-import { SetSocialLinks, SetIsLoading } from 'helper/types'
+import { SetSocialLinks, SetIsLoading, SetErrorAlert } from 'helper/types'
 import axios from 'axios'
 
 const fetchSocialLinks = async (
+  setErrorAlert: SetErrorAlert,
   setSocialLinks: SetSocialLinks,
   setIsLoading?: SetIsLoading
 ) => {
@@ -16,6 +17,8 @@ const fetchSocialLinks = async (
       if (setIsLoading) setIsLoading(false)
       return setSocialLinks(res.data)
     }
-  } catch (error: any) {}
+  } catch (error: any) {
+    setErrorAlert(true)
+  }
 }
 export default fetchSocialLinks

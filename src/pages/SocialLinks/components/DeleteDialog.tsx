@@ -1,8 +1,8 @@
 import { DeleteDialogProps } from 'pages/SocialLinks/components/types'
 import { DeleteContent, ErrorAlert } from 'components'
 import { fetchSocialLinks } from 'helper/index'
-import axios from 'axios'
 import { useState } from 'react'
+import axios from 'axios'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   const [error, setError] = useState(false)
@@ -21,7 +21,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
       })
 
       if (res.status === 200) {
-        fetchSocialLinks(props.setLinks)
+        fetchSocialLinks(setError, props.setLinks)
         props.setShowModal(false)
       }
     } catch (error: any) {

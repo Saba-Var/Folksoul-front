@@ -1,4 +1,4 @@
-import { SectionWrapper, DirectBtn } from 'components'
+import { SectionWrapper, DirectBtn, ErrorAlert } from 'components'
 import { AllLinks } from 'pages/SocialLinks/types'
 import { fetchSocialLinks } from 'helper/index'
 import { useEffect, useState } from 'react'
@@ -10,13 +10,15 @@ import {
 
 const SocialLinks = () => {
   const [links, setLinks] = useState<AllLinks>([])
+
+  const [errorAlert, setErrorAlert] = useState(false)
   const [loading, setIsLoading] = useState(false)
 
   const [section, setSection] = useState('')
   const [linkId, setLinkId] = useState('id')
 
   useEffect(() => {
-    fetchSocialLinks(setLinks, setIsLoading)
+    fetchSocialLinks(setErrorAlert, setLinks, setIsLoading)
   }, [])
 
   let title = ''
@@ -27,6 +29,14 @@ const SocialLinks = () => {
   return (
     <SectionWrapper title={title}>
       <div className={`flex flex-col justify-between h-full `}>
+        {errorAlert && (
+          <ErrorAlert
+            styles='top-[5%] left-[53%]'
+            setShowAlert={setErrorAlert}
+            title='ინფორმაცია ვერ მოიძებნა'
+          />
+        )}
+
         {links.length > 0 && section === '' && (
           <Links
             setSection={setSection}

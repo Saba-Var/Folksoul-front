@@ -1,7 +1,7 @@
 import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
+import { DirectBtn, ErrorAlert } from 'components'
 import { fetchSocialLinks } from 'helper/index'
 import { useForm } from 'react-hook-form'
-import { DirectBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 import {
@@ -11,6 +11,7 @@ import {
 
 const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
   const [errorAlert, setErrorAlert] = useState(false)
+  const [fetchError, setFetchError] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const {
@@ -47,7 +48,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
           setValue('linkName', '')
           setValue('url', '')
 
-          fetchSocialLinks(props.setLinks)
+          fetchSocialLinks(setFetchError, props.setLinks)
         }
       } catch (error: any) {
         if (error.response.status === 409) setErrorAlert(true)
@@ -58,6 +59,14 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
   return (
     <div className='h-full py-40'>
+      {fetchError && (
+        <ErrorAlert
+          styles='top-[5%] left-[53%]'
+          setShowAlert={setErrorAlert}
+          title='ინფორმაცია ვერ მოიძებნა'
+        />
+      )}
+
       <FormNotifications
         successText='ბმული წარმატებით დაემატა'
         errorAlert={errorAlert}

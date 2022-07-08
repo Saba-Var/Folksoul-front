@@ -1,17 +1,28 @@
 import { AllLinks } from 'pages/SocialLinks/types'
 import { fetchSocialLinks } from 'helper/index'
 import { useEffect, useState } from 'react'
+import { ErrorAlert } from 'components'
 
 const SocialLinks = () => {
   const [links, setLinks] = useState<AllLinks>([])
+
+  const [errorAlert, setErrorAlert] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    fetchSocialLinks(setLinks, setIsLoading)
+    fetchSocialLinks(setErrorAlert, setLinks, setIsLoading)
   }, [])
 
   return (
     <div className='flex justify-center mt-6'>
+      {errorAlert && (
+        <ErrorAlert
+          styles='top-[5%] left-[53%]'
+          setShowAlert={setErrorAlert}
+          title='ინფორმაცია ვერ მოიძებნა'
+        />
+      )}
+
       <div className='flex gap-16'>
         {!isLoading && (
           <>

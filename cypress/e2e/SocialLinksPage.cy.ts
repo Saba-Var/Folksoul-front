@@ -130,4 +130,11 @@ describe('Social Links Page', () => {
     cy.get('[data-TestId="DeleteYes"]').click()
     cy.beVisible('ბმული ვერ წაიშალა')
   })
+
+  it('when visit first time social links page should see components and message', () => {
+    cy.intercept('GET', 'http://localhost:5000/all-links', {
+      statusCode: 404,
+    })
+    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+  })
 })

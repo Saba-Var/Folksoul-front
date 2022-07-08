@@ -1,12 +1,13 @@
 import { ChangeLinkProps, FormData } from 'pages/SocialLinks/components/types'
 import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
+import { DirectBtn, ErrorAlert } from 'components'
 import { fetchSocialLinks } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { DirectBtn } from 'components'
 import axios from 'axios'
 
 const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
+  const [linkFetchError, setLinkFetchError] = useState(false)
   const [errorAlert, setErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
@@ -27,33 +28,46 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
     setValue('url', currentLink?.url)
   }, [currentLink, setValue])
 
-  const submitHandler = (formData: FormData) => {
-    const { linkName, url } = formData
+  const submitHandler = async (formData: FormData) => {
+    try {
+      const { linkName, url } = formData
 
-    const data = {
-      id: props.id,
-      linkName,
-      url,
-    }
+      const data = {
+        id: props.id,
+        linkName,
+        url,
+      }
 
-    axios
-      .put('http://localhost:5000/change-link', data, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      })
-      .then((response) => {
-        if (response.status === 200) {
-          setShowModal(true)
-          fetchSocialLinks(props.setLinks)
+      const response = await axios.put(
+        'http://localhost:5000/change-link',
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
         }
-      })
-      .catch((error) => error.response.status === 409 && setErrorAlert(true))
+      )
+
+      if (response.status === 200) {
+        setShowModal(true)
+        fetchSocialLinks(setLinkFetchError, props.setLinks)
+      }
+    } catch (error: any) {
+      error.response.status === 409 && setErrorAlert(true)
+    }
   }
 
   return (
     <div className='h-full py-40'>
+      {linkFetchError && (
+        <ErrorAlert
+          styles='top-[5%] left-[53%]'
+          setShowAlert={setErrorAlert}
+          title='ინფორმაცია ვერ მოიძებნა'
+        />
+      )}
+
       <FormNotifications
         title={`ბმული '${watch().linkName}' უკვე დამატებულია`}
         successText='ბმულის დეტალები შეიცვალა'
