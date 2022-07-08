@@ -117,4 +117,17 @@ describe('Social Links Page', () => {
     cy.get('[data-TestId="AddLink"]').click()
     cy.beVisible("ბმული 'Youtube უკვე დამატებულია")
   })
+
+  it('after click on the yes of the delete dialog and there is error link should not delete', () => {
+    cy.fetchSocialLinks([{ linkName: 'google' }])
+    cy.intercept('DELETE', 'http://localhost:5000/delete-link', {
+      statusCode: 404,
+      body: {
+        id: 'id',
+      },
+    })
+    cy.get("[data-TestId='RedBtn']").click()
+    cy.get('[data-TestId="DeleteYes"]').click()
+    cy.beVisible('ბმული ვერ წაიშალა')
+  })
 })

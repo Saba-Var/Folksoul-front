@@ -1,40 +1,49 @@
 import { DeleteDialogProps } from 'pages/SocialLinks/components/types'
+import { DeleteContent, ErrorAlert } from 'components'
 import { fetchSocialLinks } from 'helper/index'
-import { DeleteContent } from 'components'
 import axios from 'axios'
+import { useState } from 'react'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
+  const [error, setError] = useState(false)
+
   const closeModal = () => props.setShowModal(false)
 
-  const deleteLink = () => {
+  const deleteLink = async () => {
     try {
-      const fetch = async () => {
-        const res = await axios.delete('http://localhost:5000/delete-link', {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-          data: {
-            id: props.id,
-          },
-        })
+      const res = await axios.delete('http://localhost:5000/delete-link', {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+        data: {
+          id: props.id,
+        },
+      })
 
-        if (res.status === 200) {
-          fetchSocialLinks(props.setLinks)
-          props.setShowModal(false)
-        }
+      if (res.status === 200) {
+        fetchSocialLinks(props.setLinks)
+        props.setShowModal(false)
       }
-      fetch()
     } catch (error: any) {
-      console.log(error.message)
+      setError(true)
     }
   }
 
   return (
-    <DeleteContent
-      text='წავშალოთ ბმული?'
-      closeModal={closeModal}
-      deleteMember={deleteLink}
-    />
+    <>
+      {error && (
+        <ErrorAlert
+          setShowAlert={setError}
+          title='ბმული ვერ წაიშალა'
+          styles='top-[-10%] left-[32%]'
+        />
+      )}
+      <DeleteContent
+        text='წავშალოთ ბმული?'
+        closeModal={closeModal}
+        deleteMember={deleteLink}
+      />
+    </>
   )
 }
 
