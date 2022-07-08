@@ -1,4 +1,5 @@
 import { Header, Wrapper, Info, SolarSystem } from 'pages/Home/components'
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { ErrorAlert } from 'components'
 import { fetchBandAbout } from 'helper'
@@ -29,12 +30,16 @@ const Home = () => {
     bandMember4,
     bandMember5,
   ]
+  const navigate = useNavigate()
 
   useEffect(() => {
-    fetchBandAbout(setErrorAlert, setBandInfo, setIsLoading, setImage)
-    setInfoText(bandInfo)
-    setInfoImage(image)
-  }, [bandInfo, image])
+    if (localStorage.getItem('token')) navigate('/Dashboard/Main')
+    else {
+      fetchBandAbout(setErrorAlert, setBandInfo, setIsLoading, setImage)
+      setInfoText(bandInfo)
+      setInfoImage(image)
+    }
+  }, [bandInfo, image, navigate])
 
   return (
     <Wrapper>
