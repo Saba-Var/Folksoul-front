@@ -221,4 +221,11 @@ describe('Members Page', () => {
     cy.get('[data-TestId="SaveBtn"]').click()
     cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
   })
+
+  it('if member data fetching fails show error alert', () => {
+    cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
+      statusCode: 404,
+    }).wait(2000)
+    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+  })
 })

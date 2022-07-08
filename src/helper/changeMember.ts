@@ -27,7 +27,7 @@ function changeMember({
       )
       if (response.status === 200) {
         setShowModal(true)
-        fetchMembersData(setMembersData, setIsLoading, page)
+        fetchMembersData(() => {}, setMembersData, setIsLoading, page)
       }
     }
     fetch()

@@ -1,5 +1,5 @@
+import { SectionWrapper, DirectBtn, ErrorAlert } from 'components'
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { SectionWrapper, DirectBtn } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { MemberData } from '../../types'
@@ -29,6 +29,7 @@ const memberModel = {
 const Members = () => {
   const [membersData, setMembersData] = useState<MemberData>(memberModel)
 
+  const [errorAlert, setErrorAlert] = useState(false)
   const [addMember, setAddMember] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -45,7 +46,7 @@ const Members = () => {
   let emptyBand = membersData.paginationInfo.totalMembers === 0
 
   useEffect(() => {
-    fetchMembersData(setMembersData, setIsLoading, 1)
+    fetchMembersData(setErrorAlert, setMembersData, setIsLoading, 1)
   }, [])
 
   const fetchUtilities = { setMembersData, setIsLoading }
@@ -60,9 +61,17 @@ const Members = () => {
   return (
     <SectionWrapper title={title}>
       <>
+        {errorAlert && (
+          <ErrorAlert
+            styles='top-[5%] left-[53%]'
+            setShowAlert={setErrorAlert}
+            title='ინფორმაცია ვერ მოიძებნა'
+          />
+        )}
+
         {notFound && section === '' && <NoMembers />}
 
-        {!notFound && !addMember && section === '' && (
+        {!notFound && !addMember && section === '' && membersData && (
           <Cards
             fetchUtilities={fetchUtilities}
             setIsLoading={setIsLoading}

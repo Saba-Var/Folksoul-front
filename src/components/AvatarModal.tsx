@@ -31,7 +31,12 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
       })
 
       if (response.status === 201) {
-        fetchMembersData(props.setMembersData, props.setIsLoading, 1)
+        fetchMembersData(
+          setFetchError,
+          props.setMembersData,
+          props.setIsLoading,
+          1
+        )
         props.setAvatarModal(false)
       }
     } catch (error: any) {

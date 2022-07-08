@@ -43,6 +43,7 @@ const Home = () => {
 
         {errorAlert && (
           <ErrorAlert
+            styles='top-[5%] left-[53%]'
             setShowAlert={setErrorAlert}
             title='ინფორმაცია ვერ მოიძებნა'
           />

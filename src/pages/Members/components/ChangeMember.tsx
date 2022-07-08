@@ -84,7 +84,12 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
       if (response.status === 200) {
         setShowModal(true)
-        fetchMembersData(setMembersData, setIsLoading, +page.get('page')!)
+        fetchMembersData(
+          setErrorAlert,
+          setMembersData,
+          setIsLoading,
+          +page.get('page')!
+        )
       }
     } catch (error: any) {
       setStatusCode(409)

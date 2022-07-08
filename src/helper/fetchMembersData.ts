@@ -1,7 +1,8 @@
-import { SetMembersData, SetIsLoading } from 'helper/types'
+import { SetMembersData, SetIsLoading, SetErrorAlert } from 'helper/types'
 import axios from 'axios'
 
 const fetchMembersData = async (
+  setErrorAlert: SetErrorAlert,
   setMembersData: SetMembersData | any,
   setIsLoading: SetIsLoading,
   page?: number
@@ -12,15 +13,14 @@ const fetchMembersData = async (
       ? `http://localhost:5000/all-members?page=${page}`
       : `http://localhost:5000/all-members`
 
-    const fetch = async () => {
-      const res = await axios.get(url)
+    const res = await axios.get(url)
 
-      if (res.status === 200) {
-        setIsLoading(false)
-        return setMembersData(res.data)
-      }
+    if (res.status === 200) {
+      setIsLoading(false)
+      return setMembersData(res.data)
     }
-    fetch()
-  } catch (error: any) {}
+  } catch (error: any) {
+    setErrorAlert(true)
+  }
 }
 export default fetchMembersData

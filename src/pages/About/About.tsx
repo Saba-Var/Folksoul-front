@@ -25,6 +25,7 @@ const About = () => {
       <div className='animate-fade-in'>
         {errorAlert && (
           <ErrorAlert
+            styles='top-[5%] left-[53%]'
             setShowAlert={setErrorAlert}
             title='ინფორმაცია ვერ მოიძებნა'
           />

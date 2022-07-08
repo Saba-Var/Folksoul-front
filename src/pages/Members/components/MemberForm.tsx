@@ -1,10 +1,10 @@
 import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
 import { Notifications, MemberInputs } from 'pages/Members/components'
 import { useSearchParams } from 'react-router-dom'
+import { DirectBtn, ErrorAlert } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { DirectBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -55,7 +55,12 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
           setValue('orbitLength', '')
           setValue('instrument', '')
 
-          fetchMembersData(setMembersData, setIsLoading, fetchPage)
+          fetchMembersData(
+            setShowErrorAlert,
+            setMembersData,
+            setIsLoading,
+            fetchPage
+          )
           navigate(`/Dashboard/Members?page=${fetchPage}`)
 
           setShowModal(true)
@@ -78,6 +83,14 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
 
   return (
     <div className='animate-fade-in'>
+      {showErrorAlert && (
+        <ErrorAlert
+          styles='top-[5%] left-[53%]'
+          setShowAlert={setShowErrorAlert}
+          title='ინფორმაცია ვერ მოიძებნა'
+        />
+      )}
+
       <Notifications
         setShowErrorAlert={setShowErrorAlert}
         showErrorAlert={showErrorAlert}

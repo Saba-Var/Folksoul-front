@@ -35,7 +35,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
       if (res.status === 200) {
         closeModal()
-        fetchMembersData(setMembersData, setIsLoading, fetchPage)
+        fetchMembersData(setError, setMembersData, setIsLoading, fetchPage)
         navigate(`/Dashboard/Members?page=${fetchPage}`)
       }
     } catch (error: any) {
