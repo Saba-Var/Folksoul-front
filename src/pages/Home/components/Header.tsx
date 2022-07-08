@@ -4,7 +4,7 @@ import { Logo } from 'components/svgs'
 const Header = () => {
   return (
     <div
-      data-TestId='SmallLogo'
+      data-cy='SmallLogo'
       className='flex w-full justify-between px-20 pt-6 items-center mb-4'
     >
       <Logo styles='w-[168px] h-[76px]' />

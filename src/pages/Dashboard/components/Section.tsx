@@ -19,7 +19,7 @@ const Section: React.FC<SectionProps> = (props) => {
 
   return (
     <div
-      data-TestId={props.link}
+      data-cy={props.link}
       className={`flex transition-transform active:scale-95 cursor-pointer h-12 items-center gap-4 pl-7 ${
         isSelected && 'bg-contentWhite  '
       }`}

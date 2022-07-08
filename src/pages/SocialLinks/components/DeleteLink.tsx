@@ -19,7 +19,7 @@ const DeleteLink: React.FC<DeleteLinkProps> = (props) => {
         </Modal>
       )}
 
-      <div data-TestId='RedBtn' onClick={() => setShowModal(true)}>
+      <div data-cy='RedBtn' onClick={() => setShowModal(true)}>
         <RedBtn />
       </div>
     </>

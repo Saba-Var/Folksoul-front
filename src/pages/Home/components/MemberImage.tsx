@@ -31,7 +31,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
 
   return (
     <div
-      data-TestId={name}
+      data-cy={name}
       style={{
         animation: `spinLeft ${animationDuration}s linear infinite`,
         animationPlayState: pause ? 'paused' : 'running',

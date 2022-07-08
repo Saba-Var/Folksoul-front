@@ -17,7 +17,7 @@ describe('Main Page', () => {
   it('when click on the logout button navigate to landing page', () => {
     cy.stopRequests()
     cy.beVisible('გადი გარეთ')
-    cy.get("[data-TestId='Logout']").click()
+    cy.get("[data-cy='Logout']").click()
     cy.url().should('not.include', '/Dashboard/Main')
   })
 
@@ -32,7 +32,7 @@ describe('Main Page', () => {
       },
     })
     cy.beVisible('გადი გარეთ')
-    cy.get("[data-TestId='Members']").click()
+    cy.get("[data-cy='Members']").click()
     cy.url().should('include', 'Members?page=1')
     cy.beVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
   })
@@ -46,7 +46,7 @@ describe('Main Page', () => {
         },
       ],
     })
-    cy.get("[data-TestId='About']").click()
+    cy.get("[data-cy='About']").click()
     cy.url().should('include', 'About')
     cy.beVisible('ბენდის შესახებ ინფორმაცია არ არის დამატებული')
   })

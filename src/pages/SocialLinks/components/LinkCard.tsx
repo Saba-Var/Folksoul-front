@@ -21,7 +21,7 @@ const LinkCard: React.FC<LinksData> = (props) => {
 
           <div className='flex justify-between w-24'>
             <div
-              data-TestId='YellowBtn'
+              data-cy='YellowBtn'
               onClick={() => {
                 props.setLinkId(link._id)
                 props.setSection('changeLink')

@@ -3,7 +3,7 @@ import { SunProps } from 'components/svgs/types'
 const Sun: React.FC<SunProps> = (props) => {
   return (
     <svg
-      data-TestId='Sun'
+      data-cy='Sun'
       className={`cursor-pointer z-[99999999] ${
         !props.pause && 'animate-pulsate-bck'
       }`}

@@ -77,7 +77,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
 
           {file && (
             <button
-              data-TestId='SaveBtn'
+              data-cy='SaveBtn'
               className='greenBtn animate-fade-in w-32 mx-auto'
               onClick={imageUploadHandler}
             >

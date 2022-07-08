@@ -16,7 +16,7 @@ Cypress.Commands.add('addMemberForm', () => {
       },
     },
   })
-  cy.get("[data-TestId='ახალი წევრი გვყავს?']").click()
+  cy.get("[data-cy='ახალი წევრი გვყავს?']").click()
 })
 
 Cypress.Commands.add('stopRequests', () => {
@@ -148,11 +148,11 @@ Cypress.Commands.add('fetchSocialLinks', (links: object) => {
 })
 
 Cypress.Commands.add('addNewMember', () => {
-  cy.get("[data-TestId='name']").type('ილონ')
-  cy.get("[data-TestId='instrument']").type('დუდუკი')
-  cy.get("[data-TestId='orbitLength']").type('777')
-  cy.get("[data-TestId='color']").type('#000000')
-  cy.get("[data-TestId='biography']").type('ილონი დაიბადა ...')
+  cy.get("[data-cy='name']").type('ილონ')
+  cy.get("[data-cy='instrument']").type('დუდუკი')
+  cy.get("[data-cy='orbitLength']").type('777')
+  cy.get("[data-cy='color']").type('#000000')
+  cy.get("[data-cy='biography']").type('ილონი დაიბადა ...')
 })
 
 declare global {

@@ -8,7 +8,7 @@ const DirectBtn: React.FC<DirectBtnProps> = (props) => {
 
   return (
     <button
-      data-TestId={props.title}
+      data-cy={props.title}
       onClick={clickHandler}
       className={`${
         !props.title.includes('ბმული') && 'animate-tracking-in-expand'

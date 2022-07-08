@@ -95,7 +95,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
         />
 
         <button
-          data-TestId='AddLink'
+          data-cy='AddLink'
           type='submit'
           className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-[298px] block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-10'
         >

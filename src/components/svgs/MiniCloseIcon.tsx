@@ -1,7 +1,7 @@
 const MiniCloseIcon = () => {
   return (
     <svg
-      data-TestId='CloseAlert'
+      data-cy='CloseAlert'
       className='fill-red h-7 w-7   text-red-500'
       role='button'
       viewBox='0 0 20 20'

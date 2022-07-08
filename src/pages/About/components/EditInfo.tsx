@@ -58,7 +58,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
       <form className='w-full h-[80%] outline-none resize-none bg-lightYellow shadow-5xl py-4 pl-6 pr-9 rounded-lg'>
         <textarea
-          data-TestId='TextareaInput'
+          data-cy='TextareaInput'
           {...register('about')}
           className='w-full h-[51.5vh] !break-words outline-none resize-none pr-14 bg-lightYellow'
         />
@@ -66,7 +66,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
       <div className='flex flex-col gap-4 mt-8'>
         <button
-          data-TestId='GreenBtn'
+          data-cy='GreenBtn'
           className='greenBtn shadow-3xl animate-tracking-in-expand w-40 mx-auto'
           onClick={submitHandler}
           type='submit'

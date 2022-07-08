@@ -7,7 +7,7 @@ const EditBtn: React.FC<EditBtnProps> = (props) => {
       height='56'
       viewBox='0 0 56 56'
       fill='none'
-      data-TestId='EditBtn'
+      data-cy='EditBtn'
       onClick={() => props.setSection('edit')}
       className='absolute top-[60%] left-[-9%] z-10 cursor-pointer hover:scale-105 transition-transform'
     >

@@ -17,7 +17,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
         />
       )}
 
-      <div data-TestId='CameraBtn' onClick={() => setIconModal(true)}>
+      <div data-cy='CameraBtn' onClick={() => setIconModal(true)}>
         <CameraBtn
           styles={`top-[7px] left-[25%] w-6 h-6 ${
             props.image && '!top-[23px] !left-[30px]'

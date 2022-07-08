@@ -19,12 +19,12 @@ describe('Band Info Page', () => {
     })
 
     cy.beVisible('ბენდის შესახებ')
-    cy.get("[data-TestId='CameraBtn']").click({ force: true })
+    cy.get("[data-cy='CameraBtn']").click({ force: true })
     cy.beVisible('შეცვალე ბენდის პორტრეტი')
     cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
       force: true,
     })
-    cy.get('[data-TestId="SaveBtn"]').click()
+    cy.get('[data-cy="SaveBtn"]').click()
     cy.contains('შეცვალე ბენდის პორტრეტი').should('not.exist')
   })
 
@@ -33,13 +33,13 @@ describe('Band Info Page', () => {
       statusCode: 403,
     })
     cy.beVisible('ბენდის შესახებ')
-    cy.get('[data-TestId="EditBtn"]').click({ force: true })
+    cy.get('[data-cy="EditBtn"]').click({ force: true })
     cy.beVisible('ბენდის შესახებ - დაარედაქტირე')
     cy.beVisible('შეინახე')
-    cy.get('[data-TestId="TextareaInput"]').clear()
-    cy.get('[data-TestId="GreenBtn"]').click()
+    cy.get('[data-cy="TextareaInput"]').clear()
+    cy.get('[data-cy="GreenBtn"]').click()
     cy.beVisible('შეიყვანეთ ინფორმაცია')
-    cy.get('[data-TestId="გადი უკან"]').click()
+    cy.get('[data-cy="გადი უკან"]').click()
     cy.beVisible('ბენდის შესახებ')
   })
 
@@ -47,9 +47,9 @@ describe('Band Info Page', () => {
     cy.intercept('PUT', 'http://localhost:5000/change-band-about', {
       statusCode: 200,
     })
-    cy.get('[data-TestId="EditBtn"]').click({ force: true })
-    cy.get('[data-TestId="TextareaInput"]').clear().type('ბენდი დაარსდა ...')
-    cy.get('[data-TestId="GreenBtn"]').click()
+    cy.get('[data-cy="EditBtn"]').click({ force: true })
+    cy.get('[data-cy="TextareaInput"]').clear().type('ბენდი დაარსდა ...')
+    cy.get('[data-cy="GreenBtn"]').click()
     cy.beVisible('ინფორმაცია შეიცვალა')
   })
 
@@ -57,17 +57,17 @@ describe('Band Info Page', () => {
     cy.intercept('PATCH', 'http://localhost:5000/upload-band-image', {
       statusCode: 404,
     })
-    cy.get("[data-TestId='CameraBtn']").click({ force: true })
+    cy.get("[data-cy='CameraBtn']").click({ force: true })
     cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
       force: true,
     })
-    cy.get('[data-TestId="SaveBtn"]').click()
+    cy.get('[data-cy="SaveBtn"]').click()
     cy.beVisible('სურათი ვერ აიტვირთა')
   })
 
   it('when upload invalid file show alert', () => {
     cy.getAllMembers()
-    cy.get('[data-TestId="CameraBtn"]').click({ force: true })
+    cy.get('[data-cy="CameraBtn"]').click({ force: true })
     cy.get('input[type=file]').selectFile('src/index.tsx', {
       force: true,
     })
@@ -84,6 +84,9 @@ describe('Band Info Page', () => {
         },
       ],
     })
+
     cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+    cy.get('[data-cy="CloseAlert"]').click()
+    cy.beVisible('ინფორმაცია ვერ მოიძებნა').wait(1600)
   })
 })

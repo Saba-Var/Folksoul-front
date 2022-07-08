@@ -17,7 +17,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
         />
 
         {!props.isLoading && (
-          <div data-TestId='CameraBtn' onClick={() => setIconModal(true)}>
+          <div data-cy='CameraBtn' onClick={() => setIconModal(true)}>
             <CameraBtn styles='top-[67%] drop-shadow-3xl right-[0px] w-14 h-14' />
           </div>
         )}

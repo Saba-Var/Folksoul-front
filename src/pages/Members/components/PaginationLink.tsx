@@ -26,7 +26,7 @@ const PaginationLink: React.FC<PaginationLinkProps> = (props) => {
       )}
 
       <Link
-        data-TestId={props.page}
+        data-cy={props.page}
         className={`h-5 w-5 bg-lightBrown rounded-full transition-transform hover:scale-125 ${
           pageParam.get('page') === props.page + '' && 'bg-goodGray'
         }`}

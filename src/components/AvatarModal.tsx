@@ -88,13 +88,13 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
             {!file && (
               <label>
                 <span
-                  data-TestId='UploadMemberImage'
+                  data-cy='UploadMemberImage'
                   className='blueBtn animate-fade-in flex justify-center items-center w-40 mx-auto'
                 >
                   ატვირთე
                 </span>
                 <input
-                  data-TestId='MemberAvatarInput'
+                  data-cy='MemberAvatarInput'
                   type='file'
                   onChange={fileChangeHandler}
                 />
@@ -103,7 +103,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
             {file && (
               <button
-                data-TestId='SaveBtn'
+                data-cy='SaveBtn'
                 className='greenBtn animate-fade-in'
                 onClick={imageUploadHandler}
               >

@@ -25,11 +25,7 @@ const DeleteMember: React.FC<DeleteMemberProps> = (props) => {
         </Modal>
       )}
 
-      <div
-        data-TestId='RedBtn'
-        onClick={clickHandler}
-        className='animate-fade-in'
-      >
+      <div data-cy='RedBtn' onClick={clickHandler} className='animate-fade-in'>
         <RedBtn />
       </div>
     </div>
