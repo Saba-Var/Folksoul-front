@@ -52,4 +52,16 @@ describe('Band Info Page', () => {
     cy.get('[data-TestId="GreenBtn"]').click()
     cy.beVisible('ინფორმაცია შეიცვალა')
   })
+
+  it('if image upload fails should see error alert', () => {
+    cy.intercept('PATCH', 'http://localhost:5000/upload-band-image', {
+      statusCode: 404,
+    })
+    cy.get("[data-TestId='CameraBtn']").click({ force: true })
+    cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
+      force: true,
+    })
+    cy.get('[data-TestId="SaveBtn"]').click()
+    cy.beVisible('სურათი ვერ აიტვირთა')
+  })
 })

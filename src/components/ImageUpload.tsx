@@ -8,6 +8,7 @@ import axios from 'axios'
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   const [errorAlert, setErrorAlert] = useState(false)
   const [file, setFile] = useState('')
+  const [fetchError, setFetchError] = useState(false)
 
   const fileChangeHandler = (e: any) => {
     if (e.target.files[0]?.type.startsWith('image')) {
@@ -39,7 +40,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
         props.setImageModal(false)
       }
     } catch (error: any) {
-      console.log(error.message)
+      setFetchError(true)
     }
   }
 
@@ -51,6 +52,14 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
             styles='!top-[-12%] !left-[28%]'
             title='ატვირთეთ მხოლოდ სურათი'
             setShowAlert={setErrorAlert}
+          />
+        )}
+
+        {fetchError && (
+          <ErrorAlert
+            styles='!top-[-12%] !left-[28%]'
+            title='სურათი ვერ აიტვირთა'
+            setShowAlert={setFetchError}
           />
         )}
 

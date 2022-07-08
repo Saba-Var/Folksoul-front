@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 describe('Members Page', () => {
   beforeEach(() => {
     cy.visit('/Dashboard/Members?page=1')
@@ -203,5 +204,21 @@ describe('Members Page', () => {
     })
     cy.get('[data-TestId="ChangeInfo"]').click()
     cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+  })
+
+  it('if image upload fails should see error alert', () => {
+    cy.getAllMembers()
+    cy.intercept('PATCH', 'http://localhost:5000/upload-member-image', {
+      statusCode: 404,
+    })
+    cy.get('[data-TestId="CameraBtn"]').click({ force: true })
+    cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
+    cy.beVisible('ატვირთე')
+    cy.get('[data-TestId="UploadMemberImage"]').click()
+    cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
+      force: true,
+    })
+    cy.get('[data-TestId="SaveBtn"]').click()
+    cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
   })
 })

@@ -6,6 +6,7 @@ import axios from 'axios'
 
 const AvatarModal: React.FC<AvatarModalProps> = (props) => {
   const [errorAlert, setErrorAlert] = useState(false)
+  const [fetchError, setFetchError] = useState(false)
   const { currentMember, avatar } = props
   const [file, setFile] = useState('')
 
@@ -34,7 +35,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
         props.setAvatarModal(false)
       }
     } catch (error: any) {
-      console.log(error.message)
+      setFetchError(true)
     }
   }
 
@@ -44,6 +45,14 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
       setShowModal={props.setAvatarModal}
     >
       <div className={`h-[500px]`}>
+        {fetchError && (
+          <ErrorAlert
+            styles='!top-[-12%] !left-[28%]'
+            title='სურათი ვერ აიტვირთა'
+            setShowAlert={setFetchError}
+          />
+        )}
+
         {errorAlert && (
           <ErrorAlert
             styles='!top-[-12%] !left-[28%]'
