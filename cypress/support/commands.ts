@@ -75,7 +75,6 @@ Cypress.Commands.add('changeMemberRequests', () => {
       },
     },
   })
-
   cy.intercept('POST', 'http://localhost:5000/get-one-member', {
     statusCode: 200,
   })

@@ -1,10 +1,10 @@
 import { Notifications, MemberInputs } from 'pages/Members/components'
 import { MemberInputProps } from 'pages/Members/components/types'
 import { useSearchParams } from 'react-router-dom'
+import { DirectBtn, ErrorAlert } from 'components'
 import { fetchMembersData } from 'helper/index'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { DirectBtn } from 'components'
 import axios from 'axios'
 
 const ChangeMember: React.FC<MemberInputProps> = (props) => {
@@ -14,6 +14,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const [page] = useSearchParams()
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
+  const [errorAlert, setErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const {
@@ -26,35 +27,36 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
     mode: 'all',
   })
 
-  useEffect(() => {
+  const fetchOneMember = useCallback(async () => {
     try {
-      const fetch = async () => {
-        const response = await axios.post(
-          'http://localhost:5000/get-one-member',
-          {
-            id: id,
+      const response = await axios.post(
+        'http://localhost:5000/get-one-member',
+        {
+          id: id,
+        },
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
           },
-          {
-            headers: {
-              Authorization: 'Bearer ' + localStorage.getItem('token'),
-            },
-          }
-        )
-
-        if (response.status === 200) {
-          const data = response.data
-          setValue('orbitLength', data.orbitLength)
-          setValue('instrument', data.instrument)
-          setValue('biography', data.biography)
-          setValue('color', data.color)
-          setValue('name', data.name)
         }
+      )
+
+      if (response.status === 200) {
+        const data = response.data
+        setValue('orbitLength', data.orbitLength)
+        setValue('instrument', data.instrument)
+        setValue('biography', data.biography)
+        setValue('color', data.color)
+        setValue('name', data.name)
       }
-      fetch()
     } catch (error: any) {
-      console.log(error.message)
+      setErrorAlert(true)
     }
   }, [id, setValue])
+
+  useEffect(() => {
+    fetchOneMember()
+  }, [fetchOneMember])
 
   const submitHandler = async () => {
     try {
@@ -85,15 +87,21 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         fetchMembersData(setMembersData, setIsLoading, +page.get('page')!)
       }
     } catch (error: any) {
-      if (error.response.status === 409) {
-        setStatusCode(409)
-        setShowErrorAlert(true)
-      }
+      setStatusCode(409)
+      setShowErrorAlert(true)
     }
   }
 
   return (
     <div className='animate-fade-in'>
+      {errorAlert && (
+        <ErrorAlert
+          title='ინფორმაცია ვერ მოიძებნა'
+          setShowAlert={setErrorAlert}
+          styles='top-[5%] left-[53%]'
+        />
+      )}
+
       <Notifications
         setShowErrorAlert={setShowErrorAlert}
         showErrorAlert={showErrorAlert}

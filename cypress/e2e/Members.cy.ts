@@ -195,4 +195,13 @@ describe('Members Page', () => {
     })
     cy.get('[data-TestId="DeleteYes"]').click()
   })
+
+  it('when fetch of member details fails show error alert', () => {
+    cy.getAllMembers()
+    cy.intercept('POST', 'http://localhost:5000/get-one-member', {
+      statusCode: 404,
+    })
+    cy.get('[data-TestId="ChangeInfo"]').click()
+    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+  })
 })
