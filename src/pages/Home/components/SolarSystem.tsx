@@ -65,7 +65,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
                     width: dimension,
                     height: dimension,
                   }}
-                  className='absolute left-0 right-0 ml-auto mr-auto border-dashed border-[1px] border-yellow rounded-full'
+                  className='absolute left-0 right-0 ml-auto mr-auto border-dashed border-[2px] border-yellow rounded-full'
                   key={member._id}
                 >
                   <div
