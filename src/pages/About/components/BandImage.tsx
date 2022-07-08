@@ -13,11 +13,11 @@ const BandImage: React.FC<BandImageProps> = (props) => {
         <Image
           isLoading={props.isLoading}
           image={props.image}
-          styles='w-44 h-44'
+          styles='!w-44 !h-44'
         />
 
         {!props.isLoading && (
-          <div onClick={() => setIconModal(true)}>
+          <div data-TestId='CameraBtn' onClick={() => setIconModal(true)}>
             <CameraBtn styles='top-[67%] drop-shadow-3xl right-[0px] w-14 h-14' />
           </div>
         )}
@@ -30,11 +30,11 @@ const BandImage: React.FC<BandImageProps> = (props) => {
             setImageModal={setIconModal}
             id={props.id}
           >
-            <div className='flex flex-col h-full justify-between pt-44  pb-[20%] items-center'>
+            <div className='flex flex-col h-full justify-between  pb-[20%] items-center'>
               <Image
                 isLoading={props.isLoading}
                 image={props.image}
-                styles='w-60 h-60'
+                styles='!w-60 !h-60'
               />
             </div>
           </ImageUpload>
