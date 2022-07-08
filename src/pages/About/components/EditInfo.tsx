@@ -32,7 +32,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
       .then((response) => {
         if (response.status === 200) {
           setAddModal(true)
-          fetchBandAbout(props.setBandAbout)
+          fetchBandAbout(setErrorAlert, props.setBandAbout)
         }
       })
       .catch((error) => setErrorAlert(true))

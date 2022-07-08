@@ -1,5 +1,6 @@
 import { Header, Wrapper, Info, SolarSystem } from 'pages/Home/components'
 import { useEffect, useState } from 'react'
+import { ErrorAlert } from 'components'
 import { fetchBandAbout } from 'helper'
 import {
   bandMember1,
@@ -18,6 +19,7 @@ const Home = () => {
   const [image, setImage] = useState('')
   const [color, setColor] = useState('')
 
+  const [errorAlert, setErrorAlert] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const imageArray = [
@@ -29,7 +31,7 @@ const Home = () => {
   ]
 
   useEffect(() => {
-    fetchBandAbout(setBandInfo, setIsLoading, setImage)
+    fetchBandAbout(setErrorAlert, setBandInfo, setIsLoading, setImage)
     setInfoText(bandInfo)
     setInfoImage(image)
   }, [bandInfo, image])
@@ -38,6 +40,13 @@ const Home = () => {
     <Wrapper>
       <>
         <Header />
+
+        {errorAlert && (
+          <ErrorAlert
+            setShowAlert={setErrorAlert}
+            title='ინფორმაცია ვერ მოიძებნა'
+          />
+        )}
 
         <div className='flex justify-between px-[3%]'>
           <SolarSystem

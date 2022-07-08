@@ -74,4 +74,16 @@ describe('Band Info Page', () => {
     cy.beVisible('ატვირთეთ მხოლოდ სურათი')
     cy.contains('შეინახე').should('not.exist')
   })
+
+  it('if fetching of band information fails should see alert', () => {
+    cy.intercept('GET', 'http://localhost:5000/band-about', {
+      statusCode: 404,
+      body: [
+        {
+          about: '...',
+        },
+      ],
+    })
+    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+  })
 })

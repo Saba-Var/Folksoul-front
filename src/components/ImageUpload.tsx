@@ -34,7 +34,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
 
       if (response.status === 201) {
         if (props.title === 'შეცვალე ბენდის პორტრეტი')
-          fetchBandAbout(props.setLinks)
+          fetchBandAbout(setFetchError, props.setLinks)
         else fetchSocialLinks(props.setLinks)
 
         props.setImageModal(false)
