@@ -56,37 +56,40 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
     }
   }, [id, setValue])
 
-  const submitHandler = () => {
-    const { name, instrument, color, orbitLength, biography } = watch()
+  const submitHandler = async () => {
+    try {
+      const { name, instrument, color, orbitLength, biography } = watch()
 
-    const data = {
-      id,
-      name,
-      instrument,
-      color,
-      orbitLength,
-      biography,
+      const data = {
+        id,
+        name,
+        instrument,
+        color,
+        orbitLength,
+        biography,
+      }
+
+      const response = await axios.put(
+        'http://localhost:5000/change-member',
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
+        }
+      )
+
+      if (response.status === 200) {
+        setShowModal(true)
+        fetchMembersData(setMembersData, setIsLoading, +page.get('page')!)
+      }
+    } catch (error: any) {
+      if (error.response.status === 409) {
+        setStatusCode(409)
+        setShowErrorAlert(true)
+      }
     }
-
-    axios
-      .put('http://localhost:5000/change-member', data, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      })
-      .then((response) => {
-        if (response.status === 200) {
-          setShowModal(true)
-          fetchMembersData(setMembersData, setIsLoading, +page.get('page')!)
-        }
-      })
-      .catch((error) => {
-        if (error.response.status === 409) {
-          setStatusCode(409)
-          setShowErrorAlert(true)
-        }
-      })
   }
 
   return (
