@@ -66,7 +66,7 @@ const LoginForm = () => {
     >
       {showAlert && (
         <ErrorAlert
-          styles='top-[5%] left-[53%]'
+          styles='top-[5%] left-[50%] !-translate-x-1/2'
           title={'მეტსახელი ან პაროლი არასწორია!'}
           setShowAlert={setShowAlert}
         />

@@ -1,10 +1,10 @@
 import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
 import { Notifications, MemberInputs } from 'pages/Members/components'
 import { useSearchParams } from 'react-router-dom'
-import { DirectBtn, ErrorAlert } from 'components'
 import { fetchMembersData } from 'helper/index'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { DirectBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -26,7 +26,6 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     register,
     handleSubmit,
     setValue,
-    setError,
     formState: { errors },
   } = useForm({
     mode: 'all',
@@ -55,26 +54,19 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
           setValue('orbitLength', '')
           setValue('instrument', '')
 
-          fetchMembersData(
-            setShowErrorAlert,
-            setMembersData,
-            setIsLoading,
-            fetchPage
-          )
+          fetchMembersData(() => {}, setMembersData, setIsLoading, fetchPage)
           navigate(`/Dashboard/Members?page=${fetchPage}`)
 
           setShowModal(true)
           setShowErrorAlert(false)
         }
       } catch (error: any) {
-        setError('name', {
-          type: 'costum',
-        })
-
-        setShowErrorAlert(true)
         const statusCode = error.response.status
 
-        if (statusCode === 409) setStatusCode(409)
+        if (statusCode === 409) {
+          setShowErrorAlert(true)
+          setStatusCode(409)
+        }
         if (statusCode === 404) setStatusCode(404)
       }
     }
@@ -83,14 +75,6 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
 
   return (
     <div className='animate-fade-in'>
-      {showErrorAlert && (
-        <ErrorAlert
-          styles='top-[5%] left-[53%]'
-          setShowAlert={setShowErrorAlert}
-          title='ინფორმაცია ვერ მოიძებნა'
-        />
-      )}
-
       <Notifications
         setShowErrorAlert={setShowErrorAlert}
         showErrorAlert={showErrorAlert}
