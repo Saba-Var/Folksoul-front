@@ -64,4 +64,14 @@ describe('Band Info Page', () => {
     cy.get('[data-TestId="SaveBtn"]').click()
     cy.beVisible('სურათი ვერ აიტვირთა')
   })
+
+  it('when upload invalid file show alert', () => {
+    cy.getAllMembers()
+    cy.get('[data-TestId="CameraBtn"]').click({ force: true })
+    cy.get('input[type=file]').selectFile('src/index.tsx', {
+      force: true,
+    })
+    cy.beVisible('ატვირთეთ მხოლოდ სურათი')
+    cy.contains('შეინახე').should('not.exist')
+  })
 })
