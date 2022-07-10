@@ -7,19 +7,21 @@ import { useState } from 'react'
 const DeleteLink: React.FC<DeleteLinkProps> = (props) => {
   const [showModal, setShowModal] = useState(false)
 
+  const modalHandler = () => setShowModal(true)
+
   return (
     <>
       {showModal && (
         <Modal title='სოციალური ბმულის წაშლა' setShowModal={setShowModal}>
           <DeleteDialog
+            setShowModal={setShowModal}
             setLinks={props.setLinks}
             id={props.id}
-            setShowModal={setShowModal}
           />
         </Modal>
       )}
 
-      <div data-cy='RedBtn' onClick={() => setShowModal(true)}>
+      <div data-cy='RedBtn' onClick={modalHandler}>
         <RedBtn />
       </div>
     </>

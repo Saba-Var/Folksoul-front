@@ -28,52 +28,49 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
     },
   })
 
-  const submitHandler = (data: DetailsProps) => {
-    const linkDetails = data
+  const submitHandler = async (data: DetailsProps) => {
+    try {
+      const linkDetails = data
 
-    const fetch = async () => {
-      try {
-        const response = await axios({
-          method: 'post',
-          url: 'https://folksoul-api.sabavar.redberryinternship.ge/add-social-link',
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-          data: linkDetails,
-        })
+      const response = await axios({
+        method: 'post',
+        url: 'https://folksoul-api.sabavar.redberryinternship.ge/add-social-link',
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+        data: linkDetails,
+      })
 
-        if (response.status === 201) {
-          setShowModal(true)
+      if (response.status === 201) {
+        setShowModal(true)
 
-          setValue('linkName', '')
-          setValue('url', '')
+        setValue('linkName', '')
+        setValue('url', '')
 
-          fetchSocialLinks(setFetchError, props.setLinks)
-        }
-      } catch (error: any) {
-        if (error.response.status === 409) setErrorAlert(true)
+        fetchSocialLinks(setFetchError, props.setLinks)
       }
+    } catch (error: any) {
+      if (error.response.status === 409) setErrorAlert(true)
     }
-    fetch()
   }
 
   return (
     <div className='h-full py-40'>
       {fetchError && (
         <ErrorAlert
+          title='ინფორმაცია ვერ მოიძებნა'
           styles='top-[5%] left-[53%]'
           setShowAlert={setErrorAlert}
-          title='ინფორმაცია ვერ მოიძებნა'
         />
       )}
 
       <FormNotifications
+        title={`ბმული '${watch().linkName} უკვე დამატებულია`}
         successText='ბმული წარმატებით დაემატა'
-        errorAlert={errorAlert}
         setErrorAlert={setErrorAlert}
         setShowModal={setShowModal}
+        errorAlert={errorAlert}
         showModal={showModal}
-        title={`ბმული '${watch().linkName} უკვე დამატებულია`}
       />
 
       <form
@@ -82,22 +79,22 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
       >
         <LinkInput
           errors={errors.linkName}
-          inputName='linkName'
           placeholder='დასახელება'
+          inputName='linkName'
           register={register}
         />
 
         <LinkInput
           errors={errors.url}
-          inputName='url'
-          placeholder='ბმული'
           register={register}
+          placeholder='ბმული'
+          inputName='url'
         />
 
         <button
+          className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-[298px] block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-10'
           data-cy='AddLink'
           type='submit'
-          className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-[298px] block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-10'
         >
           დაამატე სოციალური ბმული
         </button>

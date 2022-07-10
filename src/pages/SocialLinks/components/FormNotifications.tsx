@@ -2,21 +2,30 @@ import { FormNotificationsProps } from 'pages/SocialLinks/components/types'
 import { AddNotification, ErrorAlert } from 'components'
 
 const FormNotifications: React.FC<FormNotificationsProps> = (props) => {
+  const {
+    setShowModal,
+    successText,
+    setErrorAlert,
+    errorAlert,
+    title,
+    showModal,
+  } = props
+
   return (
     <>
-      {props.showModal && (
+      {showModal && (
         <AddNotification
+          setShowModal={setShowModal}
           title='სოციალური ბმულები'
-          modalText={props.successText}
-          setShowModal={props.setShowModal}
+          modalText={successText}
         />
       )}
 
-      {props.errorAlert && (
+      {errorAlert && (
         <ErrorAlert
           styles='top-[40px] left-[50%]'
-          setShowAlert={props.setErrorAlert}
-          title={props.title}
+          setShowAlert={setErrorAlert}
+          title={title}
         />
       )}
     </>

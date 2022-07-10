@@ -3,18 +3,25 @@ import { LinksData } from 'pages/SocialLinks/components/types'
 import { YellowBtn } from 'components/svgs'
 
 const LinkCard: React.FC<LinksData> = (props) => {
+  const { links, setLinks, setLinkId, setSection } = props
+
+  const changeButtonHandler = (id: string) => {
+    setLinkId(id)
+    setSection('changeLink')
+  }
+
   return (
     <>
-      {props.links.map((link) => (
+      {links.map((link) => (
         <div
           key={link._id}
           className='border border-black transition-transform shadow-4.5xl rounded-md bg-charcoal w-[820px] h-16 flex justify-between px-7 items-center'
         >
           <ChangeIcon
-            setLinks={props.setLinks}
+            linkName={link.linkName}
+            setLinks={setLinks}
             image={link.image}
             id={link._id}
-            linkName={link.linkName}
           />
 
           <Details linkName={link.linkName} url={link.url} />
@@ -22,19 +29,12 @@ const LinkCard: React.FC<LinksData> = (props) => {
           <div className='flex justify-between w-24'>
             <div
               data-cy='YellowBtn'
-              onClick={() => {
-                props.setLinkId(link._id)
-                props.setSection('changeLink')
-              }}
+              onClick={() => changeButtonHandler(link._id)}
             >
               <YellowBtn />
             </div>
 
-            <DeleteLink
-              id={link._id}
-              links={props.links}
-              setLinks={props.setLinks}
-            />
+            <DeleteLink id={link._id} links={links} setLinks={setLinks} />
           </div>
         </div>
       ))}

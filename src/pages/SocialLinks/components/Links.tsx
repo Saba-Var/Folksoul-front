@@ -5,10 +5,10 @@ const Links: React.FC<LinksData> = (props) => {
   return (
     <div className='flex flex-col items-center gap-14 pt-[3%] animate-fade-in'>
       <LinkCard
-        setLinkId={props.setLinkId}
         setSection={props.setSection}
-        links={props.links}
+        setLinkId={props.setLinkId}
         setLinks={props.setLinks}
+        links={props.links}
       />
     </div>
   )

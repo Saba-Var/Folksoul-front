@@ -22,6 +22,7 @@ const SocialLinks = () => {
   }, [])
 
   let title = ''
+
   if (section === '') title = 'სოციალური ბმულები'
   else if (section === 'addLink') title = 'დაამატე სოციალური ბმული'
   else title = 'შეცვალე სოციალური ბმული'
@@ -31,9 +32,9 @@ const SocialLinks = () => {
       <div className={`flex flex-col justify-between h-full `}>
         {errorAlert && (
           <ErrorAlert
+            title='ინფორმაცია ვერ მოიძებნა'
             styles='top-[5%] left-[53%]'
             setShowAlert={setErrorAlert}
-            title='ინფორმაცია ვერ მოიძებნა'
           />
         )}
 
@@ -64,8 +65,8 @@ const SocialLinks = () => {
           <ChangeLinkForm
             setSection={setSection}
             setLinks={setLinks}
-            id={linkId}
             links={links}
+            id={linkId}
           />
         )}
 

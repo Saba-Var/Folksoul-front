@@ -12,9 +12,9 @@ const Details: React.FC<DetailsProps> = (props) => {
       <div>
         <a
           className='text-mediumBlue text-sm underline'
-          target='_blank'
           href={props.url}
           rel='noreferrer'
+          target='_blank'
         >
           {props.url}
         </a>

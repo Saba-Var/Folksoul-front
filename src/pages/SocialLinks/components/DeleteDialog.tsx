@@ -5,9 +5,11 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
+  const { id, setShowModal, setLinks } = props
+
   const [error, setError] = useState(false)
 
-  const closeModal = () => props.setShowModal(false)
+  const closeModal = () => setShowModal(false)
 
   const deleteLink = async () => {
     try {
@@ -17,15 +19,16 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token'),
           },
+
           data: {
-            id: props.id,
+            id,
           },
         }
       )
 
       if (res.status === 200) {
-        fetchSocialLinks(setError, props.setLinks)
-        props.setShowModal(false)
+        fetchSocialLinks(setError, setLinks)
+        setShowModal(false)
       }
     } catch (error: any) {
       setError(true)
@@ -36,15 +39,16 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
     <>
       {error && (
         <ErrorAlert
-          setShowAlert={setError}
-          title='ბმული ვერ წაიშალა'
           styles='top-[-10%] left-[32%]'
+          title='ბმული ვერ წაიშალა'
+          setShowAlert={setError}
         />
       )}
+
       <DeleteContent
-        text='წავშალოთ ბმული?'
-        closeModal={closeModal}
         deleteMember={deleteLink}
+        closeModal={closeModal}
+        text='წავშალოთ ბმული?'
       />
     </>
   )
