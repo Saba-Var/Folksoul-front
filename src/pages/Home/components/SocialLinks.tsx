@@ -1,28 +1,18 @@
 import { AllLinks } from 'pages/SocialLinks/types'
 import { fetchSocialLinks } from 'helper/index'
 import { useEffect, useState } from 'react'
-import { ErrorAlert } from 'components'
 
 const SocialLinks = () => {
   const [links, setLinks] = useState<AllLinks>([])
 
-  const [errorAlert, setErrorAlert] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    fetchSocialLinks(setErrorAlert, setLinks, setIsLoading)
+    fetchSocialLinks(() => {}, setLinks, setIsLoading)
   }, [])
 
   return (
     <div className='flex justify-center mt-6'>
-      {errorAlert && (
-        <ErrorAlert
-          styles='top-[5%] left-[53%]'
-          setShowAlert={setErrorAlert}
-          title='ინფორმაცია ვერ მოიძებნა'
-        />
-      )}
-
       <div className='flex gap-16'>
         {!isLoading && (
           <>
@@ -41,7 +31,7 @@ const SocialLinks = () => {
                   }
                 >
                   <img
-                    src={`http://localhost:5000/${link.image}`}
+                    src={`https://folksoul-api.sabavar.redberryinternship.ge/${link.image}`}
                     className='h-9'
                     alt='band'
                   />

@@ -7,112 +7,148 @@ Cypress.Commands.add('beVisible', (value: string) => {
 })
 
 Cypress.Commands.add('addMemberForm', () => {
-  cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
-    statusCode: 200,
-    body: {
-      members: [],
-      paginationInfo: {
-        totalMembers: 0,
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+    {
+      statusCode: 200,
+      body: {
+        members: [],
+        paginationInfo: {
+          totalMembers: 0,
+        },
       },
-    },
-  })
+    }
+  )
   cy.get("[data-cy='ახალი წევრი გვყავს?']").click()
 })
 
 Cypress.Commands.add('stopRequests', () => {
-  cy.intercept('GET', 'http://localhost:5000/all-members', {
-    statusCode: 200,
-    body: {
-      members: [
-        {
-          _id: 'id',
-          name: 'სახელი',
-          orbitLength: 300,
-          color: '#FF0000',
-          biography: 'ბიოგრაფია',
-          image: 'images/image',
-        },
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/all-members',
+    {
+      statusCode: 200,
+      body: {
+        members: [
+          {
+            _id: 'id',
+            name: 'სახელი',
+            orbitLength: 300,
+            color: '#FF0000',
+            biography: 'ბიოგრაფია',
+            image: 'images/image',
+          },
 
+          {
+            _id: 'id2',
+            name: 'სახელი2',
+            orbitLength: 600,
+            color: '#FF0000',
+            biography: 'ბიოგრაფია2',
+          },
+        ],
+      },
+    }
+  )
+
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/all-links',
+    {
+      statusCode: 200,
+      body: [
         {
-          _id: 'id2',
-          name: 'სახელი2',
-          orbitLength: 600,
-          color: '#FF0000',
-          biography: 'ბიოგრაფია2',
+          linkName: 'google',
+          url: 'google.com',
+          image: 'images/image.jpg',
         },
       ],
-    },
-  })
+    }
+  )
 
-  cy.intercept('GET', 'http://localhost:5000/all-links', {
-    statusCode: 200,
-    body: [
-      {
-        linkName: 'google',
-        url: 'google.com',
-        image: 'images/image.jpg',
-      },
-    ],
-  })
-
-  cy.intercept('GET', 'http://localhost:5000/band-about', {
-    statusCode: 200,
-    body: [
-      {
-        about: 'ინფორმაცია ბენდის შესახებ',
-      },
-    ],
-  })
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/band-about',
+    {
+      statusCode: 200,
+      body: [
+        {
+          about: 'ინფორმაცია ბენდის შესახებ',
+        },
+      ],
+    }
+  )
 })
 
 Cypress.Commands.add('changeMemberRequests', () => {
-  cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
-    statusCode: 200,
-    body: {
-      members: [{}],
-      paginationInfo: {
-        totalMembers: 1,
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+    {
+      statusCode: 200,
+      body: {
+        members: [{}],
+        paginationInfo: {
+          totalMembers: 1,
+        },
       },
-    },
-  })
-  cy.intercept('POST', 'http://localhost:5000/get-one-member', {
-    statusCode: 200,
-  })
-  cy.intercept('POST', 'http://localhost:5000/add-member', {
-    statusCode: 201,
-  })
+    }
+  )
+  cy.intercept(
+    'POST',
+    'https://folksoul-api.sabavar.redberryinternship.ge/get-one-member',
+    {
+      statusCode: 200,
+    }
+  )
+  cy.intercept(
+    'POST',
+    'https://folksoul-api.sabavar.redberryinternship.ge/add-member',
+    {
+      statusCode: 201,
+    }
+  )
 })
 
 Cypress.Commands.add('memberPagination', (data: object, page: number) => {
-  cy.intercept('GET', `http://localhost:5000/all-members?page=${page}`, {
-    statusCode: 200,
-    body: {
-      members: data,
-      paginationInfo: {
-        totalMembers: 4,
+  cy.intercept(
+    'GET',
+    `https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=${page}`,
+    {
+      statusCode: 200,
+      body: {
+        members: data,
+        paginationInfo: {
+          totalMembers: 4,
+        },
       },
-    },
-  })
+    }
+  )
 })
 
 Cypress.Commands.add('getAllMembers', () => {
-  cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
-    statusCode: 200,
-    body: {
-      members: [
-        {
-          name: 'სახელი',
-          orbitLength: 300,
-          instrument: 'გიტარა',
-          color: '#FF0000',
-          biography: 'დაიბადა ...',
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+    {
+      statusCode: 200,
+      body: {
+        members: [
+          {
+            name: 'სახელი',
+            orbitLength: 300,
+            instrument: 'გიტარა',
+            color: '#FF0000',
+            biography: 'დაიბადა ...',
+          },
+        ],
+        paginationInfo: {
+          totalMembers: 1,
         },
-      ],
-      paginationInfo: {
-        totalMembers: 1,
       },
-    },
-  })
+    }
+  )
 })
 
 Cypress.Commands.add('memberTwoPage', () => {
@@ -141,10 +177,14 @@ Cypress.Commands.add('memberTwoPage', () => {
 })
 
 Cypress.Commands.add('fetchSocialLinks', (links: object) => {
-  cy.intercept('GET', 'http://localhost:5000/all-links', {
-    statusCode: 200,
-    body: links,
-  })
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/all-links',
+    {
+      statusCode: 200,
+      body: links,
+    }
+  )
 })
 
 Cypress.Commands.add('addNewMember', () => {

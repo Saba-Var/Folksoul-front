@@ -23,12 +23,16 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
     }
 
     axios
-      .put('http://localhost:5000/change-band-about', data, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      })
+      .put(
+        'https://folksoul-api.sabavar.redberryinternship.ge/change-band-about',
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
+        }
+      )
       .then((response) => {
         if (response.status === 200) {
           setAddModal(true)

@@ -17,7 +17,7 @@ const Image: React.FC<ImageProps> = (props) => {
       {props.image && (
         <img
           className={`rounded-full animate-slit-in-vertical  w-44 h-44 shadow-5xl border-[5px] border-solidBlue ${props.styles}`}
-          src={`http://localhost:5000/${props.image}`}
+          src={`https://folksoul-api.sabavar.redberryinternship.ge/${props.image}`}
           alt='band'
         />
       )}

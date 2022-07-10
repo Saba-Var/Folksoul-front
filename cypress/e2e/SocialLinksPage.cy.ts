@@ -42,18 +42,26 @@ describe('Social Links Page', () => {
   it('after click on the yes of the delete dialog social link should delete', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
     cy.get("[data-cy='RedBtn']").click()
-    cy.intercept('DELETE', 'http://localhost:5000/delete-link', {
-      statusCode: 200,
-    })
+    cy.intercept(
+      'DELETE',
+      'https://folksoul-api.sabavar.redberryinternship.ge/delete-link',
+      {
+        statusCode: 200,
+      }
+    )
     cy.get('[data-cy="DeleteYes"]').click()
   })
 
   it('if input fields are correct change current link info', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
     cy.get("[data-cy='YellowBtn']").click()
-    cy.intercept('PUT', 'http://localhost:5000/change-link', {
-      statusCode: 200,
-    })
+    cy.intercept(
+      'PUT',
+      'https://folksoul-api.sabavar.redberryinternship.ge/change-link',
+      {
+        statusCode: 200,
+      }
+    )
     cy.get("[data-cy='linkName']").clear()
     cy.beVisible('შევსება სავალდებულოა!')
     cy.get("[data-cy='linkName']").type('Y')
@@ -69,9 +77,13 @@ describe('Social Links Page', () => {
   it('if link already exists show error alert on the change form', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
     cy.get("[data-cy='YellowBtn']").click()
-    cy.intercept('PUT', 'http://localhost:5000/change-link', {
-      statusCode: 409,
-    })
+    cy.intercept(
+      'PUT',
+      'https://folksoul-api.sabavar.redberryinternship.ge/change-link',
+      {
+        statusCode: 409,
+      }
+    )
     cy.get("[data-cy='linkName']").clear().type('Youtube')
     cy.get("[data-cy='url']").clear().type('youtube.com')
     cy.get("[data-cy='ChangeLink']").click()
@@ -80,9 +92,13 @@ describe('Social Links Page', () => {
 
   it('when click on the camera icon then should see modal to upload avatar', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
-    cy.intercept('PATCH', 'http://localhost:5000/upload-link-image', {
-      statusCode: 201,
-    })
+    cy.intercept(
+      'PATCH',
+      'https://folksoul-api.sabavar.redberryinternship.ge/upload-link-image',
+      {
+        statusCode: 201,
+      }
+    )
     cy.get('[data-cy="CameraBtn"]').click({ force: true })
     cy.beVisible('google')
 
@@ -95,9 +111,13 @@ describe('Social Links Page', () => {
 
   it('on the add new link form if inputs are valid then new link should add', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
-    cy.intercept('POST', 'http://localhost:5000/add-social-link', {
-      statusCode: 201,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/add-social-link',
+      {
+        statusCode: 201,
+      }
+    )
     cy.get('[data-cy="დაამატე ახალი სოციალური ბმული"]').click()
     cy.beVisible('დაამატე სოციალური ბმული')
     cy.get("[data-cy='linkName']").type('Youtube')
@@ -108,9 +128,13 @@ describe('Social Links Page', () => {
 
   it('on the add new link form if link already exists show error alert', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
-    cy.intercept('POST', 'http://localhost:5000/add-social-link', {
-      statusCode: 409,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/add-social-link',
+      {
+        statusCode: 409,
+      }
+    )
     cy.get('[data-cy="დაამატე ახალი სოციალური ბმული"]').click()
     cy.get("[data-cy='linkName']").type('Youtube')
     cy.get("[data-cy='url']").type('youtube.com')
@@ -120,21 +144,29 @@ describe('Social Links Page', () => {
 
   it('after click on the yes of the delete dialog and there is error link should not delete', () => {
     cy.fetchSocialLinks([{ linkName: 'google' }])
-    cy.intercept('DELETE', 'http://localhost:5000/delete-link', {
-      statusCode: 404,
-      body: {
-        id: 'id',
-      },
-    })
+    cy.intercept(
+      'DELETE',
+      'https://folksoul-api.sabavar.redberryinternship.ge/delete-link',
+      {
+        statusCode: 404,
+        body: {
+          id: 'id',
+        },
+      }
+    )
     cy.get("[data-cy='RedBtn']").click()
     cy.get('[data-cy="DeleteYes"]').click()
     cy.beVisible('ბმული ვერ წაიშალა')
   })
 
   it('when visit first time social links page should see components and message', () => {
-    cy.intercept('GET', 'http://localhost:5000/all-links', {
-      statusCode: 404,
-    })
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/all-links',
+      {
+        statusCode: 404,
+      }
+    )
     cy.beVisible('ინფორმაცია ვერ მოიძებნა')
   })
 })

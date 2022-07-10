@@ -24,7 +24,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
 
         {iconModal && (
           <ImageUpload
-            url='http://localhost:5000/upload-band-image'
+            url='https://folksoul-api.sabavar.redberryinternship.ge/upload-band-image'
             title='შეცვალე ბენდის პორტრეტი'
             setLinks={props.setBandAbout}
             setImageModal={setIconModal}

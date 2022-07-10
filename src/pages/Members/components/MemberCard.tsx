@@ -15,7 +15,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
   const currentMember = membersData.find((member) => member._id === id)
 
   const imageUrl = currentMember?.image
-    ? `http://localhost:5000/${currentMember.image}`
+    ? `https://folksoul-api.sabavar.redberryinternship.ge/${currentMember.image}`
     : avatar
 
   return (
@@ -49,7 +49,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
         {avatarModal && (
           <AvatarModal
-            url='http://localhost:5000/upload-member-image'
+            url='https://folksoul-api.sabavar.redberryinternship.ge/upload-member-image'
             setIsLoading={props.setIsLoading}
             setMembersData={setMembersData}
             setAvatarModal={setAvatarModal}

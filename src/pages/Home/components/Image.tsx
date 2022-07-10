@@ -27,7 +27,7 @@ const Image: React.FC<ImageProps> = (props) => {
         <img
           data-cy='UploadBandImage'
           className={`h-full w-full ${isSelected && 'w-full h-full'}`}
-          src={`http://localhost:5000/${image}`}
+          src={`https://folksoul-api.sabavar.redberryinternship.ge/${image}`}
           draggable='false'
           alt='member'
         />

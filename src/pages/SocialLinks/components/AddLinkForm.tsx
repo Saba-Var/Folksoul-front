@@ -35,7 +35,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
       try {
         const response = await axios({
           method: 'post',
-          url: 'http://localhost:5000/add-social-link',
+          url: 'https://folksoul-api.sabavar.redberryinternship.ge/add-social-link',
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token'),
           },

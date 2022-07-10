@@ -22,15 +22,19 @@ describe('Main Page', () => {
   })
 
   it('when click on the Members section navigate to members 1st page', () => {
-    cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
-      statusCode: 200,
-      body: {
-        members: [],
-        paginationInfo: {
-          totalMembers: 0,
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+      {
+        statusCode: 200,
+        body: {
+          members: [],
+          paginationInfo: {
+            totalMembers: 0,
+          },
         },
-      },
-    })
+      }
+    )
     cy.beVisible('გადი გარეთ')
     cy.get("[data-cy='Members']").click()
     cy.url().should('include', 'Members?page=1')
@@ -38,14 +42,18 @@ describe('Main Page', () => {
   })
 
   it('when click on the section navigate to it', () => {
-    cy.intercept('GET', 'http://localhost:5000/band-about', {
-      statusCode: 200,
-      body: [
-        {
-          about: 'ბენდის შესახებ ინფორმაცია არ არის დამატებული',
-        },
-      ],
-    })
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/band-about',
+      {
+        statusCode: 200,
+        body: [
+          {
+            about: 'ბენდის შესახებ ინფორმაცია არ არის დამატებული',
+          },
+        ],
+      }
+    )
     cy.get("[data-cy='About']").click()
     cy.url().should('include', 'About')
     cy.beVisible('ბენდის შესახებ ინფორმაცია არ არის დამატებული')

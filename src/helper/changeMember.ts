@@ -19,7 +19,7 @@ function changeMember({
 
     const fetch = async () => {
       const response = await axios.put(
-        'http://localhost:5000/change-member',
+        'https://folksoul-api.sabavar.redberryinternship.ge/change-member',
         data,
         {
           headers: headers,

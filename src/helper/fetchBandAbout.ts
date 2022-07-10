@@ -16,7 +16,9 @@ const fetchBandAbout = async (
   try {
     if (setIsLoading) setIsLoading(true)
 
-    const res = await axios.get(`http://localhost:5000/band-about`)
+    const res = await axios.get(
+      `https://folksoul-api.sabavar.redberryinternship.ge/band-about`
+    )
 
     if (res.status === 200) {
       if (setImage) {

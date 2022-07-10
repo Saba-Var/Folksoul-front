@@ -32,7 +32,7 @@ const LoginForm = () => {
 
       let response = await axios({
         method: 'post',
-        url: 'http://localhost:5000/auth',
+        url: 'https://folksoul-api.sabavar.redberryinternship.ge/auth',
         headers: {
           'Content-Type': 'application/json',
           accept: 'application/json',
@@ -66,8 +66,8 @@ const LoginForm = () => {
     >
       {showAlert && (
         <ErrorAlert
-          styles='top-[5%] left-[50%] !-translate-x-1/2'
-          title={'მეტსახელი ან პაროლი არასწორია!'}
+          styles='top-[5%] left-[40%]'
+          title={'მეტსახელი ან პაროლი არასწორია'}
           setShowAlert={setShowAlert}
         />
       )}

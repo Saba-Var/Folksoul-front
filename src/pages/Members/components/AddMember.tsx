@@ -15,7 +15,7 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
   return (
     <>
       <MemberForm
-        url='http://localhost:5000/add-member'
+        url='https://folksoul-api.sabavar.redberryinternship.ge/add-member'
         setMembersData={setMembersData}
         setSection={props.setSection}
         setIsLoading={setIsLoading}

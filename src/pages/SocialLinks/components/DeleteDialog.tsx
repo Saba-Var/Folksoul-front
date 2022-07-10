@@ -11,14 +11,17 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteLink = async () => {
     try {
-      const res = await axios.delete('http://localhost:5000/delete-link', {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-        data: {
-          id: props.id,
-        },
-      })
+      const res = await axios.delete(
+        'https://folksoul-api.sabavar.redberryinternship.ge/delete-link',
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
+          data: {
+            id: props.id,
+          },
+        }
+      )
 
       if (res.status === 200) {
         fetchSocialLinks(setError, props.setLinks)

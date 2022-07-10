@@ -6,9 +6,13 @@ describe('Members Page', () => {
   })
 
   it('if we change member but this member is already in the band show error alert', () => {
-    cy.intercept('PUT', 'http://localhost:5000/change-member', {
-      statusCode: 409,
-    })
+    cy.intercept(
+      'PUT',
+      'https://folksoul-api.sabavar.redberryinternship.ge/change-member',
+      {
+        statusCode: 409,
+      }
+    )
     cy.changeMemberRequests()
     cy.get('[data-cy="ChangeInfo"]').click()
     cy.wait(3000)
@@ -21,23 +25,31 @@ describe('Members Page', () => {
   })
 
   it('when there is no member should see message on the page', () => {
-    cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
-      statusCode: 200,
-      body: {
-        members: [],
-        paginationInfo: {
-          totalMembers: 0,
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+      {
+        statusCode: 200,
+        body: {
+          members: [],
+          paginationInfo: {
+            totalMembers: 0,
+          },
         },
-      },
-    })
+      }
+    )
     cy.beVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
   })
 
   it('we can edit information of band member and save it if inputs are valid', () => {
     cy.changeMemberRequests()
-    cy.intercept('PUT', 'http://localhost:5000/change-member', {
-      statusCode: 200,
-    })
+    cy.intercept(
+      'PUT',
+      'https://folksoul-api.sabavar.redberryinternship.ge/change-member',
+      {
+        statusCode: 200,
+      }
+    )
     cy.get('[data-cy="ChangeInfo"]').click()
     cy.beVisible('შეცვალე წევრის ინფორმაცია')
     cy.addNewMember()
@@ -75,9 +87,13 @@ describe('Members Page', () => {
 
   it('if input values are valid create new member', () => {
     cy.addMemberForm()
-    cy.intercept('POST', 'http://localhost:5000/add-member', {
-      statusCode: 201,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/add-member',
+      {
+        statusCode: 201,
+      }
+    )
     cy.addNewMember()
     cy.get('[data-cy="დაამატე წევრი"]').click()
     cy.beVisible('ბენდს ახალი წევრი შეემატა')
@@ -88,9 +104,13 @@ describe('Members Page', () => {
 
   it('if there is error while adding new member show alert', () => {
     cy.addMemberForm()
-    cy.intercept('POST', 'http://localhost:5000/add-member', {
-      statusCode: 404,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/add-member',
+      {
+        statusCode: 404,
+      }
+    )
     cy.addNewMember()
     cy.get('[data-cy="დაამატე წევრი"]').click()
     cy.beVisible('წევრი ვერ მოიძებნა')
@@ -103,9 +123,13 @@ describe('Members Page', () => {
   })
 
   it('if band already have the same band member then show alert and do not save new one', () => {
-    cy.intercept('POST', 'http://localhost:5000/add-member', {
-      statusCode: 409,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/add-member',
+      {
+        statusCode: 409,
+      }
+    )
     cy.addMemberForm()
     cy.addNewMember()
     cy.get('[data-cy="დაამატე წევრი"]').click()
@@ -139,9 +163,13 @@ describe('Members Page', () => {
     cy.get('[data-cy="DeleteNo"]').click()
     cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
     cy.get('[data-cy="RedBtn"]').click()
-    cy.intercept('DELETE', 'http://localhost:5000/delete-member', {
-      statusCode: 200,
-    })
+    cy.intercept(
+      'DELETE',
+      'https://folksoul-api.sabavar.redberryinternship.ge/delete-member',
+      {
+        statusCode: 200,
+      }
+    )
     cy.get('[data-cy="DeleteYes"]').click()
   })
 
@@ -152,17 +180,25 @@ describe('Members Page', () => {
     cy.get('[data-cy="DeleteNo"]').click()
     cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
     cy.get('[data-cy="RedBtn"]').click()
-    cy.intercept('DELETE', 'http://localhost:5000/delete-member', {
-      statusCode: 200,
-    })
+    cy.intercept(
+      'DELETE',
+      'https://folksoul-api.sabavar.redberryinternship.ge/delete-member',
+      {
+        statusCode: 200,
+      }
+    )
     cy.get('[data-cy="DeleteYes"]').click()
   })
 
   it('when click on the camera icon then should see modal to upload avatar', () => {
     cy.getAllMembers()
-    cy.intercept('PATCH', 'http://localhost:5000/upload-member-image', {
-      statusCode: 201,
-    })
+    cy.intercept(
+      'PATCH',
+      'https://folksoul-api.sabavar.redberryinternship.ge/upload-member-image',
+      {
+        statusCode: 201,
+      }
+    )
     cy.get('[data-cy="CameraBtn"]').click({ force: true })
     cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
     cy.beVisible('ატვირთე')
@@ -191,26 +227,38 @@ describe('Members Page', () => {
     cy.get('[data-cy="DeleteNo"]').click()
     cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
     cy.get('[data-cy="RedBtn"]').click()
-    cy.intercept('DELETE', 'http://localhost:5000/delete-member', {
-      statusCode: 404,
-    })
+    cy.intercept(
+      'DELETE',
+      'https://folksoul-api.sabavar.redberryinternship.ge/delete-member',
+      {
+        statusCode: 404,
+      }
+    )
     cy.get('[data-cy="DeleteYes"]').click()
   })
 
   it('when fetch of member details fails show error alert', () => {
     cy.getAllMembers()
-    cy.intercept('POST', 'http://localhost:5000/get-one-member', {
-      statusCode: 404,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/get-one-member',
+      {
+        statusCode: 404,
+      }
+    )
     cy.get('[data-cy="ChangeInfo"]').click()
     cy.beVisible('ინფორმაცია ვერ მოიძებნა')
   })
 
   it('if image upload fails should see error alert', () => {
     cy.getAllMembers()
-    cy.intercept('PATCH', 'http://localhost:5000/upload-member-image', {
-      statusCode: 404,
-    })
+    cy.intercept(
+      'PATCH',
+      'https://folksoul-api.sabavar.redberryinternship.ge/upload-member-image',
+      {
+        statusCode: 404,
+      }
+    )
     cy.get('[data-cy="CameraBtn"]').click({ force: true })
     cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
     cy.beVisible('ატვირთე')
@@ -223,9 +271,13 @@ describe('Members Page', () => {
   })
 
   it('if member data fetching fails show error alert', () => {
-    cy.intercept('GET', 'http://localhost:5000/all-members?page=1', {
-      statusCode: 404,
-    }).wait(2000)
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+      {
+        statusCode: 404,
+      }
+    ).wait(2000)
     cy.beVisible('ინფორმაცია ვერ მოიძებნა')
   })
 })

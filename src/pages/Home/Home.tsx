@@ -1,7 +1,6 @@
 import { Header, Wrapper, Info, SolarSystem } from 'pages/Home/components'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { ErrorAlert } from 'components'
 import { fetchBandAbout } from 'helper'
 import {
   bandMember1,
@@ -20,7 +19,6 @@ const Home = () => {
   const [image, setImage] = useState('')
   const [color, setColor] = useState('')
 
-  const [errorAlert, setErrorAlert] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const imageArray = [
@@ -35,7 +33,7 @@ const Home = () => {
   useEffect(() => {
     if (localStorage.getItem('token')) navigate('/Dashboard/Main')
     else {
-      fetchBandAbout(setErrorAlert, setBandInfo, setIsLoading, setImage)
+      fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
       setInfoText(bandInfo)
       setInfoImage(image)
     }
@@ -45,14 +43,6 @@ const Home = () => {
     <Wrapper>
       <>
         <Header />
-
-        {errorAlert && (
-          <ErrorAlert
-            styles='top-[5%] left-[53%]'
-            setShowAlert={setErrorAlert}
-            title='ინფორმაცია ვერ მოიძებნა'
-          />
-        )}
 
         <div className='flex justify-between px-[3%]'>
           <SolarSystem

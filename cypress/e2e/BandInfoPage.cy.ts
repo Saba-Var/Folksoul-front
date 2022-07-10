@@ -3,20 +3,28 @@
 describe('Band Info Page', () => {
   beforeEach(() => {
     cy.visit('/Dashboard/About')
-    cy.intercept('GET', 'http://localhost:5000/band-about', {
-      statusCode: 200,
-      body: [
-        {
-          about: '...',
-        },
-      ],
-    })
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/band-about',
+      {
+        statusCode: 200,
+        body: [
+          {
+            about: '...',
+          },
+        ],
+      }
+    )
   })
 
   it('when click on the camera button should see image upload dialog', () => {
-    cy.intercept('PATCH', 'http://localhost:5000/upload-band-image', {
-      statusCode: 201,
-    })
+    cy.intercept(
+      'PATCH',
+      'https://folksoul-api.sabavar.redberryinternship.ge/upload-band-image',
+      {
+        statusCode: 201,
+      }
+    )
 
     cy.beVisible('ბენდის შესახებ')
     cy.get("[data-cy='CameraBtn']").click({ force: true })
@@ -29,9 +37,13 @@ describe('Band Info Page', () => {
   })
 
   it('when click on the edit button should see textarea to edit band info', () => {
-    cy.intercept('PUT', 'http://localhost:5000/change-band-about', {
-      statusCode: 403,
-    })
+    cy.intercept(
+      'PUT',
+      'https://folksoul-api.sabavar.redberryinternship.ge/change-band-about',
+      {
+        statusCode: 403,
+      }
+    )
     cy.beVisible('ბენდის შესახებ')
     cy.get('[data-cy="EditBtn"]').click({ force: true })
     cy.beVisible('ბენდის შესახებ - დაარედაქტირე')
@@ -44,9 +56,13 @@ describe('Band Info Page', () => {
   })
 
   it('when input is not empty band info should update', () => {
-    cy.intercept('PUT', 'http://localhost:5000/change-band-about', {
-      statusCode: 200,
-    })
+    cy.intercept(
+      'PUT',
+      'https://folksoul-api.sabavar.redberryinternship.ge/change-band-about',
+      {
+        statusCode: 200,
+      }
+    )
     cy.get('[data-cy="EditBtn"]').click({ force: true })
     cy.get('[data-cy="TextareaInput"]').clear().type('ბენდი დაარსდა ...')
     cy.get('[data-cy="GreenBtn"]').click()
@@ -54,9 +70,13 @@ describe('Band Info Page', () => {
   })
 
   it('if image upload fails should see error alert', () => {
-    cy.intercept('PATCH', 'http://localhost:5000/upload-band-image', {
-      statusCode: 404,
-    })
+    cy.intercept(
+      'PATCH',
+      'https://folksoul-api.sabavar.redberryinternship.ge/upload-band-image',
+      {
+        statusCode: 404,
+      }
+    )
     cy.get("[data-cy='CameraBtn']").click({ force: true })
     cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
       force: true,
@@ -76,14 +96,18 @@ describe('Band Info Page', () => {
   })
 
   it('if fetching of band information fails should see alert', () => {
-    cy.intercept('GET', 'http://localhost:5000/band-about', {
-      statusCode: 404,
-      body: [
-        {
-          about: '...',
-        },
-      ],
-    })
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/band-about',
+      {
+        statusCode: 404,
+        body: [
+          {
+            about: '...',
+          },
+        ],
+      }
+    )
 
     cy.beVisible('ინფორმაცია ვერ მოიძებნა')
     cy.get('[data-cy="CloseAlert"]').click()

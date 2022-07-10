@@ -10,8 +10,8 @@ const fetchMembersData = async (
   setIsLoading(true)
   try {
     const url = page
-      ? `http://localhost:5000/all-members?page=${page}`
-      : `http://localhost:5000/all-members`
+      ? `https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=${page}`
+      : `https://folksoul-api.sabavar.redberryinternship.ge/all-members`
 
     const res = await axios.get(url)
 

@@ -14,7 +14,7 @@ const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
 
   return (
     <div
-      className={`px-1 md:text-2xl z-[999999] animate-bounce-in-top  bg-red-100 border border-rose-600 text-red-700 md:px-4 py-1 md:py-3 rounded bg-rose-100  fixed top-[20%]  
+      className={`px-1 md:text-2xl z-[999999] animate-bounce-in-top  bg-red-100 border border-rose-600 text-red-700 md:px-4 py-1 md:py-3 rounded bg-rose-100  fixed 
        ${exit && 'animate-bounce-out-top'} ${props.styles}`}
     >
       <div className='flex items-center justify-between'>

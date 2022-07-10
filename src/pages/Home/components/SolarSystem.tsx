@@ -2,12 +2,10 @@ import { SolarSystemProps } from 'pages/Home/components/types'
 import { MemberImage, Sunote } from 'pages/Home/components'
 import React, { useEffect, useState } from 'react'
 import { fetchMembersData } from 'helper'
-import { ErrorAlert } from 'components'
 
 const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   const [isLoading, setIsLoading] = useState(false)
   const [pause, setPause] = useState(false)
-  const [errorModal, setErrorModal] = useState(false)
 
   const [selectedId, setSelectedId] = useState('')
 
@@ -29,7 +27,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   })
 
   useEffect(() => {
-    fetchMembersData(setErrorModal, setMembersData, setIsLoading)
+    fetchMembersData(() => {}, setMembersData, setIsLoading)
   }, [])
 
   return (
@@ -43,14 +41,6 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
         setPause={setPause}
         pause={pause}
       />
-
-      {errorModal && (
-        <ErrorAlert
-          styles='top-[5%] left-[53%]'
-          setShowAlert={setErrorModal}
-          title='ინფორმაცია ვერ მოიძებნა'
-        />
-      )}
 
       {!isLoading && (
         <>

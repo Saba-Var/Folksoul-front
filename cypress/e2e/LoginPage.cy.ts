@@ -29,9 +29,13 @@ describe('Login page', () => {
   })
 
   it('if credentials are incorrect show error alert', () => {
-    cy.intercept('POST', 'http://localhost:5000/auth', {
-      statusCode: 404,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/auth',
+      {
+        statusCode: 404,
+      }
+    )
     cy.get("[data-cy='მეტსახელი']").type('name')
     cy.get("[data-cy='პაროლი']").type('password')
     cy.get("[data-cy='LoginBtn']").click()
@@ -42,9 +46,13 @@ describe('Login page', () => {
   })
 
   it('if credentials are correct then navigate to dashboard page', () => {
-    cy.intercept('POST', 'http://localhost:5000/auth', {
-      statusCode: 200,
-    })
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/auth',
+      {
+        statusCode: 200,
+      }
+    )
     cy.get("[data-cy='მეტსახელი']").type('name')
     cy.get("[data-cy='პაროლი']").type('password')
     cy.get("[data-cy='LoginBtn']").click()
