@@ -3,7 +3,7 @@ import { Textarea } from 'pages/Members/components'
 import { InputField } from 'components'
 
 const MemberInputs: React.FC<InputsProps> = (props) => {
-  const { errors, register } = props
+  const { errors, register, title } = props
 
   return (
     <>
@@ -55,11 +55,11 @@ const MemberInputs: React.FC<InputsProps> = (props) => {
       </div>
 
       <button
-        data-cy={props.title}
         className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-2'
+        data-cy={title}
         type='submit'
       >
-        {props.title}
+        {title}
       </button>
     </>
   )

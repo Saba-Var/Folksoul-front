@@ -63,9 +63,9 @@ const Members = () => {
       <>
         {errorAlert && (
           <ErrorAlert
+            title='ინფორმაცია ვერ მოიძებნა'
             styles='top-[5%] left-[53%]'
             setShowAlert={setErrorAlert}
-            title='ინფორმაცია ვერ მოიძებნა'
           />
         )}
 

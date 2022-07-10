@@ -48,11 +48,11 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         })
 
         if (response.status === 201) {
-          setValue('name', '')
-          setValue('biography', '')
-          setValue('color', '')
           setValue('orbitLength', '')
           setValue('instrument', '')
+          setValue('biography', '')
+          setValue('color', '')
+          setValue('name', '')
 
           fetchMembersData(() => {}, setMembersData, setIsLoading, fetchPage)
           navigate(`/Dashboard/Members?page=${fetchPage}`)

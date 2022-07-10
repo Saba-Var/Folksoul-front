@@ -5,11 +5,11 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
   const { membersData, setMembersData, setIsLoading, setAddMember } = props
 
   const details = {
-    name: '',
-    instrument: '',
     orbitLength: '',
-    color: '',
+    instrument: '',
     biography: '',
+    color: '',
+    name: '',
   }
 
   return (

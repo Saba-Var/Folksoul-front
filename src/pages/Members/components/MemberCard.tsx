@@ -14,6 +14,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
   const fetchUtilities = { setMembersData, setIsLoading }
   const currentMember = membersData.find((member) => member._id === id)
 
+  const changeButtonHandler = (id: string) => {
+    props.setSection('MemberInputs')
+    props.setMemberId(id)
+  }
+
   const imageUrl = currentMember?.image
     ? `https://folksoul-api.sabavar.redberryinternship.ge/${currentMember.image}`
     : avatar
@@ -41,8 +46,8 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
         <div
           onClick={() => setAvatarModal(true)}
-          data-cy='CameraBtn'
           className='animate-fade-in'
+          data-cy='CameraBtn'
         >
           <CameraBtn />
         </div>
@@ -65,9 +70,9 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
       <div className='flex justify-between shadow-5xl items-center px-[10%] h-10 border-t-[1px] border-black'>
         <div
-          data-cy='GreenBtn'
           onClick={() => setMemberModal(true)}
           className='animate-fade-in'
+          data-cy='GreenBtn'
         >
           <GreenBtn />
         </div>
@@ -81,12 +86,9 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         )}
 
         <div
-          data-cy={'ChangeInfo'}
-          onClick={() => {
-            props.setSection('MemberInputs')
-            props.setMemberId(id)
-          }}
+          onClick={() => changeButtonHandler(id)}
           className='animate-fade-in'
+          data-cy={'ChangeInfo'}
         >
           <YellowBtn />
         </div>

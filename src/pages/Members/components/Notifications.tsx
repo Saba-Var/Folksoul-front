@@ -3,12 +3,12 @@ import { ErrorAlert, AddNotification } from 'components'
 
 const Notifications: React.FC<NotificationsProps> = (props) => {
   const {
-    action,
-    showModal,
-    setShowModal,
-    showErrorAlert,
-    statusCode,
     setShowErrorAlert,
+    showErrorAlert,
+    setShowModal,
+    statusCode,
+    showModal,
+    action,
   } = props
 
   const modalText =

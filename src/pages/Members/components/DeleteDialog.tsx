@@ -50,15 +50,16 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
     <>
       {error && (
         <ErrorAlert
-          setShowAlert={setError}
-          title='წევრი ვერ წაიშალა'
           styles='top-[-15%] left-[33%]'
+          title='წევრი ვერ წაიშალა'
+          setShowAlert={setError}
         />
       )}
+
       <DeleteContent
         text='წავშალოთ ბენდის წევრი?'
-        closeModal={closeModal}
         deleteMember={deleteMember}
+        closeModal={closeModal}
       />
     </>
   )
