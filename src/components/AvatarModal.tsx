@@ -5,10 +5,20 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const AvatarModal: React.FC<AvatarModalProps> = (props) => {
+  const {
+    setAvatarModal,
+    setMembersData,
+    currentMember,
+    setIsLoading,
+    avatar,
+    url,
+    id,
+  } = props
+
+  const [file, setFile] = useState('')
+
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
-  const { currentMember, avatar } = props
-  const [file, setFile] = useState('')
 
   const fileChangeHandler = (e: any) => {
     if (e.target.files[0]?.type.startsWith('image')) setFile(e.target.files[0])
@@ -18,7 +28,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
   const imageUploadHandler = async () => {
     try {
       const formData = new FormData()
-      formData.append('id', props.id)
+      formData.append('id', id)
       formData.append('image', file)
 
       const headers = {
@@ -26,18 +36,13 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }
 
-      const response = await axios.patch(props.url, formData, {
+      const response = await axios.patch(url, formData, {
         headers: headers,
       })
 
       if (response.status === 201) {
-        fetchMembersData(
-          setFetchError,
-          props.setMembersData,
-          props.setIsLoading,
-          1
-        )
-        props.setAvatarModal(false)
+        fetchMembersData(setFetchError, setMembersData, setIsLoading, 1)
+        setAvatarModal(false)
       }
     } catch (error: any) {
       setFetchError(true)
@@ -47,14 +52,14 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
   return (
     <Modal
       title={`${'შეცვალე ჯგუფის წევრის ავატარი'}`}
-      setShowModal={props.setAvatarModal}
+      setShowModal={setAvatarModal}
     >
       <div className={`h-[500px]`}>
         {fetchError && (
           <ErrorAlert
             styles='!top-[-12%] !left-[28%]'
-            title='სურათი ვერ აიტვირთა'
             setShowAlert={setFetchError}
+            title='სურათი ვერ აიტვირთა'
           />
         )}
 
@@ -77,26 +82,26 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
               }}
             >
               <img
-                src={avatar}
-                alt='avatar icon'
                 className={`w-20 h-28 ${
                   currentMember?.image && '!w-full !h-full'
                 } transition-transform hover:scale-110`}
+                alt='avatar icon'
+                src={avatar}
               />
             </div>
 
             {!file && (
               <label>
                 <span
-                  data-cy='UploadMemberImage'
                   className='blueBtn animate-fade-in flex justify-center items-center w-40 mx-auto'
+                  data-cy='UploadMemberImage'
                 >
                   ატვირთე
                 </span>
                 <input
+                  onChange={fileChangeHandler}
                   data-cy='MemberAvatarInput'
                   type='file'
-                  onChange={fileChangeHandler}
                 />
               </label>
             )}

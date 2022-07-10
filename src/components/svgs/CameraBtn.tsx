@@ -1,6 +1,6 @@
-const CameraBtn: React.FC<{
-  styles?: string
-}> = (props) => {
+import { StyleProp } from 'components/svgs/types'
+
+const CameraBtn: React.FC<StyleProp> = (props) => {
   return (
     <svg
       width='37'

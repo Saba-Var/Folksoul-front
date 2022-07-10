@@ -1,7 +1,7 @@
+import { StyleProp } from 'components/svgs/types'
 import React from 'react'
-import { LogoProps } from 'components/svgs/types'
 
-const Logo: React.FC<LogoProps> = (props) => {
+const Logo: React.FC<StyleProp> = (props) => {
   return (
     <svg viewBox='0 0 168 86' fill='none' className={`${props.styles}`}>
       <path

@@ -5,7 +5,9 @@ const georgianLan = (text: string, inputName: string) => {
   for (let i = 0; i < word.length; i++) {
     const char = word[i]
     const isGeorgian = geoRegex.test(char)
+
     if (inputName !== 'biography' && !isGeorgian) return false
+
     if (!isGeorgian && !/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/.test(char) && !+char)
       return false
   }

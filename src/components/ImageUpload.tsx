@@ -6,21 +6,25 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
+  const { setFileExists, id, url, title, setLinks, setImageModal, children } =
+    props
+
   const [errorAlert, setErrorAlert] = useState(false)
-  const [file, setFile] = useState('')
   const [fetchError, setFetchError] = useState(false)
+
+  const [file, setFile] = useState('')
 
   const fileChangeHandler = (e: any) => {
     if (e.target.files[0]?.type.startsWith('image')) {
       setFile(e.target.files[0])
-      props.setFileExists && props.setFileExists(true)
+      setFileExists && setFileExists(true)
     } else setErrorAlert(true)
   }
 
   const imageUploadHandler = async () => {
     try {
       const formData = new FormData()
-      formData.append('id', props.id)
+      formData.append('id', id)
       formData.append('image', file)
 
       const headers = {
@@ -28,16 +32,16 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }
 
-      const response = await axios.patch(props.url, formData, {
+      const response = await axios.patch(url, formData, {
         headers: headers,
       })
 
       if (response.status === 201) {
-        if (props.title === 'შეცვალე ბენდის პორტრეტი')
-          fetchBandAbout(setFetchError, props.setLinks)
-        else fetchSocialLinks(setFetchError, props.setLinks)
+        if (title === 'შეცვალე ბენდის პორტრეტი')
+          fetchBandAbout(setFetchError, setLinks)
+        else fetchSocialLinks(setFetchError, setLinks)
 
-        props.setImageModal(false)
+        setImageModal(false)
       }
     } catch (error: any) {
       setFetchError(true)
@@ -45,7 +49,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   }
 
   return (
-    <Modal title={`${props.title}`} setShowModal={props.setImageModal}>
+    <Modal title={`${title}`} setShowModal={setImageModal}>
       <div className={`h-[500px] py-10`}>
         {errorAlert && (
           <ErrorAlert
@@ -58,13 +62,13 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
         {fetchError && (
           <ErrorAlert
             styles='!top-[-12%] !left-[28%]'
-            title='სურათი ვერ აიტვირთა'
             setShowAlert={setFetchError}
+            title='სურათი ვერ აიტვირთა'
           />
         )}
 
         <div className='flex flex-col h-full justify-between'>
-          {props.children}
+          {children}
 
           {!file && (
             <label>

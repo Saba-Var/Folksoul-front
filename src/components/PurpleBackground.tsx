@@ -5,8 +5,8 @@ const PurpleBackground: React.FC<PurpleBackgroundProps> = (props) => {
   return (
     <img
       className={`${props.styles}`}
-      src={backgroundImage}
       alt='purple background'
+      src={backgroundImage}
     />
   )
 }

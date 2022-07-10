@@ -1,4 +1,4 @@
-export type LogoProps = {
+export type StyleProp = {
   styles?: string
 }
 

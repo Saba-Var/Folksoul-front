@@ -1,20 +1,22 @@
 import { DirectBtnProps } from 'components/types'
 
 const DirectBtn: React.FC<DirectBtnProps> = (props) => {
+  const { title, direction, goTo } = props
+
   const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    props.direction(props.goTo)
+    direction(goTo)
   }
 
   return (
     <button
-      data-cy={props.title}
-      onClick={clickHandler}
       className={`${
-        !props.title.includes('ბმული') && 'animate-tracking-in-expand'
+        !title.includes('ბმული') && 'animate-tracking-in-expand'
       } backLink block mx-auto transition-transform hover:scale-105`}
+      onClick={clickHandler}
+      data-cy={title}
     >
-      <p>{props.title}</p>
+      <p>{title}</p>
     </button>
   )
 }
