@@ -28,4 +28,37 @@ describe('Home page', () => {
     cy.get("[data-cy='სახელი2']").click()
     cy.beVisible('ბიოგრაფია2')
   })
+
+  it('if user is logged in navigate to dashboard', () => {
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/auth',
+      {
+        statusCode: 200,
+      }
+    )
+    cy.visit('/Login')
+    cy.get("[data-cy='მეტსახელი']").type('name')
+    cy.get("[data-cy='პაროლი']").type('password')
+    cy.get("[data-cy='LoginBtn']").click()
+    window.localStorage.setItem('token', 'token')
+    cy.visit('/')
+    cy.url().should('include', 'Dashboard/Main')
+  })
+
+  it('if band images is uploaded show it', () => {
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/band-about',
+      {
+        statusCode: 200,
+        body: [
+          {
+            about: '',
+            image: 'images/',
+          },
+        ],
+      }
+    )
+  })
 })

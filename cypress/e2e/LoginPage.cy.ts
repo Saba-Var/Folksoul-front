@@ -39,10 +39,10 @@ describe('Login page', () => {
     cy.get("[data-cy='მეტსახელი']").type('name')
     cy.get("[data-cy='პაროლი']").type('password')
     cy.get("[data-cy='LoginBtn']").click()
-    cy.beVisible('მეტსახელი ან პაროლი არასწორია!')
+    cy.beVisible('მეტსახელი ან პაროლი არასწორია')
     cy.url().should('include', '/Login')
     cy.get("[data-cy='CloseAlert']").click()
-    cy.contains('მეტსახელი ან პაროლი არასწორია!').should('not.be.visible')
+    cy.contains('მეტსახელი ან პაროლი არასწორია').should('not.be.visible')
   })
 
   it('if credentials are correct then navigate to dashboard page', () => {

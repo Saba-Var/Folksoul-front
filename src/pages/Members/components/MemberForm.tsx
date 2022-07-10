@@ -63,11 +63,10 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
       } catch (error: any) {
         const statusCode = error.response.status
 
-        if (statusCode === 409) {
-          setShowErrorAlert(true)
-          setStatusCode(409)
-        }
+        if (statusCode === 409) setStatusCode(409)
         if (statusCode === 404) setStatusCode(404)
+
+        setShowErrorAlert(true)
       }
     }
     fetch()

@@ -136,7 +136,7 @@ describe('Social Links Page', () => {
       }
     )
     cy.get('[data-cy="დაამატე ახალი სოციალური ბმული"]').click()
-    cy.get("[data-cy='linkName']").type('Youtube')
+    cy.get("[data-cy='linkName']").type('Youtube', { force: true }).wait(1000)
     cy.get("[data-cy='url']").type('youtube.com')
     cy.get('[data-cy="AddLink"]').click()
     cy.beVisible("ბმული 'Youtube უკვე დამატებულია")
