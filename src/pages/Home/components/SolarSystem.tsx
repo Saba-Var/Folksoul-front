@@ -33,12 +33,12 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   return (
     <div className='w-[50vw] animate-rotate-scale-up h-[84vh] flex justify-center items-center relative'>
       <Sunote
+        setSelectedId={setSelectedId}
         setInfoImage={setInfoImage}
         setInfoText={setInfoText}
-        setSelectedId={setSelectedId}
         bandInfo={bandInfo}
-        image={image}
         setPause={setPause}
+        image={image}
         pause={pause}
       />
 

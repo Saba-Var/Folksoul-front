@@ -20,9 +20,9 @@ const BandImage: React.FC<BandImageProps> = (props) => {
 
       {props.image && (
         <img
-          data-cy='MemberImage'
-          src={`${props.image}`}
           className='h-full w-full'
+          src={`${props.image}`}
+          data-cy='MemberImage'
           alt='band'
         />
       )}

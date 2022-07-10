@@ -1,14 +1,16 @@
 import { InputFieldProps } from 'pages/Login/components/types'
 
 const InputField: React.FC<InputFieldProps> = (props) => {
-  const inputName = props.placeholder === 'მეტსახელი' ? 'username' : 'password'
-  const showError = props.errors && props.showError
+  const { placeholder, errors, register, type } = props
+
+  const inputName = placeholder === 'მეტსახელი' ? 'username' : 'password'
+  const showError = errors && props.showError
 
   return (
     <div className='h-14'>
       <input
-        data-cy={props.placeholder}
-        {...props.register(inputName, {
+        data-cy={placeholder}
+        {...register(inputName, {
           required: 'ამ ველის შევსება სავალდებულოა!',
           validate: {
             minLength: (v: string) =>
@@ -22,14 +24,14 @@ const InputField: React.FC<InputFieldProps> = (props) => {
             },
           },
         })}
-        type={props.type}
+        type={type}
         className={`text-black border-[2px] border-transparent placeholder outline-none rounded-[2px]  h-12 px-5 bg-lightBrown w-128 ${
           showError && 'border-[2px] border-red '
         }`}
-        placeholder={props.placeholder}
+        placeholder={placeholder}
       />
 
-      {showError && <p className='text-sm text-red'>{props.errors.message}</p>}
+      {showError && <p className='text-sm text-red'>{errors.message}</p>}
     </div>
   )
 }

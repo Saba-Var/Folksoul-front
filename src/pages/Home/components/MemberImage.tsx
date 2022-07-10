@@ -6,14 +6,14 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
   const { selectedId, setSelectedId, id } = props.selectUtils
 
   const {
-    imageArray,
-    index,
-    setInfoImage,
-    setPause,
-    setInfoText,
-    setColor,
-    pause,
     animationDuration,
+    setInfoImage,
+    setInfoText,
+    imageArray,
+    setPause,
+    setColor,
+    index,
+    pause,
   } = props
 
   const clickHandler = () => {

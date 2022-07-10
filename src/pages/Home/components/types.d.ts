@@ -3,12 +3,12 @@ type Image = string | undefined
 type SetString = (string: string) => void
 
 type MemberDetails = {
+  orbitLength: number
+  instrument: string
   biography: string
   color: string
   image: string
-  instrument: string
   name: string
-  orbitLength: number
   _id: string
 }
 
@@ -39,9 +39,9 @@ export type SolarSystemProps = {
 
 export type MemberImageProps = {
   selectUtils: {
-    id: string
-    selectedId: string
     setSelectedId: (id: string) => void
+    selectedId: string
+    id: string
   }
   setPause: (pause: boolean) => void
   memberDetails: MemberDetails

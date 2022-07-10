@@ -25,9 +25,9 @@ const Image: React.FC<ImageProps> = (props) => {
 
       {image && (
         <img
-          data-cy='UploadBandImage'
-          className={`h-full w-full ${isSelected && 'w-full h-full'}`}
           src={`https://folksoul-api.sabavar.redberryinternship.ge/${image}`}
+          className={`h-full w-full ${isSelected && 'w-full h-full'}`}
+          data-cy='UploadBandImage'
           draggable='false'
           alt='member'
         />
