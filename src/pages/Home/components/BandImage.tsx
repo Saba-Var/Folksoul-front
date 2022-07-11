@@ -8,7 +8,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
       style={{
         backgroundColor: props.color,
       }}
-      className={`absolute w-72 h-72 top-[-23%] left-[28%] drop-shadow-4xl border-white border-2 overflow-hidden rounded-full flex justify-center items-center`}
+      className={`absolute w-72 h-72 top-[-34%] left-[19%] 3.5xl:top-[-30%] 3.5xl:left-[24%] 4xl:top-[-27%] 4xl:left-[26%]  6xl:top-[-24%] 6xl:left-[28%] drop-shadow-4xl border-white border-2 overflow-hidden rounded-full flex justify-center items-center`}
     >
       {!props.image && (
         <div data-cy='LogoImage' className='h-full'>
