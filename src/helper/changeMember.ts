@@ -1,6 +1,6 @@
-import axios from 'axios'
 import { changeMemberParams } from 'helper/types'
 import { fetchMembersData } from 'helper/index'
+import axios from 'axios'
 
 function changeMember({
   data,

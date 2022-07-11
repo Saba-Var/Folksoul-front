@@ -17,7 +17,7 @@ describe('Login page', () => {
   })
 
   it('show error when user inputs invalid values', () => {
-    cy.get("[data-cy='მეტსახელი']").type('IT')
+    cy.get("[data-cy='მეტსახელი']").type('IT', { force: true })
     cy.get("[data-cy='პაროლი']").type('p')
     cy.url().should('include', '/Login')
     cy.get("[data-cy='LoginBtn']").click()

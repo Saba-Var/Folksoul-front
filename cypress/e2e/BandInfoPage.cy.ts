@@ -108,7 +108,7 @@ describe('Band Info Page', () => {
         ],
       }
     )
-
+    cy.wait(1600)
     cy.beVisible('ინფორმაცია ვერ მოიძებნა')
     cy.get('[data-cy="CloseAlert"]').click()
     cy.beVisible('ინფორმაცია ვერ მოიძებნა').wait(1600)

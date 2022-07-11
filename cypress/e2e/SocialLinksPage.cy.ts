@@ -70,7 +70,7 @@ describe('Social Links Page', () => {
     cy.get("[data-cy='url']").type('youtube')
     cy.beVisible('შეიყვანეთ ვალიდური ბმულის მისამართი')
     cy.get("[data-cy='url']").clear().type('youtube.com')
-    cy.get("[data-cy='ChangeLink']").click()
+    cy.get("[data-cy='ChangeLink']").click().wait(1000)
     cy.beVisible('ბმულის დეტალები შეიცვალა')
   })
 
@@ -84,9 +84,10 @@ describe('Social Links Page', () => {
         statusCode: 409,
       }
     )
-    cy.get("[data-cy='linkName']").clear().type('Youtube')
+    cy.get("[data-cy='linkName']").clear().type('google')
     cy.get("[data-cy='url']").clear().type('youtube.com')
     cy.get("[data-cy='ChangeLink']").click()
+    cy.wait(1600)
     cy.beVisible("ბმული 'google' უკვე დამატებულია")
   })
 
@@ -139,7 +140,8 @@ describe('Social Links Page', () => {
     cy.get("[data-cy='linkName']").type('Youtube', { force: true }).wait(1000)
     cy.get("[data-cy='url']").type('youtube.com')
     cy.get('[data-cy="AddLink"]').click()
-    cy.beVisible("ბმული 'Youtube უკვე დამატებულია")
+    cy.wait(1600)
+    cy.beVisible("ბმული 'Youtube' უკვე დამატებულია")
   })
 
   it('after click on the yes of the delete dialog and there is error link should not delete', () => {
