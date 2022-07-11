@@ -1,6 +1,8 @@
 import { EditBtnProps } from 'components/svgs/types'
 
 const EditBtn: React.FC<EditBtnProps> = (props) => {
+  const { setSection } = props
+
   return (
     <svg
       width='56'
@@ -8,7 +10,7 @@ const EditBtn: React.FC<EditBtnProps> = (props) => {
       viewBox='0 0 56 56'
       fill='none'
       data-cy='EditBtn'
-      onClick={() => props.setSection('edit')}
+      onClick={() => setSection('edit')}
       className='absolute top-[60%] left-[-9%] z-10 cursor-pointer hover:scale-105 transition-transform'
     >
       <circle cx='28' cy='28' r='27.5' fill='#C4C4C4' stroke='#3B5495' />

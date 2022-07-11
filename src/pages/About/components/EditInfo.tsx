@@ -6,21 +6,24 @@ import { fetchBandAbout } from 'helper'
 import axios from 'axios'
 
 const EditInfo: React.FC<EditInfoProps> = (props) => {
+  const { about, id, setBandAbout, setSection } = props
+
   const [errorAlert, setErrorAlert] = useState(false)
   const [addModal, setAddModal] = useState(false)
+
   const { register, setValue, watch } = useForm({
     mode: 'all',
   })
 
   useEffect(() => {
-    setValue('about', props.about)
-  }, [props.about, setValue])
+    setValue('about', about)
+  }, [about, setValue])
 
   const submitHandler = async () => {
     try {
       const data = {
         about: watch().about,
-        id: props.id,
+        id,
       }
 
       const response = await axios.put(
@@ -36,7 +39,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
       if (response.status === 200) {
         setAddModal(true)
-        fetchBandAbout(setErrorAlert, props.setBandAbout)
+        fetchBandAbout(setErrorAlert, setBandAbout)
       }
     } catch (error) {
       setErrorAlert(true)
@@ -79,7 +82,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
           შეინახე
         </button>
 
-        <DirectBtn direction={props.setSection} goTo='' title='გადი უკან' />
+        <DirectBtn direction={setSection} goTo='' title='გადი უკან' />
       </div>
     </div>
   )

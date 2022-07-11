@@ -2,7 +2,13 @@ import { AddMemberProps } from 'pages/Members/components/types'
 import { MemberForm } from 'pages/Members/components'
 
 const AddMember: React.FC<AddMemberProps> = (props) => {
-  const { membersData, setMembersData, setIsLoading, setAddMember } = props
+  const {
+    setMembersData,
+    setIsLoading,
+    setAddMember,
+    membersData,
+    setSection,
+  } = props
 
   const details = {
     orbitLength: '',
@@ -17,10 +23,10 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
       <MemberForm
         url='https://folksoul-api.sabavar.redberryinternship.ge/add-member'
         setMembersData={setMembersData}
-        setSection={props.setSection}
         setIsLoading={setIsLoading}
         setAddMember={setAddMember}
         membersData={membersData}
+        setSection={setSection}
         details={details}
         action='ADD'
       />

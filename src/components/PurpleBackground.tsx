@@ -2,9 +2,11 @@ import { PurpleBackgroundProps } from 'components/types'
 import { BackgroundImage } from 'assets/images/index'
 
 const PurpleBackground: React.FC<PurpleBackgroundProps> = (props) => {
+  const { styles } = props
+
   return (
     <img
-      className={`${props.styles}`}
+      className={`${styles}`}
       alt='purple Background'
       src={BackgroundImage}
     />

@@ -7,9 +7,11 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
+  const { fetchUtilities, membersData, setShowModal, userId } = props
+
   const [error, setError] = useState(false)
 
-  const { setMembersData, setIsLoading } = props.fetchUtilities
+  const { setMembersData, setIsLoading } = fetchUtilities
   const navigate = useNavigate()
 
   const [pageParam] = useSearchParams()
@@ -17,10 +19,9 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   const currentPage = +pageParam.get('page')!
   let fetchPage = currentPage
 
-  if (props.membersData.length === 1 && currentPage > 1)
-    fetchPage = currentPage - 1
+  if (membersData.length === 1 && currentPage > 1) fetchPage = currentPage - 1
 
-  const closeModal = () => props.setShowModal(false)
+  const closeModal = () => setShowModal(false)
 
   const deleteMember = async () => {
     try {
@@ -31,7 +32,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
             Authorization: 'Bearer ' + localStorage.getItem('token'),
           },
           data: {
-            id: props.userId,
+            id: userId,
           },
         }
       )

@@ -5,6 +5,8 @@ import { Modal } from 'components'
 import { useState } from 'react'
 
 const DeleteMember: React.FC<DeleteMemberProps> = (props) => {
+  const { membersData, userId } = props
+
   const [showModal, setShowModal] = useState(false)
 
   const { setMembersData, setIsLoading } = props.fetchUtilities
@@ -17,10 +19,10 @@ const DeleteMember: React.FC<DeleteMemberProps> = (props) => {
       {showModal && (
         <Modal setShowModal={setShowModal} title='ბენდის წევრის წაშლა'>
           <DeleteDialog
-            membersData={props.membersData}
             fetchUtilities={fetchUtilities}
             setShowModal={setShowModal}
-            userId={props.userId}
+            membersData={membersData}
+            userId={userId}
           />
         </Modal>
       )}

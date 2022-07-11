@@ -10,6 +10,8 @@ import {
 } from 'pages/SocialLinks/components/types'
 
 const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
+  const { setLinks, setSection } = props
+
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -47,7 +49,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
         setValue('linkName', '')
         setValue('url', '')
 
-        fetchSocialLinks(setFetchError, props.setLinks)
+        fetchSocialLinks(setFetchError, setLinks)
       }
     } catch (error: any) {
       if (error.response.status === 409) setErrorAlert(true)
@@ -100,7 +102,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
         </button>
       </form>
 
-      <DirectBtn title='გადი უკან' direction={props.setSection} goTo='' />
+      <DirectBtn title='გადი უკან' direction={setSection} goTo='' />
     </div>
   )
 }

@@ -5,18 +5,19 @@ import { AvatarModal } from 'components'
 import { useState } from 'react'
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
+  const { membersData, id, avatar, name, setSection, setMemberId } = props
   const { setMembersData, setIsLoading } = props.fetchUtilities
-  const { membersData, id, avatar, name } = props
 
   const [memberModal, setMemberModal] = useState(false)
   const [avatarModal, setAvatarModal] = useState(false)
 
   const fetchUtilities = { setMembersData, setIsLoading }
+
   const currentMember = membersData.find((member) => member._id === id)
 
   const changeButtonHandler = (id: string) => {
-    props.setSection('MemberInputs')
-    props.setMemberId(id)
+    setSection('MemberInputs')
+    setMemberId(id)
   }
 
   const imageUrl = currentMember?.image
@@ -55,10 +56,10 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         {avatarModal && (
           <AvatarModal
             url='https://folksoul-api.sabavar.redberryinternship.ge/upload-member-image'
-            setIsLoading={props.setIsLoading}
             setMembersData={setMembersData}
             setAvatarModal={setAvatarModal}
             currentMember={currentMember}
+            setIsLoading={setIsLoading}
             avatar={imageUrl}
             id={id}
           />

@@ -2,9 +2,11 @@ import { StyleProp } from 'components/svgs/types'
 import React from 'react'
 
 const Logo: React.FC<StyleProp> = (props) => {
+  const { styles } = props
+
   return (
     <svg
-      className={`${props.styles}`}
+      className={`${styles}`}
       viewBox='0 0 270 128'
       width='270'
       height='128'

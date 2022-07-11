@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
 const ChangeMember: React.FC<MemberInputProps> = (props) => {
-  const { setMembersData, setIsLoading, id } = props
+  const { setMembersData, setIsLoading, id, setSection } = props
 
   const [statusCode, setStatusCode] = useState(404)
   const [page] = useSearchParams()
@@ -123,7 +123,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         <MemberInputs errors={errors} register={register} title='შეცვლა' />
       </form>
 
-      <DirectBtn title='გადი უკან' direction={props.setSection} goTo='' />
+      <DirectBtn title='გადი უკან' direction={setSection} goTo='' />
     </div>
   )
 }

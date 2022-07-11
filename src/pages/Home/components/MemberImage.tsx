@@ -2,12 +2,11 @@ import { MemberImageProps } from 'pages/Home/components/types'
 import { Image } from 'pages/Home/components'
 
 const MemberImage: React.FC<MemberImageProps> = (props) => {
-  const { color, image, biography, name } = props.memberDetails
-  const { selectedId, setSelectedId, id } = props.selectUtils
-
   const {
     animationDuration,
+    memberDetails,
     setInfoImage,
+    selectUtils,
     setInfoText,
     imageArray,
     setPause,
@@ -15,6 +14,9 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
     index,
     pause,
   } = props
+
+  const { color, image, biography, name } = memberDetails
+  const { selectedId, setSelectedId, id } = selectUtils
 
   const clickHandler = () => {
     setPause(true)

@@ -1,11 +1,13 @@
 import { StyleProp } from 'components/svgs/types'
 
 const CameraBtn: React.FC<StyleProp> = (props) => {
+  const { styles } = props
+
   return (
     <svg
       width='37'
       height='37'
-      className={`cursor-pointer absolute top-[102px] right-0 hover:scale-105 transition-transform ${props.styles}`}
+      className={`cursor-pointer absolute top-[102px] right-0 hover:scale-105 transition-transform ${styles}`}
       viewBox='0 0 37 37'
       fill='none'
     >

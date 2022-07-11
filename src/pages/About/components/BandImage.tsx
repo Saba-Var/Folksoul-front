@@ -5,18 +5,16 @@ import { ImageUpload } from 'components'
 import { useState } from 'react'
 
 const BandImage: React.FC<BandImageProps> = (props) => {
+  const { isLoading, image, setBandAbout, id } = props
+
   const [iconModal, setIconModal] = useState(false)
 
   return (
     <div>
       <div className={`mx-auto w-44 h-44 relative`}>
-        <Image
-          isLoading={props.isLoading}
-          image={props.image}
-          styles='!w-44 !h-44'
-        />
+        <Image isLoading={isLoading} image={image} styles='!w-44 !h-44' />
 
-        {!props.isLoading && (
+        {!isLoading && (
           <div data-cy='CameraBtn' onClick={() => setIconModal(true)}>
             <CameraBtn styles='top-[67%] drop-shadow-3xl right-[0px] w-14 h-14' />
           </div>
@@ -26,16 +24,12 @@ const BandImage: React.FC<BandImageProps> = (props) => {
           <ImageUpload
             url='https://folksoul-api.sabavar.redberryinternship.ge/upload-band-image'
             title='შეცვალე ბენდის პორტრეტი'
-            setLinks={props.setBandAbout}
             setImageModal={setIconModal}
-            id={props.id}
+            setLinks={setBandAbout}
+            id={id}
           >
             <div className='flex flex-col h-full justify-between  pb-[20%] items-center'>
-              <Image
-                isLoading={props.isLoading}
-                image={props.image}
-                styles='!w-60 !h-60'
-              />
+              <Image isLoading={isLoading} image={image} styles='!w-60 !h-60' />
             </div>
           </ImageUpload>
         )}

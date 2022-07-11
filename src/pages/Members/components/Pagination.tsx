@@ -2,10 +2,12 @@ import { PaginationLink } from 'pages/Members/components'
 import { CardData } from './types'
 
 const Pagination: React.FC<CardData> = (props) => {
+  const { data } = props
   const { setMembersData, setIsLoading } = props.fetchUtilities
+
   const fetchUtilities = { setMembersData, setIsLoading }
 
-  const totalPages = Math.ceil(props.data.paginationInfo.totalMembers / 3)
+  const totalPages = Math.ceil(data.paginationInfo.totalMembers / 3)
 
   const paginationLinks = []
 

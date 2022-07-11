@@ -5,6 +5,8 @@ import { Modal } from 'components'
 import { useState } from 'react'
 
 const DeleteLink: React.FC<DeleteLinkProps> = (props) => {
+  const { setLinks, id } = props
+
   const [showModal, setShowModal] = useState(false)
 
   const modalHandler = () => setShowModal(true)
@@ -15,8 +17,8 @@ const DeleteLink: React.FC<DeleteLinkProps> = (props) => {
         <Modal title='სოციალური ბმულის წაშლა' setShowModal={setShowModal}>
           <DeleteDialog
             setShowModal={setShowModal}
-            setLinks={props.setLinks}
-            id={props.id}
+            setLinks={setLinks}
+            id={id}
           />
         </Modal>
       )}

@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
 const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
+  const { links, id, setLinks, setSection } = props
+
   const [linkFetchError, setLinkFetchError] = useState(false)
   const [errorAlert, setErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -21,7 +23,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
     mode: 'all',
   })
 
-  const currentLink = props.links.find((link) => link._id === props.id)
+  const currentLink = links.find((link) => link._id === id)
 
   useEffect(() => {
     setValue('linkName', currentLink?.linkName)
@@ -33,7 +35,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
       const { linkName, url } = formData
 
       const data = {
-        id: props.id,
+        id,
         linkName,
         url,
       }
@@ -51,7 +53,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
 
       if (response.status === 200) {
         setShowModal(true)
-        fetchSocialLinks(setLinkFetchError, props.setLinks)
+        fetchSocialLinks(setLinkFetchError, setLinks)
       }
     } catch (error: any) {
       error.response.status === 409 && setErrorAlert(true)
@@ -104,7 +106,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
         </button>
       </form>
 
-      <DirectBtn title='გადი უკან' direction={props.setSection} goTo='' />
+      <DirectBtn title='გადი უკან' direction={setSection} goTo='' />
     </div>
   )
 }

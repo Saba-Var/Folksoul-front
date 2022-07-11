@@ -3,8 +3,8 @@ import { Avatar1, Avatar2, Avatar3 } from 'assets/images'
 import { CardData } from 'pages/Members/components/types'
 
 const Card: React.FC<CardData> = (props) => {
-  const { setMembersData, setIsLoading } = props.fetchUtilities
   const { data, setSection, setMemberId } = props
+  const { setMembersData, setIsLoading } = props.fetchUtilities
 
   const fetchUtilities = { setMembersData, setIsLoading }
 

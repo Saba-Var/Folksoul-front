@@ -8,7 +8,8 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
-  const { details, url, setMembersData, setIsLoading } = props
+  const { details, url, setMembersData, setIsLoading, action, setSection } =
+    props
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -79,7 +80,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         setShowModal={setShowModal}
         statusCode={statusCode}
         showModal={showModal}
-        action={props.action}
+        action={action}
       />
 
       <form
@@ -93,7 +94,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         />
       </form>
 
-      <DirectBtn title='გადი უკან' direction={props.setSection} goTo='' />
+      <DirectBtn title='გადი უკან' direction={setSection} goTo='' />
     </div>
   )
 }

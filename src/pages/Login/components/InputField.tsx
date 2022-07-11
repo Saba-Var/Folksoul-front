@@ -1,10 +1,10 @@
 import { InputFieldProps } from 'pages/Login/components/types'
 
 const InputField: React.FC<InputFieldProps> = (props) => {
-  const { placeholder, errors, register, type } = props
+  const { placeholder, errors, register, type, showError } = props
 
   const inputName = placeholder === 'მეტსახელი' ? 'username' : 'password'
-  const showError = errors && props.showError
+  const showInputError = errors && showError
 
   return (
     <div className='h-14'>
@@ -26,12 +26,12 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         })}
         type={type}
         className={`text-black border-[2px] border-transparent placeholder outline-none rounded-[2px]  h-12 px-5 bg-lightBrown w-128 ${
-          showError && 'border-[2px] border-red '
+          showInputError && 'border-[2px] border-red '
         }`}
         placeholder={placeholder}
       />
 
-      {showError && (
+      {showInputError && (
         <p data-cy={errors.message} className='text-sm text-red'>
           {errors.message}
         </p>

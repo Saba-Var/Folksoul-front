@@ -5,8 +5,8 @@ const Section: React.FC<SectionProps> = (props) => {
   const { link, icon, title } = props
 
   const navigate = useNavigate()
-  const currentURL = `/Dashboard/${props.link}`
-  const isSelected = window.location.pathname.includes(props.link)
+  const currentURL = `/Dashboard/${link}`
+  const isSelected = window.location.pathname.includes(link)
 
   const onClickHandler = () => {
     if (link === 'Logout') {
