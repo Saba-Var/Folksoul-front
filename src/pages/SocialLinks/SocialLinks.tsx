@@ -48,7 +48,10 @@ const SocialLinks = () => {
         )}
 
         {links.length === 0 && section === '' && !loading && (
-          <h2 className='text-center animate-tracking-in-expand pt-[20%] text-black tracking-widest text-4xl'>
+          <h2
+            data-cy='NoLink'
+            className='text-center animate-tracking-in-expand pt-[20%] text-black tracking-widest text-4xl'
+          >
             სოციალური ბმულები არ არის დამატებული!
           </h2>
         )}

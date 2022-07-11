@@ -7,7 +7,7 @@ describe('Social Links Page', () => {
 
   it('when visit first time social links page should see components and message', () => {
     cy.fetchSocialLinks([])
-    cy.beVisible('სოციალური ბმულები არ არის დამატებული!')
+    cy.beVisible('NoLink')
     cy.beVisible('დაამატე ახალი სოციალური ბმული')
     cy.beVisible('სოციალური ბმულები')
   })
@@ -63,12 +63,12 @@ describe('Social Links Page', () => {
       }
     )
     cy.get("[data-cy='linkName']").clear()
-    cy.beVisible('შევსება სავალდებულოა!')
+    cy.contains('შევსება სავალდებულოა!').should('be.visible')
     cy.get("[data-cy='linkName']").type('Y')
-    cy.beVisible('შეიყვანეთ მინიმუმ 2 სიმბოლო')
+    cy.contains('შეიყვანეთ მინიმუმ 2 სიმბოლო').should('be.visible')
     cy.get("[data-cy='linkName']").clear().type('YouTube')
     cy.get("[data-cy='url']").type('youtube')
-    cy.beVisible('შეიყვანეთ ვალიდური ბმულის მისამართი')
+    cy.contains('შეიყვანეთ ვალიდური ბმულის მისამართი').should('be.visible')
     cy.get("[data-cy='url']").clear().type('youtube.com')
     cy.get("[data-cy='ChangeLink']").click().wait(1000)
     cy.beVisible('ბმულის დეტალები შეიცვალა')
