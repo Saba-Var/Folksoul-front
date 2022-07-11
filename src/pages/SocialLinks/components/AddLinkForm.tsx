@@ -53,6 +53,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
       }
     } catch (error: any) {
       if (error.response.status === 409) setErrorAlert(true)
+      setFetchError(true)
     }
   }
 
