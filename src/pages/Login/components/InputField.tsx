@@ -31,7 +31,11 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         placeholder={placeholder}
       />
 
-      {showError && <p className='text-sm text-red'>{errors.message}</p>}
+      {showError && (
+        <p data-cy={errors.message} className='text-sm text-red'>
+          {errors.message}
+        </p>
+      )}
     </div>
   )
 }

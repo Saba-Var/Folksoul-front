@@ -7,7 +7,7 @@ describe('Login page', () => {
 
   it('user can see components of the Login page', () => {
     cy.beVisible('კარიბჭე')
-    cy.beVisible('შემობრძანდი')
+    cy.contains('შემობრძანდი').should('be.visible')
   })
 
   it('when user submits empty form show error message', () => {
@@ -21,7 +21,7 @@ describe('Login page', () => {
     cy.get("[data-cy='პაროლი']").type('p')
     cy.url().should('include', '/Login')
     cy.get("[data-cy='LoginBtn']").click()
-    cy.beVisible('შეიყვანეთ მინიმუმ 3 სიმბოლო')
+    cy.contains('შეიყვანეთ მინიმუმ 3 სიმბოლო').should('be.visible')
     cy.get("[data-cy='მეტსახელი']").type('IT')
     cy.beVisible('შეიყვანეთ მხოლოდ დაბალი რეგისტრის სიმბოლოები!')
     cy.get("[data-cy='მეტსახელი']").clear().type('pas')

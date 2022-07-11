@@ -77,7 +77,9 @@ const LoginForm = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className='tracking-wide w-40 mx-auto relative -skew-x-[40deg] h-14 bg-red drop-shadow-xl text-lg font-bold font-BPG-Nino-Mtavruli text-black flex justify-center items-center'>
-          <p className='-skew-x-[-40deg] pt-1'>კარიბჭე</p>
+          <p data-cy='კარიბჭე' className='-skew-x-[-40deg] pt-1'>
+            კარიბჭე
+          </p>
         </div>
 
         <InputField
