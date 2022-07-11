@@ -72,13 +72,19 @@ Runs the app in the development mode. Open http://localhost:3000 to view it in y
 
 ## Testing
 
-1\. Run application from the terminal
+1\. copy cypress.config.ts
+
+```sh
+cp cypress.config.ts.example cypress.config.ts
+```
+
+2\. Run application from the terminal
 
 ```sh
 npm start
 ```
 
-2\. start cypress
+3\. start cypress
 
 ```sh
 npx cypress open
