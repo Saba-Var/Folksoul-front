@@ -65,7 +65,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
       )}
 
       <FormNotifications
-        title={`ბმული '${watch().linkName} უკვე დამატებულია`}
+        title={`ბმული '${watch().linkName}' უკვე დამატებულია`}
         successText='ბმული წარმატებით დაემატა'
         setErrorAlert={setErrorAlert}
         setShowModal={setShowModal}

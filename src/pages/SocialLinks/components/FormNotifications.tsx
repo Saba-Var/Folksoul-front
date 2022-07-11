@@ -23,7 +23,7 @@ const FormNotifications: React.FC<FormNotificationsProps> = (props) => {
 
       {errorAlert && (
         <ErrorAlert
-          styles='top-[40px] left-[50%]'
+          styles='left-[50.5%] top-[5%] 4xl:left-[51.5%] 6xl:left-[52.5%]'
           setShowAlert={setErrorAlert}
           title={title}
         />
