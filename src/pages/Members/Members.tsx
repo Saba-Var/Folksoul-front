@@ -2,7 +2,7 @@ import { SectionWrapper, DirectBtn, ErrorAlert } from 'components'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
-import { MemberData } from '../../types'
+import { MemberData } from 'types'
 import {
   NoMembers,
   Cards,

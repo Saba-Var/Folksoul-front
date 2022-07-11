@@ -56,7 +56,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
         fetchSocialLinks(setLinkFetchError, setLinks)
       }
     } catch (error: any) {
-      error.response.status === 409 && setErrorAlert(true)
+      setErrorAlert(true)
     }
   }
 

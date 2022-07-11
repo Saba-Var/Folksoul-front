@@ -12,6 +12,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         data-cy={placeholder}
         {...register(inputName, {
           required: 'ამ ველის შევსება სავალდებულოა!',
+
           validate: {
             minLength: (v: string) =>
               v.trim().length >= 3 || 'შეიყვანეთ მინიმუმ 3 სიმბოლო!',
