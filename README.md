@@ -60,7 +60,13 @@ or
 yarn install
 ```
 
-3\. after that you can run FolkSoul application from terminal:
+3\. copy .env
+
+```sh
+cp .env.example .env
+```
+
+4\. after that you can run FolkSoul application from terminal:
 
 ```sh
 npm start

@@ -27,7 +27,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
       }
 
       const response = await axios.put(
-        'https://folksoul-api.sabavar.redberryinternship.ge/change-band-about',
+        process.env.REACT_APP_CHANGE_BAND!,
         data,
         {
           headers: {

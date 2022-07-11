@@ -41,7 +41,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
       }
 
       const response = await axios.put(
-        'https://folksoul-api.sabavar.redberryinternship.ge/change-link',
+        process.env.REACT_APP_CHANGE_LINK!,
         data,
         {
           headers: {

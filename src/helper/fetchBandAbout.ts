@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import {
   BandAboutText,
   SetErrorAlert,
@@ -16,9 +17,7 @@ const fetchBandAbout = async (
   try {
     if (setIsLoading) setIsLoading(true)
 
-    const res = await axios.get(
-      `https://folksoul-api.sabavar.redberryinternship.ge/band-about`
-    )
+    const res = await axios.get(process.env.REACT_APP_GET_BAND_ABOUT!)
 
     if (res.status === 200) {
       if (setImage) {

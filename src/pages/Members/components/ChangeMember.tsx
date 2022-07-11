@@ -30,7 +30,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const fetchOneMember = useCallback(async () => {
     try {
       const response = await axios.post(
-        'https://folksoul-api.sabavar.redberryinternship.ge/get-one-member',
+        process.env.REACT_APP_GET_ONE_MEMBERS!,
         {
           id: id,
         },
@@ -72,7 +72,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
       }
 
       const response = await axios.put(
-        'https://folksoul-api.sabavar.redberryinternship.ge/change-member',
+        process.env.REACT_APP_CHANGE_MEMBER!,
         data,
         {
           headers: {

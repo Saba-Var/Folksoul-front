@@ -14,7 +14,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
       {image && (
         <img
           className='w-11 h-8 rounded-lg'
-          src={`https://folksoul-api.sabavar.redberryinternship.ge/${image}`}
+          src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
           alt='social link icon'
         />
       )}
@@ -29,7 +29,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
       {iconModal && (
         <ImageUpload
-          url='https://folksoul-api.sabavar.redberryinternship.ge/upload-link-image'
+          url={process.env.REACT_APP_UPLOAD_LINK_IMAGE!}
           title='შეცვალე სოციალური ბმულის ხატულა'
           setFileExists={setFileExists}
           setImageModal={setIconModal}
@@ -46,7 +46,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
                 className={`w-60 h-44 animate-slit-in-vertical ${
                   fileExists && 'border-[3px] rounded-3xl border-green'
                 }`}
-                src={`https://folksoul-api.sabavar.redberryinternship.ge/${image}`}
+                src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
                 alt='social link icon'
               />
             )}

@@ -31,7 +31,7 @@ const SocialLinks = () => {
                   }
                 >
                   <img
-                    src={`https://folksoul-api.sabavar.redberryinternship.ge/${link.image}`}
+                    src={`${process.env.REACT_APP_API_BASE_URL}/${link.image}`}
                     className='h-9 rounded-md'
                     alt='band'
                   />

@@ -25,17 +25,14 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteMember = async () => {
     try {
-      const res = await axios.delete(
-        'https://folksoul-api.sabavar.redberryinternship.ge/delete-member',
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-          data: {
-            id: userId,
-          },
-        }
-      )
+      const res = await axios.delete(process.env.REACT_APP_DELETE_MEMBER!, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+        data: {
+          id: userId,
+        },
+      })
 
       if (res.status === 200) {
         closeModal()

@@ -32,7 +32,7 @@ const LoginForm = () => {
 
       let response = await axios({
         method: 'post',
-        url: 'https://folksoul-api.sabavar.redberryinternship.ge/auth',
+        url: process.env.REACT_APP_AUTHENTICATION,
         headers: {
           'Content-Type': 'application/json',
           accept: 'application/json',

@@ -21,7 +21,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
   }
 
   const imageUrl = currentMember?.image
-    ? `https://folksoul-api.sabavar.redberryinternship.ge/${currentMember.image}`
+    ? `${process.env.REACT_APP_API_BASE_URL}/${currentMember.image}`
     : avatar
 
   return (
@@ -55,7 +55,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
         {avatarModal && (
           <AvatarModal
-            url='https://folksoul-api.sabavar.redberryinternship.ge/upload-member-image'
+            url={process.env.REACT_APP_UPLOAD_MEMBER_IMAGE!}
             setMembersData={setMembersData}
             setAvatarModal={setAvatarModal}
             currentMember={currentMember}

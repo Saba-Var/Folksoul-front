@@ -8,14 +8,11 @@ const fetchSocialLinks = async (
 ) => {
   try {
     if (setIsLoading) setIsLoading(true)
-    const res = await axios.get(
-      `https://folksoul-api.sabavar.redberryinternship.ge/all-links`,
-      {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      }
-    )
+    const res = await axios.get(process.env.REACT_APP_GET_ALL_LINK!, {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      },
+    })
     if (res.status === 200) {
       if (setIsLoading) setIsLoading(false)
       return setSocialLinks(res.data)

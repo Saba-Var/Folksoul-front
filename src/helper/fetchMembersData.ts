@@ -10,10 +10,10 @@ const fetchMembersData = async (
   setIsLoading(true)
   try {
     const url = page
-      ? `https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=${page}`
-      : `https://folksoul-api.sabavar.redberryinternship.ge/all-members`
+      ? `${process.env.REACT_APP_GET_ALL_MEMBERS}?page=${page}`
+      : process.env.REACT_APP_GET_ALL_MEMBERS
 
-    const res = await axios.get(url)
+    const res = await axios.get(url!)
 
     if (res.status === 200) {
       setIsLoading(false)
