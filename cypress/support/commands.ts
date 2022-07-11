@@ -194,19 +194,3 @@ Cypress.Commands.add('addNewMember', () => {
   cy.get("[data-cy='color']").type('#000000')
   cy.get("[data-cy='biography']").type('ილონი დაიბადა ...')
 })
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      memberPagination(data: object, page: number): Chainable<Element>
-      fetchSocialLinks(links: object): Chainable<Element>
-      beVisible(id: string): Chainable<JQuery<HTMLElement>>
-      changeMemberRequests(): Chainable<Element>
-      addMemberForm(): Chainable<Element>
-      getAllMembers(): Chainable<Element>
-      stopRequests(): Chainable<Element>
-      addNewMember(): Chainable<Element>
-      memberTwoPage(): Chainable<Element>
-    }
-  }
-}
