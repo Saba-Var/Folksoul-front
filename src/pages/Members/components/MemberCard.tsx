@@ -64,7 +64,10 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
           />
         )}
       </div>
-      <p className='text-white text-lg animate-text-focus-in font-BPG-Nino-Mtavruli text-center tracking-widest'>
+      <p
+        data-cy={name}
+        className='text-white text-lg animate-text-focus-in font-BPG-Nino-Mtavruli text-center tracking-widest'
+      >
         {name}
       </p>
 

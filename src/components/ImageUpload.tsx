@@ -72,7 +72,10 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
 
           {!file && (
             <label>
-              <span className='blueBtn animate-fade-in flex justify-center items-center w-40 mx-auto'>
+              <span
+                data-cy='ატვირთე'
+                className='blueBtn animate-fade-in flex justify-center items-center w-40 mx-auto'
+              >
                 ატვირთე
               </span>
               <input type='file' onChange={fileChangeHandler} />
