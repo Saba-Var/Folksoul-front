@@ -66,12 +66,12 @@ const LoginForm = () => {
     >
       {showAlert && (
         <ErrorAlert
+          styles='top-[6%] left-[37.5%] 3.5xl:left-[39.5%] 4xl:left-[40.5%] 4xl:left-[41.5%]'
           title={'მეტსახელი ან პაროლი არასწორია'}
-          styles='top-[5%] left-[40%]'
           setShowAlert={setShowAlert}
         />
       )}
-
+      <div className='3.5xl:left-[40%]'></div>
       <form
         className='bg-gradient-to-t from-brown to-medBlue w-96 h-[438px] border-[1px] border-white flex flex-col pb-14 pt-11 px-12 justify-between'
         onSubmit={handleSubmit(onSubmit)}

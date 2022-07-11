@@ -8,8 +8,10 @@ module.exports = {
       },
       screens: {
         '3xl': '1350px',
+        '3.5xl': '1536px',
         '4xl': '1744px',
         '5xl': '1900px',
+        '6xl': '1920px',
       },
       animation: {
         rays: 'rays 0.95s ease  infinite both',
