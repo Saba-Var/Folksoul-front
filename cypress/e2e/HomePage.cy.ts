@@ -22,11 +22,11 @@ describe('Home page', () => {
 
   it("when click on the member we should see member's biography", () => {
     cy.get("[data-cy='სახელი']").click()
-    cy.beVisible('ბიოგრაფია')
+    cy.contains('ბიოგრაფია').should('be.visible')
     cy.get("[data-cy='Sun']").click()
-    cy.beVisible('ინფორმაცია ბენდის შესახებ')
+    cy.contains('ინფორმაცია ბენდის შესახებ').should('be.visible')
     cy.get("[data-cy='სახელი2']").click()
-    cy.beVisible('ბიოგრაფია2')
+    cy.contains('ბიოგრაფია2').should('be.visible')
   })
 
   it('if user is logged in navigate to dashboard', () => {
