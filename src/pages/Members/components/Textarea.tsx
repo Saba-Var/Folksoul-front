@@ -1,5 +1,5 @@
 import { TextareaProps } from 'pages/Members/components/types'
-import { georgianLan } from 'helper'
+import { isWordGeorgian } from 'helper'
 
 const Textarea: React.FC<TextareaProps> = (props) => {
   const { inputName, placeholder, register, errors } = props
@@ -12,8 +12,8 @@ const Textarea: React.FC<TextareaProps> = (props) => {
           required: 'შევსება სავალდებულოა!',
 
           validate: {
-            georgianLan: (v: string) =>
-              georgianLan(v, inputName) || 'მხოლოდ ქართული ასოები',
+            isWordGeorgian: (v: string) =>
+              isWordGeorgian(v, inputName) || 'მხოლოდ ქართული ასოები',
 
             minLength: (v: string) =>
               v.trim().length >= 1 || 'შევსება სავალდებულოა!',

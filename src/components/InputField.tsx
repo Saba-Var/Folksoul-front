@@ -1,5 +1,5 @@
 import { InputFieldProps } from 'components/types'
-import { georgianLan } from 'helper/index'
+import { isWordGeorgian } from 'helper/index'
 
 const InputField: React.FC<InputFieldProps> = (props) => {
   const { inputName, type, placeholder, register, minLength, errors } = props
@@ -15,9 +15,9 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         {...register(inputName, {
           required: 'შევსება სავალდებულოა!',
           validate: {
-            georgianLan: (v: string) => {
+            isWordGeorgian: (v: string) => {
               if (inputName !== 'color' && inputName !== 'orbitLength')
-                return georgianLan(v, inputName) || 'მხოლოდ ქართული ასოები'
+                return isWordGeorgian(v, inputName) || 'მხოლოდ ქართული ასოები'
             },
 
             minLength: (v: string) => {

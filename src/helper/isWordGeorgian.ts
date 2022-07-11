@@ -1,4 +1,4 @@
-const georgianLan = (text: string, inputName: string) => {
+const isWordGeorgian = (text: string, inputName: string) => {
   const geoRegex = /[\u10A0-\u10FF]/
   const word = text.replace(/\s/g, '')
 
@@ -14,4 +14,4 @@ const georgianLan = (text: string, inputName: string) => {
   return true
 }
 
-export default georgianLan
+export default isWordGeorgian
