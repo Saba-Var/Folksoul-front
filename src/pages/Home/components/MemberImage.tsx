@@ -65,7 +65,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
           }}
           className={`w-23 ${
             isSelected && 'w-24 !left-[4px]'
-          } absolute left-[-7px]  bottom-[-8px] bg-yellow flex border-[4px] justify-center items-center pt-1 rounded-[60px] text-darkBlue font-BPG-Nino-Mtavruli font-bold text-sm tracking-[1.2px]`}
+          } absolute left-[-7px] overflow-x-hidden whitespace-nowrap overflow-y-hidden bottom-[-8px] bg-yellow flex border-[4px] justify-center items-center pt-1 rounded-[60px] text-darkBlue font-BPG-Nino-Mtavruli font-bold text-sm tracking-[1.2px]`}
         >
           {name}
         </div>
