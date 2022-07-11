@@ -16,14 +16,14 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
     setValue('about', props.about)
   }, [props.about, setValue])
 
-  const submitHandler = () => {
-    const data = {
-      about: watch().about,
-      id: props.id,
-    }
+  const submitHandler = async () => {
+    try {
+      const data = {
+        about: watch().about,
+        id: props.id,
+      }
 
-    axios
-      .put(
+      const response = await axios.put(
         'https://folksoul-api.sabavar.redberryinternship.ge/change-band-about',
         data,
         {
@@ -33,13 +33,14 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
           },
         }
       )
-      .then((response) => {
-        if (response.status === 200) {
-          setAddModal(true)
-          fetchBandAbout(setErrorAlert, props.setBandAbout)
-        }
-      })
-      .catch((error) => setErrorAlert(true))
+
+      if (response.status === 200) {
+        setAddModal(true)
+        fetchBandAbout(setErrorAlert, props.setBandAbout)
+      }
+    } catch (error) {
+      setErrorAlert(true)
+    }
   }
 
   return (
@@ -64,7 +65,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
         <textarea
           data-cy='TextareaInput'
           {...register('about')}
-          className='w-full h-[51.5vh] !break-words outline-none resize-none pr-14 bg-lightYellow'
+          className='w-full h-[51.5vh] animate-focus-in-expand !break-words outline-none resize-none pr-14 bg-lightYellow'
         />
       </form>
 
