@@ -46,8 +46,8 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
     <div className='h-full flex justify-between flex-col'>
       {errorAlert && (
         <ErrorAlert
+          styles='left-[52.5%] top-[5%] 4xl:left-[53.5%] 6xl:left-[54%]'
           setShowAlert={setErrorAlert}
-          styles='left-[55%] top-[5%]'
           title='შეიყვანეთ ინფორმაცია'
         />
       )}
