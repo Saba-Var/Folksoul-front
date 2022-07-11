@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { fetchBandAbout } from 'helper'
 import {
-  bandMember1,
-  bandMember2,
-  bandMember3,
-  bandMember4,
-  bandMember5,
+  BandMember1,
+  BandMember2,
+  BandMember3,
+  BandMember4,
+  BandMember5,
 } from 'assets/images'
 
 const Home = () => {
@@ -22,11 +22,11 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const imageArray = [
-    bandMember1,
-    bandMember2,
-    bandMember3,
-    bandMember4,
-    bandMember5,
+    BandMember1,
+    BandMember2,
+    BandMember3,
+    BandMember4,
+    BandMember5,
   ]
   const navigate = useNavigate()
 

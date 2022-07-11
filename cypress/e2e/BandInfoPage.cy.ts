@@ -29,7 +29,7 @@ describe('Band Info Page', () => {
     cy.beVisible('ბენდის შესახებ')
     cy.get("[data-cy='CameraBtn']").click({ force: true })
     cy.beVisible('შეცვალე ბენდის პორტრეტი')
-    cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
+    cy.get('input[type=file]').selectFile('src/assets/images/Avatar1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()
@@ -78,7 +78,7 @@ describe('Band Info Page', () => {
       }
     )
     cy.get("[data-cy='CameraBtn']").click({ force: true })
-    cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
+    cy.get('input[type=file]').selectFile('src/assets/images/Avatar1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()

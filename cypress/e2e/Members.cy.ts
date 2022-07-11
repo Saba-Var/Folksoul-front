@@ -203,7 +203,7 @@ describe('Members Page', () => {
     cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
     cy.beVisible('ატვირთე')
     cy.get('[data-cy="UploadMemberImage"]').click()
-    cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
+    cy.get('input[type=file]').selectFile('src/assets/images/Avatar1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()
@@ -263,7 +263,7 @@ describe('Members Page', () => {
     cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
     cy.beVisible('ატვირთე')
     cy.get('[data-cy="UploadMemberImage"]').click()
-    cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
+    cy.get('input[type=file]').selectFile('src/assets/images/Avatar1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()

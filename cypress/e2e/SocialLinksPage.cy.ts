@@ -103,7 +103,7 @@ describe('Social Links Page', () => {
     cy.get('[data-cy="CameraBtn"]').click({ force: true })
     cy.beVisible('google')
 
-    cy.get('input[type=file]').selectFile('src/assets/images/avatar1.png', {
+    cy.get('input[type=file]').selectFile('src/assets/images/Avatar1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()

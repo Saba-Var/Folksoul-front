@@ -1,5 +1,5 @@
 import { Pagination, MemberCard } from 'pages/Members/components'
-import { avatar1, avatar2, avatar3 } from 'assets/images'
+import { Avatar1, Avatar2, Avatar3 } from 'assets/images'
 import { CardData } from 'pages/Members/components/types'
 
 const Card: React.FC<CardData> = (props) => {
@@ -23,7 +23,7 @@ const Card: React.FC<CardData> = (props) => {
             const iconNum = Math.floor(Math.random() * 3) + 1
 
             const avatar =
-              iconNum === 1 ? avatar1 : iconNum === 2 ? avatar2 : avatar3
+              iconNum === 1 ? Avatar1 : iconNum === 2 ? Avatar2 : Avatar3
 
             return (
               <MemberCard

@@ -1,5 +1,5 @@
 import { WhiteWrapper } from 'components'
-import { tv } from 'assets/images/index'
+import { Tv } from 'assets/images/index'
 
 const Main = () => {
   return (
@@ -8,7 +8,7 @@ const Main = () => {
         <p className='tracking-widest animate-tracking-in-expand pt-[10%] font-BPG-Nino-Mtavruli text-5xl text-slate-900'>
           დილამშვიდობისა!
         </p>
-        <img src={tv} alt='Tv' className='animate-slide-in-elliptic-top-fwd' />
+        <img src={Tv} alt='Tv' className='animate-slide-in-elliptic-top-fwd' />
       </div>
     </WhiteWrapper>
   )
