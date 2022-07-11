@@ -55,7 +55,7 @@ const MemberInputs: React.FC<InputsProps> = (props) => {
       </div>
 
       <button
-        className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-52 block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-2'
+        className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-52 block mx-auto mb-2 mt-[10%] 3xl:mt-[4%] 3.5xl:mt-5 4xl:mt-[9%] 5xl:mb-5 5xl:mt-[10%]'
         data-cy={title}
         type='submit'
       >
