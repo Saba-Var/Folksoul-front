@@ -2,8 +2,8 @@
 import 'cypress-file-upload'
 import './commands'
 
-Cypress.Commands.add('beVisible', (value: string) => {
-  return cy.contains(value).should('be.visible')
+Cypress.Commands.add('beVisible', (id: string) => {
+  return cy.get(`[data-cy="${id}"]`).should('be.visible')
 })
 
 Cypress.Commands.add('addMemberForm', () => {
@@ -200,7 +200,7 @@ declare global {
     interface Chainable {
       memberPagination(data: object, page: number): Chainable<Element>
       fetchSocialLinks(links: object): Chainable<Element>
-      beVisible(value: string): Chainable<Element>
+      beVisible(id: string): Chainable<JQuery<HTMLElement>>
       changeMemberRequests(): Chainable<Element>
       addMemberForm(): Chainable<Element>
       getAllMembers(): Chainable<Element>

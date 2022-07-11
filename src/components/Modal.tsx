@@ -2,7 +2,8 @@ import { ModalProps } from 'components/types'
 import { CloseIcon } from 'components/svgs'
 
 const Modal: React.FC<ModalProps> = (props) => {
-  const closeModal = () => props.setShowModal(false)
+  const { title, setShowModal, children } = props
+  const closeModal = () => setShowModal(false)
 
   return (
     <>
@@ -19,10 +20,13 @@ const Modal: React.FC<ModalProps> = (props) => {
         </div>
 
         <div className='px-12'>
-          <p className='text-center animate-tracking-in-expand text-lg font-BPG-Nino-Mtavruli tracking-wide pb-3 border-b border-black'>
-            {props.title}
+          <p
+            data-cy={title}
+            className='text-center animate-tracking-in-expand text-lg font-BPG-Nino-Mtavruli tracking-wide pb-3 border-b border-black'
+          >
+            {title}
           </p>
-          {props.children}
+          {children}
         </div>
       </div>
     </>

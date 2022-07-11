@@ -7,7 +7,10 @@ const SectionWrapper: React.FC<SectionWrapperProps> = (props) => {
   return (
     <WhiteWrapper>
       <>
-        <p className='mb-10 animate-tracking-in-expand font-BPG-Nino-Mtavruli text-center tracking-wider text-lg pb-3 border-b border-black'>
+        <p
+          data-cy={title}
+          className='mb-10 animate-tracking-in-expand font-BPG-Nino-Mtavruli text-center tracking-wider text-lg pb-3 border-b border-black'
+        >
           {title}
         </p>
 

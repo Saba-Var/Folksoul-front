@@ -47,7 +47,6 @@ describe('Band Info Page', () => {
     cy.beVisible('ბენდის შესახებ')
     cy.get('[data-cy="EditBtn"]').click({ force: true })
     cy.beVisible('ბენდის შესახებ - დაარედაქტირე')
-    cy.beVisible('შეინახე')
     cy.get('[data-cy="TextareaInput"]').clear()
     cy.get('[data-cy="GreenBtn"]').click()
     cy.beVisible('შეიყვანეთ ინფორმაცია')
