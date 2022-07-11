@@ -12,7 +12,7 @@ const Details: React.FC<DetailsProps> = (props) => {
       <div>
         <a
           className='text-mediumBlue text-sm underline'
-          href={props.url}
+          href={`http://${props.url}`}
           rel='noreferrer'
           target='_blank'
         >

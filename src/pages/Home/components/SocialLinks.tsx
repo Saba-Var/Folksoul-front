@@ -32,7 +32,7 @@ const SocialLinks = () => {
                 >
                   <img
                     src={`https://folksoul-api.sabavar.redberryinternship.ge/${link.image}`}
-                    className='h-9'
+                    className='h-9 rounded-md'
                     alt='band'
                   />
                 </a>

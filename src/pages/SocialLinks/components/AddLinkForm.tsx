@@ -92,7 +92,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
         />
 
         <button
-          className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-[298px] block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-10'
+          className='blueBtn animate-tracking-in-expand transition-transform hover:scale-105 w-[298px] text-sm block mx-auto mt-[10%] 3xl:mt-[4%] 4xl:mt-[9%] 5xl:mt-[13%] mb-10'
           data-cy='AddLink'
           type='submit'
         >
