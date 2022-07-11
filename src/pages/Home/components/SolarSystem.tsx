@@ -49,7 +49,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
             .map((member, i) => {
               const selectUtils = { selectedId, setSelectedId, id: member._id }
 
-              const animationDuration = 5 * (i + 1)
+              const animationDuration = 7 * (i + 1)
 
               const dimension = `${
                 member.orbitLength < 270
