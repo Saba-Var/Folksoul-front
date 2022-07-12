@@ -5,6 +5,7 @@ const DirectBtn: React.FC<DirectBtnProps> = (props) => {
 
   const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
+
     direction(goTo)
   }
 

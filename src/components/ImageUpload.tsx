@@ -17,8 +17,11 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   const fileChangeHandler = (e: any) => {
     if (e.target.files[0]?.type.startsWith('image')) {
       setFile(e.target.files[0])
+
       setFileExists && setFileExists(true)
-    } else setErrorAlert(true)
+    } else {
+      setErrorAlert(true)
+    }
   }
 
   const imageUploadHandler = async () => {
@@ -37,9 +40,11 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
       })
 
       if (response.status === 201) {
-        if (title === 'შეცვალე ბენდის პორტრეტი')
+        if (title === 'შეცვალე ბენდის პორტრეტი') {
           fetchBandAbout(setFetchError, setLinks)
-        else fetchSocialLinks(setFetchError, setLinks)
+        } else {
+          fetchSocialLinks(setFetchError, setLinks)
+        }
 
         setImageModal(false)
       }

@@ -7,9 +7,10 @@ import { fetchBandAbout } from 'helper'
 
 const About = () => {
   const [bandAbout, setBandAbout] = useState<BandData>([{ about: '', _id: '' }])
-  const [isLoading, setIsLoading] = useState(false)
-  const [errorAlert, setErrorAlert] = useState(false)
   const [section, setSection] = useState('')
+
+  const [errorAlert, setErrorAlert] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const { _id, about, image } = bandAbout[0]
 
@@ -25,9 +26,9 @@ const About = () => {
       <div className='animate-fade-in'>
         {errorAlert && (
           <ErrorAlert
-            styles='top-[5%] left-[53%]'
-            setShowAlert={setErrorAlert}
             title='ინფორმაცია ვერ მოიძებნა'
+            setShowAlert={setErrorAlert}
+            styles='top-[5%] left-[53%]'
           />
         )}
 

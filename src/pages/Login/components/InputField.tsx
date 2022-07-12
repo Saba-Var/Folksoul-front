@@ -19,8 +19,9 @@ const InputField: React.FC<InputFieldProps> = (props) => {
 
             lowerCase: (v: string) => {
               for (let i = 0; i < v.length; i++) {
-                if (v[i] === v[i].toUpperCase() && inputName === 'username')
+                if (v[i] === v[i].toUpperCase() && inputName === 'username') {
                   return 'შეიყვანეთ მხოლოდ დაბალი რეგისტრის სიმბოლოები!'
+                }
               }
             },
           },

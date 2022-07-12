@@ -23,8 +23,11 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
     setInfoText(biography)
     setSelectedId(id)
 
-    if (image) setInfoImage(image)
-    else setInfoImage(imageArray[index] || imageArray[0])
+    if (image) {
+      setInfoImage(image)
+    } else {
+      setInfoImage(imageArray[index] || imageArray[0])
+    }
 
     setColor(color)
   }

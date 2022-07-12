@@ -3,9 +3,9 @@ import { AllLinks } from 'pages/SocialLinks/types'
 import { fetchSocialLinks } from 'helper/index'
 import { useEffect, useState } from 'react'
 import {
-  Links,
-  AddLinkForm,
   ChangeLinkForm,
+  AddLinkForm,
+  Links,
 } from 'pages/SocialLinks/components'
 
 const SocialLinks = () => {
@@ -23,9 +23,13 @@ const SocialLinks = () => {
 
   let title = ''
 
-  if (section === '') title = 'სოციალური ბმულები'
-  else if (section === 'addLink') title = 'დაამატე სოციალური ბმული'
-  else title = 'შეცვალე სოციალური ბმული'
+  if (section === '') {
+    title = 'სოციალური ბმულები'
+  } else if (section === 'addLink') {
+    title = 'დაამატე სოციალური ბმული'
+  } else {
+    title = 'შეცვალე სოციალური ბმული'
+  }
 
   return (
     <SectionWrapper title={title}>

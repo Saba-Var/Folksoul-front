@@ -3,6 +3,7 @@ import { CloseIcon } from 'components/svgs'
 
 const Modal: React.FC<ModalProps> = (props) => {
   const { title, setShowModal, children } = props
+
   const closeModal = () => setShowModal(false)
 
   return (

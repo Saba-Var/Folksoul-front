@@ -16,11 +16,11 @@ const DetailsModal: React.FC<DetailModal> = (props) => {
             }}
           >
             <img
-              src={avatar}
-              alt='avatar icon'
               className={`${
                 image && 'w-full h-full'
               } hover:scale-105 transition-transform`}
+              alt='avatar icon'
+              src={avatar}
             />
           </div>
         </div>

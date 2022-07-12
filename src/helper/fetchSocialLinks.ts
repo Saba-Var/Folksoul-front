@@ -7,14 +7,21 @@ const fetchSocialLinks = async (
   setIsLoading?: SetIsLoading
 ) => {
   try {
-    if (setIsLoading) setIsLoading(true)
+    if (setIsLoading) {
+      setIsLoading(true)
+    }
+
     const res = await axios.get(process.env.REACT_APP_GET_ALL_LINK!, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
     })
+
     if (res.status === 200) {
-      if (setIsLoading) setIsLoading(false)
+      if (setIsLoading) {
+        setIsLoading(false)
+      }
+
       return setSocialLinks(res.data)
     }
   } catch (error: any) {

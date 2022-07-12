@@ -15,7 +15,10 @@ const Section: React.FC<SectionProps> = (props) => {
       return navigate('/')
     }
 
-    if (link === 'Members') return navigate('/Dashboard/Members?page=1')
+    if (link === 'Members') {
+      return navigate('/Dashboard/Members?page=1')
+    }
+
     navigate(currentURL)
   }
 

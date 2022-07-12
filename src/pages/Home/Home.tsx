@@ -31,8 +31,9 @@ const Home = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (localStorage.getItem('token')) navigate('/Dashboard/Main')
-    else {
+    if (localStorage.getItem('token')) {
+      navigate('/Dashboard/Main')
+    } else {
       fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
       setInfoText(bandInfo)
       setInfoImage(image)

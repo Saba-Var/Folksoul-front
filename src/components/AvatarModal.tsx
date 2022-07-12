@@ -21,8 +21,11 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
   const [fetchError, setFetchError] = useState(false)
 
   const fileChangeHandler = (e: any) => {
-    if (e.target.files[0]?.type.startsWith('image')) setFile(e.target.files[0])
-    else setErrorAlert(true)
+    if (e.target.files[0]?.type.startsWith('image')) {
+      setFile(e.target.files[0])
+    } else {
+      setErrorAlert(true)
+    }
   }
 
   const imageUploadHandler = async () => {
@@ -98,6 +101,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
                 >
                   ატვირთე
                 </span>
+
                 <input
                   onChange={fileChangeHandler}
                   data-cy='MemberAvatarInput'
@@ -108,9 +112,9 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
             {file && (
               <button
-                data-cy='SaveBtn'
                 className='greenBtn animate-fade-in'
                 onClick={imageUploadHandler}
+                data-cy='SaveBtn'
               >
                 შეინახე
               </button>

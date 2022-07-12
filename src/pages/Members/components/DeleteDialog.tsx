@@ -19,7 +19,9 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   const currentPage = +pageParam.get('page')!
   let fetchPage = currentPage
 
-  if (membersData.length === 1 && currentPage > 1) fetchPage = currentPage - 1
+  if (membersData.length === 1 && currentPage > 1) {
+    fetchPage = currentPage - 1
+  }
 
   const closeModal = () => setShowModal(false)
 

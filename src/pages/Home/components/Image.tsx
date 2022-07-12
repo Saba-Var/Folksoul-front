@@ -5,12 +5,12 @@ const Image: React.FC<ImageProps> = (props) => {
 
   return (
     <div
-      style={{
-        backgroundColor: color || 'black',
-      }}
       className={`w-[75px] h-[75px] ${
         isSelected && '!w-[100px] !h-full'
       } flex justify-center rounded-full overflow-hidden relative`}
+      style={{
+        backgroundColor: color || 'black',
+      }}
     >
       {!image && (
         <img

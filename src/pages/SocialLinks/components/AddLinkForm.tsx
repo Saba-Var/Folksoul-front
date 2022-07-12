@@ -17,10 +17,10 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
   const [showModal, setShowModal] = useState(false)
 
   const {
-    watch,
-    register,
     handleSubmit,
+    register,
     setValue,
+    watch,
     formState: { errors },
   } = useForm({
     mode: 'all',
@@ -52,7 +52,9 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
         fetchSocialLinks(setFetchError, setLinks)
       }
     } catch (error: any) {
-      if (error.response.status === 409) setErrorAlert(true)
+      if (error.response.status === 409) {
+        setErrorAlert(true)
+      }
       setFetchError(true)
     }
   }

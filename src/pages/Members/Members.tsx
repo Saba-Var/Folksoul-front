@@ -4,10 +4,10 @@ import { fetchMembersData } from 'helper/index'
 import { useEffect, useState } from 'react'
 import { MemberData } from 'types'
 import {
-  NoMembers,
-  Cards,
-  AddMember,
   ChangeMember,
+  NoMembers,
+  AddMember,
+  Cards,
 } from 'pages/Members/components'
 
 const memberModel = {
@@ -43,7 +43,7 @@ const Members = () => {
     if (!pageParam.get('page')) navigate('/Dashboard/Members?page=1')
   }, [navigate, pageParam])
 
-  let emptyBand = membersData.paginationInfo.totalMembers === 0
+  let emptyBand = membersData.members.length === 0
 
   useEffect(() => {
     fetchMembersData(setErrorAlert, setMembersData, setIsLoading, 1)
@@ -54,9 +54,13 @@ const Members = () => {
 
   let title = ''
 
-  if (section === '') title = 'ბენდის წევრები'
-  else if (section === 'addMember') title = 'დაამატე ჯგუფის ახალი წევრი'
-  else title = 'შეცვალე წევრის ინფორმაცია'
+  if (section === '') {
+    title = 'ბენდის წევრები'
+  } else if (section === 'addMember') {
+    title = 'დაამატე ჯგუფის ახალი წევრი'
+  } else {
+    title = 'შეცვალე წევრის ინფორმაცია'
+  }
 
   return (
     <SectionWrapper title={title}>
@@ -64,8 +68,8 @@ const Members = () => {
         {errorAlert && (
           <ErrorAlert
             title='ინფორმაცია ვერ მოიძებნა'
-            styles='top-[5%] left-[53%]'
             setShowAlert={setErrorAlert}
+            styles='top-[5%] left-[53%]'
           />
         )}
 

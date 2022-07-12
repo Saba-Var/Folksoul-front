@@ -2,11 +2,11 @@ import { NavigationProps } from 'pages/Dashboard/components/types'
 import { Section } from 'pages/Dashboard/components/index'
 import React from 'react'
 import {
-  HomeIcon,
+  YoutubeIcon,
   LogOutIcon,
   MemberIcon,
+  HomeIcon,
   NoteIcon,
-  YoutubeIcon,
 } from 'components/svgs'
 
 const Navigation: React.FC<NavigationProps> = (props) => {

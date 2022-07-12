@@ -17,6 +17,7 @@ const fetchMembersData = async (
 
     if (res.status === 200) {
       setIsLoading(false)
+
       return setMembersData(res.data)
     }
   } catch (error: any) {
