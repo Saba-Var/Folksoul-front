@@ -41,7 +41,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
             alt='avatar icon'
             className={`top-[131px] ${
               currentMember?.image && 'w-full h-full rounded-full'
-            } animate-fade-in transition-transform  hover:scale-110`}
+            } animate-fade-in transition-transform hover:scale-110`}
           />
         </div>
 

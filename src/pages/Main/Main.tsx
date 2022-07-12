@@ -1,5 +1,5 @@
 import { WhiteWrapper } from 'components'
-import { Tv } from 'assets/images/index'
+import { Tv } from 'assets/images'
 
 const Main = () => {
   return (
