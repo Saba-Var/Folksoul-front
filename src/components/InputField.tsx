@@ -1,5 +1,5 @@
 import { InputFieldProps } from 'components/types'
-import { isWordGeorgian } from 'helper/index'
+import { isWordGeorgian } from 'helpers/index'
 
 const InputField: React.FC<InputFieldProps> = (props) => {
   const { inputName, type, placeholder, register, minLength, errors } = props

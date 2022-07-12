@@ -1,7 +1,7 @@
 import { Header, Wrapper, Info, SolarSystem } from 'pages/Home/components'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { fetchBandAbout } from 'helper'
+import { fetchBandAbout } from 'helpers'
 import {
   BandMember1,
   BandMember2,

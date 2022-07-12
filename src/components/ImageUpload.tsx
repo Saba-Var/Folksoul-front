@@ -1,7 +1,7 @@
-import fetchSocialLinks from 'helper/fetchSocialLinks'
+import fetchSocialLinks from 'helpers/fetchSocialLinks'
 import { ImageUploadProps } from 'components/types'
 import { Modal, ErrorAlert } from 'components'
-import { fetchBandAbout } from 'helper'
+import { fetchBandAbout } from 'helpers'
 import { useState } from 'react'
 import axios from 'axios'
 

@@ -109,19 +109,79 @@ In order to see coverage of testing go to coverage/lcov-report and open index.ht
 │    ├── assets
 │    │   ├── fonts
 │    │   └── images
+│    │       └── image-name.png
+│    │       └── index.ts
 │    │
 │    ├── components
+│    │   ├── component-name.tsx
+│    │   ├── index.ts
+│    │   ├── types.d.ts
 │    │   └── svgs
+│    │       ├── svg-name.tsx
+│    │       ├── index.ts
+│    │       └── types.d.ts
+│    │
+│    ├── helpers
+│    │   ├── helper-name.ts
+│    │   └── types.d.ts
 │    │
 │    └── pages
 │        ├── About
+│        │   ├── components
+│        │   │   ├── component-name.tsx
+│        │   │   ├── index.ts
+│        │   │   └── types.d.ts
+│        │   ├── page-file.tsx
+│        │   ├── index.ts
+│        │   └── types.d.ts
+│        │
 │        ├── Dashboard
+│        │   ├── components
+│        │   │   ├── component-name.tsx
+│        │   │   └── index.ts
+│        │   ├── page-file.tsx
+│        │   └── index.ts
+│        │
 │        ├── Home
+│        │   ├── components
+│        │   │   ├── component-name.tsx
+│        │   │   ├── index.ts
+│        │   │   └── types.d.ts
+│        │   ├── page-file.tsx
+│        │   └── index.ts
+│        │
 │        ├── Login
+│        │   ├── components
+│        │   │   ├── component-name.tsx
+│        │   │   ├── index.ts
+│        │   │   └── types.d.ts
+│        │   ├── page-file.tsx
+│        │   └── index.ts
+│        │
 │        ├── Main
+│        │   ├── page-file.tsx
+│        │   └── index.ts
+│        │
 │        ├── Members
+│        │   ├── components
+│        │   │   ├── component-name.tsx
+│        │   │   ├── index.ts
+│        │   │   └── types.d.ts
+│        │   ├── page-file.tsx
+│        │   └── index.ts
+│        │
 │        └── SocialLinks
+│            ├── components
+│            │   ├── component-name.tsx
+│            │   ├── index.ts
+│            │   └── types.d.ts
+│            ├── page-file.tsx
+│            ├── index.ts
+│            └── types.d.ts
 
+
+- .babelrc
+- .env
 - .eslintrc.json
 - .gitignore
 - .prettierrc.json

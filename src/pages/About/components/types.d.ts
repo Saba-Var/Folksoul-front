@@ -1,4 +1,4 @@
-import { BandAbout } from 'helper/types'
+import { BandAbout } from 'helpers/types'
 
 type SetBandAbout = (data: BandAbout) => void
 

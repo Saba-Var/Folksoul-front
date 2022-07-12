@@ -1,7 +1,7 @@
 import { ChangeLinkProps, FormData } from 'pages/SocialLinks/components/types'
 import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
 import { DirectBtn, ErrorAlert } from 'components'
-import { fetchSocialLinks } from 'helper/index'
+import { fetchSocialLinks } from 'helpers/index'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'

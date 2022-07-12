@@ -2,7 +2,7 @@ import { DirectBtn, AddNotification, ErrorAlert } from 'components'
 import { EditInfoProps } from 'pages/About/components/types'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { fetchBandAbout } from 'helper'
+import { fetchBandAbout } from 'helpers'
 import axios from 'axios'
 
 const EditInfo: React.FC<EditInfoProps> = (props) => {

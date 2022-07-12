@@ -1,4 +1,4 @@
-import { SetMembersData, SetIsLoading, SetErrorAlert } from 'helper/types'
+import { SetMembersData, SetIsLoading, SetErrorAlert } from 'helpers/types'
 import axios from 'axios'
 
 const fetchMembersData = async (

@@ -3,7 +3,7 @@ import { SectionWrapper, ErrorAlert } from 'components'
 import { BandData } from 'pages/About/types'
 import { useEffect, useState } from 'react'
 import { EditBtn } from 'components/svgs'
-import { fetchBandAbout } from 'helper'
+import { fetchBandAbout } from 'helpers'
 
 const About = () => {
   const [bandAbout, setBandAbout] = useState<BandData>([{ about: '', _id: '' }])

@@ -1,6 +1,6 @@
 import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
 import { DirectBtn, ErrorAlert } from 'components'
-import { fetchSocialLinks } from 'helper/index'
+import { fetchSocialLinks } from 'helpers/index'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import axios from 'axios'

@@ -1,6 +1,6 @@
 import { DeleteDialogProps } from 'pages/SocialLinks/components/types'
 import { DeleteContent, ErrorAlert } from 'components'
-import { fetchSocialLinks } from 'helper/index'
+import { fetchSocialLinks } from 'helpers/index'
 import { useState } from 'react'
 import axios from 'axios'
 

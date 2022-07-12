@@ -1,7 +1,7 @@
 import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
 import { Notifications, MemberInputs } from 'pages/Members/components'
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { fetchMembersData } from 'helper/index'
+import { fetchMembersData } from 'helpers/index'
 import { useForm } from 'react-hook-form'
 import { DirectBtn } from 'components'
 import { useState } from 'react'

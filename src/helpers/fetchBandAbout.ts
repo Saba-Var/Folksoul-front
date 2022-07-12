@@ -6,7 +6,7 @@ import {
   SetBandAbout,
   SetIsLoading,
   BandImage,
-} from 'helper/types'
+} from 'helpers/types'
 
 const fetchBandAbout = async (
   setErrorAlert: SetErrorAlert,
