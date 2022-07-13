@@ -1,4 +1,8 @@
-import { BandAbout } from 'helpers/types'
+type BandAbout = {
+  image?: string | undefined
+  about: string
+  _id: string
+}[]
 
 type SetBandAbout = (data: BandAbout) => void
 
