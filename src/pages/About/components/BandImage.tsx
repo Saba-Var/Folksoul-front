@@ -22,7 +22,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
 
         {iconModal && (
           <ImageUpload
-            url={process.env.REACT_APP_UPLOAD_BAND_IMAGE!}
+            url={process.env.REACT_APP_API_BASE_URL! + '/upload-band-image'}
             title='შეცვალე ბენდის პორტრეტი'
             setImageModal={setIconModal}
             setLinks={setBandAbout}

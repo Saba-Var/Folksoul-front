@@ -19,7 +19,9 @@ const fetchBandAbout = async (
       setIsLoading(true)
     }
 
-    const res = await axios.get(process.env.REACT_APP_GET_BAND_ABOUT!)
+    const res = await axios.get(
+      process.env.REACT_APP_API_BASE_URL! + '/band-about'
+    )
 
     if (res.status === 200) {
       if (setImage) {

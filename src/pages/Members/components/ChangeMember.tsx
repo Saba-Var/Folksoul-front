@@ -30,7 +30,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const fetchOneMember = useCallback(async () => {
     try {
       const response = await axios.post(
-        process.env.REACT_APP_GET_ONE_MEMBERS!,
+        process.env.REACT_APP_API_BASE_URL! + '/get-one-member',
         {
           id: id,
         },
@@ -72,7 +72,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
       }
 
       const response = await axios.put(
-        process.env.REACT_APP_CHANGE_MEMBER!,
+        process.env.REACT_APP_API_BASE_URL! + '/change-member',
         data,
         {
           headers: {

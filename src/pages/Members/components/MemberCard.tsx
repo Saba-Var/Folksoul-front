@@ -55,7 +55,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
         {avatarModal && (
           <AvatarModal
-            url={process.env.REACT_APP_UPLOAD_MEMBER_IMAGE!}
+            url={process.env.REACT_APP_API_BASE_URL! + '/upload-member-image'}
             setMembersData={setMembersData}
             setAvatarModal={setAvatarModal}
             currentMember={currentMember}

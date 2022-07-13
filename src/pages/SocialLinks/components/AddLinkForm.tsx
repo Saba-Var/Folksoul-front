@@ -36,7 +36,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
       const response = await axios({
         method: 'post',
-        url: process.env.REACT_APP_ADD_LINK!,
+        url: process.env.REACT_APP_API_BASE_URL! + '/add-social-link',
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },

@@ -32,7 +32,7 @@ const LoginForm = () => {
 
       let response = await axios({
         method: 'post',
-        url: process.env.REACT_APP_AUTHENTICATION,
+        url: process.env.REACT_APP_API_BASE_URL + '/auth',
         headers: {
           'Content-Type': 'application/json',
           accept: 'application/json',

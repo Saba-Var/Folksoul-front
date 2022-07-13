@@ -13,15 +13,18 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteLink = async () => {
     try {
-      const res = await axios.delete(process.env.REACT_APP_DELETE_LINK!, {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
+      const res = await axios.delete(
+        process.env.REACT_APP_API_BASE_URL! + '/delete-link',
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
 
-        data: {
-          id,
-        },
-      })
+          data: {
+            id,
+          },
+        }
+      )
 
       if (res.status === 200) {
         fetchSocialLinks(setError, setLinks)

@@ -21,7 +21,7 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
   return (
     <>
       <MemberForm
-        url={process.env.REACT_APP_ADD_MEMBER!}
+        url={process.env.REACT_APP_API_BASE_URL! + '/add-member'}
         setMembersData={setMembersData}
         setIsLoading={setIsLoading}
         setAddMember={setAddMember}

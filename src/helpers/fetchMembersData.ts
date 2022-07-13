@@ -10,8 +10,8 @@ const fetchMembersData = async (
   setIsLoading(true)
   try {
     const url = page
-      ? `${process.env.REACT_APP_GET_ALL_MEMBERS}?page=${page}`
-      : process.env.REACT_APP_GET_ALL_MEMBERS
+      ? `${process.env.REACT_APP_API_BASE_URL}/all-members?page=${page}`
+      : process.env.REACT_APP_API_BASE_URL + '/all-members'
 
     const res = await axios.get(url!)
 

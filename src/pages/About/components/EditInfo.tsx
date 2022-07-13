@@ -27,7 +27,7 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
       }
 
       const response = await axios.put(
-        process.env.REACT_APP_CHANGE_BAND!,
+        process.env.REACT_APP_API_BASE_URL! + '/change-band-about',
         data,
         {
           headers: {
