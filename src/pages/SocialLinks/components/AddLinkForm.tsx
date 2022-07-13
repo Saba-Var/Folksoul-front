@@ -34,14 +34,16 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
     try {
       const linkDetails = data
 
-      const response = await axios({
-        method: 'post',
-        url: process.env.REACT_APP_API_BASE_URL! + '/add-social-link',
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-        data: linkDetails,
-      })
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL!}/add-social-link`,
+        linkDetails,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
+          },
+        }
+      )
 
       if (response.status === 201) {
         setShowModal(true)

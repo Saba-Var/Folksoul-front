@@ -23,52 +23,46 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
   let fetchPage = currentPage || 1
 
   const {
-    register,
-    handleSubmit,
-    setValue,
     formState: { errors },
+    handleSubmit,
+    register,
+    setValue,
   } = useForm({
     mode: 'all',
     defaultValues: details,
   })
 
-  const submitHandler = (data: MemberIfo) => {
+  const submitHandler = async (data: MemberIfo) => {
     const memberDetails = data
     memberDetails.orbitLength = +memberDetails.orbitLength
 
-    const fetch = async () => {
-      try {
-        const response = await axios({
-          method: 'post',
-          url: url,
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-          data: memberDetails,
-        })
+    try {
+      const response = await axios.post(url, memberDetails, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      })
 
-        if (response.status === 201) {
-          setValue('orbitLength', '')
-          setValue('instrument', '')
-          setValue('biography', '')
-          setValue('color', '')
-          setValue('name', '')
+      if (response.status === 201) {
+        setValue('orbitLength', '')
+        setValue('instrument', '')
+        setValue('biography', '')
+        setValue('color', '')
+        setValue('name', '')
 
-          fetchMembersData(() => {}, setMembersData, setIsLoading, fetchPage)
-          navigate(`/Dashboard/Members?page=${fetchPage}`)
+        fetchMembersData(() => {}, setMembersData, setIsLoading, fetchPage)
+        navigate(`/Dashboard/Members?page=${fetchPage}`)
 
-          setShowModal(true)
-          setShowErrorAlert(false)
-        }
-      } catch (error: any) {
-        const statusCode = error.response.status
-
-        setStatusCode(statusCode)
-
-        setShowErrorAlert(true)
+        setShowModal(true)
+        setShowErrorAlert(false)
       }
+    } catch (error: any) {
+      const statusCode = error.response.status
+
+      setStatusCode(statusCode)
+
+      setShowErrorAlert(true)
     }
-    fetch()
   }
 
   return (

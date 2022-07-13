@@ -30,18 +30,13 @@ const LoginForm = () => {
     try {
       setShowAlert(false)
 
-      let response = await axios({
-        method: 'post',
-        url: process.env.REACT_APP_API_BASE_URL + '/auth',
-        headers: {
-          'Content-Type': 'application/json',
-          accept: 'application/json',
-        },
-        data: JSON.stringify({
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/auth`,
+        {
           username: userData.username,
           password: userData.password,
-        }),
-      })
+        }
+      )
 
       if (response.status === 201) {
         setExitAnimation(true)
@@ -51,7 +46,8 @@ const LoginForm = () => {
           navigate('/Dashboard/Main')
         }, 700)
       }
-    } catch (error) {
+    } catch (error: any) {
+      console.log(error)
       setShowAlert(true)
     }
   }

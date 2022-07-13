@@ -64,7 +64,6 @@ export type AddMemberProps = {
   setIsLoading: SetIsLoading
   membersData: MembersInfo
   setSection: setSection
-  memberCount: number
 }
 
 export type MemberIfo = {

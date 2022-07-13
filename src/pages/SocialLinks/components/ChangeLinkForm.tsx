@@ -35,13 +35,13 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
       const { linkName, url } = formData
 
       const data = {
-        id,
         linkName,
         url,
+        id,
       }
 
       const response = await axios.put(
-        process.env.REACT_APP_API_BASE_URL! + '/change-link',
+        `${process.env.REACT_APP_API_BASE_URL!}/change-link`,
         data,
         {
           headers: {

@@ -95,7 +95,6 @@ const Members = () => {
 
         {section === 'addMember' && (
           <AddMember
-            memberCount={membersData.paginationInfo.totalMembers}
             membersData={membersData.members}
             setMembersData={setMembersData}
             setAddMember={setAddMember}
