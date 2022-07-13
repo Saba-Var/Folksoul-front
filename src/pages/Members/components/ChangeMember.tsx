@@ -29,11 +29,8 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
   const fetchOneMember = useCallback(async () => {
     try {
-      const response = await axios.post(
-        process.env.REACT_APP_API_BASE_URL! + '/get-one-member',
-        {
-          id: id,
-        },
+      const response = await axios.get(
+        process.env.REACT_APP_API_BASE_URL! + `/get-one-member?id=${id}`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token'),
