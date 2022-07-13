@@ -1,5 +1,7 @@
+import { UseFormRegister } from 'react-hook-form'
+
 export type InputFieldProps = {
-  register: UseFormRegister<FieldValues>
+  register: UseFormRegister<{ username: string; password: string }>
   placeholder: string
   showError: boolean
   type: string
