@@ -32,4 +32,5 @@ export type ImageProps = {
   image: string | undefined
   isLoading: boolean
   styles: string
+  file?: any
 }

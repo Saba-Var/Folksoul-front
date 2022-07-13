@@ -5,19 +5,15 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
-  const { setFileExists, id, url, title, setLinks, setImageModal, children } =
+  const { setImageModal, children, setLinks, setFile, title, file, url, id } =
     props
 
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
 
-  const [file, setFile] = useState('')
-
   const fileChangeHandler = (e: any) => {
     if (e.target.files[0]?.type.startsWith('image')) {
       setFile(e.target.files[0])
-
-      setFileExists && setFileExists(true)
     } else {
       setErrorAlert(true)
     }
@@ -46,6 +42,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
         }
 
         setImageModal(false)
+        setFile('')
       }
     } catch (error: any) {
       setFetchError(true)
@@ -53,7 +50,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   }
 
   return (
-    <Modal title={`${title}`} setShowModal={setImageModal}>
+    <Modal title={`${title}`} setShowModal={setImageModal} setFile={setFile}>
       <div className={`h-[500px] py-10`}>
         {errorAlert && (
           <ErrorAlert

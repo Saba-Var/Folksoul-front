@@ -15,7 +15,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
     id,
   } = props
 
-  const [file, setFile] = useState('')
+  const [file, setFile] = useState<any>('')
 
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
@@ -50,6 +50,12 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
     } catch (error: any) {
       setFetchError(true)
     }
+  }
+
+  let imageSrc = avatar
+
+  if (file) {
+    imageSrc = URL.createObjectURL(file)
   }
 
   return (
@@ -87,9 +93,11 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
               <img
                 className={`w-20 h-28 ${
                   currentMember?.image && '!w-full !h-full'
-                } transition-transform hover:scale-110`}
+                } transition-transform hover:scale-110 ${
+                  file && 'w-full !h-56'
+                }`}
                 alt='avatar icon'
-                src={avatar}
+                src={imageSrc}
               />
             </div>
 

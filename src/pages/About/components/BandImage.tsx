@@ -9,6 +9,8 @@ const BandImage: React.FC<BandImageProps> = (props) => {
 
   const [iconModal, setIconModal] = useState(false)
 
+  const [file, setFile] = useState<any>('')
+
   return (
     <div>
       <div className={`mx-auto w-44 h-44 relative`}>
@@ -26,10 +28,17 @@ const BandImage: React.FC<BandImageProps> = (props) => {
             title='შეცვალე ბენდის პორტრეტი'
             setImageModal={setIconModal}
             setLinks={setBandAbout}
+            setFile={setFile}
+            file={file}
             id={id}
           >
             <div className='flex flex-col h-full justify-between  pb-[20%] items-center'>
-              <Image isLoading={isLoading} image={image} styles='!w-60 !h-60' />
+              <Image
+                isLoading={isLoading}
+                styles='!w-60 !h-60'
+                image={image}
+                file={file}
+              />
             </div>
           </ImageUpload>
         )}

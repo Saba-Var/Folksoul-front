@@ -6,8 +6,15 @@ import { useState } from 'react'
 const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
   const { image, id, linkName, setLinks } = props
 
-  const [fileExists, setFileExists] = useState(false)
   const [iconModal, setIconModal] = useState(false)
+
+  const [file, setFile] = useState<any>('')
+
+  let imageSrc = `${process.env.REACT_APP_API_BASE_URL}/${image}`
+
+  if (file) {
+    imageSrc = URL.createObjectURL(file)
+  }
 
   return (
     <div className='w-11 relative h-9'>
@@ -31,9 +38,10 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
         <ImageUpload
           url={process.env.REACT_APP_API_BASE_URL! + '/upload-link-image'}
           title='შეცვალე სოციალური ბმულის ხატულა'
-          setFileExists={setFileExists}
           setImageModal={setIconModal}
           setLinks={setLinks}
+          setFile={setFile}
+          file={file}
           id={id}
         >
           <div className='flex flex-col h-full justify-between pt-8  pb-[20%] items-center'>
@@ -41,12 +49,12 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
               {linkName}
             </p>
 
-            {image && (
+            {(image || file) && (
               <img
                 className={`w-60 h-44 animate-slit-in-vertical ${
-                  fileExists && 'border-[3px] rounded-3xl border-green'
+                  file && 'border-[3px] rounded-3xl border-green'
                 }`}
-                src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
+                src={imageSrc}
                 alt='social link icon'
               />
             )}

@@ -15,6 +15,7 @@ export type SectionWrapperProps = {
 }
 
 export type ModalProps = {
+  setFile?: (file: string) => void
   children: JSX.Element
   setShowModal: Show
   title: string
@@ -42,11 +43,12 @@ export type InputFieldProps = {
 }
 
 export type ImageUploadProps = {
-  setFileExists?: (exist: boolean) => void
+  setFile: (file: string) => void
   children: JSX.Element
   setImageModal: Show
   setLinks: setLinks
   title: string
+  file: string
   url: string
   id: string
 }

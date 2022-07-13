@@ -3,7 +3,13 @@ import { PurpleBackground } from 'components'
 import { Logo } from 'components/svgs'
 
 const Image: React.FC<ImageProps> = (props) => {
-  const { image, isLoading, styles } = props
+  const { image, isLoading, styles, file } = props
+
+  let imageSrc = `${process.env.REACT_APP_API_BASE_URL}/${image}`
+
+  if (file) {
+    imageSrc = URL.createObjectURL(file)
+  }
 
   return (
     <>
@@ -19,7 +25,7 @@ const Image: React.FC<ImageProps> = (props) => {
       {image && (
         <img
           className={`rounded-full animate-slit-in-vertical  w-44 h-44 shadow-5xl border-[5px] border-solidBlue ${styles}`}
-          src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
+          src={imageSrc}
           alt='band'
         />
       )}
