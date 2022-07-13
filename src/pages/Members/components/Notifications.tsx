@@ -8,11 +8,9 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
     setShowModal,
     statusCode,
     showModal,
-    action,
   } = props
 
-  const modalText =
-    action === 'ADD' ? 'ბენდს ახალი წევრი შეემატა' : 'წევრის იფორმაცია შეიცვალა'
+  const modalText = 'წევრის იფორმაცია შეიცვალა'
 
   return (
     <>

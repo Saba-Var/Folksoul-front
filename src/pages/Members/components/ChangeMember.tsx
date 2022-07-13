@@ -111,7 +111,6 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         setShowModal={setShowModal}
         statusCode={statusCode}
         showModal={showModal}
-        action={'CHANGE'}
       />
 
       <form

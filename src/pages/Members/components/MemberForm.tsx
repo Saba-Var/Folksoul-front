@@ -1,15 +1,14 @@
 import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
 import { Notifications, MemberInputs } from 'pages/Members/components'
-import { useSearchParams, useNavigate } from 'react-router-dom'
 import { fetchMembersData } from 'helpers/index'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { DirectBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
-  const { details, url, setMembersData, setIsLoading, action, setSection } =
-    props
+  const { details, url, setMembersData, setIsLoading, setSection } = props
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -17,10 +16,6 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
   const [statusCode, setStatusCode] = useState(404)
 
   const navigate = useNavigate()
-  const [pageParam] = useSearchParams()
-
-  const currentPage = +pageParam.get('page')!
-  let fetchPage = currentPage || 1
 
   const {
     formState: { errors },
@@ -50,10 +45,9 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         setValue('color', '')
         setValue('name', '')
 
-        fetchMembersData(() => {}, setMembersData, setIsLoading, fetchPage)
-        navigate(`/Dashboard/Members?page=${fetchPage}`)
-
-        setShowModal(true)
+        fetchMembersData(() => {}, setMembersData, setIsLoading, 1)
+        navigate(`/Dashboard/Members?page=1`)
+        setSection('')
         setShowErrorAlert(false)
       }
     } catch (error: any) {
@@ -73,7 +67,6 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         setShowModal={setShowModal}
         statusCode={statusCode}
         showModal={showModal}
-        action={action}
       />
 
       <form

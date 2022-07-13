@@ -46,12 +46,12 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
       )
 
       if (response.status === 201) {
-        setShowModal(true)
-
         setValue('linkName', '')
         setValue('url', '')
 
         fetchSocialLinks(setFetchError, setLinks)
+
+        setSection('')
       }
     } catch (error: any) {
       if (error.response.status === 409) {
@@ -72,11 +72,10 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
       )}
 
       <FormNotifications
-        title={`ბმული '${watch().linkName}' უკვე დამატებულია`}
-        successText='ბმული წარმატებით დაემატა'
         setErrorAlert={setErrorAlert}
         setShowModal={setShowModal}
         errorAlert={errorAlert}
+        name={watch().linkName}
         showModal={showModal}
       />
 

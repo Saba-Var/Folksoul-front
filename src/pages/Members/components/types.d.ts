@@ -124,7 +124,6 @@ export type NotificationsProps = {
   showErrorAlert: boolean
   showModal: boolean
   statusCode: number
-  action: string
 }
 
 export type MemberInputProps = {

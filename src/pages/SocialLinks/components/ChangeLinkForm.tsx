@@ -71,11 +71,10 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
       )}
 
       <FormNotifications
-        title={`ბმული '${watch().linkName}' უკვე დამატებულია`}
-        successText='ბმულის დეტალები შეიცვალა'
         setErrorAlert={setErrorAlert}
         setShowModal={setShowModal}
         errorAlert={errorAlert}
+        name={watch().linkName}
         showModal={showModal}
       />
 
