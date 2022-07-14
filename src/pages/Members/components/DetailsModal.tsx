@@ -1,4 +1,4 @@
-import { DetailModal } from 'pages/Members/components/types'
+import { DetailModal } from 'pages/Members/components'
 import { Modal } from 'components'
 
 const DetailsModal: React.FC<DetailModal> = (props) => {

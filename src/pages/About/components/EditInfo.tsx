@@ -1,5 +1,5 @@
 import { DirectBtn, AddNotification, ErrorAlert } from 'components'
-import { EditInfoProps } from 'pages/About/components/types'
+import { EditInfoProps } from 'pages/About/components'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { fetchBandAbout } from 'helpers'

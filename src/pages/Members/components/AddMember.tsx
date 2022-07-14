@@ -1,5 +1,4 @@
-import { AddMemberProps } from 'pages/Members/components/types'
-import { MemberForm } from 'pages/Members/components'
+import { MemberForm, AddMemberProps } from 'pages/Members/components'
 
 const AddMember: React.FC<AddMemberProps> = (props) => {
   const {

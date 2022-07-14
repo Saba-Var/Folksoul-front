@@ -1,4 +1,4 @@
-import { EditBtnProps } from 'components/svgs/types'
+import { EditBtnProps } from 'components'
 
 const EditBtn: React.FC<EditBtnProps> = (props) => {
   const { setSection } = props

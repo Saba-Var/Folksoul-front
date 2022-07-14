@@ -1,4 +1,4 @@
-import { SectionProps } from 'pages/Dashboard/components/types'
+import { SectionProps } from 'pages/Dashboard/components'
 import { useNavigate } from 'react-router-dom'
 
 const Section: React.FC<SectionProps> = (props) => {

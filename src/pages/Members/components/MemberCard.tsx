@@ -1,7 +1,10 @@
 import { GreenBtn, AvatarModal, YellowBtn, CameraBtn } from 'components'
-import { DeleteMember, DetailsModal } from 'pages/Members/components'
-import { MemberCardProps } from 'pages/Members/components/types'
 import { useState } from 'react'
+import {
+  DeleteMember,
+  DetailsModal,
+  MemberCardProps,
+} from 'pages/Members/components'
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
   const { membersData, id, avatar, name, setSection, setMemberId } = props

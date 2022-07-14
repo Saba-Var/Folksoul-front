@@ -1,4 +1,4 @@
-import { ImageProps } from 'pages/Home/components/types'
+import { ImageProps } from 'pages/Home/components'
 
 const Image: React.FC<ImageProps> = (props) => {
   const { color, isSelected, image, imageArray, index } = props

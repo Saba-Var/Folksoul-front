@@ -1,4 +1,4 @@
-import { StyleProp } from 'components/svgs/types'
+import { StyleProp } from 'components'
 
 const CameraBtn: React.FC<StyleProp> = (props) => {
   const { styles } = props

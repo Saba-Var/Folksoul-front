@@ -1,5 +1,5 @@
-import { SolarSystemProps } from 'pages/Home/components/types'
 import { MemberImage, Sunote } from 'pages/Home/components'
+import { SolarSystemProps } from 'pages/Home/components'
 import React, { useEffect, useState } from 'react'
 import { fetchMembersData } from 'helpers'
 

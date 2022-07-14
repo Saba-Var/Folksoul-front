@@ -1,5 +1,4 @@
-import { PaginationLink } from 'pages/Members/components'
-import { CardData } from './types'
+import { PaginationLink, CardData } from 'pages/Members/components'
 
 const Pagination: React.FC<CardData> = (props) => {
   const { data } = props

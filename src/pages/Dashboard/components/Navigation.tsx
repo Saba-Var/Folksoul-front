@@ -1,5 +1,4 @@
-import { NavigationProps } from 'pages/Dashboard/components/types'
-import { Section } from 'pages/Dashboard/components/index'
+import { NavigationProps, Section } from 'pages/Dashboard/components'
 import React from 'react'
 import {
   YoutubeIcon,
@@ -13,8 +12,8 @@ const Navigation: React.FC<NavigationProps> = (props) => {
   const { section, setSection } = props
 
   const sectionUtils = {
-    section,
     setSection,
+    section,
   }
 
   return (

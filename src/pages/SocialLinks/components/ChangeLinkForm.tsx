@@ -1,10 +1,14 @@
-import { ChangeLinkProps, FormData } from 'pages/SocialLinks/components/types'
-import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
 import { DirectBtn, ErrorAlert } from 'components'
-import { fetchSocialLinks } from 'helpers/index'
 import { useEffect, useState } from 'react'
+import { fetchSocialLinks } from 'helpers'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
+import {
+  FormNotifications,
+  ChangeLinkProps,
+  LinkInput,
+  FormData,
+} from 'pages/SocialLinks/components'
 
 const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
   const { links, id, setLinks, setSection } = props

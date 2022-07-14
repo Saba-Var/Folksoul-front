@@ -1,4 +1,4 @@
-import { ChangeIconProps } from 'pages/SocialLinks/components/types'
+import { ChangeIconProps } from 'pages/SocialLinks/components'
 import { ImageUpload, CameraBtn } from 'components'
 import { useState } from 'react'
 

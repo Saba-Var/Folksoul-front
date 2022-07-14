@@ -1,4 +1,4 @@
-import { DetailsProps } from 'pages/SocialLinks/components/types'
+import { DetailsProps } from 'pages/SocialLinks/components'
 
 const Details: React.FC<DetailsProps> = (props) => {
   const { linkName, url } = props

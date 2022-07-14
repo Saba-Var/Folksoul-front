@@ -1,4 +1,4 @@
-import { DeleteContentProps } from 'components/types'
+import { DeleteContentProps } from 'components'
 
 const DeleteContent: React.FC<DeleteContentProps> = (props) => {
   const { text, closeModal, deleteMember } = props

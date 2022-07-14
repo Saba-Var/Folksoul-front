@@ -1,4 +1,4 @@
-import { AvatarModalProps } from 'pages/Members/components/types'
+import { AvatarModalProps } from 'pages/Members/components'
 import fetchMembersData from 'helpers/fetchMembersData'
 import { Modal, ErrorAlert } from 'components'
 import { useState } from 'react'

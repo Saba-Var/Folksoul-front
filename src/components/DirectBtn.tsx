@@ -1,4 +1,4 @@
-import { DirectBtnProps } from 'components/types'
+import { DirectBtnProps } from 'components'
 
 const DirectBtn: React.FC<DirectBtnProps> = (props) => {
   const { title, direction, goTo } = props

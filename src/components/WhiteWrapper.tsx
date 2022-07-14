@@ -1,4 +1,4 @@
-import { WhiteWrapperProps } from 'components/types'
+import { WhiteWrapperProps } from 'components'
 
 const WhiteWrapper: React.FC<WhiteWrapperProps> = (props) => {
   const { children } = props

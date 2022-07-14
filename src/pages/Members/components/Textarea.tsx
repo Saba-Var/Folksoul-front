@@ -1,4 +1,4 @@
-import { TextareaProps } from 'pages/Members/components/types'
+import { TextareaProps } from 'pages/Members/components'
 import { isWordGeorgian } from 'helpers'
 
 const Textarea: React.FC<TextareaProps> = (props) => {

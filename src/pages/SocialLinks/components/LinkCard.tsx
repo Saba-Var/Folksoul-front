@@ -1,6 +1,10 @@
-import { DeleteLink, Details, ChangeIcon } from 'pages/SocialLinks/components'
-import { LinksData } from 'pages/SocialLinks/components/types'
 import { YellowBtn } from 'components'
+import {
+  DeleteLink,
+  Details,
+  ChangeIcon,
+  LinksData,
+} from 'pages/SocialLinks/components'
 
 const LinkCard: React.FC<LinksData> = (props) => {
   const { links, setLinks, setLinkId, setSection } = props

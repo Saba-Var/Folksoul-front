@@ -1,4 +1,4 @@
-import { NotificationsProps } from 'pages/Members/components/types'
+import { NotificationsProps } from 'pages/Members/components'
 import { ErrorAlert, AddNotification } from 'components'
 
 const Notifications: React.FC<NotificationsProps> = (props) => {

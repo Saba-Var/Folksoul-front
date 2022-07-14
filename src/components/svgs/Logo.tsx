@@ -1,4 +1,4 @@
-import { StyleProp } from 'components/svgs/types'
+import { StyleProp } from 'components'
 import React from 'react'
 
 const Logo: React.FC<StyleProp> = (props) => {

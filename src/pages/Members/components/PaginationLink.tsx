@@ -1,4 +1,4 @@
-import { PaginationLinkProps } from 'pages/Members/components/types'
+import { PaginationLinkProps } from 'pages/Members/components'
 import { useSearchParams, Link } from 'react-router-dom'
 import fetchMembersData from 'helpers/fetchMembersData'
 import { ErrorAlert } from 'components'

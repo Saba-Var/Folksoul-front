@@ -1,4 +1,4 @@
-import { SunProps } from 'components/svgs/types'
+import { SunProps } from 'components'
 
 const Sun: React.FC<SunProps> = (props) => {
   const { pause } = props

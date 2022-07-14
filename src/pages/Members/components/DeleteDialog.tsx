@@ -1,4 +1,4 @@
-import { DeleteDialogProps } from 'pages/Members/components/types'
+import { DeleteDialogProps } from 'pages/Members/components'
 import fetchMembersData from 'helpers/fetchMembersData'
 import { DeleteContent, ErrorAlert } from 'components'
 import { useSearchParams } from 'react-router-dom'

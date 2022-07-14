@@ -1,5 +1,4 @@
-import { BandInfoProps } from 'pages/About/components/types'
-import { BandImage } from 'pages/About/components'
+import { BandImage, BandInfoProps } from 'pages/About/components'
 
 const BandInfo: React.FC<BandInfoProps> = (props) => {
   const { setBandAbout, isLoading, image, id, about } = props

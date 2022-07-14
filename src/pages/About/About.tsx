@@ -1,8 +1,8 @@
 import { SectionWrapper, ErrorAlert, EditBtn } from 'components'
 import { BandInfo, EditInfo } from 'pages/About/components'
-import { BandData } from 'pages/About/types'
 import { useEffect, useState } from 'react'
 import { fetchBandAbout } from 'helpers'
+import { BandData } from 'pages/About'
 
 const About = () => {
   const [bandAbout, setBandAbout] = useState<BandData>([{ about: '', _id: '' }])

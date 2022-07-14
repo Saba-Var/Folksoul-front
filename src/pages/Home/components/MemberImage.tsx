@@ -1,5 +1,4 @@
-import { MemberImageProps } from 'pages/Home/components/types'
-import { Image } from 'pages/Home/components'
+import { MemberImageProps, Image } from 'pages/Home/components'
 
 const MemberImage: React.FC<MemberImageProps> = (props) => {
   const {

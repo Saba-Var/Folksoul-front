@@ -1,4 +1,4 @@
-import { ImageProps } from 'pages/About/components/types'
+import { ImageProps } from 'pages/About/components'
 import { PurpleBackground, Logo } from 'components'
 
 const Image: React.FC<ImageProps> = (props) => {

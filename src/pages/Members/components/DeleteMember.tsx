@@ -1,5 +1,4 @@
-import { DeleteMemberProps } from 'pages/Members/components/types'
-import { DeleteDialog } from 'pages/Members/components'
+import { DeleteDialog, DeleteMemberProps } from 'pages/Members/components'
 import { Modal, RedBtn } from 'components'
 import { useState } from 'react'
 

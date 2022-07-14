@@ -1,11 +1,15 @@
-import { MemberDetails, MemberIfo } from 'pages/Members/components/types'
-import { Notifications, MemberInputs } from 'pages/Members/components'
-import { fetchMembersData } from 'helpers/index'
 import { useNavigate } from 'react-router-dom'
+import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
 import { DirectBtn } from 'components'
 import { useState } from 'react'
 import axios from 'axios'
+import {
+  Notifications,
+  MemberInputs,
+  MemberDetails,
+  MemberIfo,
+} from 'pages/Members/components'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
   const { details, url, setMembersData, setIsLoading, setSection } = props

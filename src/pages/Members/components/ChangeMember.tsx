@@ -1,11 +1,14 @@
-import { Notifications, MemberInputs } from 'pages/Members/components'
-import { MemberInputProps } from 'pages/Members/components/types'
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { DirectBtn, ErrorAlert } from 'components'
 import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
+import {
+  Notifications,
+  MemberInputs,
+  MemberInputProps,
+} from 'pages/Members/components'
 
 const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const { setMembersData, setIsLoading, id, setSection } = props

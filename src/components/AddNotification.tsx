@@ -1,5 +1,4 @@
-import { AddNotificationProps } from 'components/types'
-import { Modal } from 'components'
+import { AddNotificationProps, Modal } from 'components'
 
 const AddNotification: React.FC<AddNotificationProps> = (props) => {
   const { setShowModal, title, modalText } = props

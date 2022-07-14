@@ -1,4 +1,4 @@
-import { SunoteProps } from 'pages/Home/components/types'
+import { SunoteProps } from 'pages/Home/components'
 import { Sun } from 'components'
 
 const Sunote: React.FC<SunoteProps> = (props) => {

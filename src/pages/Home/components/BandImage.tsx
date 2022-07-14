@@ -1,4 +1,4 @@
-import { BandImageProps } from 'pages/Home/components/types'
+import { BandImageProps } from 'pages/Home/components'
 import { PurpleBackground, Logo } from 'components'
 
 const BandImage: React.FC<BandImageProps> = (props) => {

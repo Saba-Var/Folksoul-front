@@ -1,5 +1,4 @@
-import { UserData } from 'pages/Login/components/types'
-import { InputField } from 'pages/Login/components'
+import { InputField, UserData } from 'pages/Login/components'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorAlert } from 'components'

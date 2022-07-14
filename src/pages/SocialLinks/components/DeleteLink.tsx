@@ -1,5 +1,4 @@
-import { DeleteLinkProps } from 'pages/SocialLinks/components/types'
-import { DeleteDialog } from 'pages/SocialLinks/components'
+import { DeleteLinkProps, DeleteDialog } from 'pages/SocialLinks/components'
 import { Modal, RedBtn } from 'components'
 import { useState } from 'react'
 

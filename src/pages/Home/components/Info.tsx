@@ -1,5 +1,4 @@
-import { BandImage, SocialLinks } from 'pages/Home/components'
-import { InfoProps } from 'pages/Home/components/types'
+import { BandImage, SocialLinks, InfoProps } from 'pages/Home/components'
 import { PurpleBackground } from 'components'
 
 const Info: React.FC<InfoProps> = (props) => {

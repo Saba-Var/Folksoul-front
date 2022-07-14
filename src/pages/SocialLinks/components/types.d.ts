@@ -1,4 +1,4 @@
-import { AllLinks } from 'pages/SocialLinks/types'
+import { AllLinks } from 'pages/SocialLinks'
 
 type SetSection = (section: string) => void
 

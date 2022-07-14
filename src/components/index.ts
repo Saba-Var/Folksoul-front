@@ -9,6 +9,18 @@ export { default as ErrorAlert } from './ErrorAlert'
 export { default as InputField } from './InputField'
 export { default as DirectBtn } from './DirectBtn'
 export { default as Modal } from './Modal'
+export type {
+  PurpleBackgroundProps,
+  AddNotificationProps,
+  SectionWrapperProps,
+  DeleteContentProps,
+  WhiteWrapperProps,
+  ImageUploadProps,
+  ErrorAlertProps,
+  DirectBtnProps,
+  InputFieldProps,
+  ModalProps,
+} from './types'
 export {
   MiniCloseIcon,
   YoutubeIcon,
@@ -26,3 +38,4 @@ export {
   Logo,
   Sun,
 } from './svgs'
+export type { StyleProp, EditBtnProps, SunProps } from './svgs/types'

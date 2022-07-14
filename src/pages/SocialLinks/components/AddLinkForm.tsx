@@ -1,13 +1,14 @@
-import { LinkInput, FormNotifications } from 'pages/SocialLinks/components'
 import { DirectBtn, ErrorAlert } from 'components'
-import { fetchSocialLinks } from 'helpers/index'
+import { fetchSocialLinks } from 'helpers'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import axios from 'axios'
 import {
+  FormNotifications,
   AddLinkFormProps,
   DetailsProps,
-} from 'pages/SocialLinks/components/types'
+  LinkInput,
+} from 'pages/SocialLinks/components'
 
 const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
   const { setLinks, setSection } = props

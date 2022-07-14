@@ -1,4 +1,4 @@
-import { LinkInputProps } from 'pages/SocialLinks/components/types'
+import { LinkInputProps } from 'pages/SocialLinks/components'
 
 const LinkInput: React.FC<LinkInputProps> = (props) => {
   const { errors, inputName, placeholder, register } = props

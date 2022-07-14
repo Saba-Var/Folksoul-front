@@ -1,5 +1,5 @@
-import { AllLinks } from 'pages/SocialLinks/types'
-import { MemberData } from '../types'
+import { AllLinks } from 'pages/SocialLinks'
+import { MemberData } from 'types'
 
 export type SetMembersData = (data: MemberData) => void
 

@@ -1,5 +1,4 @@
-import { LinksData } from 'pages/SocialLinks/components/types'
-import { LinkCard } from 'pages/SocialLinks/components'
+import { LinkCard, LinksData } from 'pages/SocialLinks/components'
 
 const Links: React.FC<LinksData> = (props) => {
   const { setSection, setLinkId, setLinks, links } = props

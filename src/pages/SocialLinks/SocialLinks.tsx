@@ -1,7 +1,7 @@
 import { SectionWrapper, DirectBtn, ErrorAlert } from 'components'
-import { AllLinks } from 'pages/SocialLinks/types'
-import { fetchSocialLinks } from 'helpers/index'
+import { AllLinks } from 'pages/SocialLinks'
 import { useEffect, useState } from 'react'
+import { fetchSocialLinks } from 'helpers'
 import {
   ChangeLinkForm,
   AddLinkForm,

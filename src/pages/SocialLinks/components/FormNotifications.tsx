@@ -1,4 +1,4 @@
-import { FormNotificationsProps } from 'pages/SocialLinks/components/types'
+import { FormNotificationsProps } from 'pages/SocialLinks/components'
 import { AddNotification, ErrorAlert } from 'components'
 
 const FormNotifications: React.FC<FormNotificationsProps> = (props) => {

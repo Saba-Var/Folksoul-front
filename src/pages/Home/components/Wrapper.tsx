@@ -1,4 +1,4 @@
-import { ChildrenProps } from 'pages/Home/components/types'
+import { ChildrenProps } from 'pages/Home/components'
 import { PurpleBackground } from 'components'
 
 const Wrapper: React.FC<ChildrenProps> = (props) => {

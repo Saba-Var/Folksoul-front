@@ -1,12 +1,11 @@
 import axios from 'axios'
-
 import {
   BandAboutText,
   SetErrorAlert,
   SetBandAbout,
   SetIsLoading,
   BandImage,
-} from 'helpers/types'
+} from 'helpers'
 
 const fetchBandAbout = async (
   setErrorAlert: SetErrorAlert,

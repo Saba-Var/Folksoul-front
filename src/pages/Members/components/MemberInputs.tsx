@@ -1,5 +1,4 @@
-import { InputsProps } from 'pages/Members/components/types'
-import { Textarea } from 'pages/Members/components'
+import { Textarea, InputsProps } from 'pages/Members/components'
 import { InputField } from 'components'
 
 const MemberInputs: React.FC<InputsProps> = (props) => {

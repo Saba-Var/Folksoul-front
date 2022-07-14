@@ -1,5 +1,4 @@
-import { SectionWrapperProps } from 'components/types'
-import { WhiteWrapper } from 'components'
+import { WhiteWrapper, SectionWrapperProps } from 'components'
 
 const SectionWrapper: React.FC<SectionWrapperProps> = (props) => {
   const { title, children } = props

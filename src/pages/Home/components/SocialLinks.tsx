@@ -1,6 +1,6 @@
-import { AllLinks } from 'pages/SocialLinks/types'
-import { fetchSocialLinks } from 'helpers/index'
+import { AllLinks } from 'pages/SocialLinks'
 import { useEffect, useState } from 'react'
+import { fetchSocialLinks } from 'helpers'
 
 const SocialLinks = () => {
   const [links, setLinks] = useState<AllLinks>([])

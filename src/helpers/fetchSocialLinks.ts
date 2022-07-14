@@ -1,4 +1,4 @@
-import { SetSocialLinks, SetIsLoading, SetErrorAlert } from 'helpers/types'
+import { SetSocialLinks, SetIsLoading, SetErrorAlert } from 'helpers'
 import axios from 'axios'
 
 const fetchSocialLinks = async (
