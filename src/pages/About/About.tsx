@@ -1,8 +1,7 @@
+import { SectionWrapper, ErrorAlert, EditBtn } from 'components'
 import { BandInfo, EditInfo } from 'pages/About/components'
-import { SectionWrapper, ErrorAlert } from 'components'
 import { BandData } from 'pages/About/types'
 import { useEffect, useState } from 'react'
-import { EditBtn } from 'components/svgs'
 import { fetchBandAbout } from 'helpers'
 
 const About = () => {

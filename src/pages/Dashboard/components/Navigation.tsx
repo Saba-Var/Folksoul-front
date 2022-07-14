@@ -7,7 +7,7 @@ import {
   MemberIcon,
   HomeIcon,
   NoteIcon,
-} from 'components/svgs'
+} from 'components'
 
 const Navigation: React.FC<NavigationProps> = (props) => {
   const { section, setSection } = props

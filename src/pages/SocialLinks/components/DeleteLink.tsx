@@ -1,7 +1,6 @@
 import { DeleteLinkProps } from 'pages/SocialLinks/components/types'
 import { DeleteDialog } from 'pages/SocialLinks/components'
-import { RedBtn } from 'components/svgs'
-import { Modal } from 'components'
+import { Modal, RedBtn } from 'components'
 import { useState } from 'react'
 
 const DeleteLink: React.FC<DeleteLinkProps> = (props) => {

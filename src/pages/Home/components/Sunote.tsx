@@ -1,5 +1,5 @@
 import { SunoteProps } from 'pages/Home/components/types'
-import { Sun } from 'components/svgs'
+import { Sun } from 'components'
 
 const Sunote: React.FC<SunoteProps> = (props) => {
   const {

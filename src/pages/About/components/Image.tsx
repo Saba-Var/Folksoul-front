@@ -1,6 +1,5 @@
 import { ImageProps } from 'pages/About/components/types'
-import { PurpleBackground } from 'components'
-import { Logo } from 'components/svgs'
+import { PurpleBackground, Logo } from 'components'
 
 const Image: React.FC<ImageProps> = (props) => {
   const { image, isLoading, styles, file } = props

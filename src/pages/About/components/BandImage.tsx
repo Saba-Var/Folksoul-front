@@ -1,7 +1,6 @@
 import { BandImageProps } from 'pages/About/components/types'
+import { ImageUpload, CameraBtn } from 'components'
 import { Image } from 'pages/About/components'
-import { CameraBtn } from 'components/svgs'
-import { ImageUpload } from 'components'
 import { useState } from 'react'
 
 const BandImage: React.FC<BandImageProps> = (props) => {

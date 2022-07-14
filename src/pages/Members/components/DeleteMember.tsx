@@ -1,7 +1,6 @@
 import { DeleteMemberProps } from 'pages/Members/components/types'
 import { DeleteDialog } from 'pages/Members/components'
-import { RedBtn } from 'components/svgs'
-import { Modal } from 'components'
+import { Modal, RedBtn } from 'components'
 import { useState } from 'react'
 
 const DeleteMember: React.FC<DeleteMemberProps> = (props) => {

@@ -1,6 +1,5 @@
 import { ChangeIconProps } from 'pages/SocialLinks/components/types'
-import { CameraBtn } from 'components/svgs'
-import { ImageUpload } from 'components'
+import { ImageUpload, CameraBtn } from 'components'
 import { useState } from 'react'
 
 const ChangeIcon: React.FC<ChangeIconProps> = (props) => {

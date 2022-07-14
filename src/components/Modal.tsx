@@ -1,5 +1,5 @@
 import { ModalProps } from 'components/types'
-import { CloseIcon } from 'components/svgs'
+import { CloseIcon } from 'components'
 
 const Modal: React.FC<ModalProps> = (props) => {
   const { setFile, title, setShowModal, children } = props

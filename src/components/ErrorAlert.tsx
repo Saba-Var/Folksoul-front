@@ -1,4 +1,4 @@
-import { MiniCloseIcon, ErrorIcon } from 'components/svgs'
+import { MiniCloseIcon, ErrorIcon } from 'components'
 import { ErrorAlertProps } from 'components/types'
 import { useState } from 'react'
 

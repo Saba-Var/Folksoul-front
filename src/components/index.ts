@@ -9,3 +9,20 @@ export { default as ErrorAlert } from './ErrorAlert'
 export { default as InputField } from './InputField'
 export { default as DirectBtn } from './DirectBtn'
 export { default as Modal } from './Modal'
+export {
+  MiniCloseIcon,
+  YoutubeIcon,
+  LogOutIcon,
+  MemberIcon,
+  YellowBtn,
+  ErrorIcon,
+  CloseIcon,
+  CameraBtn,
+  GreenBtn,
+  NoteIcon,
+  HomeIcon,
+  EditBtn,
+  RedBtn,
+  Logo,
+  Sun,
+} from './svgs'

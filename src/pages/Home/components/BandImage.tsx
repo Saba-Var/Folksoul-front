@@ -1,6 +1,5 @@
 import { BandImageProps } from 'pages/Home/components/types'
-import { PurpleBackground } from 'components'
-import { Logo } from 'components/svgs'
+import { PurpleBackground, Logo } from 'components'
 
 const BandImage: React.FC<BandImageProps> = (props) => {
   const { color, image } = props
