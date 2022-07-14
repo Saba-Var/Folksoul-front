@@ -20,6 +20,8 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const [errorAlert, setErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
+  const [colorValue, setColorValue] = useState('')
+
   const {
     register,
     handleSubmit,
@@ -48,6 +50,8 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         setValue('biography', data.biography)
         setValue('color', data.color)
         setValue('name', data.name)
+
+        setColorValue(data.color)
       }
     } catch (error: any) {
       setErrorAlert(true)
@@ -120,7 +124,12 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col justify-between'
       >
-        <MemberInputs errors={errors} register={register} title='შეცვლა' />
+        <MemberInputs
+          colorValue={colorValue}
+          errors={errors}
+          register={register}
+          title='შეცვლა'
+        />
       </form>
 
       <DirectBtn title='გადი უკან' direction={setSection} goTo='' />

@@ -6,6 +6,7 @@ export { default as WhiteWrapper } from './WhiteWrapper'
 export { default as ImageUpload } from './ImageUpload'
 export { default as AvatarModal } from './AvatarModal'
 export { default as ErrorAlert } from './ErrorAlert'
+export { default as ColorInput } from './ColorInput'
 export { default as InputField } from './InputField'
 export { default as DirectBtn } from './DirectBtn'
 export { default as Modal } from './Modal'
@@ -16,6 +17,7 @@ export type {
   DeleteContentProps,
   WhiteWrapperProps,
   ImageUploadProps,
+  ColorInputProps,
   ErrorAlertProps,
   DirectBtnProps,
   InputFieldProps,

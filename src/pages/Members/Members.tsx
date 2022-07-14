@@ -81,6 +81,7 @@ const Members = () => {
             setIsLoading={setIsLoading}
             setMemberId={setMemberId}
             setSection={setSection}
+            isLoading={isLoading}
             data={membersData!}
           />
         )}

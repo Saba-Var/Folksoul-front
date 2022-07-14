@@ -64,3 +64,9 @@ export type DeleteContentProps = {
   closeModal: () => void
   text: string
 }
+
+export type ColorInputProps = {
+  register: UseFormRegister<FieldValues>
+  colorValue: string | undefined
+  errors: any
+}

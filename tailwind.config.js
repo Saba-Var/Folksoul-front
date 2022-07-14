@@ -264,6 +264,7 @@ module.exports = {
         },
       },
       colors: {
+        mdGray: '#A8A3A3',
         purple: '#534571',
         lightBrown: '#C3B6B2',
         yellow: '#FBD560',

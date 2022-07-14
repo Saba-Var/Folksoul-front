@@ -2,7 +2,7 @@ import { Pagination, MemberCard, CardData } from 'pages/Members/components'
 import { Avatar1, Avatar2, Avatar3 } from 'assets/images'
 
 const Card: React.FC<CardData> = (props) => {
-  const { data, setSection, setMemberId } = props
+  const { data, setSection, setMemberId, isLoading } = props
   const { setMembersData, setIsLoading } = props.fetchUtilities
 
   const fetchUtilities = { setMembersData, setIsLoading }
@@ -17,7 +17,8 @@ const Card: React.FC<CardData> = (props) => {
         } ${membersOnPage === 1 && '!justify-center'}`}
       >
         {data.members &&
-          data.paginationInfo.totalMembers > 0 &&
+          data.members.length > 0 &&
+          !isLoading &&
           data.members.map((member) => {
             const iconNum = Math.floor(Math.random() * 3) + 1
 
@@ -40,7 +41,7 @@ const Card: React.FC<CardData> = (props) => {
           })}
       </div>
 
-      {data.paginationInfo.totalMembers > 3 && (
+      {data.paginationInfo?.totalMembers > 3 && (
         <Pagination data={data} fetchUtilities={fetchUtilities} />
       )}
     </div>

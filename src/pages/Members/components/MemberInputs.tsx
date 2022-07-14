@@ -1,8 +1,8 @@
 import { Textarea, InputsProps } from 'pages/Members/components'
-import { InputField } from 'components'
+import { InputField, ColorInput } from 'components'
 
 const MemberInputs: React.FC<InputsProps> = (props) => {
-  const { errors, register, title } = props
+  const { errors, register, title, colorValue } = props
 
   return (
     <>
@@ -36,12 +36,10 @@ const MemberInputs: React.FC<InputsProps> = (props) => {
             type='number'
           />
 
-          <InputField
+          <ColorInput
+            colorValue={colorValue}
             errors={errors.color}
             register={register}
-            placeholder='ფერი'
-            inputName='color'
-            type='text'
           />
         </div>
 

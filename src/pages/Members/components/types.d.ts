@@ -16,6 +16,7 @@ export type CardData = {
   fetchUtilities: fetchUtilities
   setIsLoading?: SetIsLoading
   setSection?: setSection
+  isLoading?: boolean
   data: MemberData
 }
 
@@ -25,6 +26,7 @@ export type PaginationLinkProps = {
 }
 
 export type InputsProps = {
+  colorValue?: string
   register: UseFormRegister<FieldValues>
   title: string
   errors: any

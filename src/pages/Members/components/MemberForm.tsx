@@ -26,11 +26,11 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     handleSubmit,
     register,
     setValue,
+    watch,
   } = useForm({
     mode: 'all',
     defaultValues: details,
   })
-
   const submitHandler = async (data: MemberIfo) => {
     const memberDetails = data
     memberDetails.orbitLength = +memberDetails.orbitLength
@@ -78,6 +78,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         className='flex flex-col justify-between'
       >
         <MemberInputs
+          colorValue={watch().color}
           title='დაამატე წევრი'
           register={register}
           errors={errors}
