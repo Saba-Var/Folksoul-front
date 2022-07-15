@@ -1,11 +1,7 @@
+import { UserData } from 'pages/Login/components'
+import { authResponse } from 'services'
 import axios from 'services'
 
-export const authenticateUser = (data: {
-  username: string
-  password: string
-}): Promise<{
-  status: number
-  data: { token: string }
-}> => {
+export const authenticateUser = (data: UserData): Promise<authResponse> => {
   return axios.post('/auth', data)
 }

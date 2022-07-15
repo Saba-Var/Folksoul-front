@@ -21,14 +21,18 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
   const submitHandler = async () => {
     try {
-      const { status } = await editBandInfo(watch().about, id)
+      const data = {
+        about: watch().about,
+        id,
+      }
+
+      const { status } = await editBandInfo(data)
 
       if (status === 200) {
         setAddModal(true)
         fetchBandAbout(setErrorAlert, setBandAbout)
       }
     } catch (error) {
-      console.log(error)
       setErrorAlert(true)
     }
   }

@@ -4,8 +4,8 @@ export { imageUpload } from './imageService'
 export { default } from './axios'
 export {
   deleteSocialLink,
-  addSocialLink,
   changeSocialLink,
+  addSocialLink,
   getLinksData,
 } from './linkService'
 export {
@@ -15,3 +15,15 @@ export {
   addMemberToBand,
   getMembersData,
 } from './memberService'
+export type {
+  authResponse,
+  ImageData,
+  AllMemberRes,
+  BandInfoData,
+  OneMemberRes,
+  EditBandInfo,
+  ChangeMember,
+  AllLinksRes,
+  ChangeLink,
+  Status,
+} from './types'

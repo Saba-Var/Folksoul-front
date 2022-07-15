@@ -1,49 +1,27 @@
 import { MemberIfo } from 'pages/Members/components'
-import axios from 'services'
+import axios, {
+  Status,
+  AllMemberRes,
+  ChangeMember,
+  OneMemberRes,
+} from 'services'
 
-export const getMembersData = (
-  uri: string
-): Promise<{
-  status: number
-  data: {}
-}> => {
+export const getMembersData = (uri: string): Promise<AllMemberRes> => {
   return axios.get(uri)
 }
 
-export const deleteMemberFromBand = (
-  id: string
-): Promise<{
-  status: number
-}> => {
+export const deleteMemberFromBand = (id: string): Promise<Status> => {
   return axios.delete('/delete-member', { id })
 }
 
-export const addMemberToBand = (
-  data: MemberIfo
-): Promise<{
-  status: number
-}> => {
+export const addMemberToBand = (data: MemberIfo): Promise<Status> => {
   return axios.post('/add-member', data)
 }
 
-export const changeBandMember = (data: {
-  orbitLength: any
-  instrument: any
-  biography: any
-  color: any
-  name: any
-  id: string
-}): Promise<{
-  status: number
-}> => {
+export const changeBandMember = (data: ChangeMember): Promise<Status> => {
   return axios.put('/change-member', data)
 }
 
-export const getOneMemberData = (
-  url: string
-): Promise<{
-  status: number
-  data: MemberIfo
-}> => {
+export const getOneMemberData = (url: string): Promise<OneMemberRes> => {
   return axios.get(url)
 }

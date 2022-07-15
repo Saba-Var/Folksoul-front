@@ -31,19 +31,19 @@ const axios: any = {
     return fetch(uri, null, 'get')
   },
 
-  post: (uri: string, payload: any) => {
+  post: (uri: string, payload: object) => {
     return fetch(uri, payload, 'post')
   },
 
-  put: (uri: string, payload: any) => {
+  put: (uri: string, payload: object) => {
     return fetch(uri, payload, 'put')
   },
 
-  patch: (uri: string, payload: any) => {
+  patch: (uri: string, payload: object) => {
     return fetch(uri, payload, 'patch')
   },
 
-  delete: (uri: string, payload: any) => {
+  delete: (uri: string, payload: object) => {
     return fetch(uri, payload, 'delete')
   },
 }

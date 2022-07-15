@@ -1,13 +1,10 @@
-import { BandInfoData } from 'services/types'
+import { BandInfoData, Status, EditBandInfo } from 'services'
 import axios from 'services'
 
 export const getBandInfoData = (): Promise<BandInfoData> => {
   return axios.get('/band-about')
 }
 
-export const editBandInfo = (
-  about: string,
-  id: string
-): Promise<{ status: number }> => {
-  return axios.put('/change-band-about', { about, id })
+export const editBandInfo = (data: EditBandInfo): Promise<Status> => {
+  return axios.put('/change-band-about', data)
 }

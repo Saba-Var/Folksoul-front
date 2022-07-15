@@ -1,36 +1,18 @@
+import axios, { Status, ChangeLink, AllLinksRes } from 'services'
 import { DetailsProps } from 'pages/SocialLinks/components'
-import { AllLinks } from 'pages/SocialLinks'
-import axios from 'services'
 
-export const getLinksData = (): Promise<{
-  status: number
-  data: AllLinks
-}> => {
+export const getLinksData = (): Promise<AllLinksRes> => {
   return axios.get('/all-links')
 }
 
-export const deleteSocialLink = (
-  id: string
-): Promise<{
-  status: number
-}> => {
+export const deleteSocialLink = (id: string): Promise<Status> => {
   return axios.delete('/delete-link', { id })
 }
 
-export const addSocialLink = (
-  data: DetailsProps
-): Promise<{
-  status: number
-}> => {
+export const addSocialLink = (data: DetailsProps): Promise<Status> => {
   return axios.post('/add-social-link', data)
 }
 
-export const changeSocialLink = (data: {
-  linkName: string
-  url: string
-  id: string
-}): Promise<{
-  status: number
-}> => {
+export const changeSocialLink = (data: ChangeLink): Promise<Status> => {
   return axios.put('/change-link', data)
 }
