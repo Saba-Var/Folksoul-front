@@ -50,7 +50,7 @@ describe('Login page', () => {
       'POST',
       'https://folksoul-api.sabavar.redberryinternship.ge/auth',
       {
-        statusCode: 200,
+        statusCode: 201,
       }
     )
     cy.get("[data-cy='მეტსახელი']").type('name')

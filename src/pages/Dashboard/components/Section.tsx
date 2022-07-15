@@ -32,6 +32,7 @@ const Section: React.FC<SectionProps> = (props) => {
     >
       <div className='flex justify-center items-center w-7'>{icon}</div>
       <p
+        data-cy={title}
         className={`font-BPG-Nino-Mtavruli text-lg text-contentWhite pt-[5px] ${
           isSelected && '!text-darkBlue'
         }`}

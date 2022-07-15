@@ -112,4 +112,18 @@ describe('Band Info Page', () => {
     cy.get('[data-cy="CloseAlert"]').click()
     cy.beVisible('ინფორმაცია ვერ მოიძებნა').wait(1600)
   })
+
+  it('if image is not uploaded to database when close the modal file should remove from file picker', () => {
+    cy.get("[data-cy='CameraBtn']").click({ force: true })
+    cy.get('input[type=file]').selectFile('src/assets/images/avatar-1.png', {
+      force: true,
+    })
+    cy.get('[data-cy="Modal"]').click({ force: true })
+    cy.get("[data-cy='CameraBtn']").click({ force: true })
+    cy.contains('შეინახე').should('not.exist')
+    cy.get('input[type=file]').selectFile('src/assets/images/avatar-1.png', {
+      force: true,
+    })
+    cy.beVisible('SaveBtn')
+  })
 })

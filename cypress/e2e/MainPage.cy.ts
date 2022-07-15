@@ -56,6 +56,8 @@ describe('Main Page', () => {
     )
     cy.get("[data-cy='About']").click()
     cy.url().should('include', 'About')
-    cy.beVisible('ბენდის შესახებ ინფორმაცია არ არის დამატებული')
+    cy.contains('ბენდის შესახებ ინფორმაცია არ არის დამატებული').should(
+      'be.visible'
+    )
   })
 })

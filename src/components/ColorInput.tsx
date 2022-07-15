@@ -16,7 +16,7 @@ const ColorInput: React.FC<ColorInputProps> = (props) => {
       )}
 
       <input
-        data-cy='ColorInput'
+        data-cy='color'
         {...register('color', {
           required: 'შევსება სავალდებულოა!',
         })}

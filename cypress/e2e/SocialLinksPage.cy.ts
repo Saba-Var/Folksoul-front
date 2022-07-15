@@ -124,7 +124,7 @@ describe('Social Links Page', () => {
     cy.get("[data-cy='linkName']").type('Youtube')
     cy.get("[data-cy='url']").type('youtube.com')
     cy.get('[data-cy="AddLink"]').click()
-    cy.beVisible('ბმული წარმატებით დაემატა')
+    cy.url().should('include', 'Social-Links')
   })
 
   it('on the add new link form if link already exists show error alert', () => {

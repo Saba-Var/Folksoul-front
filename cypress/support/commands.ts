@@ -187,6 +187,42 @@ Cypress.Commands.add('fetchSocialLinks', (links: object) => {
   )
 })
 
+Cypress.Commands.add('fetchOneMember', () => {
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+    {
+      statusCode: 200,
+      body: {
+        members: [
+          {
+            name: 'გიო',
+            instrument: 'გიტარა',
+            orbitLength: '777',
+            biography: 'დაიბადა ...',
+            _id: 3,
+          },
+        ],
+      },
+    }
+  )
+  cy.wait(500)
+
+  cy.intercept(
+    'GET',
+    'https://folksoul-api.sabavar.redberryinternship.ge/get-one-member?id=3',
+    {
+      statusCode: 200,
+      body: {
+        name: 'გიო',
+        instrument: 'გიტარა',
+        orbitLength: '777',
+        biography: 'დაიბადა ...',
+      },
+    }
+  )
+})
+
 Cypress.Commands.add('addNewMember', () => {
   cy.get("[data-cy='name']").type('ილონ')
   cy.get("[data-cy='instrument']").type('დუდუკი')

@@ -14,6 +14,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   return (
     <>
       <div
+        data-cy='Modal'
         onClick={closeModal}
         className='bg-glassBlue fixed h-screen animate-fade-in2  w-screen top-0 left-0 opacity-90 z-50'
       ></div>

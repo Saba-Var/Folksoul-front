@@ -65,7 +65,7 @@ const Members = () => {
   return (
     <SectionWrapper title={title}>
       <>
-        {errorAlert && (
+        {errorAlert && section === '' && (
           <ErrorAlert
             title='ინფორმაცია ვერ მოიძებნა'
             setShowAlert={setErrorAlert}

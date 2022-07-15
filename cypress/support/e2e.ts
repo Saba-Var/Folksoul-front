@@ -8,6 +8,7 @@ declare global {
       beVisible(id: string): Chainable<JQuery<HTMLElement>>
       fetchSocialLinks(links: object): Chainable<Element>
       changeMemberRequests(): Chainable<Element>
+      fetchOneMember(): Chainable<Element>
       addMemberForm(): Chainable<Element>
       getAllMembers(): Chainable<Element>
       stopRequests(): Chainable<Element>

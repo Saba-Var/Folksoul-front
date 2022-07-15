@@ -32,22 +32,6 @@ const InputField: React.FC<InputFieldProps> = (props) => {
                 )
               }
             },
-
-            hexFormat: (v: string) => {
-              if (inputName === 'color') {
-                if (v.trim()[0] !== '#') {
-                  return "ფერი უნდაი წყებოდეს '#'-ით"
-                }
-
-                if (v.trim().length !== 7) {
-                  return 'ფერი უნდა იყოს 7 სიმბოლო'
-                }
-
-                if (!/^[A-Z-0-9]*$/.test(v.trim().substring(1))) {
-                  return 'მიუთითეთ მაღალი რეგისტრის ლათინური ასოები და რიცხვები'
-                }
-              }
-            },
           },
         })}
         className={`${
