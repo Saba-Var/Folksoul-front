@@ -1,15 +1,9 @@
-import axios from 'axios'
-import {
-  BandAboutText,
-  SetErrorAlert,
-  SetBandAbout,
-  SetIsLoading,
-  BandImage,
-} from 'helpers'
+import { SetErrorAlert, SetIsLoading, BandImage } from 'helpers'
+import { getBandInfoData } from 'services'
 
 const fetchBandAbout = async (
   setErrorAlert: SetErrorAlert,
-  setBandAbout: SetBandAbout | BandAboutText,
+  setBandAbout: any,
   setIsLoading?: SetIsLoading,
   setImage?: BandImage
 ) => {
@@ -18,19 +12,17 @@ const fetchBandAbout = async (
       setIsLoading(true)
     }
 
-    const res = await axios.get(
-      process.env.REACT_APP_API_BASE_URL! + '/band-about'
-    )
+    const { status, data } = await getBandInfoData()
 
-    if (res.status === 200) {
+    if (status === 200) {
       if (setImage) {
-        if (res.data[0].image) {
-          setImage(res.data[0].image)
+        if (data[0].image) {
+          setImage(data[0].image)
         }
 
-        setBandAbout(res.data[0].about)
+        setBandAbout(data[0].about)
       } else {
-        setBandAbout(res.data)
+        setBandAbout(data)
       }
     }
 

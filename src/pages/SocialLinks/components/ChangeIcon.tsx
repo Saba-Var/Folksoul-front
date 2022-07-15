@@ -35,9 +35,9 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
       {iconModal && (
         <ImageUpload
-          url={process.env.REACT_APP_API_BASE_URL! + '/upload-link-image'}
           title='შეცვალე სოციალური ბმულის ხატულა'
           setImageModal={setIconModal}
+          url={'/upload-link-image'}
           setLinks={setLinks}
           setFile={setFile}
           file={file}

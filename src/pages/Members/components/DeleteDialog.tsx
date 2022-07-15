@@ -3,8 +3,8 @@ import fetchMembersData from 'helpers/fetchMembersData'
 import { DeleteContent, ErrorAlert } from 'components'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { deleteMemberFromBand } from 'services'
 import { useState } from 'react'
-import axios from 'axios'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   const { fetchUtilities, membersData, setShowModal, userId } = props
@@ -27,19 +27,9 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteMember = async () => {
     try {
-      const res = await axios.delete(
-        process.env.REACT_APP_API_BASE_URL! + '/delete-member',
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-          data: {
-            id: userId,
-          },
-        }
-      )
+      const { status } = await deleteMemberFromBand(userId)
 
-      if (res.status === 200) {
+      if (status === 200) {
         closeModal()
         fetchMembersData(setError, setMembersData, setIsLoading, fetchPage)
         navigate(`/Dashboard/Members?page=${fetchPage}`)

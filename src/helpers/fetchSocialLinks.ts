@@ -1,5 +1,5 @@
 import { SetSocialLinks, SetIsLoading, SetErrorAlert } from 'helpers'
-import axios from 'axios'
+import { getLinksData } from 'services'
 
 const fetchSocialLinks = async (
   setErrorAlert: SetErrorAlert,
@@ -11,14 +11,7 @@ const fetchSocialLinks = async (
       setIsLoading(true)
     }
 
-    const res = await axios.get(
-      process.env.REACT_APP_API_BASE_URL! + '/all-links',
-      {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      }
-    )
+    const res = await getLinksData()
 
     if (res.status === 200) {
       if (setIsLoading) {

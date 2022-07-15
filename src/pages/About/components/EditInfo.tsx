@@ -3,7 +3,7 @@ import { EditInfoProps } from 'pages/About/components'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { fetchBandAbout } from 'helpers'
-import axios from 'axios'
+import { editBandInfo } from 'services'
 
 const EditInfo: React.FC<EditInfoProps> = (props) => {
   const { about, id, setBandAbout, setSection } = props
@@ -21,27 +21,14 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
   const submitHandler = async () => {
     try {
-      const data = {
-        about: watch().about,
-        id,
-      }
+      const { status } = await editBandInfo(watch().about, id)
 
-      const response = await axios.put(
-        process.env.REACT_APP_API_BASE_URL! + '/change-band-about',
-        data,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-        }
-      )
-
-      if (response.status === 200) {
+      if (status === 200) {
         setAddModal(true)
         fetchBandAbout(setErrorAlert, setBandAbout)
       }
     } catch (error) {
+      console.log(error)
       setErrorAlert(true)
     }
   }

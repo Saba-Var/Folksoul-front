@@ -1,8 +1,8 @@
 import { AvatarModalProps } from 'pages/Members/components'
 import fetchMembersData from 'helpers/fetchMembersData'
 import { Modal, ErrorAlert } from 'components'
+import { imageUpload } from 'services'
 import { useState } from 'react'
-import axios from 'axios'
 
 const AvatarModal: React.FC<AvatarModalProps> = (props) => {
   const {
@@ -34,14 +34,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
       formData.append('id', id)
       formData.append('image', file)
 
-      const headers = {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      }
-
-      const response = await axios.patch(url, formData, {
-        headers: headers,
-      })
+      const response = await imageUpload(url, formData)
 
       if (response.status === 201) {
         fetchMembersData(setFetchError, setMembersData, setIsLoading, 1)

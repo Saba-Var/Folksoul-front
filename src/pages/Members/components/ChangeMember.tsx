@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { DirectBtn, ErrorAlert } from 'components'
+import { changeBandMember, getOneMemberData } from 'services'
 import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 import {
   Notifications,
   MemberInputs,
@@ -34,14 +34,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
   const fetchOneMember = useCallback(async () => {
     try {
-      const response = await axios.get(
-        process.env.REACT_APP_API_BASE_URL! + `/get-one-member?id=${id}`,
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-        }
-      )
+      const response = await getOneMemberData(`/get-one-member?id=${id}`)
 
       if (response.status === 200) {
         const data = response.data
@@ -67,26 +60,17 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
       const { name, instrument, color, orbitLength, biography } = watch()
 
       const data = {
-        id,
-        name,
-        instrument,
-        color,
         orbitLength,
+        instrument,
         biography,
+        color,
+        name,
+        id,
       }
 
-      const response = await axios.put(
-        process.env.REACT_APP_API_BASE_URL! + '/change-member',
-        data,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-        }
-      )
+      const { status } = await changeBandMember(data)
 
-      if (response.status === 200) {
+      if (status === 200) {
         setShowModal(true)
 
         fetchMembersData(

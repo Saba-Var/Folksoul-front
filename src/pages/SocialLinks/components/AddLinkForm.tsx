@@ -1,8 +1,8 @@
 import { DirectBtn, ErrorAlert } from 'components'
 import { fetchSocialLinks } from 'helpers'
 import { useForm } from 'react-hook-form'
+import { addSocialLink } from 'services'
 import { useState } from 'react'
-import axios from 'axios'
 import {
   FormNotifications,
   AddLinkFormProps,
@@ -35,18 +35,9 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
     try {
       const linkDetails = data
 
-      const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL!}/add-social-link`,
-        linkDetails,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-        }
-      )
+      const { status } = await addSocialLink(linkDetails)
 
-      if (response.status === 201) {
+      if (status === 201) {
         setValue('linkName', '')
         setValue('url', '')
 

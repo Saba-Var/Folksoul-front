@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import { fetchMembersData } from 'helpers'
+import { addMemberToBand } from 'services'
 import { useForm } from 'react-hook-form'
 import { DirectBtn } from 'components'
 import { useState } from 'react'
-import axios from 'axios'
 import {
   Notifications,
   MemberInputs,
@@ -12,7 +12,7 @@ import {
 } from 'pages/Members/components'
 
 const MemberForm: React.FC<MemberDetails> = (props) => {
-  const { details, url, setMembersData, setIsLoading, setSection } = props
+  const { details, setMembersData, setIsLoading, setSection } = props
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -36,13 +36,9 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     memberDetails.orbitLength = +memberDetails.orbitLength
 
     try {
-      const response = await axios.post(url, memberDetails, {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-      })
+      const { status } = await addMemberToBand(memberDetails)
 
-      if (response.status === 201) {
+      if (status === 201) {
         setValue('orbitLength', '')
         setValue('instrument', '')
         setValue('biography', '')
@@ -55,10 +51,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         setShowErrorAlert(false)
       }
     } catch (error: any) {
-      const statusCode = error.response.status
-
-      setStatusCode(statusCode)
-
+      setStatusCode(error.response.status)
       setShowErrorAlert(true)
     }
   }

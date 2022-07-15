@@ -1,7 +1,7 @@
 import { Modal, ErrorAlert, ImageUploadProps } from 'components'
 import { fetchSocialLinks, fetchBandAbout } from 'helpers'
+import { imageUpload } from 'services'
 import { useState } from 'react'
-import axios from 'axios'
 
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   const { setImageModal, children, setLinks, setFile, title, file, url, id } =
@@ -24,16 +24,9 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
       formData.append('id', id)
       formData.append('image', file)
 
-      const headers = {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      }
+      const { status } = await imageUpload(url, formData)
 
-      const response = await axios.patch(url, formData, {
-        headers: headers,
-      })
-
-      if (response.status === 201) {
+      if (status === 201) {
         if (title === 'შეცვალე ბენდის პორტრეტი') {
           fetchBandAbout(setFetchError, setLinks)
         } else {

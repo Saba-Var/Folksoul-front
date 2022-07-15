@@ -110,7 +110,6 @@ export type MemberDetails = {
   setSection: setSection
   details: MemberIfo
   action: string
-  url: string
 }
 
 export type TextareaProps = {

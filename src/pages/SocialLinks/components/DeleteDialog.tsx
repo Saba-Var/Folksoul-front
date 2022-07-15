@@ -1,8 +1,8 @@
 import { DeleteDialogProps } from 'pages/SocialLinks/components'
 import { DeleteContent, ErrorAlert } from 'components'
+import { deleteSocialLink } from 'services'
 import { fetchSocialLinks } from 'helpers'
 import { useState } from 'react'
-import axios from 'axios'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   const { id, setShowModal, setLinks } = props
@@ -13,20 +13,9 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteLink = async () => {
     try {
-      const res = await axios.delete(
-        process.env.REACT_APP_API_BASE_URL! + '/delete-link',
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
+      const { status } = await deleteSocialLink(id)
 
-          data: {
-            id,
-          },
-        }
-      )
-
-      if (res.status === 200) {
+      if (status === 200) {
         fetchSocialLinks(setError, setLinks)
         setShowModal(false)
       }

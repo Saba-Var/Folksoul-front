@@ -1,9 +1,9 @@
 import { InputField, UserData } from 'pages/Login/components'
 import { useNavigate } from 'react-router-dom'
+import { authenticateUser } from 'services'
 import { useForm } from 'react-hook-form'
 import { ErrorAlert } from 'components'
 import { useState } from 'react'
-import axios from 'axios'
 
 const LoginForm = () => {
   const navigate = useNavigate()
@@ -29,13 +29,10 @@ const LoginForm = () => {
     try {
       setShowAlert(false)
 
-      const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/auth`,
-        {
-          username: userData.username,
-          password: userData.password,
-        }
-      )
+      const response = await authenticateUser({
+        username: userData.username,
+        password: userData.password,
+      })
 
       if (response.status === 201) {
         setExitAnimation(true)

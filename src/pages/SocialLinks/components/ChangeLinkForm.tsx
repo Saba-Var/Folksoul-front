@@ -1,8 +1,8 @@
 import { DirectBtn, ErrorAlert } from 'components'
 import { useEffect, useState } from 'react'
+import { changeSocialLink } from 'services'
 import { fetchSocialLinks } from 'helpers'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 import {
   FormNotifications,
   ChangeLinkProps,
@@ -44,18 +44,9 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
         id,
       }
 
-      const response = await axios.put(
-        `${process.env.REACT_APP_API_BASE_URL!}/change-link`,
-        data,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-          },
-        }
-      )
+      const { status } = await changeSocialLink(data)
 
-      if (response.status === 200) {
+      if (status === 200) {
         setShowModal(true)
         fetchSocialLinks(setLinkFetchError, setLinks)
       }

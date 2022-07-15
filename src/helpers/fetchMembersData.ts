@@ -1,24 +1,22 @@
-import { SetMembersData, SetIsLoading, SetErrorAlert } from 'helpers'
-import axios from 'axios'
+import { SetIsLoading, SetErrorAlert } from 'helpers'
+import { getMembersData } from 'services'
 
 const fetchMembersData = async (
   setErrorAlert: SetErrorAlert,
-  setMembersData: SetMembersData | any,
+  setMembersData: any,
   setIsLoading: SetIsLoading,
   page?: number
 ) => {
   setIsLoading(true)
   try {
-    const url = page
-      ? `${process.env.REACT_APP_API_BASE_URL}/all-members?page=${page}`
-      : process.env.REACT_APP_API_BASE_URL + '/all-members'
+    const url = page ? `/all-members?page=${page}` : '/all-members'
 
-    const res = await axios.get(url!)
+    const { status, data } = await getMembersData(url)
 
-    if (res.status === 200) {
+    if (status === 200) {
       setIsLoading(false)
 
-      return setMembersData(res.data)
+      return setMembersData(data)
     }
   } catch (error: any) {
     setErrorAlert(true)
