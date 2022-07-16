@@ -167,12 +167,6 @@ describe('Members Page', () => {
 
   it('if there is one member on the page and we delete it then should redirect to previous page', () => {
     cy.memberTwoPage()
-    cy.get('[data-cy="2"]').click()
-    cy.get('[data-cy="RedBtn"]').click()
-    cy.beVisible('წავშალოთ ბენდის წევრი?')
-    cy.get('[data-cy="DeleteNo"]').click()
-    cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
-    cy.get('[data-cy="RedBtn"]').click()
     cy.intercept(
       'DELETE',
       'https://folksoul-api.sabavar.redberryinternship.ge/delete-member',
@@ -180,7 +174,13 @@ describe('Members Page', () => {
         statusCode: 200,
       }
     )
-    cy.get('[data-cy="DeleteYes"]').click()
+    cy.get('[data-cy="2"]').click()
+    cy.get('[data-cy="RedBtn"]').click()
+    cy.beVisible('წავშალოთ ბენდის წევრი?')
+    cy.get('[data-cy="DeleteNo"]').click()
+    cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
+    cy.get('[data-cy="RedBtn"]').click({ multiple: true, force: true })
+    cy.get('[data-cy="DeleteYes"]').click({ force: true, multiple: true })
   })
 
   it('when click on the red button should see delete dialog', () => {

@@ -24,7 +24,7 @@ const DeleteContent: React.FC<DeleteContentProps> = (props) => {
 
           <button className='text-lg text-center w-20 px-5 pb-3 pt-4 hover:transition-transform   hover:scale-105 rounded-md   font-BPG-Nino-Mtavruli font-bold text-white bg-rose-700 border border-gray-900'>
             <p
-              className='h-fit animate-fade-in'
+              className='h-fit animate-fade-in z-[9999999]'
               onClick={deleteMember}
               data-cy='DeleteYes'
             >

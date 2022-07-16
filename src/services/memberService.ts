@@ -1,9 +1,9 @@
 import { MemberIfo } from 'pages/Members/components'
 import axios, {
-  Status,
   AllMemberRes,
   ChangeMember,
   OneMemberRes,
+  Status,
 } from 'services'
 
 export const getMembersData = (uri: string): Promise<AllMemberRes> => {

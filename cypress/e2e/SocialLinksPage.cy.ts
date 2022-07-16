@@ -84,7 +84,7 @@ describe('Social Links Page', () => {
         statusCode: 409,
       }
     )
-    cy.get("[data-cy='linkName']").clear().type('google')
+    cy.get("[data-cy='linkName']").clear().type('google').wait(100)
     cy.get("[data-cy='url']").clear().type('youtube.com')
     cy.get("[data-cy='ChangeLink']").click()
     cy.wait(1600)

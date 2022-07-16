@@ -23,6 +23,7 @@ const fetch: any = (uri: string, data: object, method: string) => {
         })
     }
   )
+
   return promise
 }
 
