@@ -3,7 +3,7 @@ import { PurpleBackground, Logo } from 'components'
 
 const BandImage: React.FC<BandImageProps> = (props) => {
   const { color, image } = props
-  console.log(image)
+
   return (
     <div
       style={{
