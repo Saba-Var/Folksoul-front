@@ -7,6 +7,8 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   const [isLoading, setIsLoading] = useState(false)
   const [pause, setPause] = useState(false)
 
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+
   const [selectedId, setSelectedId] = useState('')
 
   const { setColor, setInfoImage, setInfoText, imageArray, bandInfo, image } =
@@ -28,6 +30,16 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
 
   useEffect(() => {
     fetchMembersData(() => {}, setMembersData, setIsLoading)
+
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   return (
@@ -55,7 +67,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
                 member.orbitLength < 270
                   ? 250 + (i + 1) * 10
                   : member.orbitLength > 750
-                  ? 750
+                  ? (windowHeight / 100) * 80
                   : member.orbitLength
               }px`
 
