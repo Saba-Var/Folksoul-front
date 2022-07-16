@@ -1,9 +1,9 @@
 import { YellowBtn } from 'components'
 import {
   DeleteLink,
-  Details,
   ChangeIcon,
   LinksData,
+  Details,
 } from 'pages/SocialLinks/components'
 
 const LinkCard: React.FC<LinksData> = (props) => {
@@ -15,12 +15,12 @@ const LinkCard: React.FC<LinksData> = (props) => {
   }
 
   return (
-    <div className='overflow-y-auto pt-[3%] mb-2'>
-      <div className='flex flex-col overflow-y-auto items-center gap-14 animate-fade-in'>
+    <div className='overflow-y-auto pt-[2%] mb-2'>
+      <div className='flex flex-col overflow-y-auto pt-5 pb-7 items-center gap-14 animate-fade-in'>
         {links.map((link) => (
           <div
             key={link._id}
-            className='border border-black transition-transform shadow-4.5xl rounded-md bg-charcoal w-[750px] 4xl:w-[820px] !h-16 flex justify-between px-7 items-center'
+            className='border transition-transform shadow-4.5xl rounded-md bg-charcoal w-[750px] 4xl:w-[820px] !h-16 flex justify-between px-7 items-center'
           >
             <ChangeIcon
               linkName={link.linkName}
