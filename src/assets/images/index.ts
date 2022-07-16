@@ -1,4 +1,4 @@
-export { default as BackgroundImage } from './background.png'
+export { default as BackgroundImage } from './background.jpg'
 export { default as BandMember1 } from './band-member-1.png'
 export { default as BandMember2 } from './band-member-2.png'
 export { default as BandMember3 } from './band-member-3.png'
