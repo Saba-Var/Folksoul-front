@@ -23,7 +23,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
     setSelectedId(id)
 
     if (image) {
-      setInfoImage(image)
+      setInfoImage(`${process.env.REACT_APP_API_BASE_URL}/${image}`)
     } else {
       setInfoImage(imageArray[index] || imageArray[0])
     }
