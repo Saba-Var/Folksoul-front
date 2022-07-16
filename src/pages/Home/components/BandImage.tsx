@@ -3,7 +3,7 @@ import { PurpleBackground, Logo } from 'components'
 
 const BandImage: React.FC<BandImageProps> = (props) => {
   const { color, image } = props
-
+  console.log(image)
   return (
     <div
       style={{
@@ -22,7 +22,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
       {image && (
         <img
           className='h-full w-full'
-          src={`${image}`}
+          src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
           data-cy='MemberImage'
           alt='band'
         />
