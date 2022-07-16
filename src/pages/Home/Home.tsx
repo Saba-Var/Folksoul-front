@@ -36,7 +36,7 @@ const Home = () => {
     } else {
       fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
       setInfoText(bandInfo)
-      setInfoImage(image)
+      setInfoImage(`${process.env.REACT_APP_API_BASE_URL}/${image}`)
     }
   }, [bandInfo, image, navigate])
 

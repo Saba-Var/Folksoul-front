@@ -22,8 +22,8 @@ const BandImage: React.FC<BandImageProps> = (props) => {
       {image && (
         <img
           className='h-full w-full'
-          src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
           data-cy='MemberImage'
+          src={`${image}`}
           alt='band'
         />
       )}

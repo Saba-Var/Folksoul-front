@@ -17,7 +17,7 @@ const Sunote: React.FC<SunoteProps> = (props) => {
     setSelectedId('')
 
     setInfoText(bandInfo)
-    setInfoImage(image)
+    setInfoImage(`${process.env.REACT_APP_API_BASE_URL}/${image}`)
   }
 
   return (
