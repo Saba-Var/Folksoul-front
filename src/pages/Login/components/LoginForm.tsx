@@ -43,7 +43,6 @@ const LoginForm = () => {
         }, 700)
       }
     } catch (error: any) {
-      console.log(error)
       setShowAlert(true)
     }
   }
