@@ -1,5 +1,6 @@
 import { AvatarModalProps } from 'pages/Members/components'
 import fetchMembersData from 'helpers/fetchMembersData'
+import { useSearchParams } from 'react-router-dom'
 import { Modal, ErrorAlert } from 'components'
 import { imageUpload } from 'services'
 import { useState } from 'react'
@@ -14,6 +15,8 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
     url,
     id,
   } = props
+
+  const [pageParam] = useSearchParams()
 
   const [file, setFile] = useState<any>('')
 
@@ -37,7 +40,13 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
       const response = await imageUpload(url, formData)
 
       if (response.status === 201) {
-        fetchMembersData(setFetchError, setMembersData, setIsLoading, 1)
+        fetchMembersData(
+          setFetchError,
+          setMembersData,
+          setIsLoading,
+          +pageParam.get('page')!
+        )
+
         setAvatarModal(false)
       }
     } catch (error: any) {
