@@ -19,7 +19,9 @@ const Textarea: React.FC<TextareaProps> = (props) => {
               v.trim().length >= 1 || 'შევსება სავალდებულოა!',
           },
         })}
-        className={`${errors && '!bg-redSm'} px-4 py-4 resize-none bgTextarea`}
+        className={`${
+          errors && '!bg-redSm'
+        } animate-focus-in-expand px-4 py-4 resize-none bgTextarea`}
         placeholder={placeholder}
       />
 
