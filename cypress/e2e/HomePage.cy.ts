@@ -7,6 +7,7 @@ describe('Home page', () => {
   })
 
   it('user can see components of the welcome page', () => {
+    cy.viewport(1920, 1000)
     cy.beVisible('შესვლა')
     cy.beVisible('სახელი')
     cy.get("[data-cy='Sun']").should('be.visible')
