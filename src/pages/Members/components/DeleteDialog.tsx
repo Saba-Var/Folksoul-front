@@ -1,9 +1,8 @@
+import { useSearchParams, useNavigate } from 'react-router-dom'
 import { DeleteDialogProps } from 'pages/Members/components'
-import fetchMembersData from 'helpers/fetchMembersData'
 import { DeleteContent, ErrorAlert } from 'components'
-import { useSearchParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import { deleteMemberFromBand } from 'services'
+import { fetchMembersData } from 'helpers'
 import { useState } from 'react'
 
 const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {

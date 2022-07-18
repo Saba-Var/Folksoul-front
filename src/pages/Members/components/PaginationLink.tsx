@@ -1,6 +1,6 @@
 import { PaginationLinkProps } from 'pages/Members/components'
 import { useSearchParams, Link } from 'react-router-dom'
-import fetchMembersData from 'helpers/fetchMembersData'
+import { fetchMembersData } from 'helpers'
 import { ErrorAlert } from 'components'
 import { useState } from 'react'
 
