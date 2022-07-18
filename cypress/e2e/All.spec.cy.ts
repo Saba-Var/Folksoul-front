@@ -1,0 +1,6 @@
+import './Members.cy.ts'
+import './BandInfoPage.cy.ts'
+import './HomePage.cy.ts'
+import './LoginPage.cy.ts'
+import './MainPage.cy.ts'
+import './SocialLinksPage.cy.ts'

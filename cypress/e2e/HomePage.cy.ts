@@ -17,6 +17,7 @@ describe('Home page', () => {
 
   it('when click on member info image should change', () => {
     cy.get("[data-cy='სახელი']").click()
+    cy.contains('გრძელის...').should('be.visible')
     cy.get("[data-cy='MemberImage']").should('be.visible')
     cy.get("[data-cy='სახელი2']").click()
   })
@@ -28,23 +29,6 @@ describe('Home page', () => {
     cy.contains('ინფორმაცია ბენდის შესახებ').should('be.visible')
     cy.get("[data-cy='სახელი2']").click()
     cy.contains('ბიოგრაფია2').should('be.visible')
-  })
-
-  it('if user is logged in navigate to dashboard', () => {
-    cy.intercept(
-      'POST',
-      'https://folksoul-api.sabavar.redberryinternship.ge/auth',
-      {
-        statusCode: 200,
-      }
-    )
-    cy.visit('/Login')
-    cy.get("[data-cy='მეტსახელი']").type('name')
-    cy.get("[data-cy='პაროლი']").type('password')
-    cy.get("[data-cy='LoginBtn']").click()
-    window.localStorage.setItem('token', 'token')
-    cy.visit('/')
-    cy.url().should('include', 'Dashboard/Main')
   })
 
   it('if band images is uploaded show it', () => {

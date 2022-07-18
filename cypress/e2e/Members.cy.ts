@@ -282,4 +282,31 @@ describe('Members Page', () => {
     cy.get('[data-cy="SaveBtn"]').click()
     cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
   })
+
+  it('when delete member from the band modal should close and redirect to members list', () => {
+    cy.intercept(
+      'GET',
+      'https://folksoul-api.sabavar.redberryinternship.ge/all-members?page=1',
+      {
+        statusCode: 200,
+        body: {
+          members: [
+            {
+              _id: 'id',
+              name: 'სახელი',
+            },
+          ],
+        },
+      }
+    )
+    cy.intercept(
+      'DELETE',
+      'https://folksoul-api.sabavar.redberryinternship.ge/delete-member?id=id',
+      {
+        statusCode: 200,
+      }
+    )
+    cy.get('[data-cy="RedBtn"]').click()
+    cy.get('[data-cy="DeleteYes"]').click()
+  })
 })

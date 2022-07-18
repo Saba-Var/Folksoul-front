@@ -40,11 +40,11 @@ describe('Social Links Page', () => {
   })
 
   it('after click on the yes of the delete dialog social link should delete', () => {
-    cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
+    cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com', _id: 'id' }])
     cy.get("[data-cy='RedBtn']").click()
     cy.intercept(
       'DELETE',
-      'https://folksoul-api.sabavar.redberryinternship.ge/delete-link',
+      'https://folksoul-api.sabavar.redberryinternship.ge/delete-link?id=id',
       {
         statusCode: 200,
       }

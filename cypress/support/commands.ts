@@ -39,10 +39,16 @@ Cypress.Commands.add('stopRequests', () => {
             biography: 'ბიოგრაფია',
             image: 'images/image',
           },
-
           {
             _id: 'id2',
             name: 'სახელი2',
+            orbitLength: 600,
+            color: '#FF0000',
+            biography: 'ბიოგრაფია2',
+          },
+          {
+            _id: 'id2',
+            name: 'გრძელისახელი',
             orbitLength: 600,
             color: '#FF0000',
             biography: 'ბიოგრაფია2',
@@ -158,6 +164,7 @@ Cypress.Commands.add('memberTwoPage', () => {
         name: 'წევრი',
       },
       {
+        _id: '2',
         name: 'წევრი2',
       },
       {
