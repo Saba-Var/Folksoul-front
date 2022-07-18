@@ -124,13 +124,13 @@ In order to see coverage of testing go to coverage/lcov-report and open index.ht
 │    │
 │    └── pages
 │        └── page-folder
-│            ├── component-folder
+│            ├── component-folder  [#OPTIONAL]
 │            │   ├── component-file.tsx
 │            │   ├── index.ts
-│            │   └── types.d.ts [#OPTIONAL]
+│            │   └── types.d.ts    [#OPTIONAL]
 │            ├── page-file.tsx
 │            ├── index.ts
-│            └── types.d.ts [#OPTIONAL]
+│            └── types.d.ts        [#OPTIONAL]
 
 
 - .babelrc
