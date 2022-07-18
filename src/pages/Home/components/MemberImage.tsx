@@ -33,6 +33,12 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
 
   const isSelected = selectedId === id
 
+  let memberName = name
+
+  if (memberName.length > 7) {
+    memberName = `${memberName.slice(0, 7)}...`
+  }
+
   return (
     <div
       data-cy={name}
@@ -69,7 +75,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
             isSelected && 'w-24 !left-[4px]'
           } absolute left-[-7px] overflow-x-hidden whitespace-nowrap overflow-y-hidden bottom-[-8px] bg-yellow flex border-[4px] justify-center items-center pt-1 rounded-[60px] text-darkBlue font-BPG-Nino-Mtavruli font-bold text-sm tracking-[1.2px]`}
         >
-          {name}
+          {memberName}
         </div>
       </div>
     </div>
