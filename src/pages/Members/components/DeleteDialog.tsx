@@ -26,7 +26,9 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteMember = async () => {
     try {
-      const { status } = await deleteMemberFromBand(userId)
+      const { status } = await deleteMemberFromBand(
+        `/delete-member?id=${userId}`
+      )
 
       if (status === 200) {
         closeModal()

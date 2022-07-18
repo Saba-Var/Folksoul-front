@@ -5,8 +5,8 @@ export const getLinksData = (): Promise<AllLinksRes> => {
   return axios.get('/all-links')
 }
 
-export const deleteSocialLink = (id: string): Promise<Status> => {
-  return axios.delete('/delete-link', { id })
+export const deleteSocialLink = (uri: string): Promise<Status> => {
+  return axios.delete(uri)
 }
 
 export const addSocialLink = (data: DetailsProps): Promise<Status> => {

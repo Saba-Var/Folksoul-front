@@ -13,7 +13,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteLink = async () => {
     try {
-      const { status } = await deleteSocialLink(id)
+      const { status } = await deleteSocialLink(`/delete-link?id=${id}`)
 
       if (status === 200) {
         fetchSocialLinks(setError, setLinks)

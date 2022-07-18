@@ -10,8 +10,8 @@ export const getMembersData = (uri: string): Promise<AllMemberRes> => {
   return axios.get(uri)
 }
 
-export const deleteMemberFromBand = (id: string): Promise<Status> => {
-  return axios.delete('/delete-member', { id })
+export const deleteMemberFromBand = (uri: string): Promise<Status> => {
+  return axios.delete(uri)
 }
 
 export const addMemberToBand = (data: MemberIfo): Promise<Status> => {
