@@ -1,5 +1,5 @@
 import { Pagination, MemberCard, CardData } from 'pages/Members/components'
-import { Avatar1, Avatar2, Avatar3 } from 'assets/images'
+import { Avatar1, Avatar2, Avatar3 } from 'assets'
 
 const Card: React.FC<CardData> = (props) => {
   const { data, setSection, setMemberId, isLoading } = props

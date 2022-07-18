@@ -7,7 +7,7 @@ import {
   BandMember3,
   BandMember4,
   BandMember5,
-} from 'assets/images'
+} from 'assets'
 
 const Home = () => {
   const [infoImage, setInfoImage] = useState('')
