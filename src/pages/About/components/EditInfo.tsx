@@ -13,6 +13,9 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
   const { register, setValue, watch } = useForm({
     mode: 'all',
+    defaultValues: {
+      about: '',
+    },
   })
 
   useEffect(() => {
