@@ -10,7 +10,7 @@ export const getMembersData = (uri: string): Promise<AllMemberRes> => {
   return axios.get(uri)
 }
 
-export const deleteMemberFromBand = (uri: string): Promise<Status> => {
+export const deleteMemberFromBand = async (uri: string): Promise<Status> => {
   return axios.delete(uri)
 }
 

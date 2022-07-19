@@ -1,7 +1,7 @@
 import { DirectBtn, ErrorAlert } from 'components'
+import axios, { addSocialLink } from 'services'
 import { fetchSocialLinks } from 'helpers'
 import { useForm } from 'react-hook-form'
-import { addSocialLink } from 'services'
 import { useState } from 'react'
 import {
   FormNotifications,
@@ -33,6 +33,10 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
   const submitHandler = async (data: DetailsProps) => {
     try {
+      axios.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${localStorage.getItem('token')}`
+
       const linkDetails = data
 
       const { status } = await addSocialLink(linkDetails)

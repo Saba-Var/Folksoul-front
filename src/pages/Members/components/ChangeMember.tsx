@@ -1,7 +1,7 @@
+import axios, { changeBandMember, getOneMemberData } from 'services'
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { DirectBtn, ErrorAlert } from 'components'
-import { changeBandMember, getOneMemberData } from 'services'
 import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
 import {
@@ -34,6 +34,10 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
   const fetchOneMember = useCallback(async () => {
     try {
+      axios.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${localStorage.getItem('token')}`
+
       const response = await getOneMemberData(`/get-one-member?id=${id}`)
 
       if (response.status === 200) {

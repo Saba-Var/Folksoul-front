@@ -1,6 +1,6 @@
 import { Modal, ErrorAlert, ImageUploadProps } from 'components'
 import { fetchSocialLinks, fetchBandAbout } from 'helpers'
-import { imageUpload } from 'services'
+import axios, { imageUpload } from 'services'
 import { useState } from 'react'
 
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
@@ -20,6 +20,10 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
 
   const imageUploadHandler = async () => {
     try {
+      axios.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${localStorage.getItem('token')}`
+
       const formData = new FormData()
       formData.append('id', id)
       formData.append('image', file)

@@ -36,9 +36,9 @@ const LoginForm = () => {
 
       if (response.status === 201) {
         setExitAnimation(true)
+        localStorage.setItem('token', response.data.token)
 
         setTimeout(() => {
-          localStorage.setItem('token', response.data.token)
           navigate('/Dashboard/Main')
         }, 700)
       }

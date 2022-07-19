@@ -2,7 +2,7 @@ import { AvatarModalProps } from 'pages/Members/components'
 import { useSearchParams } from 'react-router-dom'
 import { Modal, ErrorAlert } from 'components'
 import { fetchMembersData } from 'helpers'
-import { imageUpload } from 'services'
+import axios, { imageUpload } from 'services'
 import { useState } from 'react'
 
 const AvatarModal: React.FC<AvatarModalProps> = (props) => {
@@ -33,6 +33,10 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
   const imageUploadHandler = async () => {
     try {
+      axios.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${localStorage.getItem('token')}`
+
       const formData = new FormData()
       formData.append('id', id)
       formData.append('image', file)

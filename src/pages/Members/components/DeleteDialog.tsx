@@ -1,7 +1,7 @@
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { DeleteDialogProps } from 'pages/Members/components'
 import { DeleteContent, ErrorAlert } from 'components'
-import { deleteMemberFromBand } from 'services'
+import axios, { deleteMemberFromBand } from 'services'
 import { fetchMembersData } from 'helpers'
 import { useState } from 'react'
 
@@ -26,6 +26,10 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteMember = async () => {
     try {
+      axios.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${localStorage.getItem('token')}`
+
       const { status } = await deleteMemberFromBand(
         `/delete-member?id=${userId}`
       )
