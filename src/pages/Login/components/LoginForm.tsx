@@ -77,6 +77,7 @@ const LoginForm = () => {
           errors={errors.username}
           placeholder='მეტსახელი'
           showError={showError}
+          inputName='username'
           register={register}
           type='text'
         />
@@ -86,6 +87,7 @@ const LoginForm = () => {
           showError={showError}
           placeholder='პაროლი'
           register={register}
+          inputName='password'
           type='password'
         />
 

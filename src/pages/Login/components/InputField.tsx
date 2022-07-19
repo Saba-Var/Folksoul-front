@@ -1,9 +1,8 @@
 import { InputFieldProps } from 'pages/Login/components'
 
 const InputField: React.FC<InputFieldProps> = (props) => {
-  const { placeholder, errors, register, type, showError } = props
+  const { placeholder, errors, register, type, showError, inputName } = props
 
-  const inputName = placeholder === 'მეტსახელი' ? 'username' : 'password'
   const showInputError = errors && showError
 
   return (

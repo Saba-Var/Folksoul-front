@@ -2,6 +2,7 @@ import { UseFormRegister } from 'react-hook-form'
 
 export type InputFieldProps = {
   register: UseFormRegister<{ username: string; password: string }>
+  inputName: 'username' | 'password'
   placeholder: string
   showError: boolean
   type: string
