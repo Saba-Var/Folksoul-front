@@ -22,6 +22,7 @@ export type {
   DirectBtnProps,
   InputFieldProps,
   ModalProps,
+  FileType,
 } from './types'
 export {
   MiniCloseIcon,

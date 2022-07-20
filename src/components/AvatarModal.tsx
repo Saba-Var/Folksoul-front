@@ -1,8 +1,8 @@
 import { AvatarModalProps } from 'pages/Members/components'
+import { Modal, ErrorAlert, FileType } from 'components'
 import { useSearchParams } from 'react-router-dom'
-import { Modal, ErrorAlert } from 'components'
-import { fetchMembersData } from 'helpers'
 import axios, { imageUpload } from 'services'
+import { fetchMembersData } from 'helpers'
 import { useState } from 'react'
 
 const AvatarModal: React.FC<AvatarModalProps> = (props) => {
@@ -18,13 +18,13 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
   const [pageParam] = useSearchParams()
 
-  const [file, setFile] = useState<any>('')
+  const [file, setFile] = useState<FileType>('')
 
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
 
-  const fileChangeHandler = (e: any) => {
-    if (e.target.files[0]?.type.startsWith('image')) {
+  const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0].type.includes('image/')) {
       setFile(e.target.files[0])
     } else {
       setErrorAlert(true)
@@ -60,7 +60,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
   let imageSrc = avatar
 
-  if (file) {
+  if (file && typeof file !== 'string') {
     imageSrc = URL.createObjectURL(file)
   }
 
