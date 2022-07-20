@@ -45,7 +45,7 @@ export type InputFieldProps = {
 }
 
 export type ImageUploadProps = {
-  setFile: (file: string) => void
+  setFile: (file: string | Blob) => void
   children: JSX.Element
   setImageModal: Show
   setLinks: setLinks

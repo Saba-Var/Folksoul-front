@@ -10,8 +10,8 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
 
-  const fileChangeHandler = (e: any) => {
-    if (e.target.files[0]?.type.startsWith('image')) {
+  const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0].type.includes('image/')) {
       setFile(e.target.files[0])
     } else {
       setErrorAlert(true)
