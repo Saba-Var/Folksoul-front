@@ -1,6 +1,6 @@
 import { Modal, ErrorAlert, ImageUploadProps } from 'components'
 import { fetchSocialLinks, fetchBandAbout } from 'helpers'
-import axios, { imageUpload } from 'services'
+import { imageUpload } from 'services'
 import { useState } from 'react'
 
 const ImageUpload: React.FC<ImageUploadProps> = (props) => {
@@ -20,15 +20,15 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
 
   const imageUploadHandler = async () => {
     try {
-      axios.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${localStorage.getItem('token')}`
-
       const formData = new FormData()
       formData.append('id', id)
       formData.append('image', file)
 
-      const { status } = await imageUpload(url, formData)
+      const { status } = await imageUpload(
+        url,
+        formData,
+        localStorage.getItem('token')!
+      )
 
       if (status === 201) {
         if (title === 'შეცვალე ბენდის პორტრეტი') {

@@ -1,9 +1,9 @@
 import { DirectBtn, AddNotification, ErrorAlert } from 'components'
 import { EditInfoProps } from 'pages/About/components'
-import axios, { editBandInfo } from 'services'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { fetchBandAbout } from 'helpers'
+import { editBandInfo } from 'services'
 
 const EditInfo: React.FC<EditInfoProps> = (props) => {
   const { about, id, setBandAbout, setSection } = props
@@ -24,16 +24,15 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
 
   const submitHandler = async () => {
     try {
-      axios.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${localStorage.getItem('token')}`
-
       const data = {
         about: watch().about,
         id,
       }
 
-      const { status } = await editBandInfo(data)
+      const { status } = await editBandInfo(
+        data,
+        localStorage.getItem('token')!
+      )
 
       if (status === 200) {
         setAddModal(true)

@@ -1,6 +1,6 @@
 import { DirectBtn, ErrorAlert } from 'components'
-import axios, { changeSocialLink } from 'services'
 import { useEffect, useState } from 'react'
+import { changeSocialLink } from 'services'
 import { fetchSocialLinks } from 'helpers'
 import { useForm } from 'react-hook-form'
 import {
@@ -42,10 +42,6 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
 
   const submitHandler = async (formData: FormData) => {
     try {
-      axios.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${localStorage.getItem('token')}`
-
       const { linkName, url } = formData
 
       const data = {
@@ -54,7 +50,10 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
         id,
       }
 
-      const { status } = await changeSocialLink(data)
+      const { status } = await changeSocialLink(
+        data,
+        localStorage.getItem('token')!
+      )
 
       if (status === 200) {
         setShowModal(true)

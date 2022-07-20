@@ -1,4 +1,4 @@
-import axios, { changeBandMember, getOneMemberData } from 'services'
+import { changeBandMember, getOneMemberData } from 'services'
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { DirectBtn, ErrorAlert } from 'components'
@@ -41,11 +41,10 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
   const fetchOneMember = useCallback(async () => {
     try {
-      axios.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${localStorage.getItem('token')}`
-
-      const response = await getOneMemberData(id)
+      const response = await getOneMemberData(
+        id,
+        localStorage.getItem('token')!
+      )
 
       if (response.status === 200) {
         const data = response.data
@@ -79,7 +78,10 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         id,
       }
 
-      const { status } = await changeBandMember(data)
+      const { status } = await changeBandMember(
+        data,
+        localStorage.getItem('token')!
+      )
 
       if (status === 200) {
         setShowModal(true)

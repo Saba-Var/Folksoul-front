@@ -30,7 +30,10 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
         'Authorization'
       ] = `Bearer ${localStorage.getItem('token')}`
 
-      const { status } = await deleteMemberFromBand(userId)
+      const { status } = await deleteMemberFromBand(
+        userId,
+        localStorage.getItem('token')!
+      )
 
       if (status === 200) {
         closeModal()

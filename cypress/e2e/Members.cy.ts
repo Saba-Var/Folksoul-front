@@ -26,7 +26,7 @@ describe('Members Page', () => {
     )
     cy.changeMemberRequests()
     cy.wait(3000)
-    cy.get('[data-cy="ChangeInfo"]').click({ multiple: true }).wait(200)
+    cy.get('[data-cy="ChangeInfo"]').click({ multiple: true }).wait(400)
     cy.wait(3000)
     cy.addNewMember()
     cy.get("[data-cy='name']").type('სახელი').wait(500)

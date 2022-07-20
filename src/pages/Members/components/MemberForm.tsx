@@ -1,5 +1,5 @@
-import axios, { addMemberToBand } from 'services'
 import { useNavigate } from 'react-router-dom'
+import { addMemberToBand } from 'services'
 import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
 import { DirectBtn } from 'components'
@@ -35,12 +35,11 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     const memberDetails = data
     memberDetails.orbitLength = +memberDetails.orbitLength
 
-    axios.defaults.headers.common[
-      'Authorization'
-    ] = `Bearer ${localStorage.getItem('token')}`
-
     try {
-      const { status } = await addMemberToBand(memberDetails)
+      const { status } = await addMemberToBand(
+        memberDetails,
+        localStorage.getItem('token')!
+      )
 
       if (status === 201) {
         setValue('orbitLength', 0)

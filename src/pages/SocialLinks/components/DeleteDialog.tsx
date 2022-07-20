@@ -1,6 +1,6 @@
 import { DeleteDialogProps } from 'pages/SocialLinks/components'
 import { DeleteContent, ErrorAlert } from 'components'
-import axios, { deleteSocialLink } from 'services'
+import { deleteSocialLink } from 'services'
 import { fetchSocialLinks } from 'helpers'
 import { useState } from 'react'
 
@@ -13,11 +13,10 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
 
   const deleteLink = async () => {
     try {
-      axios.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${localStorage.getItem('token')}`
-
-      const { status } = await deleteSocialLink(id)
+      const { status } = await deleteSocialLink(
+        id,
+        localStorage.getItem('token')!
+      )
 
       if (status === 200) {
         fetchSocialLinks(setError, setLinks)
