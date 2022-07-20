@@ -7,36 +7,36 @@ describe('Social Links Page', () => {
 
   it('when visit first time social links page should see components and message', () => {
     cy.fetchSocialLinks([])
-    cy.beVisible('NoLink')
-    cy.beVisible('დაამატე ახალი სოციალური ბმული')
-    cy.beVisible('სოციალური ბმულები')
+    cy.isVisible('NoLink')
+    cy.isVisible('დაამატე ახალი სოციალური ბმული')
+    cy.isVisible('სოციალური ბმულები')
   })
 
   it('when click on the add social link should see form', () => {
     cy.wait(3000)
     cy.get('[data-cy="დაამატე ახალი სოციალური ბმული"]').click()
-    cy.beVisible('დაამატე სოციალური ბმული')
-    cy.beVisible('გადი უკან')
-    cy.beVisible('დაამატე სოციალური ბმული')
+    cy.isVisible('დაამატე სოციალური ბმული')
+    cy.isVisible('გადი უკან')
+    cy.isVisible('დაამატე სოციალური ბმული')
   })
 
   it('when click on the yellow button should see change social link form', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
-    cy.beVisible('google')
-    cy.beVisible('google.com')
+    cy.isVisible('google')
+    cy.isVisible('google.com')
     cy.get("[data-cy='YellowBtn']").click()
-    cy.beVisible('შეცვალე სოციალური ბმული')
+    cy.isVisible('შეცვალე სოციალური ბმული')
     cy.get("[data-cy='გადი უკან']").click()
-    cy.beVisible('სოციალური ბმულები')
+    cy.isVisible('სოციალური ბმულები')
   })
 
   it('when click on the red button should see delete dialog', () => {
     cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
     cy.get("[data-cy='RedBtn']").click()
-    cy.beVisible('სოციალური ბმულის წაშლა')
-    cy.beVisible('წავშალოთ ბმული?')
+    cy.isVisible('სოციალური ბმულის წაშლა')
+    cy.isVisible('წავშალოთ ბმული?')
     cy.get('[data-cy="DeleteNo"]').click()
-    cy.contains('წავშალოთ ბმული?').should('not.exist')
+    cy.get('[data-cy="წავშალოთ ბმული?"]').should('not.exist')
   })
 
   it('after click on the yes of the delete dialog social link should delete', () => {
@@ -63,15 +63,15 @@ describe('Social Links Page', () => {
       }
     )
     cy.get("[data-cy='linkName']").clear()
-    cy.contains('შევსება სავალდებულოა!').should('be.visible')
+    cy.isVisible('შევსება სავალდებულოა!')
     cy.get("[data-cy='linkName']").type('Y')
-    cy.contains('შეიყვანეთ მინიმუმ 2 სიმბოლო').should('be.visible')
+    cy.isVisible('შეიყვანეთ მინიმუმ 2 სიმბოლო')
     cy.get("[data-cy='linkName']").clear().type('YouTube')
     cy.get("[data-cy='url']").type('youtube')
-    cy.contains('შეიყვანეთ ვალიდური ბმულის მისამართი').should('be.visible')
+    cy.isVisible('შეიყვანეთ ვალიდური ბმულის მისამართი')
     cy.get("[data-cy='url']").clear().type('youtube.com')
     cy.get("[data-cy='ChangeLink']").click().wait(1000)
-    cy.beVisible('ბმულის დეტალები შეიცვალა')
+    cy.isVisible('ბმულის დეტალები შეიცვალა')
   })
 
   it('if link already exists show error alert on the change form', () => {
@@ -88,7 +88,7 @@ describe('Social Links Page', () => {
     cy.get("[data-cy='url']").clear().type('youtube.com')
     cy.get("[data-cy='ChangeLink']").click()
     cy.wait(1600)
-    cy.beVisible("ბმული 'google' უკვე დამატებულია")
+    cy.isVisible("ბმული 'google' უკვე დამატებულია")
   })
 
   it('when click on the camera icon then should see modal to upload avatar', () => {
@@ -101,13 +101,13 @@ describe('Social Links Page', () => {
       }
     )
     cy.get('[data-cy="CameraBtn"]').click({ force: true })
-    cy.beVisible('google')
+    cy.isVisible('google')
 
     cy.get('input[type=file]').selectFile('src/assets/images/avatar-1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()
-    cy.contains('შეცვალე სოციალური ბმულის ხატულა').should('not.exist')
+    cy.get('[data-cy="შეცვალე სოციალური ბმულის ხატულა"]').should('not.exist')
   })
 
   it('on the add new link form if inputs are valid then new link should add', () => {
@@ -120,7 +120,7 @@ describe('Social Links Page', () => {
       }
     )
     cy.get('[data-cy="დაამატე ახალი სოციალური ბმული"]').click()
-    cy.beVisible('დაამატე სოციალური ბმული')
+    cy.isVisible('დაამატე სოციალური ბმული')
     cy.get("[data-cy='linkName']").type('Youtube')
     cy.get("[data-cy='url']").type('youtube.com')
     cy.get('[data-cy="AddLink"]').click()
@@ -141,7 +141,7 @@ describe('Social Links Page', () => {
     cy.get("[data-cy='url']").type('youtube.com')
     cy.get('[data-cy="AddLink"]').click()
     cy.wait(1600)
-    cy.beVisible("ბმული 'Youtube' უკვე დამატებულია")
+    cy.isVisible("ბმული 'Youtube' უკვე დამატებულია")
   })
 
   it('after click on the yes of the delete dialog and there is error link should not delete', () => {
@@ -158,7 +158,7 @@ describe('Social Links Page', () => {
     )
     cy.get("[data-cy='RedBtn']").click()
     cy.get('[data-cy="DeleteYes"]').click()
-    cy.beVisible('ბმული ვერ წაიშალა')
+    cy.isVisible('ბმული ვერ წაიშალა')
   })
 
   it('when visit first time social links page should see components and message', () => {
@@ -169,6 +169,6 @@ describe('Social Links Page', () => {
         statusCode: 404,
       }
     )
-    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+    cy.isVisible('ინფორმაცია ვერ მოიძებნა')
   })
 })

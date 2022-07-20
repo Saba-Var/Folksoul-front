@@ -25,7 +25,11 @@ const Textarea: React.FC<TextareaProps> = (props) => {
         placeholder={placeholder}
       />
 
-      {errors && <p className='text-sm text-red w-[690px]'>{errors.message}</p>}
+      {errors && (
+        <p data-cy={errors.message} className='text-sm text-red w-[690px]'>
+          {errors.message}
+        </p>
+      )}
     </div>
   )
 }

@@ -13,7 +13,7 @@ describe('Members Page', () => {
         statusCode: 404,
       }
     )
-    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+    cy.isVisible('ინფორმაცია ვერ მოიძებნა')
   })
 
   it('if we change member but this member is already in the band show error alert', () => {
@@ -25,14 +25,15 @@ describe('Members Page', () => {
       }
     )
     cy.changeMemberRequests()
-    cy.get('[data-cy="ChangeInfo"]').click()
+    cy.wait(3000)
+    cy.get('[data-cy="ChangeInfo"]').click({ multiple: true }).wait(200)
     cy.wait(3000)
     cy.addNewMember()
     cy.get("[data-cy='name']").type('სახელი').wait(500)
     cy.get("[data-cy='instrument']").type('გიტარა').wait(500)
     cy.get("[data-cy='biography']").type('დაიბადა').wait(500)
     cy.get('[data-cy="შეცვლა"]').click().wait(2000)
-    cy.contains('წევრი უკვე ბენდშია').should('be.visible')
+    cy.isVisible('წევრი უკვე ბენდშია')
   })
 
   it('when there is no member should see message on the page', () => {
@@ -49,7 +50,7 @@ describe('Members Page', () => {
         },
       }
     )
-    cy.beVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
+    cy.isVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
   })
 
   it('we can edit information of band member and save it if inputs are valid', () => {
@@ -62,14 +63,14 @@ describe('Members Page', () => {
       }
     )
     cy.get('[data-cy="ChangeInfo"]').click().wait(500)
-    cy.beVisible('შეცვალე წევრის ინფორმაცია')
+    cy.isVisible('შეცვალე წევრის ინფორმაცია')
     cy.addNewMember()
     cy.get("[data-cy='name']").type('სახელი').wait(500)
     cy.get("[data-cy='instrument']").type('გიტარა').wait(500)
     cy.get("[data-cy='biography']").type('დაიბადა').wait(500)
     cy.get('[data-cy="name"]').type('ილონ').wait(500)
     cy.get('[data-cy="შეცვლა"]').click()
-    cy.beVisible('წევრის იფორმაცია შეიცვალა')
+    cy.isVisible('წევრის იფორმაცია შეიცვალა')
   })
 
   it('when open change member form inputs should have values', () => {
@@ -80,18 +81,18 @@ describe('Members Page', () => {
 
   it('when input values of new member are invalid show error message', () => {
     cy.addMemberForm()
-    cy.beVisible('დაამატე ჯგუფის ახალი წევრი')
+    cy.isVisible('დაამატე ჯგუფის ახალი წევრი')
     cy.get("[data-cy='დაამატე წევრი']").click()
-    cy.contains('შევსება სავალდებულოა!').should('be.visible')
+    cy.isVisible('შევსება სავალდებულოა!')
     cy.get("[data-cy='name']").type('name').wait(500)
-    cy.contains('მხოლოდ ქართული ასოები').should('be.visible')
+    cy.isVisible('მხოლოდ ქართული ასოები')
     cy.get("[data-cy='name']").clear()
     cy.get("[data-cy='instrument']").type('ს').wait(500)
-    cy.contains('მინიმუმ 2 სიმბოლო').should('be.visible')
+    cy.isVisible('მინიმუმ 2 სიმბოლო')
     cy.get("[data-cy='biography']").type('s').wait(500)
-    cy.contains('მხოლოდ ქართული ასოები').should('be.visible')
+    cy.isVisible('მხოლოდ ქართული ასოები')
     cy.get("[data-cy='biography']").clear()
-    cy.contains('შევსება სავალდებულოა').should('be.visible')
+    cy.isVisible('შევსება სავალდებულოა!')
     cy.get('[data-cy="დაამატე წევრი"]').click()
     cy.url().should('include', 'Members?page=1')
   })
@@ -107,7 +108,7 @@ describe('Members Page', () => {
     )
     cy.addNewMember()
     cy.get('[data-cy="დაამატე წევრი"]').click()
-    cy.beVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
+    cy.isVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
     cy.url().should('include', 'Members?page=1')
   })
 
@@ -122,7 +123,7 @@ describe('Members Page', () => {
     )
     cy.addNewMember()
     cy.get('[data-cy="დაამატე წევრი"]').click()
-    cy.beVisible('წევრი ვერ მოიძებნა')
+    cy.isVisible('წევრი ვერ მოიძებნა')
   })
 
   it('if url does not contain page param redirect to page 1', () => {
@@ -142,27 +143,26 @@ describe('Members Page', () => {
     cy.addMemberForm()
     cy.addNewMember()
     cy.get('[data-cy="დაამატე წევრი"]').click()
-    cy.beVisible('წევრი უკვე ბენდშია').wait(500)
+    cy.isVisible('წევრი უკვე ბენდშია').wait(500)
   })
 
   it('if band have more than 3 members we should see pagination', () => {
     cy.memberTwoPage()
-    cy.beVisible('წევრი')
-    cy.contains('წევრი4').should('not.exist')
+    cy.isVisible('წევრი')
+    cy.get('[data-cy="წევრი4"]').should('not.exist')
     cy.get('[data-cy="2"]').click()
-    cy.beVisible('წევრი4')
+    cy.isVisible('წევრი4')
     cy.get('[data-cy="1"]').click()
-    cy.beVisible('წევრი3')
+    cy.isVisible('წევრი3')
   })
 
   it('when click on the green button should see details of current member', () => {
     cy.getAllMembers()
     cy.wait(500)
     cy.get('[data-cy="GreenBtn"]').click({ force: true })
-    cy.beVisible('სახელი')
-    cy.beVisible('300')
-    cy.contains('გიტარა').should('be.visible')
-    cy.beVisible('დაიბადა ...')
+    cy.isVisible('სახელი~გიტარა')
+    cy.isVisible('300')
+    cy.isVisible('დაიბადა ...')
   })
 
   it('if there is one member on the page and we delete it then should redirect to previous page', () => {
@@ -176,9 +176,9 @@ describe('Members Page', () => {
     )
     cy.get('[data-cy="2"]').click()
     cy.get('[data-cy="RedBtn"]').click()
-    cy.beVisible('წავშალოთ ბენდის წევრი?')
+    cy.isVisible('წავშალოთ ბენდის წევრი?')
     cy.get('[data-cy="DeleteNo"]').click()
-    cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
+    cy.get('[data-cy="წავშალოთ ბენდის წევრი?"]').should('not.exist')
     cy.get('[data-cy="RedBtn"]').click({ multiple: true, force: true })
     cy.get('[data-cy="DeleteYes"]').click({ force: true, multiple: true })
   })
@@ -187,9 +187,9 @@ describe('Members Page', () => {
     cy.getAllMembers()
     cy.wait(500)
     cy.get('[data-cy="RedBtn"]').click({ force: true })
-    cy.beVisible('წავშალოთ ბენდის წევრი?')
+    cy.isVisible('წავშალოთ ბენდის წევრი?')
     cy.get('[data-cy="DeleteNo"]').click()
-    cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
+    cy.get('[data-cy="წავშალოთ ბენდის წევრი?"]').should('not.exist')
     cy.get('[data-cy="RedBtn"]').click()
     cy.intercept(
       'DELETE',
@@ -211,14 +211,14 @@ describe('Members Page', () => {
       }
     )
     cy.get('[data-cy="CameraBtn"]').click({ force: true })
-    cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
-    cy.beVisible('UploadMemberImage')
+    cy.isVisible('შეცვალე ჯგუფის წევრის ავატარი')
+    cy.isVisible('UploadMemberImage')
     cy.get('[data-cy="UploadMemberImage"]').click()
     cy.get('input[type=file]').selectFile('src/assets/images/avatar-1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()
-    cy.contains('შეცვალე ჯგუფის წევრის ავატარი').should('not.exist')
+    cy.get('[data-cy="შეცვალე ჯგუფის წევრის ავატარი"]').should('not.exist')
   })
 
   it('when upload invalid file show alert', () => {
@@ -228,17 +228,17 @@ describe('Members Page', () => {
     cy.get('input[type=file]').selectFile('src/index.tsx', {
       force: true,
     })
-    cy.beVisible('ატვირთეთ მხოლოდ სურათი')
-    cy.contains('შეინახე').should('not.exist')
+    cy.isVisible('ატვირთეთ მხოლოდ სურათი')
+    cy.get('[data-cy="SaveBtn"]').should('not.exist')
   })
 
   it('if member deletion fails should see error alert', () => {
     cy.getAllMembers()
     cy.wait(500)
     cy.get('[data-cy="RedBtn"]').click({ force: true })
-    cy.beVisible('წავშალოთ ბენდის წევრი?')
+    cy.isVisible('წავშალოთ ბენდის წევრი?')
     cy.get('[data-cy="DeleteNo"]').click()
-    cy.contains('წავშალოთ ბენდის წევრი?').should('not.exist')
+    cy.get('[data-cy="წავშალოთ ბენდის წევრი?"]').should('not.exist')
     cy.get('[data-cy="RedBtn"]').click()
     cy.intercept(
       'DELETE',
@@ -260,7 +260,7 @@ describe('Members Page', () => {
       }
     )
     cy.get('[data-cy="ChangeInfo"]').click()
-    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+    cy.isVisible('ინფორმაცია ვერ მოიძებნა')
   })
 
   it('if image upload fails should see error alert', () => {
@@ -273,14 +273,14 @@ describe('Members Page', () => {
       }
     )
     cy.get('[data-cy="CameraBtn"]').click({ force: true })
-    cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
-    cy.beVisible('UploadMemberImage')
+    cy.isVisible('შეცვალე ჯგუფის წევრის ავატარი')
+    cy.isVisible('UploadMemberImage')
     cy.get('[data-cy="UploadMemberImage"]').click()
     cy.get('input[type=file]').selectFile('src/assets/images/avatar-1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()
-    cy.beVisible('შეცვალე ჯგუფის წევრის ავატარი')
+    cy.isVisible('შეცვალე ჯგუფის წევრის ავატარი')
   })
 
   it('when delete member from the band modal should close and redirect to members list', () => {

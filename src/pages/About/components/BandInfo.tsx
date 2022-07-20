@@ -15,6 +15,7 @@ const BandInfo: React.FC<BandInfoProps> = (props) => {
       <div
         className='overflow-hidden animate-focus-in-expand whitespace-pre-line break-words pt-8 bg-transparent resize-none outline-none w-full h-max'
         defaultValue={about}
+        data-cy={about}
       >
         {about}
       </div>

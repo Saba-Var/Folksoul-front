@@ -5,7 +5,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       memberPagination(data: object, page: number): Chainable<Element>
-      beVisible(id: string): Chainable<JQuery<HTMLElement>>
+      isVisible(id: string): Chainable<JQuery<HTMLElement>>
       fetchSocialLinks(links: object): Chainable<Element>
       changeMemberRequests(): Chainable<Element>
       fetchOneMember(): Chainable<Element>

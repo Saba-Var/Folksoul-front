@@ -6,13 +6,13 @@ describe('Login page', () => {
   })
 
   it('user can see components of the Login page', () => {
-    cy.beVisible('კარიბჭე')
-    cy.contains('შემობრძანდი').should('be.visible')
+    cy.isVisible('კარიბჭე')
+    cy.isVisible('LoginBtn')
   })
 
   it('when user submits empty form show error message', () => {
     cy.get("[data-cy='LoginBtn']").click()
-    cy.beVisible('ამ ველის შევსება სავალდებულოა!')
+    cy.isVisible('ამ ველის შევსება სავალდებულოა!')
     cy.url().should('include', '/Login')
   })
 
@@ -21,9 +21,11 @@ describe('Login page', () => {
     cy.get("[data-cy='პაროლი']").type('p')
     cy.url().should('include', '/Login')
     cy.get("[data-cy='LoginBtn']").click()
-    cy.contains('შეიყვანეთ მინიმუმ 3 სიმბოლო').should('be.visible')
+    cy.get("[data-cy='შეიყვანეთ მინიმუმ 3 სიმბოლო!']")
+      .should('be.visible')
+      .wait(400)
     cy.get("[data-cy='მეტსახელი']").type('IT')
-    cy.beVisible('შეიყვანეთ მხოლოდ დაბალი რეგისტრის სიმბოლოები!')
+    cy.isVisible('შეიყვანეთ მხოლოდ დაბალი რეგისტრის სიმბოლოები!')
     cy.get("[data-cy='მეტსახელი']").clear().type('pas')
     cy.get("[data-cy='პაროლი']").type('as')
   })
@@ -39,10 +41,10 @@ describe('Login page', () => {
     cy.get("[data-cy='მეტსახელი']").type('name')
     cy.get("[data-cy='პაროლი']").type('password')
     cy.get("[data-cy='LoginBtn']").click()
-    cy.beVisible('მეტსახელი ან პაროლი არასწორია')
+    cy.isVisible('მეტსახელი ან პაროლი არასწორია')
     cy.url().should('include', '/Login')
     cy.get("[data-cy='CloseAlert']").click()
-    cy.contains('მეტსახელი ან პაროლი არასწორია').should('not.be.visible')
+    cy.get("[data-cy='მეტსახელი ან პაროლი არასწორია']").should('not.be.visible')
   })
 
   it('if credentials are correct then navigate to dashboard page', () => {
@@ -57,6 +59,6 @@ describe('Login page', () => {
     cy.get("[data-cy='პაროლი']").type('password')
     cy.get("[data-cy='LoginBtn']").click()
     cy.url().should('include', '/Dashboard/Main')
-    cy.beVisible('დილამშვიდობისა!')
+    cy.isVisible('დილამშვიდობისა!')
   })
 })

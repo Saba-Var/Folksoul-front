@@ -26,14 +26,14 @@ describe('Band Info Page', () => {
       }
     )
 
-    cy.beVisible('ბენდის შესახებ')
+    cy.isVisible('ბენდის შესახებ')
     cy.get("[data-cy='CameraBtn']").click({ force: true })
-    cy.beVisible('შეცვალე ბენდის პორტრეტი')
+    cy.isVisible('შეცვალე ბენდის პორტრეტი')
     cy.get('input[type=file]').selectFile('src/assets/images/avatar-1.png', {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()
-    cy.contains('შეცვალე ბენდის პორტრეტი').should('not.exist')
+    cy.get('[data-cy="შეცვალე ბენდის პორტრეტი"]').should('not.exist')
   })
 
   it('when click on the edit button should see textarea to edit band info', () => {
@@ -44,14 +44,14 @@ describe('Band Info Page', () => {
         statusCode: 403,
       }
     )
-    cy.beVisible('ბენდის შესახებ')
+    cy.isVisible('ბენდის შესახებ')
     cy.get('[data-cy="EditBtn"]').click({ force: true })
-    cy.beVisible('ბენდის შესახებ - დაარედაქტირე')
+    cy.isVisible('ბენდის შესახებ - დაარედაქტირე')
     cy.get('[data-cy="TextareaInput"]').clear()
     cy.get('[data-cy="GreenBtn"]').click()
-    cy.beVisible('შეიყვანეთ ინფორმაცია')
+    cy.isVisible('შეიყვანეთ ინფორმაცია')
     cy.get('[data-cy="გადი უკან"]').click()
-    cy.beVisible('ბენდის შესახებ')
+    cy.isVisible('ბენდის შესახებ')
   })
 
   it('when input is not empty band info should update', () => {
@@ -65,7 +65,7 @@ describe('Band Info Page', () => {
     cy.get('[data-cy="EditBtn"]').click({ force: true })
     cy.get('[data-cy="TextareaInput"]').clear().type('ბენდი დაარსდა ...')
     cy.get('[data-cy="GreenBtn"]').click()
-    cy.beVisible('ინფორმაცია შეიცვალა')
+    cy.isVisible('ინფორმაცია შეიცვალა')
   })
 
   it('if image upload fails should see error alert', () => {
@@ -81,7 +81,7 @@ describe('Band Info Page', () => {
       force: true,
     })
     cy.get('[data-cy="SaveBtn"]').click()
-    cy.beVisible('სურათი ვერ აიტვირთა')
+    cy.isVisible('სურათი ვერ აიტვირთა')
   })
 
   it('when upload invalid file show alert', () => {
@@ -90,8 +90,8 @@ describe('Band Info Page', () => {
     cy.get('input[type=file]').selectFile('src/index.tsx', {
       force: true,
     })
-    cy.beVisible('ატვირთეთ მხოლოდ სურათი')
-    cy.contains('შეინახე').should('not.exist')
+    cy.isVisible('ატვირთეთ მხოლოდ სურათი')
+    cy.get('[data-cy="SaveBtn"]').should('not.exist')
   })
 
   it('if fetching of band information fails should see alert', () => {
@@ -108,9 +108,9 @@ describe('Band Info Page', () => {
       }
     )
     cy.wait(1600)
-    cy.beVisible('ინფორმაცია ვერ მოიძებნა')
+    cy.isVisible('ინფორმაცია ვერ მოიძებნა')
     cy.get('[data-cy="CloseAlert"]').click()
-    cy.beVisible('ინფორმაცია ვერ მოიძებნა').wait(1600)
+    cy.isVisible('ინფორმაცია ვერ მოიძებნა').wait(1600)
   })
 
   it('if image is not uploaded to database when close the modal file should remove from file picker', () => {
@@ -120,10 +120,10 @@ describe('Band Info Page', () => {
     })
     cy.get('[data-cy="Modal"]').click({ force: true })
     cy.get("[data-cy='CameraBtn']").click({ force: true })
-    cy.contains('შეინახე').should('not.exist')
+    cy.get('[data-cy="SaveBtn"]').should('not.exist')
     cy.get('input[type=file]').selectFile('src/assets/images/avatar-1.png', {
       force: true,
     })
-    cy.beVisible('SaveBtn')
+    cy.isVisible('SaveBtn')
   })
 })

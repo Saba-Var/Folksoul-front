@@ -46,7 +46,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   }
 
   return (
-    <Modal title={`${title}`} setShowModal={setImageModal} setFile={setFile}>
+    <Modal title={title} setShowModal={setImageModal} setFile={setFile}>
       <div className={`h-[500px] py-10`}>
         {errorAlert && (
           <ErrorAlert

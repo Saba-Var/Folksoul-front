@@ -40,7 +40,11 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         placeholder={`${placeholder}`}
         type={type}
       />
-      {errors && <p className='text-sm text-red'>{errors.message}</p>}
+      {errors && (
+        <p data-cy={errors.message} className='text-sm text-red'>
+          {errors.message}
+        </p>
+      )}
     </div>
   )
 }

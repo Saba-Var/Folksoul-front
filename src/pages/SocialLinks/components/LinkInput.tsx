@@ -41,7 +41,9 @@ const LinkInput: React.FC<LinkInputProps> = (props) => {
       />
 
       {errors && (
-        <p className='text-sm text-center text-red'>{errors.message}</p>
+        <p data-cy={errors.message} className='text-sm text-center text-red'>
+          {errors.message}
+        </p>
       )}
     </div>
   )

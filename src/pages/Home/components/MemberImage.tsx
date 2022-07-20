@@ -68,6 +68,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
         />
 
         <div
+          data-cy={memberName}
           style={{
             borderColor: color,
           }}

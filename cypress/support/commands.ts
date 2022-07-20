@@ -2,7 +2,7 @@
 import 'cypress-file-upload'
 import './commands'
 
-Cypress.Commands.add('beVisible', (id: string) => {
+Cypress.Commands.add('isVisible', (id: string) => {
   return cy.get(`[data-cy="${id}"]`).should('be.visible')
 })
 

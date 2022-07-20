@@ -6,17 +6,17 @@ describe('Main Page', () => {
   })
 
   it('user can see components of the Dashboard page', () => {
-    cy.beVisible('დილამშვიდობისა!')
-    cy.beVisible('მთავარი')
-    cy.beVisible('ბენდის წევრები')
-    cy.beVisible('სოციალური ბმულები')
-    cy.beVisible('ბენდის შესახებ')
-    cy.beVisible('გადი გარეთ')
+    cy.isVisible('დილამშვიდობისა!')
+    cy.isVisible('მთავარი')
+    cy.isVisible('ბენდის წევრები')
+    cy.isVisible('სოციალური ბმულები')
+    cy.isVisible('ბენდის შესახებ')
+    cy.isVisible('გადი გარეთ')
   })
 
   it('when click on the logout button navigate to landing page', () => {
     cy.stopRequests()
-    cy.beVisible('გადი გარეთ')
+    cy.isVisible('გადი გარეთ')
     cy.get("[data-cy='Logout']").click()
     cy.url().should('not.include', '/Dashboard/Main')
   })
@@ -35,10 +35,10 @@ describe('Main Page', () => {
         },
       }
     )
-    cy.beVisible('გადი გარეთ')
+    cy.isVisible('გადი გარეთ')
     cy.get("[data-cy='Members']").click()
     cy.url().should('include', 'Members?page=1')
-    cy.beVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
+    cy.isVisible('ჯგუფს ჯერჯერობით არ ჰყავს წევრები!')
   })
 
   it('when click on the section navigate to it', () => {
@@ -56,8 +56,8 @@ describe('Main Page', () => {
     )
     cy.get("[data-cy='About']").click()
     cy.url().should('include', 'About')
-    cy.contains('ბენდის შესახებ ინფორმაცია არ არის დამატებული').should(
-      'be.visible'
-    )
+    cy.get("[data-cy='ბენდის შესახებ ინფორმაცია არ არის დამატებული']")
+      .should('be.visible')
+      .wait(200)
   })
 })
