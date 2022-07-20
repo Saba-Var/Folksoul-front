@@ -1,4 +1,5 @@
 import { AllLinks } from 'pages/SocialLinks'
+import { BandData } from 'pages/About'
 import { MemberData } from 'types'
 
 export type SetMembersData = (data: MemberData) => void
@@ -10,6 +11,8 @@ export type SetSocialLinks = (data: AllLinks) => void
 export type SetBandAbout = (data: BandAbout) => void
 
 export type BandAboutText = (about: string) => void
+
+export type setBandAbout = (data: BandData) => void
 
 export type SetErrorAlert = (show: boolean) => void
 

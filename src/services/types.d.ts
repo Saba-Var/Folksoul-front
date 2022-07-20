@@ -38,11 +38,11 @@ export type AllMemberRes = {
 }
 
 export type ChangeMember = {
-  orbitLength: any
-  instrument: any
-  biography: any
-  color: any
-  name: any
+  orbitLength: number
+  instrument: string
+  biography: string
+  color: string
+  name: string
   id: string
 }
 

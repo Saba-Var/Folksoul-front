@@ -1,6 +1,7 @@
 import { Header, Wrapper, Info, SolarSystem } from 'pages/Home/components'
 import { useEffect, useState } from 'react'
 import { fetchBandAbout } from 'helpers'
+import { BandData } from 'pages/About'
 import {
   BandMember1,
   BandMember2,
@@ -12,7 +13,7 @@ import {
 const Home = () => {
   const [infoImage, setInfoImage] = useState('')
 
-  const [bandInfo, setBandInfo] = useState('')
+  const [bandInfo, setBandInfo] = useState<BandData>([{ about: '', _id: '' }])
   const [infoText, setInfoText] = useState('')
 
   const [image, setImage] = useState('')
@@ -29,8 +30,11 @@ const Home = () => {
   ]
 
   useEffect(() => {
-    fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
-    setInfoText(bandInfo)
+    if (!bandInfo[0]._id) {
+      fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
+    }
+
+    setInfoText(bandInfo[0].about)
 
     if (image.includes('images/band')) {
       setInfoImage(`${process.env.REACT_APP_API_BASE_URL}/${image}`)
@@ -44,11 +48,11 @@ const Home = () => {
 
         <div className='flex justify-between px-[3%]'>
           <SolarSystem
+            bandInfo={bandInfo[0].about}
             setInfoImage={setInfoImage}
             setInfoText={setInfoText}
             imageArray={imageArray}
             setColor={setColor}
-            bandInfo={bandInfo}
             image={image}
           />
 

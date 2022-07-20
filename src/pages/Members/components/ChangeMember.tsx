@@ -5,9 +5,9 @@ import { DirectBtn, ErrorAlert } from 'components'
 import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
 import {
+  MemberInputProps,
   Notifications,
   MemberInputs,
-  MemberInputProps,
 } from 'pages/Members/components'
 
 const ChangeMember: React.FC<MemberInputProps> = (props) => {

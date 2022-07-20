@@ -12,6 +12,7 @@ export type {
   SetIsLoading,
   SetBandAbout,
   FetchMembers,
+  setBandAbout,
   BandImage,
   BandAbout,
 } from './types'

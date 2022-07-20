@@ -1,9 +1,9 @@
-import { SetErrorAlert, SetIsLoading, BandImage } from 'helpers'
+import { SetErrorAlert, SetIsLoading, BandImage, setBandAbout } from 'helpers'
 import { getBandInfoData } from 'services'
 
 const fetchBandAbout = async (
   setErrorAlert: SetErrorAlert,
-  setBandAbout: any,
+  setBandAbout: setBandAbout,
   setIsLoading?: SetIsLoading,
   setImage?: BandImage
 ) => {
@@ -15,15 +15,11 @@ const fetchBandAbout = async (
     const { status, data } = await getBandInfoData()
 
     if (status === 200) {
-      if (setImage) {
-        if (data[0].image) {
-          setImage(data[0].image)
-        }
-
-        setBandAbout(data[0].about)
-      } else {
-        setBandAbout(data)
+      if (setImage && data[0].image) {
+        setImage(data[0].image)
       }
+
+      setBandAbout(data)
     }
 
     if (setIsLoading) {
