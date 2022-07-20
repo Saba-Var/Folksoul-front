@@ -25,13 +25,19 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
     formState: { errors },
   } = useForm({
     mode: 'all',
+    defaultValues: {
+      linkName: '',
+      url: '',
+    },
   })
 
   const currentLink = links.find((link) => link._id === id)
 
   useEffect(() => {
-    setValue('linkName', currentLink?.linkName)
-    setValue('url', currentLink?.url)
+    if (currentLink) {
+      setValue('linkName', currentLink.linkName)
+      setValue('url', currentLink.url)
+    }
   }, [currentLink, setValue])
 
   const submitHandler = async (formData: FormData) => {
