@@ -1,4 +1,6 @@
-const isWordGeorgian = (text: string, inputName: string) => {
+import { GeorgianWord } from 'helpers'
+
+const isWordGeorgian: GeorgianWord = (text, inputName) => {
   const geoRegex = /[\u10A0-\u10FF]/
   const word = text.replace(/\s/g, '')
 

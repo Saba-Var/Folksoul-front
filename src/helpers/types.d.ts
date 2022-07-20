@@ -2,6 +2,8 @@ import { AllLinks } from 'pages/SocialLinks'
 import { BandData } from 'pages/About'
 import { MemberData } from 'types'
 
+export type GeorgianWord = (text: string, inputName: string) => boolean
+
 export type SetMembersData = (data: MemberData) => void
 
 export type SetIsLoading = (loading: boolean) => void
@@ -25,7 +27,18 @@ export type FetchMembersData = (
   page?: number
 ) => void
 
-type Show = (show: boolean) => void
+export type FetchBandAbout = (
+  setErrorAlert: SetErrorAlert,
+  setBandAbout: setBandAbout,
+  setIsLoading?: SetIsLoading,
+  setImage?: BandImage
+) => void
+
+export type FetchSocialLinks = (
+  setErrorAlert: SetErrorAlert,
+  setSocialLinks: SetSocialLinks,
+  setIsLoading?: SetIsLoading
+) => void
 
 export type MemberDetails = {
   orbitLength: number | string
@@ -34,6 +47,8 @@ export type MemberDetails = {
   color: string
   name: string
 }
+
+type Show = (show: boolean) => void
 
 export type changeMemberParams = {
   setStatusCode: (status: number) => void

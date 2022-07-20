@@ -1,10 +1,10 @@
-import { SetSocialLinks, SetIsLoading, SetErrorAlert } from 'helpers'
+import { FetchSocialLinks } from 'helpers'
 import { getLinksData } from 'services'
 
-const fetchSocialLinks = async (
-  setErrorAlert: SetErrorAlert,
-  setSocialLinks: SetSocialLinks,
-  setIsLoading?: SetIsLoading
+const fetchSocialLinks: FetchSocialLinks = async (
+  setErrorAlert,
+  setSocialLinks,
+  setIsLoading?
 ) => {
   try {
     if (setIsLoading) {

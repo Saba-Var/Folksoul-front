@@ -5,6 +5,8 @@ export { default as isWordGeorgian } from './isWordGeorgian'
 export type {
   changeMemberParams,
   FetchMembersData,
+  FetchSocialLinks,
+  FetchBandAbout,
   SetMembersData,
   SetSocialLinks,
   BandAboutText,
@@ -13,6 +15,7 @@ export type {
   SetIsLoading,
   SetBandAbout,
   FetchMembers,
+  GeorgianWord,
   setBandAbout,
   BandImage,
   BandAbout,
