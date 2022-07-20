@@ -43,7 +43,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
       const { status } = await addMemberToBand(memberDetails)
 
       if (status === 201) {
-        setValue('orbitLength', '')
+        setValue('orbitLength', 0)
         setValue('instrument', '')
         setValue('biography', '')
         setValue('color', '')

@@ -10,7 +10,7 @@ const AddMember: React.FC<AddMemberProps> = (props) => {
   } = props
 
   const details = {
-    orbitLength: '',
+    orbitLength: 0,
     instrument: '',
     biography: '',
     color: '',

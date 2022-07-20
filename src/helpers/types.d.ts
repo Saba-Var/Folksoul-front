@@ -41,7 +41,7 @@ export type FetchSocialLinks = (
 ) => void
 
 export type MemberDetails = {
-  orbitLength: number | string
+  orbitLength: number
   instrument: string
   biography: string
   color: string

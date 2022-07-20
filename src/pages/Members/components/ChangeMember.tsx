@@ -30,6 +30,13 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
     formState: { errors },
   } = useForm({
     mode: 'all',
+    defaultValues: {
+      orbitLength: 0,
+      instrument: '',
+      biography: '',
+      color: '',
+      name: '',
+    },
   })
 
   const fetchOneMember = useCallback(async () => {
