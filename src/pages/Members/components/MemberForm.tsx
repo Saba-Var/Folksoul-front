@@ -54,7 +54,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         setSection('')
         setShowErrorAlert(false)
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       setStatusCode(error.response.status)
       setShowErrorAlert(true)
     }

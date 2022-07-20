@@ -54,7 +54,7 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
         setShowModal(true)
         fetchSocialLinks(setLinkFetchError, setLinks)
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       setErrorAlert(true)
     }
   }

@@ -23,7 +23,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
         fetchSocialLinks(setError, setLinks)
         setShowModal(false)
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       setError(true)
     }
   }

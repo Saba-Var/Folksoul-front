@@ -50,7 +50,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
         setColorValue(data.color)
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       setErrorAlert(true)
     }
   }, [id, setValue])
@@ -84,7 +84,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
           +page.get('page')!
         )
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       setStatusCode(409)
       setShowErrorAlert(true)
     }

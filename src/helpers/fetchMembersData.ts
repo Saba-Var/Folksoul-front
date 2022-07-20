@@ -18,7 +18,7 @@ const fetchMembersData = async (
 
       setMembersData(data)
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     setErrorAlert(true)
   }
 }
