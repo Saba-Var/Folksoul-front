@@ -4,6 +4,8 @@ import { MemberData } from 'types'
 
 export type GeorgianWord = (text: string, inputName: string) => boolean
 
+export type LongTextFormat = (text: string, length: number) => string
+
 export type SetMembersData = (data: MemberData) => void
 
 export type SetIsLoading = (loading: boolean) => void
