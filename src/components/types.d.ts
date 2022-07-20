@@ -37,11 +37,11 @@ export type DirectBtnProps = {
 
 export type InputFieldProps = {
   register: UseFormRegister<FieldValues>
+  errors: FieldError | undefined
   placeholder: string
   minLength?: number
   inputName: string
   type: string
-  errors: any
 }
 
 export type ImageUploadProps = {
@@ -70,5 +70,5 @@ export type DeleteContentProps = {
 export type ColorInputProps = {
   register: UseFormRegister<FieldValues>
   colorValue: string | undefined
-  errors: any
+  errors: FieldError | undefined
 }

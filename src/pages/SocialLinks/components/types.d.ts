@@ -56,9 +56,9 @@ export type ChangeLinkProps = {
 
 export type LinkInputProps = {
   register: UseFormRegister<FieldValues>
+  errors: FieldError | undefined
   placeholder: string
   inputName: string
-  errors: any
 }
 
 export type FormNotificationsProps = {

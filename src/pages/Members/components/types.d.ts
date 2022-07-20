@@ -26,10 +26,10 @@ export type PaginationLinkProps = {
 }
 
 export type InputsProps = {
-  colorValue?: string
   register: UseFormRegister<FieldValues>
+  errors: FieldError | undefined
+  colorValue?: string
   title: string
-  errors: any
 }
 
 export type MembersInfo = {
@@ -114,9 +114,9 @@ export type MemberDetails = {
 
 export type TextareaProps = {
   register: UseFormRegister<FieldValues>
+  errors: FieldError | undefined
   placeholder: string
   inputName: string
-  errors: any
 }
 
 export type NotificationsProps = {
