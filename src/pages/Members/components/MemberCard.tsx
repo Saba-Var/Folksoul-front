@@ -57,12 +57,12 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
 
         {avatarModal && (
           <AvatarModal
-            url={'/upload-member-image'}
             setMembersData={setMembersData}
             setAvatarModal={setAvatarModal}
             currentMember={currentMember}
             setIsLoading={setIsLoading}
             avatar={imageUrl}
+            url={'member'}
             id={id}
           />
         )}

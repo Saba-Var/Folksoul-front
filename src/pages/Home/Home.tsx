@@ -30,16 +30,14 @@ const Home = () => {
   ]
 
   useEffect(() => {
-    if (!bandInfo[0]._id) {
-      fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
-    }
+    fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
 
     setInfoText(bandInfo[0].about)
 
     if (image.includes('images/band')) {
       setInfoImage(`${process.env.REACT_APP_API_BASE_URL}/${image}`)
     }
-  }, [bandInfo, image])
+  }, [image])
 
   return (
     <Wrapper>
