@@ -20,8 +20,6 @@ export type EditBandInfo = {
   id: string
 }
 
-export type ImageData = (type: string, formData: FormData) => Promise<Status>
-
 export type ChangeLink = {
   linkName: string
   url: string
