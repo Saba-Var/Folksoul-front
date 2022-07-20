@@ -17,7 +17,7 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
         'Authorization'
       ] = `Bearer ${localStorage.getItem('token')}`
 
-      const { status } = await deleteSocialLink(`/delete-link?id=${id}`)
+      const { status } = await deleteSocialLink(id)
 
       if (status === 200) {
         fetchSocialLinks(setError, setLinks)

@@ -38,7 +38,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         'Authorization'
       ] = `Bearer ${localStorage.getItem('token')}`
 
-      const response = await getOneMemberData(`/get-one-member?id=${id}`)
+      const response = await getOneMemberData(id)
 
       if (response.status === 200) {
         const data = response.data

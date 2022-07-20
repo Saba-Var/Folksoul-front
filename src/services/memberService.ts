@@ -6,12 +6,12 @@ import axios, {
   Status,
 } from 'services'
 
-export const getMembersData = (uri: string): Promise<AllMemberRes> => {
-  return axios.get(uri)
+export const getMembersData = (param: string): Promise<AllMemberRes> => {
+  return axios.get(`/all-members${param}`)
 }
 
-export const deleteMemberFromBand = async (uri: string): Promise<Status> => {
-  return axios.delete(uri)
+export const deleteMemberFromBand = (id: string): Promise<Status> => {
+  return axios.delete(`/delete-member?id=${id}`)
 }
 
 export const addMemberToBand = (data: MemberIfo): Promise<Status> => {
@@ -22,6 +22,6 @@ export const changeBandMember = (data: ChangeMember): Promise<Status> => {
   return axios.put('/change-member', data)
 }
 
-export const getOneMemberData = (url: string): Promise<OneMemberRes> => {
-  return axios.get(url)
+export const getOneMemberData = (id: string): Promise<OneMemberRes> => {
+  return axios.get(`/get-one-member?id=${id}`)
 }

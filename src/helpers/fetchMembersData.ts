@@ -9,9 +9,9 @@ const fetchMembersData: FetchMembersData = async (
 ) => {
   setIsLoading(true)
   try {
-    const url = page ? `/all-members?page=${page}` : '/all-members'
+    const param = page ? `?page=${page}` : ''
 
-    const { status, data } = await getMembersData(url)
+    const { status, data } = await getMembersData(param)
 
     if (status === 200) {
       setIsLoading(false)
