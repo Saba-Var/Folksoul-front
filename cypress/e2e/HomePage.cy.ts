@@ -16,7 +16,9 @@ describe('Home page', () => {
   })
 
   it('when click on member info image should change', () => {
-    cy.get("[data-cy='სახელი']").click({ multiple: true }).wait(200)
+    cy.get("[data-cy='სახელი']")
+      .click({ multiple: true, force: true })
+      .wait(500)
     cy.get("[data-cy='გრძელის...']").should('be.visible').wait(200)
     cy.get("[data-cy='MemberImage']").should('be.visible').wait(200)
     cy.get("[data-cy='სახელი2']").click({ multiple: true }).wait(200)

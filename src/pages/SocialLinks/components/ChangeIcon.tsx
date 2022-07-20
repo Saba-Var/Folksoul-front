@@ -7,11 +7,11 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
   const [iconModal, setIconModal] = useState(false)
 
-  const [file, setFile] = useState<any>('')
+  const [file, setFile] = useState<string | Blob>('')
 
   let imageSrc = `${process.env.REACT_APP_API_BASE_URL}/${image}`
 
-  if (file) {
+  if (file && typeof file !== 'string') {
     imageSrc = URL.createObjectURL(file)
   }
 

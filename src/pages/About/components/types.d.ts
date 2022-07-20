@@ -26,7 +26,7 @@ export type EditInfoProps = {
 
 export type ImageProps = {
   image: string | undefined
-  file?: Blob | MediaSource
+  file?: Blob | MediaSource | string
   isLoading: boolean
   styles: string
 }

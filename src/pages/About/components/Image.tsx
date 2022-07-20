@@ -6,7 +6,7 @@ const Image: React.FC<ImageProps> = (props) => {
 
   let imageSrc = `${process.env.REACT_APP_API_BASE_URL}/${image}`
 
-  if (file) {
+  if (file && typeof file !== 'string') {
     imageSrc = URL.createObjectURL(file)
   }
 

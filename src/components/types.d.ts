@@ -48,9 +48,9 @@ export type ImageUploadProps = {
   setFile: (file: string | Blob) => void
   children: JSX.Element
   setImageModal: Show
+  file: string | Blob
   setLinks: setLinks
   title: string
-  file: string
   url: string
   id: string
 }

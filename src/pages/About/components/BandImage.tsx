@@ -7,7 +7,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
 
   const [iconModal, setIconModal] = useState(false)
 
-  const [file, setFile] = useState<any>('')
+  const [file, setFile] = useState<string | Blob>('')
 
   return (
     <div>
