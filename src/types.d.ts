@@ -3,6 +3,7 @@ export type MemberData = {
     orbitLength: number
     instrument: string
     biography: string
+    image?: string
     color: string
     name: string
     _id: string

@@ -1,6 +1,7 @@
 import { MemberIfo } from 'pages/Members/components'
 import { AllLinks } from 'pages/SocialLinks'
 import { BandData } from 'pages/About'
+import { MemberData } from 'types'
 
 export type Status = { status: number }
 
@@ -28,12 +29,12 @@ export type ChangeLink = {
 }
 
 export type AllLinksRes = {
-  data: AllLinks
   status: number
+  data: AllLinks
 }
 
 export type AllMemberRes = {
-  data: { members: [] }
+  data: MemberData
   status: number
 }
 

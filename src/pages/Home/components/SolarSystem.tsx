@@ -1,5 +1,4 @@
-import { MemberImage, Sunote } from 'pages/Home/components'
-import { SolarSystemProps } from 'pages/Home/components'
+import { MemberImage, Sunote, SolarSystemProps } from 'pages/Home/components'
 import React, { useEffect, useState } from 'react'
 import { fetchMembersData } from 'helpers'
 
@@ -17,12 +16,11 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   const [membersData, setMembersData] = useState({
     members: [
       {
+        orbitLength: 1,
+        instrument: '',
         biography: '',
         color: '',
-        image: '',
-        instrument: '',
         name: '',
-        orbitLength: 0,
         _id: '',
       },
     ],

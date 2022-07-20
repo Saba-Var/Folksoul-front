@@ -18,6 +18,13 @@ export type SetErrorAlert = (show: boolean) => void
 
 export type BandImage = (image: string) => void
 
+export type FetchMembersData = (
+  setErrorAlert: SetErrorAlert,
+  setMembersData: (data: MemberData) => void,
+  setIsLoading: SetIsLoading,
+  page?: number
+) => void
+
 type Show = (show: boolean) => void
 
 export type MemberDetails = {

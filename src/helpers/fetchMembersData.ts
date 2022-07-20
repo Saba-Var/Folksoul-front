@@ -1,11 +1,11 @@
-import { SetIsLoading, SetErrorAlert } from 'helpers'
+import { FetchMembersData } from 'helpers'
 import { getMembersData } from 'services'
 
-const fetchMembersData = async (
-  setErrorAlert: SetErrorAlert,
-  setMembersData: any,
-  setIsLoading: SetIsLoading,
-  page?: number
+const fetchMembersData: FetchMembersData = async (
+  setErrorAlert,
+  setMembersData,
+  setIsLoading,
+  page?
 ) => {
   setIsLoading(true)
   try {
