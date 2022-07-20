@@ -25,7 +25,7 @@ const fetchBandAbout: FetchBandAbout = async (
     if (setIsLoading) {
       setIsLoading(false)
     }
-  } catch (error: unknown) {
+  } catch (error: any) {
     setErrorAlert(true)
   }
 }

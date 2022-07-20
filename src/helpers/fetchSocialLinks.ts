@@ -20,7 +20,7 @@ const fetchSocialLinks: FetchSocialLinks = async (
 
       return setSocialLinks(res.data)
     }
-  } catch (error: unknown) {
+  } catch (error: any) {
     setErrorAlert(true)
   }
 }

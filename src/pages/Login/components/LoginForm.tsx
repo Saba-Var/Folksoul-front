@@ -42,7 +42,7 @@ const LoginForm = () => {
           navigate('/Dashboard/Main')
         }, 700)
       }
-    } catch (error: unknown) {
+    } catch (error: any) {
       setShowAlert(true)
     }
   }

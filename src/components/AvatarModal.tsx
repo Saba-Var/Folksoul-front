@@ -53,7 +53,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
         setAvatarModal(false)
       }
-    } catch (error: unknown) {
+    } catch (error: any) {
       setFetchError(true)
     }
   }
