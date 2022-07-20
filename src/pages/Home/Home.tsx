@@ -1,5 +1,5 @@
 import { Header, Wrapper, Info, SolarSystem } from 'pages/Home/components'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { fetchBandAbout } from 'helpers'
 import { BandData } from 'pages/About'
 import {
@@ -29,7 +29,7 @@ const Home = () => {
     BandMember5,
   ]
 
-  useEffect(() => {
+  const fetchData = useCallback(async () => {
     fetchBandAbout(() => {}, setBandInfo, setIsLoading, setImage)
 
     setInfoText(bandInfo[0].about)
@@ -37,7 +37,13 @@ const Home = () => {
     if (image.includes('images/band')) {
       setInfoImage(`${process.env.REACT_APP_API_BASE_URL}/${image}`)
     }
-  }, [image])
+  }, [bandInfo, image])
+
+  useEffect(() => {
+    if (!infoText) {
+      fetchData()
+    }
+  }, [fetchData, infoText])
 
   return (
     <Wrapper>
