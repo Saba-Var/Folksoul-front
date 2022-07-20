@@ -49,7 +49,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
         setSection('')
       }
-    } catch (error: unknown) {
+    } catch (error: any) {
       if (error.response.status === 409) {
         setErrorAlert(true)
       }

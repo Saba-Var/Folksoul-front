@@ -6,8 +6,8 @@ import { DirectBtn } from 'components'
 import { useState } from 'react'
 import {
   Notifications,
-  MemberInputs,
   MemberDetails,
+  MemberInputs,
   MemberIfo,
 } from 'pages/Members/components'
 
@@ -54,7 +54,7 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
         setSection('')
         setShowErrorAlert(false)
       }
-    } catch (error: unknown) {
+    } catch (error: any) {
       setStatusCode(error.response.status)
       setShowErrorAlert(true)
     }
