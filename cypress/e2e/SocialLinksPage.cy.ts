@@ -145,7 +145,7 @@ describe('Social Links Page', () => {
   })
 
   it('after click on the yes of the delete dialog and there is error link should not delete', () => {
-    cy.fetchSocialLinks([{ linkName: 'google' }])
+    cy.fetchSocialLinks([{ linkName: 'google', url: 'google.com' }])
     cy.intercept(
       'DELETE',
       'https://folksoul-api.sabavar.redberryinternship.ge/delete-link',

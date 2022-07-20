@@ -1,18 +1,12 @@
 import { DetailsProps } from 'pages/SocialLinks/components'
+import { formatLongText } from 'helpers'
 
 const Details: React.FC<DetailsProps> = (props) => {
   const { linkName, url } = props
 
-  let socialLinkName = linkName
-  let socialLinkUrl = url
+  let socialLinkName = formatLongText(linkName, 15)
 
-  if (socialLinkName.length > 15) {
-    socialLinkName = `${socialLinkName.slice(0, 15)}...`
-  }
-
-  if (socialLinkUrl.length > 34) {
-    socialLinkUrl = `${socialLinkUrl.slice(0, 34)}...`
-  }
+  let socialLinkUrl = formatLongText(url, 34)
 
   return (
     <div className='flex gap-20 w-2/3'>

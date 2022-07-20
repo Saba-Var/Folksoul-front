@@ -1,4 +1,5 @@
 import { MemberImageProps, Image } from 'pages/Home/components'
+import { formatLongText } from 'helpers'
 
 const MemberImage: React.FC<MemberImageProps> = (props) => {
   const {
@@ -33,11 +34,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
 
   const isSelected = selectedId === id
 
-  let memberName = name
-
-  if (memberName.length > 7) {
-    memberName = `${memberName.slice(0, 7)}...`
-  }
+  let memberName = formatLongText(name, 7)
 
   return (
     <div
