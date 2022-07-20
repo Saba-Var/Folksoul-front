@@ -12,20 +12,4 @@ export { default as AddMember } from './AddMember'
 export { default as NoMembers } from './NoMembers'
 export { default as Textarea } from './Textarea'
 export { default as Cards } from './Cards'
-export type {
-  PaginationLinkProps,
-  NotificationsProps,
-  DeleteDialogProps,
-  DeleteMemberProps,
-  MemberInputProps,
-  AvatarModalProps,
-  MemberCardProps,
-  AddMemberProps,
-  MemberDetails,
-  TextareaProps,
-  InputsProps,
-  MembersInfo,
-  DetailModal,
-  MemberIfo,
-  CardData,
-} from './types'
+export * from './types.d'

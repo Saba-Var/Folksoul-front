@@ -10,35 +10,6 @@ export { default as ColorInput } from './ColorInput'
 export { default as InputField } from './InputField'
 export { default as DirectBtn } from './DirectBtn'
 export { default as Modal } from './Modal'
-export type {
-  PurpleBackgroundProps,
-  AddNotificationProps,
-  SectionWrapperProps,
-  DeleteContentProps,
-  WhiteWrapperProps,
-  ImageUploadProps,
-  ColorInputProps,
-  ErrorAlertProps,
-  DirectBtnProps,
-  InputFieldProps,
-  ModalProps,
-  FileType,
-} from './types'
-export {
-  MiniCloseIcon,
-  YoutubeIcon,
-  LogOutIcon,
-  MemberIcon,
-  YellowBtn,
-  ErrorIcon,
-  CloseIcon,
-  CameraBtn,
-  GreenBtn,
-  NoteIcon,
-  HomeIcon,
-  EditBtn,
-  RedBtn,
-  Logo,
-  Sun,
-} from './svgs'
-export type { StyleProp, EditBtnProps, SunProps } from './svgs/types'
+export * from './svgs/types.d'
+export * from './types.d'
+export * from './svgs'

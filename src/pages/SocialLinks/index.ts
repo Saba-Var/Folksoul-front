@@ -1,2 +1,2 @@
 export { default } from './SocialLinks'
-export type { AllLinks } from './types'
+export * from './types.d'
