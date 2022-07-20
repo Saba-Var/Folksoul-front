@@ -7,7 +7,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
 
   const [iconModal, setIconModal] = useState(false)
 
-  const [file, setFile] = useState<string | Blob>('')
+  const [file, setFile] = useState<File | null>(null)
 
   return (
     <div>
@@ -27,7 +27,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
             setLinks={setBandAbout}
             setFile={setFile}
             url={'band'}
-            file={file}
+            file={file!}
             id={id}
           >
             <div className='flex flex-col h-full justify-between  pb-[20%] items-center'>

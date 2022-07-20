@@ -7,11 +7,11 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
   const [iconModal, setIconModal] = useState(false)
 
-  const [file, setFile] = useState<string | Blob>('')
+  const [file, setFile] = useState<File | null>()
 
   let imageSrc = `${process.env.REACT_APP_API_BASE_URL}/${image}`
 
-  if (file && typeof file !== 'string') {
+  if (file) {
     imageSrc = URL.createObjectURL(file)
   }
 
@@ -40,7 +40,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
           setLinks={setLinks}
           setFile={setFile}
           url={'link'}
-          file={file}
+          file={file!}
           id={id}
         >
           <div className='flex flex-col h-full justify-between pt-8  pb-[20%] items-center'>

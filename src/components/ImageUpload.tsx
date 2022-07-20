@@ -21,8 +21,10 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
   const imageUploadHandler = async () => {
     try {
       const formData = new FormData()
-      formData.append('id', id)
-      formData.append('image', file)
+      if (file) {
+        formData.append('id', id)
+        formData.append('image', file)
+      }
 
       const { status } = await imageUpload(
         url,
@@ -38,7 +40,7 @@ const ImageUpload: React.FC<ImageUploadProps> = (props) => {
         }
 
         setImageModal(false)
-        setFile('')
+        setFile(null)
       }
     } catch (error: any) {
       setFetchError(true)

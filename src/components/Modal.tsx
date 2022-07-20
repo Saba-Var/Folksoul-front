@@ -7,7 +7,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     setShowModal(false)
 
     if (setFile) {
-      setFile('')
+      setFile(null)
     }
   }
 
