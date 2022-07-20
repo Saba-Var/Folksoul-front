@@ -69,7 +69,7 @@ export type AddMemberProps = {
 }
 
 export type MemberIfo = {
-  orbitLength: number
+  orbitLength: number | string
   instrument: string
   biography: string
   image?: string

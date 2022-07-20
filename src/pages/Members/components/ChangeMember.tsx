@@ -48,7 +48,7 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
       if (response.status === 200) {
         const data = response.data
-        setValue('orbitLength', data.orbitLength)
+        setValue('orbitLength', +data.orbitLength)
         setValue('instrument', data.instrument)
         setValue('biography', data.biography)
         setValue('color', data.color)
