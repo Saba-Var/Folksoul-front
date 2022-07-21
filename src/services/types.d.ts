@@ -11,7 +11,7 @@ export type BandInfoData = {
 }
 
 export type AuthResponse = {
-  data: { token: string }
+  token: string
   status: number
 }
 
