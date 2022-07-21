@@ -1,6 +1,4 @@
-import { MemberIfo } from 'pages/Members/components'
 import { BandData } from 'pages/About'
-import { MemberData } from 'types'
 
 export type Status = { status: number }
 
@@ -10,8 +8,8 @@ export type BandInfoData = {
 }
 
 export type AuthResponse = {
-  token: string
   status: number
+  token: string
 }
 
 export type EditBandInfo = {
@@ -25,11 +23,6 @@ export type ChangeLink = {
   id: string
 }
 
-export type AllMemberRes = {
-  data: MemberData
-  status: number
-}
-
 export type ChangeMember = {
   orbitLength: number
   instrument: string
@@ -37,9 +30,4 @@ export type ChangeMember = {
   color: string
   name: string
   id: string
-}
-
-export type OneMemberRes = {
-  status: number
-  data: MemberIfo
 }

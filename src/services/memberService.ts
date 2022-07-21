@@ -1,19 +1,18 @@
+import axios, { ChangeMember, Status } from 'services'
 import { MemberIfo } from 'pages/Members/components'
-import axios, {
-  AllMemberRes,
-  ChangeMember,
-  OneMemberRes,
-  Status,
-} from 'services'
+import { AxiosResponse } from 'axios'
+import { MemberData } from 'types'
 
-export const getMembersData = (param: string): Promise<AllMemberRes> => {
+export const getMembersData = (
+  param: string
+): Promise<AxiosResponse<MemberData>> => {
   return axios.get(`/all-members${param}`)
 }
 
 export const deleteMemberFromBand = (
   id: string,
   token: string
-): Promise<Status> => {
+): Promise<AxiosResponse<Status>> => {
   return axios.delete(`/delete-member?id=${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -24,7 +23,7 @@ export const deleteMemberFromBand = (
 export const addMemberToBand = (
   data: MemberIfo,
   token: string
-): Promise<Status> => {
+): Promise<AxiosResponse<Status>> => {
   return axios.post('/add-member', data, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -35,7 +34,7 @@ export const addMemberToBand = (
 export const changeBandMember = (
   data: ChangeMember,
   token: string
-): Promise<Status> => {
+): Promise<AxiosResponse<Status>> => {
   return axios.put('/change-member', data, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -46,7 +45,7 @@ export const changeBandMember = (
 export const getOneMemberData = (
   id: string,
   token: string
-): Promise<OneMemberRes> => {
+): Promise<AxiosResponse<MemberIfo>> => {
   return axios.get(`/get-one-member?id=${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,

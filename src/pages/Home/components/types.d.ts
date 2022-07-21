@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
 
-type Image = string | undefined
-
 type SetString = Dispatch<SetStateAction<string>>
+
+type Image = string | undefined
 
 type MemberDetails = {
   orbitLength: number

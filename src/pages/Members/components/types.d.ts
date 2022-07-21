@@ -95,11 +95,11 @@ export type AvatarModalProps = {
 }
 
 export type DeleteMemberProps = {
-  membersData: MembersInfo
   fetchUtilities: {
     setMembersData: SetMembersData
     setIsLoading: SetIsLoading
   }
+  membersData: MembersInfo
   userId: string
 }
 
