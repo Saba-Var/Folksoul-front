@@ -1,5 +1,5 @@
-import { DirectBtn, AddNotification, ErrorAlert } from 'components'
 import { EditInfoProps } from 'pages/About/components'
+import { DirectBtn, ErrorAlert } from 'components'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { fetchBandAbout } from 'helpers'
@@ -9,7 +9,6 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
   const { about, id, setBandAbout, setSection } = props
 
   const [errorAlert, setErrorAlert] = useState(false)
-  const [addModal, setAddModal] = useState(false)
 
   const { register, setValue, watch } = useForm({
     mode: 'all',
@@ -35,8 +34,8 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
       )
 
       if (status === 200) {
-        setAddModal(true)
         fetchBandAbout(setErrorAlert, setBandAbout)
+        setSection('')
       }
     } catch (error) {
       setErrorAlert(true)
@@ -53,27 +52,19 @@ const EditInfo: React.FC<EditInfoProps> = (props) => {
         />
       )}
 
-      {addModal && (
-        <AddNotification
-          title='ბენდის შესახებ - დაარედაქტირე'
-          modalText='ინფორმაცია შეიცვალა'
-          setShowModal={setAddModal}
-        />
-      )}
-
       <form className='w-full h-[80%] outline-none resize-none bg-lightYellow shadow-5xl py-4 pl-6 pr-9 rounded-lg'>
         <textarea
+          className='w-full h-[51.5vh] animate-focus-in-expand !break-words outline-none resize-none pr-14 bg-lightYellow'
           data-cy='TextareaInput'
           {...register('about')}
-          className='w-full h-[51.5vh] animate-focus-in-expand !break-words outline-none resize-none pr-14 bg-lightYellow'
         />
       </form>
 
       <div className='flex flex-col gap-4 mt-8'>
         <button
-          data-cy='GreenBtn'
           className='greenBtn shadow-3xl animate-tracking-in-expand w-40 mx-auto'
           onClick={submitHandler}
+          data-cy='GreenBtn'
           type='submit'
         >
           შეინახე

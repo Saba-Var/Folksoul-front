@@ -1,11 +1,10 @@
+import { DirectBtn, ErrorAlert } from 'components'
 import { useNavigate } from 'react-router-dom'
 import { addMemberToBand } from 'services'
 import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
-import { DirectBtn } from 'components'
 import { useState } from 'react'
 import {
-  Notifications,
   MemberDetails,
   MemberInputs,
   MemberIfo,
@@ -15,7 +14,6 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
   const { details, setMembersData, setIsLoading, setSection } = props
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
-  const [showModal, setShowModal] = useState(false)
 
   const [statusCode, setStatusCode] = useState(404)
 
@@ -61,13 +59,17 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
 
   return (
     <div className='animate-fade-in'>
-      <Notifications
-        setShowErrorAlert={setShowErrorAlert}
-        showErrorAlert={showErrorAlert}
-        setShowModal={setShowModal}
-        statusCode={statusCode}
-        showModal={showModal}
-      />
+      {showErrorAlert && (
+        <ErrorAlert
+          styles='left-[53.5%] top-[5%] 4xl:left-[53.9%] 6xl:left-[54.5%]'
+          title={
+            statusCode === 409
+              ? `'${watch().name}' უკვე ბენდშია`
+              : 'ინფორმაცია ვერ მოიძებნა!'
+          }
+          setShowAlert={setShowErrorAlert}
+        />
+      )}
 
       <form
         onSubmit={handleSubmit(submitHandler)}

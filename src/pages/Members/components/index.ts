@@ -1,5 +1,4 @@
 export { default as PaginationLink } from './PaginationLink'
-export { default as Notifications } from './Notifications'
 export { default as ChangeMember } from './ChangeMember'
 export { default as DetailsModal } from './DetailsModal'
 export { default as MemberInputs } from './MemberInputs'

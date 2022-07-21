@@ -4,7 +4,6 @@ import { changeSocialLink } from 'services'
 import { fetchSocialLinks } from 'helpers'
 import { useForm } from 'react-hook-form'
 import {
-  FormNotifications,
   ChangeLinkProps,
   LinkInput,
   FormData,
@@ -15,7 +14,6 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
 
   const [linkFetchError, setLinkFetchError] = useState(false)
   const [errorAlert, setErrorAlert] = useState(false)
-  const [showModal, setShowModal] = useState(false)
 
   const {
     watch,
@@ -56,8 +54,8 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
       )
 
       if (status === 200) {
-        setShowModal(true)
         fetchSocialLinks(setLinkFetchError, setLinks)
+        setSection('')
       }
     } catch (error: any) {
       setErrorAlert(true)
@@ -74,13 +72,13 @@ const ChangeLinkForm: React.FC<ChangeLinkProps> = (props) => {
         />
       )}
 
-      <FormNotifications
-        setErrorAlert={setErrorAlert}
-        setShowModal={setShowModal}
-        errorAlert={errorAlert}
-        name={watch().linkName}
-        showModal={showModal}
-      />
+      {errorAlert && (
+        <ErrorAlert
+          styles='left-[50.5%] top-[5%] 4xl:left-[51.5%] 6xl:left-[52.5%]'
+          title={`ბმული '${watch().linkName}' უკვე დამატებულია`}
+          setShowAlert={setErrorAlert}
+        />
+      )}
 
       <form
         className='flex flex-col justify-between items-center'

@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form'
 import { addSocialLink } from 'services'
 import { useState } from 'react'
 import {
-  FormNotifications,
   AddLinkFormProps,
   DetailsProps,
   LinkInput,
@@ -15,7 +14,6 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
 
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
-  const [showModal, setShowModal] = useState(false)
 
   const {
     handleSubmit,
@@ -66,13 +64,13 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
         />
       )}
 
-      <FormNotifications
-        setErrorAlert={setErrorAlert}
-        setShowModal={setShowModal}
-        errorAlert={errorAlert}
-        name={watch().linkName}
-        showModal={showModal}
-      />
+      {errorAlert && (
+        <ErrorAlert
+          styles='left-[50.5%] top-[5%] 4xl:left-[51.5%] 6xl:left-[52.5%]'
+          title={`ბმული '${watch().linkName}' უკვე დამატებულია`}
+          setShowAlert={setErrorAlert}
+        />
+      )}
 
       <form
         onSubmit={handleSubmit(submitHandler)}

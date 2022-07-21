@@ -1,14 +1,10 @@
+import { MemberInputProps, MemberInputs } from 'pages/Members/components'
 import { changeBandMember, getOneMemberData } from 'services'
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { DirectBtn, ErrorAlert } from 'components'
 import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
-import {
-  MemberInputProps,
-  Notifications,
-  MemberInputs,
-} from 'pages/Members/components'
 
 const ChangeMember: React.FC<MemberInputProps> = (props) => {
   const { setMembersData, setIsLoading, id, setSection } = props
@@ -18,7 +14,6 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [errorAlert, setErrorAlert] = useState(false)
-  const [showModal, setShowModal] = useState(false)
 
   const [colorValue, setColorValue] = useState('')
 
@@ -84,14 +79,14 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
       )
 
       if (status === 200) {
-        setShowModal(true)
-
         fetchMembersData(
           setErrorAlert,
           setMembersData,
           setIsLoading,
           +page.get('page')!
         )
+
+        setSection('')
       }
     } catch (error: any) {
       setStatusCode(409)
@@ -109,13 +104,17 @@ const ChangeMember: React.FC<MemberInputProps> = (props) => {
         />
       )}
 
-      <Notifications
-        setShowErrorAlert={setShowErrorAlert}
-        showErrorAlert={showErrorAlert}
-        setShowModal={setShowModal}
-        statusCode={statusCode}
-        showModal={showModal}
-      />
+      {showErrorAlert && (
+        <ErrorAlert
+          setShowAlert={setShowErrorAlert}
+          title={`${
+            statusCode === 409 ? 'წევრი უკვე ბენდშია' : 'წევრი ვერ მოიძებნა'
+          }`}
+          styles={
+            'top-[6%] left-[55%] 3xl:left-[53%] 3xl:top-[5.5%] 4xl:left-[54%] 5xl:left-[54.5%] 5xl:top-[6%]'
+          }
+        />
+      )}
 
       <form
         onSubmit={handleSubmit(submitHandler)}
