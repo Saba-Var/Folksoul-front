@@ -18,7 +18,7 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
 
   const [pageParam] = useSearchParams()
 
-  const [file, setFile] = useState<FileType>('')
+  const [file, setFile] = useState<FileType>(null)
 
   const [errorAlert, setErrorAlert] = useState(false)
   const [fetchError, setFetchError] = useState(false)
@@ -34,8 +34,10 @@ const AvatarModal: React.FC<AvatarModalProps> = (props) => {
   const imageUploadHandler = async () => {
     try {
       const formData = new FormData()
-      formData.append('id', id)
-      formData.append('image', file)
+      if (file) {
+        formData.append('id', id)
+        formData.append('image', file)
+      }
 
       const response = await imageUpload(
         url,

@@ -1,6 +1,6 @@
 type Show = (show: boolean) => void
 
-export type FileType = Blob | string
+export type FileType = File | null
 
 export type PurpleBackgroundProps = {
   styles: string
