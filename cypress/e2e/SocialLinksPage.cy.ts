@@ -71,7 +71,7 @@ describe('Social Links Page', () => {
     cy.isVisible('შეიყვანეთ ვალიდური ბმულის მისამართი')
     cy.get("[data-cy='url']").clear().type('youtube.com')
     cy.get("[data-cy='ChangeLink']").click().wait(1000)
-    cy.isVisible('ბმულის დეტალები შეიცვალა')
+    cy.isVisible('სოციალური ბმულები')
   })
 
   it('if link already exists show error alert on the change form', () => {
@@ -159,6 +159,23 @@ describe('Social Links Page', () => {
     cy.get("[data-cy='RedBtn']").click()
     cy.get('[data-cy="DeleteYes"]').click()
     cy.isVisible('ბმული ვერ წაიშალა')
+  })
+
+  it('when add new link but fetch fails show error alert', () => {
+    cy.fetchSocialLinks([])
+    cy.intercept(
+      'POST',
+      'https://folksoul-api.sabavar.redberryinternship.ge/add-social-link',
+      {
+        statusCode: 500,
+      }
+    )
+    cy.get('[data-cy="დაამატე ახალი სოციალური ბმული"]').click()
+    cy.get("[data-cy='linkName']").type('Youtube', { force: true }).wait(1000)
+    cy.get("[data-cy='url']").type('youtube.com')
+    cy.get('[data-cy="AddLink"]').click()
+    cy.wait(1600)
+    cy.isVisible('ბმული ვერ დაემატა')
   })
 
   it('when visit first time social links page should see components and message', () => {

@@ -61,10 +61,10 @@ const MemberForm: React.FC<MemberDetails> = (props) => {
     <div className='animate-fade-in'>
       {showErrorAlert && (
         <ErrorAlert
-          styles='left-[53.5%] top-[5%] 4xl:left-[53.9%] 6xl:left-[54.5%]'
+          styles='left-[50.5%] top-[5%] 4xl:left-[51.5%] 6xl:left-[52.5%]'
           title={
             statusCode === 409
-              ? `'${watch().name}' უკვე ბენდშია`
+              ? `წევრი უკვე ბენდშია`
               : 'ინფორმაცია ვერ მოიძებნა!'
           }
           setShowAlert={setShowErrorAlert}

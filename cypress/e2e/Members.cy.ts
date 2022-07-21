@@ -70,7 +70,7 @@ describe('Members Page', () => {
     cy.get("[data-cy='biography']").type('დაიბადა').wait(500)
     cy.get('[data-cy="name"]').type('ილონ').wait(500)
     cy.get('[data-cy="შეცვლა"]').click()
-    cy.isVisible('წევრის იფორმაცია შეიცვალა')
+    cy.isVisible('ბენდის წევრები')
   })
 
   it('when open change member form inputs should have values', () => {
@@ -123,7 +123,7 @@ describe('Members Page', () => {
     )
     cy.addNewMember()
     cy.get('[data-cy="დაამატე წევრი"]').click()
-    cy.isVisible('წევრი ვერ მოიძებნა')
+    cy.isVisible('ინფორმაცია ვერ მოიძებნა!')
   })
 
   it('if url does not contain page param redirect to page 1', () => {

@@ -65,7 +65,7 @@ describe('Band Info Page', () => {
     cy.get('[data-cy="EditBtn"]').click({ force: true })
     cy.get('[data-cy="TextareaInput"]').clear().type('ბენდი დაარსდა ...')
     cy.get('[data-cy="GreenBtn"]').click()
-    cy.isVisible('ინფორმაცია შეიცვალა')
+    cy.isVisible('ბენდის შესახებ')
   })
 
   it('if image upload fails should see error alert', () => {

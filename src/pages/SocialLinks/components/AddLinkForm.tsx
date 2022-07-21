@@ -49,8 +49,9 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
     } catch (error: any) {
       if (error.response.status === 409) {
         setErrorAlert(true)
+      } else {
+        setFetchError(true)
       }
-      setFetchError(true)
     }
   }
 
@@ -58,7 +59,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = (props) => {
     <div className='h-full py-40'>
       {fetchError && (
         <ErrorAlert
-          title='ინფორმაცია ვერ მოიძებნა'
+          title='ბმული ვერ დაემატა'
           styles='top-[5%] left-[53%]'
           setShowAlert={setErrorAlert}
         />
