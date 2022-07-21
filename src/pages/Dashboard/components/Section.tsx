@@ -10,6 +10,7 @@ const Section: React.FC<SectionProps> = (props) => {
 
   const onClickHandler = () => {
     if (link === 'Logout') {
+      localStorage.removeItem('token')
       return navigate('/')
     }
 
