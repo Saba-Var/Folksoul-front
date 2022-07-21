@@ -1,11 +1,11 @@
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { DeleteDialogProps } from 'pages/Members/components'
+import { DeleteProps } from 'pages/Members/components'
 import { DeleteContent, ErrorAlert } from 'components'
 import axios, { deleteMemberFromBand } from 'services'
 import { fetchMembersData } from 'helpers'
 import { useState } from 'react'
 
-const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
+const DeleteMemberDialog: React.FC<DeleteProps> = (props) => {
   const { fetchUtilities, membersData, setShowModal, userId } = props
 
   const [error, setError] = useState(false)
@@ -64,4 +64,4 @@ const DeleteDialog: React.FC<DeleteDialogProps> = (props) => {
   )
 }
 
-export default DeleteDialog
+export default DeleteMemberDialog

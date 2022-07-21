@@ -5,12 +5,12 @@ import { fetchMembersData } from 'helpers'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import {
-  MemberDetails,
+  MemberDetailsData,
   MemberInputs,
   MemberIfo,
 } from 'pages/Members/components'
 
-const MemberForm: React.FC<MemberDetails> = (props) => {
+const MemberForm: React.FC<MemberDetailsData> = (props) => {
   const { details, setMembersData, setIsLoading, setSection } = props
 
   const [showErrorAlert, setShowErrorAlert] = useState(false)

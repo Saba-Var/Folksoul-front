@@ -1,6 +1,5 @@
-import { DetailsProps } from 'pages/SocialLinks/components'
 import axios, { Status, ChangeLink } from 'services'
-import { AllLinks } from 'pages/SocialLinks'
+import { DetailsProps, AllLinks } from 'pages'
 import { AxiosResponse } from 'axios'
 
 export const getLinksData = (): Promise<AxiosResponse<AllLinks>> => {

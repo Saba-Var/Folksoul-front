@@ -1,6 +1,6 @@
-import { ImageProps } from 'pages/Home/components'
+import { HomeImageProps } from 'pages/Home/components'
 
-const Image: React.FC<ImageProps> = (props) => {
+const HomeImage: React.FC<HomeImageProps> = (props) => {
   const { color, isSelected, image, imageArray, index } = props
 
   return (
@@ -36,4 +36,4 @@ const Image: React.FC<ImageProps> = (props) => {
   )
 }
 
-export default Image
+export default HomeImage

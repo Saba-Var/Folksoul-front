@@ -1,4 +1,4 @@
-import { BandImage, SocialLinks, InfoProps } from 'pages/Home/components'
+import { BandImageSquare, BandLinks, InfoProps } from 'pages/Home/components'
 import { PurpleBackground } from 'components'
 
 const Info: React.FC<InfoProps> = (props) => {
@@ -14,13 +14,13 @@ const Info: React.FC<InfoProps> = (props) => {
           {infoText}
         </p>
 
-        {!isLoading && <BandImage color={color} image={image} />}
+        {!isLoading && <BandImageSquare color={color} image={image} />}
 
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 left-6' />
         <PurpleBackground styles='absolute w-4 h-4 rounded-full top-6 right-6' />
       </div>
 
-      <SocialLinks />
+      <BandLinks />
     </div>
   )
 }

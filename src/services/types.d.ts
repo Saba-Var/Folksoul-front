@@ -1,4 +1,4 @@
-import { BandData } from 'pages/About'
+import { BandData } from 'pages'
 
 export type Status = { status: number }
 

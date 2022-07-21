@@ -1,7 +1,7 @@
-import { AvatarModalProps } from 'pages/Members/components'
 import { Modal, ErrorAlert, FileType } from 'components'
 import { useSearchParams } from 'react-router-dom'
 import { fetchMembersData } from 'helpers'
+import { AvatarModalProps } from 'pages'
 import { imageUpload } from 'services'
 import { useState } from 'react'
 

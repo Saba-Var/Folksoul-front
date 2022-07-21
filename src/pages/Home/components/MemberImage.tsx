@@ -1,4 +1,4 @@
-import { MemberImageProps, Image } from 'pages/Home/components'
+import { MemberImageProps, HomeImage } from 'pages/Home/components'
 import { formatLongText } from 'helpers'
 
 const MemberImage: React.FC<MemberImageProps> = (props) => {
@@ -56,7 +56,7 @@ const MemberImage: React.FC<MemberImageProps> = (props) => {
           isSelected && 'w-full'
         } border-yellow rounded-full overflow-hidden`}
       >
-        <Image
+        <HomeImage
           imageArray={imageArray}
           isSelected={isSelected}
           color={color}

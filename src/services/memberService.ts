@@ -1,7 +1,7 @@
 import axios, { ChangeMember, Status } from 'services'
-import { MemberIfo } from 'pages/Members/components'
 import { AxiosResponse } from 'axios'
 import { MemberData } from 'types'
+import { MemberIfo } from 'pages'
 
 export const getMembersData = (
   param: string

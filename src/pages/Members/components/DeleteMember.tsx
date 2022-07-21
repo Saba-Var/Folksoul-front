@@ -1,4 +1,4 @@
-import { DeleteDialog, DeleteMemberProps } from 'pages/Members/components'
+import { DeleteMemberDialog, DeleteMemberProps } from 'pages/Members/components'
 import { Modal, RedBtn } from 'components'
 import { useState } from 'react'
 
@@ -16,7 +16,7 @@ const DeleteMember: React.FC<DeleteMemberProps> = (props) => {
     <div>
       {showModal && (
         <Modal setShowModal={setShowModal} title='ბენდის წევრის წაშლა'>
-          <DeleteDialog
+          <DeleteMemberDialog
             fetchUtilities={fetchUtilities}
             setShowModal={setShowModal}
             membersData={membersData}

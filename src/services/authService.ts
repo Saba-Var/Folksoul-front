@@ -1,6 +1,6 @@
-import { UserData } from 'pages/Login/components'
 import axios, { AuthResponse } from 'services'
 import { AxiosResponse } from 'axios'
+import { UserData } from 'pages'
 
 export const authenticateUser = (
   data: UserData

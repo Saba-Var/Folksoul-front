@@ -2,7 +2,7 @@ import { AllLinks } from 'pages/SocialLinks'
 import { useEffect, useState } from 'react'
 import { fetchSocialLinks } from 'helpers'
 
-const SocialLinks = () => {
+const BandLinks = () => {
   const [links, setLinks] = useState<AllLinks>([])
 
   const [isLoading, setIsLoading] = useState(false)
@@ -44,4 +44,4 @@ const SocialLinks = () => {
   )
 }
 
-export default SocialLinks
+export default BandLinks

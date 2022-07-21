@@ -1,7 +1,7 @@
-import { BandImageProps } from 'pages/Home/components'
+import { BandImageSquareProps } from 'pages/Home/components'
 import { PurpleBackground, Logo } from 'components'
 
-const BandImage: React.FC<BandImageProps> = (props) => {
+const BandImageSquare: React.FC<BandImageSquareProps> = (props) => {
   const { color, image } = props
 
   return (
@@ -31,4 +31,4 @@ const BandImage: React.FC<BandImageProps> = (props) => {
   )
 }
 
-export default BandImage
+export default BandImageSquare

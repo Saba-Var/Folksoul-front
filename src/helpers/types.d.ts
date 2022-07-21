@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { AllLinks } from 'pages/SocialLinks'
-import { BandData } from 'pages/About'
+import { AllLinks, BandData } from 'pages'
 import { MemberData } from 'types'
 
 export type GeorgianWord = (text: string, inputName: string) => boolean

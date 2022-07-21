@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 type SetString = Dispatch<SetStateAction<string>>
 
-type Image = string | undefined
+type ImageType = string | undefined
 
 type MemberDetails = {
   orbitLength: number
@@ -25,7 +25,7 @@ export type InfoProps = {
   color: string
 }
 
-export type BandImageProps = {
+export type BandImageSquareProps = {
   color: string
   image: Image
 }
@@ -56,7 +56,7 @@ export type MemberImageProps = {
   index: number
 }
 
-export type ImageProps = {
+export type HomeImageProps = {
   imageArray: string[]
   isSelected: boolean
   color: string

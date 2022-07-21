@@ -1,6 +1,6 @@
 import axios, { Status, EditBandInfo } from 'services'
-import { BandData } from 'pages/About'
 import { AxiosResponse } from 'axios'
+import { BandData } from 'pages'
 
 export const getBandInfoData = (): Promise<AxiosResponse<BandData>> => {
   return axios.get('/band-about')

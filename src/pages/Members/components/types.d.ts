@@ -54,7 +54,7 @@ export type MemberCardProps = {
   id: string
 }
 
-export type DeleteDialogProps = {
+export type DeleteProps = {
   setShowModal: Dispatch<SetStateAction<boolean>>
   fetchUtilities: fetchUtilities
   membersData: MembersInfo
@@ -103,7 +103,7 @@ export type DeleteMemberProps = {
   userId: string
 }
 
-export type MemberDetails = {
+export type MemberDetailsData = {
   setAddMember: Dispatch<SetStateAction<boolean>>
   setMembersData: SetMembersData
   setIsLoading: SetIsLoading
