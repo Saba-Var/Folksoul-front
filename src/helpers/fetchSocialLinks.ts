@@ -11,14 +11,14 @@ const fetchSocialLinks: FetchSocialLinks = async (
       setIsLoading(true)
     }
 
-    const res = await getLinksData()
+    const { status, data } = await getLinksData()
 
-    if (res.status === 200) {
+    if (status === 200) {
       if (setIsLoading) {
         setIsLoading(false)
       }
 
-      return setSocialLinks(res.data)
+      return setSocialLinks(data)
     }
   } catch (error: any) {
     setErrorAlert(true)
