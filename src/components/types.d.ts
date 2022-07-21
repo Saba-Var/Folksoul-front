@@ -1,4 +1,6 @@
-type Show = (show: boolean) => void
+import { Dispatch, SetStateAction } from 'react'
+
+type Show = Dispatch<SetStateAction<boolean>>
 
 export type FileType = File | null
 
@@ -17,7 +19,7 @@ export type SectionWrapperProps = {
 }
 
 export type ModalProps = {
-  setFile?: (file: File | null) => void
+  setFile?: Dispatch<SetStateAction<File | null>>
   children: JSX.Element
   setShowModal: Show
   title: string
@@ -30,7 +32,7 @@ export type ErrorAlertProps = {
 }
 
 export type DirectBtnProps = {
-  direction: (add: string) => void
+  direction: Dispatch<SetStateAction<string>>
   title: string
   goTo: string
 }
@@ -45,7 +47,7 @@ export type InputFieldProps = {
 }
 
 export type ImageUploadProps = {
-  setFile: (file: File | null) => void
+  setFile: Dispatch<SetStateAction<File | null>>
   children: JSX.Element
   setImageModal: Show
   setLinks: setLinks

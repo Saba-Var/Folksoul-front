@@ -1,6 +1,8 @@
+import { Dispatch, SetStateAction } from 'react'
+
 type Image = string | undefined
 
-type SetString = (string: string) => void
+type SetString = Dispatch<SetStateAction<string>>
 
 type MemberDetails = {
   orbitLength: number
@@ -39,11 +41,11 @@ export type SolarSystemProps = {
 
 export type MemberImageProps = {
   selectUtils: {
-    setSelectedId: (id: string) => void
+    setSelectedId: Dispatch<SetStateAction<string>>
     selectedId: string
     id: string
   }
-  setPause: (pause: boolean) => void
+  setPause: Dispatch<SetStateAction<boolean>>
   memberDetails: MemberDetails
   animationDuration: number
   setInfoImage: SetString
@@ -63,7 +65,7 @@ export type ImageProps = {
 }
 
 export type SunoteProps = {
-  setPause: (pause: boolean) => void
+  setPause: Dispatch<SetStateAction<boolean>>
   setSelectedId: SetString
   setInfoImage: SetString
   setInfoText: SetString

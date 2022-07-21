@@ -1,6 +1,7 @@
+import { Dispatch, SetStateAction } from 'react'
 import { BandAbout } from 'helpers'
 
-type SetBandAbout = (data: BandAbout) => void
+type SetBandAbout = Dispatch<SetStateAction<BandAbout>>
 
 export type BandInfoProps = {
   setBandAbout: SetBandAbout
@@ -18,7 +19,7 @@ export type BandImageProps = {
 }
 
 export type EditInfoProps = {
-  setSection: (section: string) => void
+  setSection: Dispatch<SetStateAction<string>>
   setBandAbout: SetBandAbout
   about: string
   id: string

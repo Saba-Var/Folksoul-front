@@ -1,13 +1,14 @@
+import { Dispatch, SetStateAction } from 'react'
 import { AllLinks } from 'pages/SocialLinks'
 
-type SetSection = (section: string) => void
+type SetSection = Dispatch<SetStateAction<string>>
 
-type SetLinks = (data: AllLinks) => void
+type SetLinks = Dispatch<SetStateAction<AllLinks>>
 
-type Show = (show: boolean) => void
+type Show = Dispatch<SetStateAction<boolean>>
 
 export type LinksData = {
-  setLinkId: (id: string) => void
+  setLinkId: Dispatch<SetStateAction<string>>
   setSection: SetSection
   setLinks: SetLinks
   links: AllLinks

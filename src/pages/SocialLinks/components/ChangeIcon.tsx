@@ -7,7 +7,7 @@ const ChangeIcon: React.FC<ChangeIconProps> = (props) => {
 
   const [iconModal, setIconModal] = useState(false)
 
-  const [file, setFile] = useState<File | null>()
+  const [file, setFile] = useState<File | null>(null)
 
   let imageSrc = `${process.env.REACT_APP_API_BASE_URL}/${image}`
 

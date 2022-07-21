@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import { AllLinks } from 'pages/SocialLinks'
 import { BandData } from 'pages/About'
 import { MemberData } from 'types'
@@ -6,25 +7,25 @@ export type GeorgianWord = (text: string, inputName: string) => boolean
 
 export type LongTextFormat = (text: string, length: number) => string
 
-export type SetMembersData = (data: MemberData) => void
+export type SetMembersData = Dispatch<SetStateAction<MemberData>>
 
-export type SetIsLoading = (loading: boolean) => void
+export type SetIsLoading = Dispatch<SetStateAction<boolean>>
 
-export type SetSocialLinks = (data: AllLinks) => void
+export type SetSocialLinks = Dispatch<SetStateAction<AllLinks>>
 
-export type SetBandAbout = (data: BandAbout) => void
+export type SetBandAbout = Dispatch<SetStateAction<BandAbout>>
 
-export type BandAboutText = (about: string) => void
+export type BandAboutText = Dispatch<SetStateAction<string>>
 
-export type setBandAbout = (data: BandData) => void
+export type setBandAbout = Dispatch<SetStateAction<BandData>>
 
-export type SetErrorAlert = (show: boolean) => void
+export type SetErrorAlert = Dispatch<SetStateAction<boolean>>
 
-export type BandImage = (image: string) => void
+export type BandImage = Dispatch<SetStateAction<string>>
 
 export type FetchMembersData = (
   setErrorAlert: SetErrorAlert,
-  setMembersData: (data: MemberData) => void,
+  setMembersData: SetMembersData,
   setIsLoading: SetIsLoading,
   page?: number
 ) => void
@@ -50,10 +51,10 @@ export type MemberDetails = {
   name: string
 }
 
-type Show = (show: boolean) => void
+type Show = Dispatch<SetStateAction<boolean>>
 
 export type changeMemberParams = {
-  setStatusCode: (status: number) => void
+  setStatusCode: Dispatch<SetStateAction<number>>
   setMembersData: SetMembersData
   setIsLoading: SetIsLoading
   setShowErrorAlert: Show

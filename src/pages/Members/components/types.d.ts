@@ -1,10 +1,11 @@
+import { Dispatch, SetStateAction } from 'react'
 import { MemberData } from 'types'
 
-type SetMembersData = (data: MemberData) => void
+type SetMembersData = Dispatch<SetStateAction<MemberData>>
 
-type SetIsLoading = (loading: boolean) => void
+type SetIsLoading = Dispatch<SetStateAction<boolean>>
 
-type setSection = (section: string) => void
+type setSection = Dispatch<SetStateAction<string>>
 
 type fetchUtilities = {
   setMembersData: SetMembersData
@@ -12,7 +13,7 @@ type fetchUtilities = {
 }
 
 export type CardData = {
-  setMemberId?: (show: string) => void
+  setMemberId?: Dispatch<SetStateAction<string>>
   fetchUtilities: fetchUtilities
   setIsLoading?: SetIsLoading
   setSection?: setSection
@@ -43,7 +44,7 @@ export type MembersInfo = {
 }[]
 
 export type MemberCardProps = {
-  setMemberId: (show: string) => void
+  setMemberId: Dispatch<SetStateAction<string>>
   fetchUtilities: fetchUtilities
   setIsLoading: SetIsLoading
   membersData: MembersInfo
@@ -54,14 +55,14 @@ export type MemberCardProps = {
 }
 
 export type DeleteDialogProps = {
-  setShowModal: (show: boolean) => void
+  setShowModal: Dispatch<SetStateAction<boolean>>
   fetchUtilities: fetchUtilities
   membersData: MembersInfo
   userId: string
 }
 
 export type AddMemberProps = {
-  setAddMember: (add: boolean) => void
+  setAddMember: Dispatch<SetStateAction<boolean>>
   setMembersData: SetMembersData
   setIsLoading: SetIsLoading
   membersData: MembersInfo
@@ -78,13 +79,13 @@ export type MemberIfo = {
 }
 
 export type DetailModal = {
-  setMemberModal: (show: boolean) => void
+  setMemberModal: Dispatch<SetStateAction<boolean>>
   currentMember: MemberIfo
   avatar: string
 }
 
 export type AvatarModalProps = {
-  setAvatarModal: (show: boolean) => void
+  setAvatarModal: Dispatch<SetStateAction<boolean>>
   currentMember: MemberIfo | undefined
   setMembersData: SetMembersData
   setIsLoading: SetIsLoading
@@ -103,7 +104,7 @@ export type DeleteMemberProps = {
 }
 
 export type MemberDetails = {
-  setAddMember: (add: boolean) => void
+  setAddMember: Dispatch<SetStateAction<boolean>>
   setMembersData: SetMembersData
   setIsLoading: SetIsLoading
   membersData: MembersInfo
@@ -120,8 +121,8 @@ export type TextareaProps = {
 }
 
 export type NotificationsProps = {
-  setShowErrorAlert: (show: boolean) => void
-  setShowModal: (show: boolean) => void
+  setShowErrorAlert: Dispatch<SetStateAction<boolean>>
+  setShowModal: Dispatch<SetStateAction<boolean>>
   showErrorAlert: boolean
   showModal: boolean
   statusCode: number

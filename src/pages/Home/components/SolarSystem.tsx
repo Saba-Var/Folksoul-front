@@ -1,6 +1,7 @@
 import { MemberImage, Sunote, SolarSystemProps } from 'pages/Home/components'
 import React, { useEffect, useState } from 'react'
 import { fetchMembersData } from 'helpers'
+import { MemberData } from 'types'
 
 const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   const [isLoading, setIsLoading] = useState(false)
@@ -13,7 +14,7 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
   const { setColor, setInfoImage, setInfoText, imageArray, bandInfo, image } =
     props
 
-  const [membersData, setMembersData] = useState({
+  const [membersData, setMembersData] = useState<MemberData>({
     members: [
       {
         orbitLength: 1,
@@ -24,6 +25,9 @@ const SolarSystem: React.FC<SolarSystemProps> = (props) => {
         _id: '',
       },
     ],
+    paginationInfo: {
+      totalMembers: 0,
+    },
   })
 
   useEffect(() => {

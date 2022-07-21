@@ -1,9 +1,9 @@
-import { ReactElement } from 'react'
+import { Dispatch, SetStateAction, ReactElement } from 'react'
 
 export type NavigationProps = SelectedRoute
 
 type SelectedRoute = {
-  setSection: (section: string) => void
+  setSection: Dispatch<SetStateAction<string>>
   section: string
 }
 
