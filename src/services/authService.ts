@@ -1,7 +1,7 @@
 import { UserData } from 'pages/Login/components'
-import { authResponse } from 'services'
+import { AuthResponse } from 'services'
 import axios from 'services'
 
-export const authenticateUser = (data: UserData): Promise<authResponse> => {
+export const authenticateUser = (data: UserData): Promise<AuthResponse> => {
   return axios.post('/auth', data)
 }

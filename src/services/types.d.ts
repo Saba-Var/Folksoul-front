@@ -10,7 +10,7 @@ export type BandInfoData = {
   data: BandData
 }
 
-export type authResponse = {
+export type AuthResponse = {
   data: { token: string }
   status: number
 }
