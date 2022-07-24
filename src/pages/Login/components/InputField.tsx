@@ -13,8 +13,9 @@ const InputField: React.FC<InputFieldProps> = (props) => {
           required: 'ამ ველის შევსება სავალდებულოა!',
 
           validate: {
-            minLength: (v: string) =>
-              v.trim().length >= 3 || 'შეიყვანეთ მინიმუმ 3 სიმბოლო!',
+            minLength: (v: string) => {
+              return v.trim().length >= 3 || 'შეიყვანეთ მინიმუმ 3 სიმბოლო!'
+            },
 
             lowerCase: (v: string) => {
               for (let i = 0; i < v.length; i++) {

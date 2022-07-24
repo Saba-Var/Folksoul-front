@@ -12,11 +12,13 @@ const Textarea: React.FC<TextareaProps> = (props) => {
           required: 'შევსება სავალდებულოა!',
 
           validate: {
-            isWordGeorgian: (v: string) =>
-              isWordGeorgian(v, inputName) || 'მხოლოდ ქართული ასოები',
+            isWordGeorgian: (v: string) => {
+              return isWordGeorgian(v, inputName) || 'მხოლოდ ქართული ასოები'
+            },
 
-            minLength: (v: string) =>
-              v.trim().length >= 1 || 'შევსება სავალდებულოა!',
+            minLength: (v: string) => {
+              return v.trim().length >= 1 || 'შევსება სავალდებულოა!'
+            },
           },
         })}
         className={`${
