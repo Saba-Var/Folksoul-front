@@ -9,7 +9,9 @@ const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
   const clickHandler = () => {
     setExit(true)
 
-    setTimeout(() => setShowAlert(false), 1600)
+    setTimeout(() => {
+      setShowAlert(false)
+    }, 1600)
   }
 
   return (
