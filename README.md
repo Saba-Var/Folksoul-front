@@ -130,8 +130,6 @@ In order to see coverage of testing go to coverage/lcov-report and open index.ht
 │            ├── page-file.tsx
 │            ├── index.ts
 │            └── types.d.ts        [#OPTIONAL]
-
-
 - .babelrc
 - .env
 - .eslintrc.json
