@@ -5,7 +5,6 @@
 ---
 
 FolkSoul is a music band platform where we can find out about the band and its members or just enjoy the visuals.
-Production url: https://folksoul.sabavar.redberryinternship.ge/
 
 #
 
@@ -45,7 +44,7 @@ Production url: https://folksoul.sabavar.redberryinternship.ge/
 1\. First of all you need to clone repository from github:
 
 ```sh
-git clone https://github.com/RedberryInternship/folksoul-front-Var-saba.git
+git clone https://github.com/Saba-Var/folksoul-front-Var-saba.git
 ```
 
 2\. Next step requires install all the dependencies.
